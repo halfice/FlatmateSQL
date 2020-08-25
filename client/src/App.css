@@ -1,0 +1,262 @@
+.myijcondiv{
+  font-size: 11px;
+    font-weight: bolder;
+    border: solid 1px #ffc107;
+    background-color: #17a2b8;
+    border-radius: 11px;
+    cursor: pointer;
+    color: white;;
+}
+
+
+.mkyicondiv{
+  font-size: 11px;
+    font-weight: bolder;
+    border: solid 1px #ffc10763;
+    background-color: #6c757d;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    padding-right: 13px;
+    padding-left: 7px;
+    text-align: center;
+    font-stretch: extra-expanded;
+}
+.paragraphcss{
+  font-size: 10px;
+}
+
+.loadoer {
+  position:fixed;
+  width:100%;
+  left:0;right:0;top:0;bottom:0;
+  background-color: rgba(255,255,255,0.7);
+  z-index:9999;
+
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  background-color: #dae0e52b;
+  /* border: solid 1px white; */
+}
+
+
+.loader {
+  border: 16px solid #712323;
+    border-top: 16px solid #3498db26;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    background-color: #097e90f2;
+    z-index: 1111;
+    left: 50%;
+    position: absolute;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 48%;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: #ffc107;
+    border-top-color: transparent;
+    border-width: 4px;
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+  
+}
+
+.paragraphcss:hover{
+  
+  cursor: pointer;
+  background-color: #343a40;
+  cursor: pointer;
+  border-radius: 9px;
+  color: white;
+  /* text-align: center; */
+  /* font-size: 13px; */
+  padding: 2px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+
+
+.App {
+  text-align: center;
+}
+.divwithuppermargin{
+  padding:11px!important;
+}
+
+.imageclassheader{
+  width:100%;
+}
+
+@media screen and (max-width: 600px) {
+  .hideonmobile {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+}
+
+.spanclasstext{
+  
+  font-feature-settings: "pcap", "c2pc";
+  font-variant-caps: all-petite-caps;
+  border-bottom: solid 1px #adb5bd;
+  width: 70%;
+  box-shadow: 1px 1px 5px 5px #dae0e5;
+  border-radius: 3px;
+}
+
+.spanclasstext:hover{
+  
+
+    font-weight: 400;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    
+    border: solid 1px gray;
+   
+    border-radius: 3px;
+    background: #44494f;
+    color: #f8f9fa;
+    padding-right: 7px;
+    padding-left: 7px;
+    box-shadow: 3px 3px 1px 1px #dae0e5;
+  
+}
+
+.marginljeft{
+  margin-left: 20px!important;
+}
+
+.tileimgesize{
+  box-shadow: 0px 5px 3px #7f73736e!important;
+  width: 130px!important;
+}
+
+
+a:hover{
+  cursor: pointer;
+  text-decoration: none;;
+}
+.mybuttons{
+  color: #fff!important;
+    background-color: #444950!important;
+    border-color: #ffffff!important;
+    font-size: large!important;
+    box-shadow: 0px 5px 3px #7f73736e!important;
+}
+
+.bottomborder{
+  border-bottom: solid 1px #16748426;
+}
+
+
+.bottombordr{
+  box-shadow: 0px 5px 3px #7f73736e;
+}
+
+.whitecolorcss{
+
+  color: white;
+  cursor: pointer;
+}
+
+
+.whitecolorcss:hover{
+  color: #117a8bd9;
+  cursor: pointer;
+}
+
+.inside {
+  width: 25%;
+  float:left;
+  border-right: 5px solid grey;
+  background-color: blue;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box; /* Firefox */
+  -webkit-box-sizing:border-box; /* Safari */
+ }
+.ratingdiv{
+  padding-top: 13px;
+    background-color: #8080802e;
+    width: 100%;
+    position: absolute;
+}
+
+.headerrow{
+  padding: 0px!important;
+  font-size: 23px;
+  width: 300px;
+}
+
+.mansearch{
+  padding: 11px;
+}
+
+.dontshow{
+  display: none;
+}
+
+.headermaindiv{
+  background-color: #2f3a4a;
+    display: block;
+   padding:0px!important;
+    
+    text-align: center;
+   
+    width: 100%;
+    z-index: 200
+}
+.Navbar {
+  background-color: #adb5bd!important;
+}
+
+.bg-light {
+  background-color: #adb5bd!important;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 11px!important;
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bordershadow{
+  box-shadow: 1px 3px 7px 1px #adb5bd;
+    border-radius: 11px;
+    z-index: 11px;
+    z-index: 111;
+}

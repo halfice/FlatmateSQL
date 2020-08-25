@@ -1,0 +1,191 @@
+.subheadingsListDiv
+  {
+    padding: 11px;
+    /* border: solid 2px #80808066; */
+    /* background-color: #dae0e5cf; */
+    color: #117a8b;
+    font-stretch: ultra-condensed;
+    font: icon;
+    font-size: 13px;
+    cursor: pointer;
+
+}
+
+.rowbottom{
+  border: solid 1px #dee2e6c9;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 9s linear;
+  }
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 12s 5s, opacity 5s linear;
+  }
+
+  .iconsclassgray{
+    font-size: 44px;
+    color: gray;
+  }
+
+  .centeraligh{
+    display: inline-block!important;
+  }
+
+  .subheadings{
+    font-size: 33px;
+    color: gray;
+  }
+
+  .facbookbutton{
+    
+display: none;
+    font-size: 1rem;
+    background: rgb(60, 90, 150);
+    border: 1px solid rgb(60, 90, 150);
+    padding: 7px;
+    border-radius: 8px;
+    color: white;
+
+
+
+  }
+
+
+  .iconsclass{
+    font-size: 24px;
+    color: white;
+    font-weight: bold;;
+  }
+
+  .facebookspan{
+    color: white;;
+    color: white; position: relative; 
+    top: 0px; padding-left: 3px;
+  }
+
+  .graytext{
+    color: #7b7b7b2e;
+    font-size: 17px;
+  }
+
+  .divborder{
+    border: solid 1px #8080806b;
+    border-radius: 11px;
+    background-color: #adb5bd26;
+    z-index: 111;
+  }
+
+  .signuplink{
+    background-color: #117a8b;
+    color: white;
+cursor: pointer;
+    font-weight: bold;
+    padding: 3px;
+  }
+
+
+  .fileInput{
+  border-bottom: 4px solid lightgray;
+  border-right: 4px solid lightgray;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  }
+  
+.imgPreview{
+  text-align: center;
+  margin: 5px 5px;
+  height: 210px;
+  width: 210px;
+  border-radius: 11px;
+  padding: 21px;
+  
+}
+  
+.previewText{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mypreviewimage{
+  width: 210px;
+  height: 210px;
+  border-radius: 30px;
+}
+
+.textalighleft{
+  text-align: left;
+}
+
+.normaldivbutton{
+  border-radius: 3px;
+    color: #495057;
+    font-size: 11px;
+    padding: 3px;
+    cursor: pointer;
+    background-color: #80808054;
+    border: solid 1px gray;
+    height: 60px;
+    width: 160px;
+    margin: 1px;
+    padding-top: 20px;
+    font-weight: bold;
+
+}
+
+
+
+.fdvihover{
+    color:rebeccapurple;
+    background-color: white;
+border-radius: 3px;
+font-size: 11px;
+    padding: 3px;
+    cursor: pointer;
+    border: solid 1px gray;
+    height: 60px;
+    width: 160px;
+    margin: 1px;
+    padding-top: 20px;
+    font-weight: bold;
+
+}
+
+
+.innervbuuton{
+  border-radius: 3px;
+    color: #343a40;
+    font-size: 11px;
+    padding: 11px;
+    cursor: pointer;
+    background-color: #80808000;
+    border: solid 1px gray;
+    background-color: #80808054;
+    border: solid 1px gray;
+ 
+    font-weight: bold;
+}
+
+.innervbuutonhover{
+  border-radius: 3px;
+    color: black;
+    font-size: 11px;
+    padding: 11px;
+    cursor: pointer;
+    background-color:white;
+    border: solid 1px gray;
+    
+    border: solid 1px gray;
+    
+    font-weight: bold;
+}

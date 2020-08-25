@@ -1,0 +1,38 @@
+{
+  "name": "myflatmatemongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js ",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "async": "^3.2.0",
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "file-system": "^2.2.2",
+    "font-awesome": "^4.7.0",
+    "helmet": "^3.22.0",
+    "jquery": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.12",
+    "mssql": "^6.2.1",
+    "multer": "^1.4.2",
+    "node-uuid": "^1.4.8",
+    "nodemon": "^2.0.3",
+    "passport": "^0.4.1",
+    "react-facebook-login": "^4.1.1",
+    "react-images-uploading": "^2.1.1"
+  }
+}
