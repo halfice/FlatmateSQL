@@ -16,6 +16,9 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run build
+
+    "client": "cd client && npm start",
+    "server": "nodemon server.js ",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "react-scripts build"
   displayName: 'npm install and build'
