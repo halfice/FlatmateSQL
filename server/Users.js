@@ -13,16 +13,14 @@ var Users = express.Router();
 
 
 Users.get('/', (req, res) => {
-  var itememail = req.body.params.email;
-  var itemname = req.body.params.userid;
-  var itemphone = req.body.params.phone;
+  //console.log(req);
+  var itememail = req.query.email;
+  var itempassword = req.query.password;
   var db = require("./db");
   var data = [];
   data.push(itememail);
-  data.push(itemname);
-  data.push(itemphone);
   data.push(itempassword);
-  db.Registeruser(data, function (err, rows) {
+  db.LoginUser(data, function (err, rows) {
     if (err) {  
     } else if (rows) {
       // Process the rows returned from the database
@@ -33,6 +31,7 @@ Users.get('/', (req, res) => {
       // No rows returns; handle appropriately
     }
   });
+ 
 
 
 

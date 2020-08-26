@@ -58,19 +58,20 @@ export class screenlogin extends React.Component {
         });
         //alert(this.state.email);
          const params = {
-             id: this.state.email,
-             jack: this.state.password,          
+            email: this.state.email,
+            password: this.state.password,          
            };
           //console.log(data);
          axios
          .get('http://localhost:4000/users/', {params})
          .then(res => {
-             console.log(res);
+           //  console.log(res);
              if (res.data==null){
                 this.registeruser();
              }else{
+                // console.log(res);
                 this.setState({
-                    universalid:res.data._id,
+                    universalid:res.data[0][6].val,
                     loader:false,
                 });
                 this.props.handleRegisnteredUserId(this.state.universalid);

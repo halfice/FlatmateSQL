@@ -42,6 +42,8 @@ export class screenregister extends React.Component {
     }
 
 
+
+
     
     handleClick() {
         this.setState({
@@ -51,15 +53,18 @@ export class screenregister extends React.Component {
         const params = {
             userid: this.state.name,
             email: this.state.email,
-            password: this.state.password,          
+            phone:this.state.phone, 
+            password: this.state.password,
+                    
           };
         axios
         .post('http://localhost:4000/users/register', {params})
         .then(res => {
           this.setState({
-            universalid:res.data,
+            universalid:res.data[0]["universalid"],
             loader:false,
         });
+        console.log(this.state.universalid);
         this.props.handleRegisnteredUserId(this.state.universalid);
         })
         .catch(err => {

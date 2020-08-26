@@ -1,10 +1,8 @@
 
-
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 var uuid = require('node-uuid');
 var async = require('async');
-
 
 GetConfigmethod = () => {
   var config = {
@@ -28,159 +26,136 @@ GetConfigmethod = () => {
   return config;
 }
 
- function getCustomers() {
+function getCustomers() {
   var data = [];
   var result = {};
   var connection = new Connection(GetConfigmethod());
   connection.on('connect', function (err) {
-    var sql='select * from users';
+    var sql = 'select * from users';
     var request = new Request(sql, function (err) {
       if (err) {
         console.log(err);
       }
     });
-    
+
     request.on('row', function (columns) {
       columns.forEach(function (column) {
         result[column.metadata.colName] = column.value;
       });
-     // console.log(result)
+      // console.log(result)
       return result;
     });
     connection.execSql(request);
   });
- 
+
 }
 
-function Getusersd() {
 
-  var data = [];
-  var result = {};
+function Registeruser(data, callback) {
   var connection = new Connection(GetConfigmethod());
+  var newdata = [];
+  var dataset = [];
+  var universalid = data[2];
   connection.on('connect', function (err) {
-    request = new Request("select 42, 'hello world'", function(err, rowCount) {
-      if (err) {
-       // console.log(err);
-      } else {
-       // console.log(rowCount + ' rows');
-      }
-  
-      connection.close();
-    });
-  
-    request.on('row', function(columns) {
-      columns.forEach(function(column) {
-        if (column.value === null) {
-          //console.log('NULL');
-        } else {
-          result[column.metadata.colName] = column.value;
-        }
-      });
-    });
-  
-    request.on('done', function(rowCount, more) {
-      //console.log(rowCount + ' rows returned');
-      console.log(result);
-      return result;
-    });
-  
-    // In SQL Server 2000 you may need: connection.execSqlBatch(request);
-    connection.execSql(request);
+    var sql = "insert into users values ('" + data[1] + "','" + data[0] + "','" + data[3] + "','" + data[2] + "','" + data[2] + "','" + data[2] + "')";
+
+    //console.log(sql);
+    var Request = require('tedious').Request;
+    var request = new Request(sql, function (err, rowCount) {
       
-    }
-  );
-  
-
-  
-}
-
- function Getusers(data, callback){
-  var connection = new Connection(GetConfigmethod());
-  var newdata = [];
-  var dataset = [];
-  connection.on('connect', function(err) {
-  var sql = "SELECT * FROM users WHERE "+data.field+" LIKE '%"+data.params+"%'";;
-      var Request = require('tedious').Request;
-      var request = new Request(sql, function (err, rowCount) {
-          if (err) {
-              callback(err);
-          } else {
-              if (rowCount < 1) {
-                  callback(null, false);
-              } else {
-                  callback(null, newdata);
-              }
-          }
+      newdata.push({
+        "universalid": universalid
       });
-
-      request.on('row', function(columns) {
-
-          columns.forEach(function(column) {
-                 dataset.push({
-                     col: column.metadata.colName,
-                     val: column.value
-                 });
+     // newdata.push(dataset);
 
 
-          });
 
-          newdata.push(dataset);
+      if (err) {
+        callback(err);
+      } else {
+        
+        if (rowCount < 1) {
+          callback(null, false);
+        } else {
+          callback(null, newdata);
+        }
+      }
+    });
+
+    request.on('row', function (columns) {
+
+      columns.forEach(function (column) {
+        dataset.push({
+          col: column.metadata.colName,
+          val: column.value
+        });
+
 
       });
 
-      connection.execSql(request);
+
+      newdata.push(dataset);
+
+    });
+
+
+    connection.execSql(request);
 
   });
 
 }
 
-function Registeruser(data, callback){
+function LoginUser(data, callback) {
   var connection = new Connection(GetConfigmethod());
   var newdata = [];
   var dataset = [];
-  connection.on('connect', function(err) {
- // var sql = "SELECT * FROM dbo."+data.entity+" WHERE "+data.field+" LIKE '%"+data.params+"%'";
-var sql='insert into users values ()';
-      var Request = require('tedious').Request;
-      var request = new Request(sql, function (err, rowCount) {
-          if (err) {
-              callback(err);
-          } else {
-              if (rowCount < 1) {
-                  callback(null, false);
-              } else {
-                  callback(null, newdata);
-              }
-          }
-      });
+  var universalid = data[2];
+  connection.on('connect', function (err) {
+    var sql = "select * from users where UserEmail = '" + data[0] + "'";
+    var Request = require('tedious').Request;
+    var request = new Request(sql, function (err, rowCount) {
+    
+      if (err) {
+        callback(err);
+      } else {
+        
+        if (rowCount < 1) {
+          callback(null, false);
+        } else {
+          callback(null, newdata);
+        }
+      }
+    });
 
-      request.on('row', function(columns) {
+    request.on('row', function (columns) {
+      columns.forEach(function (column) {
+        dataset.push({
+          col: column.metadata.colName,
+          val: column.value
+        });
 
-          columns.forEach(function(column) {
-                 dataset.push({
-                     col: column.metadata.colName,
-                     val: column.value
-                 });
-
-
-          });
-
-          newdata.push(dataset);
 
       });
 
-      connection.execSql(request);
+
+      newdata.push(dataset);
+
+    });
+
+
+    connection.execSql(request);
 
   });
 
 }
+
 
 
 module.exports = {
   GetConfigmethod,
   getCustomers,
-  Getusers,
-  Registeruser
+  Registeruser,
+  LoginUser
   // anotherMethod
 };
 
