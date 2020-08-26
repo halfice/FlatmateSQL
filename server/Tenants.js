@@ -1,121 +1,62 @@
 // routes/api/books.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
-const mongoose = require('mongoose');
-
+var Connection = require('tedious').Connection;
+var Request = require('tedious').Request;
+var uuid = require('node-uuid');
+var async = require('async');
 var Tenants = express.Router();
+var sql = require("mssql");
 
-// @route GET api/books/test
-// @description tests books route
-// @access Public
-
-
-Tenants.get('/', (req, res) => {
-
- 
-  const db = require("./db");
-  const dbName = "flatmate";
-  const collectionName = "tenants";
-  db.initialize(dbName, collectionName, function (dbCollection) { // successCallback
-    //var itemId = req.body.userid;
-    console.log("Wer"+ req.query.id);
-    var itemId = req.query.id;
-    dbCollection.findOne({ 'userid': itemId }, (error, result) => {
-      if (error) throw error;
-      
-      res.json(result);
-    });
-  }, function (err) { // failureCallback
-    throw (err);
-  });
-
-
-
-
-});
+Tenants.get('/', (req, res) => res.send('Tenant Route Testing!'));
 
 
 
 Tenants.post('/register', (req, res) => {
-  const db = require("./db");
-  const dbName = "flatmate";
-  const collectionName = "tenants";
-  db.initialize(dbName, collectionName, function (dbCollection) { // successCallback
   
-    dbCollection.insert(
-      {
-        'userid': req.body.userid,
-        'type': req.body.type,
-        'Area': req.body.Area,
-        'Rent': req.body.Rent,
-        'DatetoCome': req.body.DatetoCome,
-        'HowDays': req.body.HowDays,
-        'RoomFurnishing': req.body.RoomFurnishing,
-        'Internet': req.body.Internet,
-        'BathRoomType': req.body.BathRoomType,
-        'Parking': req.body.Parking,
-        'MaxNumberoflatemate': req.body.MaxNumberoflatemate,
-        'picstring': req.body.picstring,
-        'thisplaceisfor': req.body.thisplaceisfor,
-        'myname ': req.body.myname,
-        'age': req.body.age,
-        'gender': req.body.gender,
-        'employeestatus': req.body.employeestatus,
-        'lifestyle': req.body.lifestyle,
-        'abouturselfparagraph': req.body.abouturselfparagraph,
-        'itemid': req.body.itemid,
-        'lifestyleid':req.body.lifestyleid,
-        'emploeestatusid': req.body.emploeestatusid,
-        'genderid': req.body.genderid,
-        'placeforid': req.body.placeforid,
-        'noflatmateid': req.body.noflatmateid,
-        'parkingid': req.body.parkingid,
-        'oomfurnishedid': req.body.oomfurnishedid,
-        'internetid': req.body.internetid,
-        'bathroomid': req.body.bathroomid,
-
-
-
-      }
-
-
-
-      , (error, result) => {
-        var _userId = result["ops"][0]["_id"];
-        if (error) throw error;
-        // return item
-        res.json(_userId);
-      });
-  }, function (err) { // failureCallback
-    throw (err);
+  var db = require("./db");
+  var data = [];
+  data=req.body;
+  db.TenantRegister(data, function (err, rows) {
+    if (err) {  
+    } else if (rows) {
+      // Process the rows returned from the database
+      res = res.json(rows);
+      //console.log('Reapnose is ->'+res);
+      return res;
+    } else {
+      // No rows returns; handle appropriately
+    }
   });
+  //console.log('Reapnose is ->'+result);
+
+
+
+
+    
 });
 
 
-
-
-
-
-// @route GET api/books/:id
-// @description Update book
-// @access Public
 Tenants.put('/:id', (req, res) => {
-  Book.findByIdAndUpdate(req.params.id, req.body)
-    .then(book => res.json({ msg: 'Updated successfully' }))
-    .catch(err =>
-      res.status(400).json({ error: 'Unable to update the Database' })
-    );
+  var userId = req.query.id;
+  var db = require("./db");
+  var data = [];
+  data.push(userId);
+  db.TenantLogin(data, function (err, rows) {
+    if (err) {  
+    } else if (rows) {
+      // Process the rows returned from the database
+      res = res.json(rows);
+      //console.log('Reapnose is ->'+res);
+      return res;
+    } else {
+      // No rows returns; handle appropriately
+    }
+  }); //DB.LOG IS END
 });
 
-// @route GET api/books/:id
-// @description Delete book by id
-// @access Public
-Tenants.delete('/:id', (req, res) => {
-  Book.findByIdAndRemove(req.params.id, req.body)
-    .then(book => res.json({ mgs: 'Book entry deleted successfully' }))
-    .catch(err => res.status(404).json({ error: 'No such a book' }));
-});
 
 module.exports = Tenants;

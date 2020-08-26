@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "client":  "react-scripts start",
+    "client": "react-scripts start",
     "server": "node server/server.js ",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build"

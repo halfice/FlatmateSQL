@@ -5,21 +5,20 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-
 var Request = require('tedious').Request;
 var uuid = require('node-uuid');
 var async = require('async');
 var Users = express.Router();
-
+var sql = require("mssql");
 
 Users.get('/', (req, res) => {
-  //console.log(req);
   var itememail = req.query.email;
   var itempassword = req.query.password;
   var db = require("./db");
   var data = [];
   data.push(itememail);
   data.push(itempassword);
+  
   db.LoginUser(data, function (err, rows) {
     if (err) {  
     } else if (rows) {
@@ -30,18 +29,12 @@ Users.get('/', (req, res) => {
     } else {
       // No rows returns; handle appropriately
     }
-  });
- 
-
-
-
-
-
+  }); //DB.LOG IS END
 
 
 });
 
-var sql = require("mssql");
+
 Users.post('/register', (req, res) => {
   var itememail = req.body.params.email;
   var itemname = req.body.params.userid;

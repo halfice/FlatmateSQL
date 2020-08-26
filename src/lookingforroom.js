@@ -110,60 +110,37 @@ export class lookingoforroom extends React.Component {
       lifestylediv3: "innervbuuton",
       lifestylediv4: "innervbuuton",
       UserProfileExits: 0,
-      ExistingData:[],
-
-      lifestyleid:"",
-      emploeestatusid:"",
-      genderid:"",
-      placeforid:"",
-      noflatmateid:"",
-      parkingid:"",
-      oomfurnishedid:"",
-      internetid:"",
-      bathroomid:"",
-
-
-      loader:true,
-
+      ExistingData: [],
+      lifestyleid: "",
+      emploeestatusid: "",
+      genderid: "",
+      placeforid: "",
+      noflatmateid: "",
+      parkingid: "",
+      oomfurnishedid: "",
+      internetid: "",
+      bathroomid: "",
+      loader: true,
 
     }
-
     this.handleClick = this.handleClick.bind(this);
     this.handleGoBackClick = this.handleGoBackClick.bind(this);
-
-
     this.handleinternet = this.handleinternet.bind(this);
     this.handlebathroomtype = this.handlebathroomtype.bind(this);
     this.handleparking = this.handleparking.bind(this);
     this.handlemaxnumber = this.handlemaxnumber.bind(this);
     this.handlroomfurnishing = this.handlroomfurnishing.bind(this);
-
     this.handlearent = this.handlearent.bind(this);
     this.handledate = this.handledate.bind(this);
     this.handlestaylength = this.handlestaylength.bind(this);
-
-
-
     this.handlename = this.handlename.bind(this);
-
     this.handleage = this.handleage.bind(this);
-
     this.handlabouturselfparagraph = this.handlabouturselfparagraph.bind(this);
-
-
     this.Lisintingfunc = this.Lisintingfunc.bind(this);
-
-
-
-
     this.handlearea = this.handlearea.bind(this);
-
-
-
   }
 
-  Lisintingfunc()
-  {
+  Lisintingfunc() {
     this.setState({
       divcountre: 100,
       parentdiv: 2,
@@ -177,8 +154,8 @@ export class lookingoforroom extends React.Component {
   }
   handleClick() {
     var tmp = this.state.divcountre;
-    if (tmp>11){
-      tmp=0;
+    if (tmp > 11) {
+      tmp = 0;
     }
     if (tmp < 10) {
       tmp = tmp + 1;
@@ -192,11 +169,11 @@ export class lookingoforroom extends React.Component {
       btntext = "Finish"
       tmp = 9;
     }
-    if (tmp == 10  && this.state.UserProfileExits==0) {
+    if (tmp == 10 && this.state.UserProfileExits == 0) {
       this.callingInsert();
     }
-    
-    if (tmp==10 && this.state.UserProfileExits==1){
+
+    if (tmp == 10 && this.state.UserProfileExits == 1) {
       alert("updaing");
     }
 
@@ -210,11 +187,11 @@ export class lookingoforroom extends React.Component {
   }
 
   handleGoBackClick() {
-var tempparentdiv=2;
+    var tempparentdiv = 2;
     var tmp = this.state.divcountre;
-    if (tmp>11){
-      tmp=0;
-      tempparentdiv=0;
+    if (tmp > 11) {
+      tmp = 0;
+      tempparentdiv = 0;
     }
 
 
@@ -242,25 +219,25 @@ var tempparentdiv=2;
 
   componentDidMount() {
     this.setState({
-      loader:true,
+      loader: true,
     });
     //alert(this.state.email);
     const params = {
-      id:this.props.UserID,
+      id: this.props.UserID,
     };
     //  console.log(data);
     axios
-      .get('http://localhost:4000/tenant/', {params})
+      .get('http://localhost:4000/tenant/', { params })
       .then(res => {
-         console.log(res);
+        console.log(res);
         this.setState({
           UserProfileExits: 1,
-          ExistingData:res.data,
-          type:res.data["type"],
-          loader:false,
-          
+          ExistingData: res.data,
+          type: res.data["type"],
+          loader: false,
+
         });
-        
+
       })
       .catch(err => {
         console.log("Error in CreateBook!");
@@ -270,9 +247,9 @@ var tempparentdiv=2;
 
 
 
-  async  handleImageUpload(event) {
+  async handleImageUpload(event) {
     this.setState({
-      loader:true,
+      loader: true,
     });
     const imageFile = event.target.files[0];
     console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
@@ -301,7 +278,7 @@ var tempparentdiv=2;
           file: reader.result,
           imagePreviewUrl: reader.result,
           picstring: reader.result,
-          loader:false,
+          loader: false,
         });
       }
       reader.readAsDataURL(file)
@@ -323,7 +300,7 @@ var tempparentdiv=2;
   callingInsert() {
 
     this.setState({
-      loader:true,
+      loader: true,
     });
     //alert(this.state.name);
     const data = {
@@ -366,7 +343,7 @@ var tempparentdiv=2;
       .then(res => {
         this.setState({
           universalid: res.data,
-          loader:false,
+          loader: false,
         });
 
       })
@@ -402,10 +379,10 @@ var tempparentdiv=2;
           <div className="container-fluid">
             <div className="row" >
               <div className="col-sm-12">
-              {
-     this.state.loader==true &&
-     <div className="loader"></div>
-   }
+                {
+                  this.state.loader == true &&
+                  <div className="loader"></div>
+                }
                 <div className="row rowbottom">
 
                   <div className="col-sm-2">
@@ -415,15 +392,15 @@ var tempparentdiv=2;
                   </div>
                   <div className="col-sm-6">
                     <div className="subheadings"> welcome</div>
-                   
+
                   </div>
 
                   <div className="col-sm-4">
-                 
-                    {this.state.UserProfileExits==1 &&
-                    
-                    <div className="subheadingsListDiv" onClick={this.Lisintingfunc}> <FontAwesomeIcon icon={faCog} />  Listing/Offers</div>
-  }
+
+                    {this.state.UserProfileExits == 1 &&
+
+                      <div className="subheadingsListDiv" onClick={this.Lisintingfunc}> <FontAwesomeIcon icon={faCog} />  Listing/Offers</div>
+                    }
                   </div>
 
                 </div>
@@ -934,7 +911,7 @@ var tempparentdiv=2;
                     </div>
                   }
 
-{
+                  {
                     this.state.divcountre == 100 &&
                     <div className={this.state.divcountre == 10 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
@@ -950,11 +927,11 @@ var tempparentdiv=2;
 
 
                 </div>
-                { this.state.divcountre!=100 && 
-                <div className="row centeraligh">
-                  <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
-                </div>
-  }
+                {this.state.divcountre != 100 &&
+                  <div className="row centeraligh">
+                    <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
+                  </div>
+                }
 
               </div>
             </div>
@@ -1121,7 +1098,7 @@ var tempparentdiv=2;
     switch (roomfurval) {
       case "1":
         this.setState({
-          roomfurnishedid:roomfurval,
+          roomfurnishedid: roomfurval,
           roomfurdiv1: "innervbuutonhover",
           roomfurdiv2: "innervbuuton",
           roomfurdiv3: "innervbuuton",
@@ -1131,7 +1108,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          oomfurnishedid:roomfurval,
+          oomfurnishedid: roomfurval,
           roomfurdiv1: "innervbuuton",
           roomfurdiv2: "innervbuutonhover",
           roomfurdiv3: "innervbuuton",
@@ -1141,7 +1118,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          oomfurnishedid:roomfurval,
+          oomfurnishedid: roomfurval,
           roomfurdiv1: "innervbuuton",
           roomfurdiv2: "innervbuuton",
           roomfurdiv3: "innervbuutonhover",
@@ -1158,7 +1135,7 @@ var tempparentdiv=2;
     switch (ival) {
       case "1":
         this.setState({
-          internetid:ival,
+          internetid: ival,
           Internet: val,
           inernetdiv1: "innervbuutonhover",
           inernetdiv2: "innervbuuton",
@@ -1168,7 +1145,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          internetid:ival,
+          internetid: ival,
           Internet: val,
           inernetdiv1: "innervbuuton",
           inernetdiv2: "innervbuutonhover",
@@ -1179,7 +1156,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          internetid:ival,
+          internetid: ival,
           Internet: val,
           inernetdiv1: "innervbuuton",
           inernetdiv2: "innervbuuton",
@@ -1197,7 +1174,7 @@ var tempparentdiv=2;
     switch (bval) {
       case "1":
         this.setState({
-          bathroomid:bval,
+          bathroomid: bval,
           BathRoomType: val,
           bathroomdiv1: "innervbuutonhover",
           bathroomdiv2: "innervbuuton",
@@ -1207,7 +1184,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          bathroomid:bval,
+          bathroomid: bval,
           BathRoomType: val,
           bathroomdiv1: "innervbuuton",
           bathroomdiv2: "innervbuutonhover",
@@ -1218,7 +1195,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          bathroomid:bval,
+          bathroomid: bval,
           BathRoomType: val,
           bathroomdiv1: "innervbuuton",
           bathroomdiv2: "innervbuuton",
@@ -1235,7 +1212,7 @@ var tempparentdiv=2;
     switch (parval) {
       case "1":
         this.setState({
-          parkingid:parval,
+          parkingid: parval,
           Parking: val,
           parkingdiv1: "innervbuutonhover",
           parkingdiv2: "innervbuuton",
@@ -1245,7 +1222,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          parkingid:parval,
+          parkingid: parval,
           Parking: val,
           parkingdiv1: "innervbuuton",
           parkingdiv2: "innervbuutonhover",
@@ -1256,7 +1233,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          parkingid:parval,
+          parkingid: parval,
           Parking: val,
           parkingdiv1: "innervbuuton",
           parkingdiv2: "innervbuuton",
@@ -1273,7 +1250,7 @@ var tempparentdiv=2;
 
       case "1":
         this.setState({
-          noflatmateid:maxval,
+          noflatmateid: maxval,
           noflatematediv1: "innervbuutonhover",
           noflatematediv2: "innervbuuton",
           noflatematediv3: "innervbuuton",
@@ -1283,7 +1260,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          noflatmateid:maxval,
+          noflatmateid: maxval,
           noflatematediv1: "innervbuuton",
           noflatematediv2: "innervbuutonhover",
           noflatematediv3: "innervbuuton",
@@ -1294,7 +1271,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          noflatmateid:maxval,
+          noflatmateid: maxval,
           noflatematediv1: "innervbuuton",
           noflatematediv2: "innervbuuton",
           noflatematediv3: "innervbuutonhover",
@@ -1312,7 +1289,7 @@ var tempparentdiv=2;
     switch (pval) {
       case "1":
         this.setState({
-          placeforid:pval,
+          placeforid: pval,
           thisplaceisfor: val,
           placefordiv1: "innervbuutonhover",
           placefordiv2: "innervbuuton",
@@ -1323,7 +1300,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          placeforid:pval,
+          placeforid: pval,
           thisplaceisfor: val,
           placefordiv1: "innervbuuton",
           placefordiv2: "innervbuutonhover",
@@ -1334,7 +1311,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          placeforid:pval,
+          placeforid: pval,
           thisplaceisfor: val,
           placefordiv1: "innervbuuton",
           placefordiv2: "innervbuuton",
@@ -1363,14 +1340,14 @@ var tempparentdiv=2;
   handlgender(val, gval) {
     if (gval == 1) {
       this.setState({
-        genderid:gval,
+        genderid: gval,
         gender: val,
         genderdiv1: "innervbuutonhover",
         genderdiv2: "innervbuuton"
       });
     } else {
       this.setState({
-        genderid:gval,
+        genderid: gval,
         gender: val,
         genderdiv1: "innervbuuton",
         genderdiv2: "innervbuutonhover"
@@ -1384,7 +1361,7 @@ var tempparentdiv=2;
     switch (estatusl) {
       case "1":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv1: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1399,7 +1376,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv2: "innervbuutonhover",
           employstatusdiv1: "innervbuuton",
@@ -1415,7 +1392,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv3: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1431,7 +1408,7 @@ var tempparentdiv=2;
 
       case "4":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv4: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1447,7 +1424,7 @@ var tempparentdiv=2;
 
       case "5":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv5: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1462,7 +1439,7 @@ var tempparentdiv=2;
 
       case "6":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv6: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1478,7 +1455,7 @@ var tempparentdiv=2;
 
       case "7":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv7: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1493,7 +1470,7 @@ var tempparentdiv=2;
 
       case "8":
         this.setState({
-          emploeestatusid:estatusl,
+          emploeestatusid: estatusl,
           employeestatus: val,
           employstatusdiv8: "innervbuutonhover",
           employstatusdiv2: "innervbuuton",
@@ -1521,7 +1498,7 @@ var tempparentdiv=2;
     switch (stylediv) {
       case "1":
         this.setState({
-          lifestyleid:stylediv,
+          lifestyleid: stylediv,
           lifestyle: val,
           lifestylediv1: "innervbuutonhover",
           lifestylediv2: "innervbuuton",
@@ -1532,7 +1509,7 @@ var tempparentdiv=2;
 
       case "2":
         this.setState({
-          lifestyleid:stylediv,
+          lifestyleid: stylediv,
           lifestyle: val,
           lifestylediv1: "innervbuuton",
           lifestylediv2: "innervbuutonhover",
@@ -1543,7 +1520,7 @@ var tempparentdiv=2;
 
       case "3":
         this.setState({
-          lifestyleid:stylediv,
+          lifestyleid: stylediv,
           lifestyle: val,
           lifestylediv1: "innervbuuton",
           lifestylediv2: "innervbuuton",
@@ -1554,7 +1531,7 @@ var tempparentdiv=2;
 
       case "4":
         this.setState({
-          lifestyleid:stylediv,
+          lifestyleid: stylediv,
           lifestyle: val,
           lifestylediv1: "innervbuuton",
           lifestylediv2: "innervbuuton",
