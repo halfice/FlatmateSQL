@@ -174,7 +174,7 @@ export class lookingoforroom extends React.Component {
     }
 
     if (tmp == 10 && this.state.UserProfileExits == 1) {
-      alert("updaing");
+      //alert("updaing");
     }
 
     this.setState({
@@ -231,7 +231,7 @@ export class lookingoforroom extends React.Component {
       .then(res => {
         console.log(res);
         this.setState({
-          UserProfileExits: 1,
+          UserProfileExits: 0,
           ExistingData: res.data,
           type: res.data["type"],
           loader: false,
@@ -302,7 +302,7 @@ export class lookingoforroom extends React.Component {
     this.setState({
       loader: true,
     });
-    //alert(this.state.name);
+    alert(this.state.LoginUserID);
     const data = {
 
       userid: this.state.LoginUserID,

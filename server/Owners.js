@@ -42,7 +42,7 @@ Owners.post('/register', (req, res) => {
     var db = require("./db");
     var data = [];
     data=req.body;
-    console.log(req);
+   // console.log(req);
    
     db.OwnerRegister(data, function (err, rows) {
       if (err) {  

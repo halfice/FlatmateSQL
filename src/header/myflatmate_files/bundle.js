@@ -481,7 +481,7 @@
 /******/ 		for (var id in hotUpdate) {
 /******/ 			if (Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
 /******/ 				moduleId = toModuleId(id);
-/******/ 				/** @type {TODO} */
+/******/ 				/** type {TODO} */
 /******/ 				var result;
 /******/ 				if (hotUpdate[id]) {
 /******/ 					result = getAffectedStuff(moduleId);
@@ -491,7 +491,7 @@
 /******/ 						moduleId: id
 /******/ 					};
 /******/ 				}
-/******/ 				/** @type {Error|false} */
+/******/ 				/** type {Error|false} */
 /******/ 				var abortError = false;
 /******/ 				var doApply = false;
 /******/ 				var doDispose = false;
