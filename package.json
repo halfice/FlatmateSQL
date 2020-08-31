@@ -8,7 +8,7 @@
     "client": "react-scripts start",
     "server": "node server/server.js ",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build-pro":"react-scripts build && rimraf build/static/**/*.map"
+    "build-pro":"react-scripts build && rimraf build/static/**/*.map",
     "build": "react-scripts build"
   },
   "keywords": [],
