@@ -105,8 +105,8 @@ cursor: pointer;
 .imgPreview{
   text-align: center;
   margin: 5px 5px;
-  height: 210px;
-  width: 210px;
+  height: auto;
+  max-width: 100%;
   border-radius: 11px;
   padding: 21px;
   

@@ -6,8 +6,6 @@ import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
 import './sliding.css';
 import axios from 'axios';
 import imageCompression from 'browser-image-compression';
-
-
 import {
   faCoffee,
   faCog,
@@ -51,7 +49,17 @@ export class RoomOwners extends React.Component {
       bonds: "",
       bills: "",
       imagePreviewUrl: '',
+      imagePreviewUrl1: '',
+      imagePreviewUrl2: '',
+      imagePreviewUrl3: '',
+      
+      
+      picscounter:0,
+
       picstring:"",
+      picstring1:"",
+      picstring2:"",
+      picstring3:"",
       
       divActiveClass:"normaldivbutton",
       innerdivActiveClass:"innervbuuton",
@@ -155,6 +163,92 @@ export class RoomOwners extends React.Component {
 
   }
 
+  async  handleImageUpload(event) {
+ 
+    const imageFile = event.target.files[0];
+    console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+    console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+   
+    const options = {
+      maxSizeMB: 1,
+      //maxWidthOrHeight: 100,
+      useWebWorker: true
+    }
+    try {
+      const compressedFile = await imageCompression(imageFile, options);
+      console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+      console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+
+      let reader = new FileReader();
+      let file = compressedFile;
+      var newfile = file;
+      //console.log(compressedFile);
+      reader.onloadend = () => {
+     
+
+      var tmp =this.state.picscounter;
+      tmp=tmp+1;
+     // alert(tmp);
+        
+
+if (tmp==1){
+        this.setState({
+          file: reader.result,
+          imagePreviewUrl: reader.result,
+          picstring: reader.result,
+          picscounter:tmp,
+        });
+      }
+
+      if (tmp==2){
+        this.setState({
+          file: reader.result,
+          imagePreviewUrl1: reader.result,
+          picstring1: reader.result,
+          picscounter:tmp,
+        });
+      }
+
+      if (tmp==3){
+        this.setState({
+          file: reader.result,
+          imagePreviewUrl2: reader.result,
+          picstring2: reader.result,
+          picscounter:tmp,
+        });
+      }
+
+      if (tmp==4){
+        this.setState({
+          file: reader.result,
+          imagePreviewUrl3: reader.result,
+          picstring3: reader.result,
+          picscounter:tmp,
+        });
+      }
+
+
+
+
+
+
+    }
+
+    
+
+
+
+
+
+      reader.readAsDataURL(file)
+   
+      //await uploadToServer(compressedFile); // write your own logic
+    } catch (error) {
+      console.log(error);
+    }
+   
+  }
+
   callingInsert(){
 
     this.setState({
@@ -208,9 +302,40 @@ export class RoomOwners extends React.Component {
     const varclaashidden = "hidden";
 
     let { imagePreviewUrl } = this.state;
+    let { imagePreviewUrl1 } = this.state;
+    let { imagePreviewUrl2 } = this.state;
+    let { imagePreviewUrl3 } = this.state;
     let $imagePreview = null;
+
     if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} className="mypreviewimage" />);
+      $imagePreview = (
+        <div className="row" >
+      { imagePreviewUrl !=null &&
+      <div className="col-sm-6">
+        <img src={imagePreviewUrl} className="mypreviewimage" />
+        </div>
+      }
+    { imagePreviewUrl1 !=null &&
+    <div className="col-sm-6">
+        <img src={imagePreviewUrl1} className="mypreviewimage" />
+        </div>
+      }
+      { imagePreviewUrl2 !=null &&
+      <div className="col-sm-6">
+        <img src={imagePreviewUrl2} className="mypreviewimage" />
+        </div>
+      }
+      { imagePreviewUrl3 !=null &&
+      <div className="col-sm-6">
+        <img src={imagePreviewUrl3} className="mypreviewimage" />
+        </div>
+      }
+
+      
+      </div>
+      );
+
+      
     } else {
       $imagePreview = (<div className="previewText">Preview</div>);
     }
@@ -327,6 +452,7 @@ export class RoomOwners extends React.Component {
 
                           <div className="imgPreview">
                             {$imagePreview}
+                           
                           </div>
 
 
@@ -825,11 +951,6 @@ export class RoomOwners extends React.Component {
 
     );
   }
-
-
-
-  
-  
   //rnder end
 
   shoonChangewsp() {
@@ -1543,43 +1664,7 @@ switch(tbval){
     hovermefdiv4(){ this.setState({ fdiv4Active: "fdvihover" });}
     removehovermefdiv4(e){ this.setState({ fdiv4Active: "normaldivbutton" });}
 
-    async  handleImageUpload(event) {
- 
-      const imageFile = event.target.files[0];
-      console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
-      console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
-     
-      const options = {
-        maxSizeMB: 1,
-        maxWidthOrHeight: 100,
-        useWebWorker: true
-      }
-      try {
-        const compressedFile = await imageCompression(imageFile, options);
-        console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
-        console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
-  
-        let reader = new FileReader();
-        let file = compressedFile;
-        var newfile = file;
-        //console.log(compressedFile);
-        reader.onloadend = () => {
-       
-          this.setState({
-            
-            file: reader.result,
-            imagePreviewUrl: reader.result,
-            picstring: reader.result,
-          });
-        }
-        reader.readAsDataURL(file)
-     
-        //await uploadToServer(compressedFile); // write your own logic
-      } catch (error) {
-        console.log(error);
-      }
-     
-    }
+   
     uuidv4() {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);

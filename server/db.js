@@ -277,12 +277,11 @@ function OwnerRegister(data, callback) {
         }
       }
     });
-
     request.addParameter("LoginUserID", TYPES.NVarChar, data.LoginUserID);
-   //request.addParameter("location", TYPES.NVarChar, data.location );
-    //request.addParameter("typeofAccomodation", TYPES.NVarCha, data.typeofAccomodation );
-    //request.addParameter("propertyAddress", TYPES.NVarChar, data.propertyAddress );
-    /*request.addParameter("totalbed", TYPES.NVarChar, data.totalbed );
+    request.addParameter("location", TYPES.NVarChar, data.location );
+    request.addParameter("typeofAccomodation", TYPES.NVarChar, data.typeofAccomodation );
+    request.addParameter("propertyAddress", TYPES.NVarChar, data.propertyAddress );
+    request.addParameter("totalbed", TYPES.NVarChar, data.totalbed );
     request.addParameter("totalbathrooms", TYPES.NVarChar, data.totalbathrooms );
     request.addParameter("parking", TYPES.NVarChar, data.parking );
     request.addParameter("internet", TYPES.NVarChar, data.internet );
@@ -296,8 +295,7 @@ function OwnerRegister(data, callback) {
     request.addParameter("bonds", TYPES.NVarChar, data.bonds );
     request.addParameter("bills", TYPES.NVarChar, data.bills );
     request.addParameter("picstring", TYPES.NVarChar, data.picstring );
-    */
-
+    
     connection.callProcedure(request);
 
   });
