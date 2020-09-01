@@ -9,20 +9,30 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logoheader from './mainicon.gif';
 import profilepic from './profile.png'
-import logoder from './axix.png';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
-import {
-  faCoffee,
-  faCog,
-  faSpinner,
-  faQuoteLeft,
-  faSquare,
-  faCheckSquare,
-  faUser
-} from '@fortawesome/free-solid-svg-icons'
+
 import BeautyStars from "beauty-stars";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faCog,
+  faAtlas,
+  faCheck,
+  faBriefcase,
+  faBackward,
+  faHome,
+  faCoffee,
+  faQuoteLeft,
+  faUser
+
+
+} from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
+
+
+
+
 
 export class Header extends React.Component {
 
@@ -30,11 +40,10 @@ export class Header extends React.Component {
     super(props);
     this.state = {
       value: 2,
-      userLoginId:this.props.userLoginId,
+      userLoginId: this.props.userLoginId,
     }
   }
-  componentDidMount()
-  {
+  componentDidMount() {
 
   }
   shoonChangewsp() {
@@ -60,29 +69,31 @@ export class Header extends React.Component {
           <div className="col-sm-4 hideonmobile">
             <div className="row">
 
-              <div className="col-sm-2">  <div onClick={() => this.props.handlerhome('0')} className="whitecolorcss" > <FontAwesomeIcon icon={faHome} /></div></div>
+              <div className="col-sm-2">
+                <div onClick={() => this.props.handlerhome('0')} className="whitecolorcss" >
+                  <FontAwesomeIcon icon={faHome} /></div></div>
               <div className="col-sm-2">                <div className="whitecolorcss">
-                 <FontAwesomeIcon icon={faCoffee} /></div> </div>
+                <FontAwesomeIcon icon={faCoffee} /></div> </div>
               <div className="col-sm-2">
                 <div className="whitecolorcss"> <FontAwesomeIcon icon={faQuoteLeft} /></div>
               </div>
               <div className="col-sm-2">
-               
-                {
-                this.props.userLoginId !=0 &&
-                <div className="whitecolorcss"> 
-<FontAwesomeIcon icon={faUser} onClick={() => this.props.handlerhome('500')}/>
-   </div>
 
-}
-                
-               
+                {
+                  this.props.userLoginId != 0 &&
+                  <div className="whitecolorcss">
+                    <FontAwesomeIcon icon={faUser} onClick={() => this.props.handlerhome('500')} />
+                  </div>
+
+                }
+
+
               </div>
               <div className="col-sm-4">
-                
 
 
-           </div>
+
+              </div>
 
 
 

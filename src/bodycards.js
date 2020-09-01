@@ -1,8 +1,7 @@
 //https://fontawesome.com/icons?d=gallery&m=free
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React, { Suspense, Component } from 'react'
 import logo from './logo.svg';
 import './App.css';
@@ -19,40 +18,24 @@ import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import axios from 'axios';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
 import imageCompression from 'browser-image-compression';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faCoffee,
   faCog,
-  faSpinner,
-  faQuoteLeft,
-  faSquare,
-  faCheckSquare,
-  faUser,
-  faThumbsoUp,
   faAtlas,
   faCheck,
   faBriefcase,
-  
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-
-
-library.add(
-  fab,
+  faBackward,
+  faHome,
   faCoffee,
-  faCog,
-  faSpinner,
-  faQuoteLeft,
-  faSquare,
-  faCheckSquare
-)
+  faQuoteLeft
+
+} from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
 class bodycards extends Component {
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +43,6 @@ class bodycards extends Component {
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
       loader:true,
-
     }
   }
 
@@ -119,15 +101,9 @@ class bodycards extends Component {
   }
 
   render() {
-
-
-    
-
-
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (<div className="mansearch">
         
-       
  <div className="col-sm-3 ">
         <Card style={{ width: '11rem' }} className="bordershadow">
           <Card.Img height="120px" variant="top" src={item["picstring"]} />
@@ -145,24 +121,21 @@ class bodycards extends Component {
    </div>
    <div className="col-sm-3 paragraphcss"> 
    <div className="myicondiv">
-   <FontAwesomeIcon icon={faCheck} /> 
+   <FontAwesomeIcon  icon={faCheck} /> 
 </div>   </div>
    <div className="col-sm-3 paragraphcss"> 
    <div className="myicondiv">
-   <FontAwesomeIcon icon={faCog} /> 
+   <FontAwesomeIcon  icon={faCog}/> 
    </div>
    </div>
    <div className="col-sm-3 paragraphcss"> 
    <div className="myicondiv">
-   <FontAwesomeIcon icon={faBriefcase} /> 
+   <FontAwesomeIcon  icon={faBriefcase} /> 
    </div>
    </div>
 
-
    </div>
-   
-           
-           
+      
           </Card.Body>
         </Card>
         </div>
@@ -191,7 +164,7 @@ class bodycards extends Component {
    </div>
    <div className="col-sm-3 paragraphcss"> 
    <div className="myicondiv">
-   <FontAwesomeIcon icon={faCheck} /> 
+   <FontAwesomeIcon icon={faCheck}  /> 
 </div>   </div>
    <div className="col-sm-3 paragraphcss"> 
    <div className="myicondiv">
@@ -289,50 +262,3 @@ if (this.state.ObjectArrayBids!=null){
       
       export default withTranslation()(bodycards);
       
-      /*
-function bodycards() {
-    return (
-<div className="divwithuppermargin" >
-            <Card >
-              <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-    </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-
-            <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-    </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-
-
-            <Card >
-              <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-    </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </div>
-
-          );
-      }
-      export default bodycards;
-      
-*/

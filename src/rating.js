@@ -10,17 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Ratinkg from 'react-rating'
 
 
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
-import {
-    faCoffee,
-    faCog,
-    faSpinner,
-    faQuoteLeft,
-    faSquare,
-    faCheckSquare
-} from '@fortawesome/free-solid-svg-icons'
+
 import BeautyStars from "beauty-stars";
 
 export class Rating extends React.Component {

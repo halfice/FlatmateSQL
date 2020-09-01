@@ -1,18 +1,30 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
+
 import './sliding.css';
-import {
-  faCoffee, faCog, faSpinner, faQuoteLeft, faSquare, faCheckSquare, faBackward,
-} from '@fortawesome/free-solid-svg-icons'
 import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import imageCompression from 'browser-image-compression';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faCog,
+  faAtlas,
+  faCheck,
+  faBriefcase,
+  faBackward,
+  faHome,
+  faCoffee,
+  faQuoteLeft
+
+} from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
+
+
 
 
 export class lookingoforroom extends React.Component {
@@ -388,7 +400,11 @@ export class lookingoforroom extends React.Component {
                   <div className="col-sm-2">
                     <div className="iconsclassgray" onClick={this.handleGoBackClick} >
 
-                      <FontAwesomeIcon icon={faBackward} /> </div>
+                      <div className icon={faBackward} >
+
+                      </div>
+                      
+                       </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="subheadings"> welcome</div>
@@ -399,7 +415,10 @@ export class lookingoforroom extends React.Component {
 
                     {this.state.UserProfileExits == 1 &&
 
-                      <div className="subheadingsListDiv" onClick={this.Lisintingfunc}> <FontAwesomeIcon icon={faCog} />  Listing/Offers</div>
+                      <div className="subheadingsListDiv" onClick={this.Lisintingfunc}> 
+                      <div icon={faCog}>
+                        </div> 
+                       Listing/Offers</div>
                     }
                   </div>
 
@@ -411,7 +430,13 @@ export class lookingoforroom extends React.Component {
                       <div className="col-sm-12 ">
                         <div>Thanks Abdul Aziz Farooqi,let's list your place</div>
                         <div className="col-sm-12">
-                          <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome} /></div>
+                          <div className="iconsclassgray" >
+                            <div icon={faHome} >
+                              </div>
+                            
+                            
+                            
+                            </div>
                         </div>
                       </div>
                     </div>
@@ -904,7 +929,12 @@ export class lookingoforroom extends React.Component {
                       <div className="row">
                         <div className="col-sm-12"> listing Preview.</div>
                         <div className="col-sm-4">
-                          <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome} /></div>
+                          <div className="iconsclassgray" > 
+                          
+                          <div className="iconsclassgray"></div>
+                          
+                          
+                          </div>
                         </div>
 
                       </div>
@@ -917,7 +947,10 @@ export class lookingoforroom extends React.Component {
                       <div className="row">
                         <div className="col-sm-12"> listing Preview/ Offers.</div>
                         <div className="col-sm-4">
-                          <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome} /></div>
+                          <div className="iconsclassgray" >
+                             <div icon={faHome} ></div>
+                             
+                             </div>
                         </div>
 
                       </div>
@@ -1561,47 +1594,3 @@ export class lookingoforroom extends React.Component {
 
 
 export default withTranslation()(lookingoforroom);
-
-/*old
- _handleImageChangew(e) {
-    e.preventDefault();
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-    var newfile = file;
-
-
-    //reader.readAsDataURL(file);
-
-    reader.onloadend = () => {
-
-      const formData = new FormData();
-      // Update the formData object
-      formData.append(
-        "myFile",
-        file,
-        file.name
-      );
-
-
-
-
-
-
-      //let filed = e.target.files[0];
-      this.setState({
-
-        file: reader.result,
-        imagePreviewUrl: reader.result,
-        picstring: file.name,
-      });
-    }
-
-    reader.readAsDataURL(file)
-  }
-
-   <input className="fileInput"
-                            type="file"
-                            onChange={(e) => this._handleImageChange(e)} />
-
-*/

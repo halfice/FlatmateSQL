@@ -11,7 +11,6 @@ var async = require('async');
 var sql = require("mssql");
 var CardOwners = express.Router();
 
-
 //it will bring the bids
 CardOwners.get('/', (req, res) => res.send('book route testing!'));
 

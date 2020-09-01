@@ -24,6 +24,8 @@ const CardTenants=require('./Cardstenants');
 const CardOwners=require('./CardOwners');
 const Bids=require('./Bids');
 
+const MyFiles=require('./MyFiles');
+
 
 
 app.use('/users', userRoutes);
@@ -35,7 +37,7 @@ app.use('/bids', Bids);
 
 app.use('/cardtenants', CardTenants);
 app.use('/cardowners', CardOwners);
-
+app.use('/MyFiles', MyFiles);
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);

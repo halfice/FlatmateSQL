@@ -16,8 +16,7 @@ import i18next from 'i18next';
 import LoginScreen from './screenlogin'
 import Register from './screenregister'
 import Profile from './Profile'
-import Bids from './bids'
-
+import Bids from './bids';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -197,5 +196,4 @@ class App extends Component {
     })
   }
 }
-
 export default withTranslation()(App);

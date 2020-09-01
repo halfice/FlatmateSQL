@@ -1,24 +1,14 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTumblr, faTwitter,FaFacebookF } from '@fortawesome/free-solid-svg-icons'
-import './sliding.css';
+import imageCompression from 'browser-image-compression';
 import axios from 'axios';
-import {
-    faCoffee,
-    faCog,
-    faSpinner,
-    faQuoteLeft,
-    faSquare,
-    faCheckSquare,
-    faBackward,
-} from '@fortawesome/free-solid-svg-icons'
-
+import "./fontsx"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+
 export class Profile extends React.Component {
 
     constructor(props) {

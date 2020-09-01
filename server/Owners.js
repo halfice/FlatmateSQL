@@ -37,13 +37,11 @@ Owners.get('/:id', (req, res) => {
 
 
 });
-
 Owners.post('/register', (req, res) => {
     var db = require("./db");
     var data = [];
     data=req.body;
    // console.log(req);
-   
     db.OwnerRegister(data, function (err, rows) {
       if (err) {  
       } else if (rows) {
@@ -56,13 +54,5 @@ Owners.post('/register', (req, res) => {
       }
     });
     //console.log('Reapnose is ->'+result);
-  
-  
-
-
 });
-
-
-
-
 module.exports = Owners;

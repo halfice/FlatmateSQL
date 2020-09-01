@@ -1,25 +1,28 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
+
+
 import './sliding.css';
 import axios from 'axios';
 import imageCompression from 'browser-image-compression';
-import {
-  faCoffee,
-  faCog,
-  faSpinner,
-  faQuoteLeft,
-  faSquare,
-  faCheckSquare,
-  faBackward,
-} from '@fortawesome/free-solid-svg-icons'
+
 
 import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import { library }  from '@fortawesome/fontawesome-svg-core';
+import {  faCog,
+    faAtlas,
+    faCheck,
+    faBriefcase,
+    faBackward,
+    faHome
+    
+  } from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faCog, faAtlas,faCheck,faBriefcase,faBackward,faHome)
 
 export class RoomOwners extends React.Component {
 
@@ -164,48 +167,58 @@ export class RoomOwners extends React.Component {
   }
 
   async  handleImageUpload(event) {
- 
+    this.setState({
+      loader: true,
+    });
     const imageFile = event.target.files[0];
-    console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
-    console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+    //console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+    //console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
    
     const options = {
       maxSizeMB: 1,
-      //maxWidthOrHeight: 100,
+      maxWidthOrHeight: 300,
       useWebWorker: true
     }
     try {
       const compressedFile = await imageCompression(imageFile, options);
-      console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
-      console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+      //console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+      //console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
 
       let reader = new FileReader();
       let file = compressedFile;
       var newfile = file;
       //console.log(compressedFile);
       reader.onloadend = () => {
-     
-
+    
       var tmp =this.state.picscounter;
       tmp=tmp+1;
      // alert(tmp);
+     const data ={
+      picstring:reader.result,
+     }
         
-
-if (tmp==1){
+     axios
+     .post('http://localhost:4000/MyFiles/register', data)
+     .then(res => {
+       console.log(res.data[0].universalid);
+       if (tmp==1){
         this.setState({
           file: reader.result,
           imagePreviewUrl: reader.result,
-          picstring: reader.result,
+          picstring: res.data[0].universalid,//reader.result,
           picscounter:tmp,
+          loader:false,
         });
       }
+
 
       if (tmp==2){
         this.setState({
           file: reader.result,
           imagePreviewUrl1: reader.result,
-          picstring1: reader.result,
+          picstring1: res.data[0].universalid,
           picscounter:tmp,
+          loader:false,
         });
       }
 
@@ -213,8 +226,9 @@ if (tmp==1){
         this.setState({
           file: reader.result,
           imagePreviewUrl2: reader.result,
-          picstring2: reader.result,
+          picstring2: res.data[0].universalid,
           picscounter:tmp,
+          loader:false,
         });
       }
 
@@ -222,14 +236,16 @@ if (tmp==1){
         this.setState({
           file: reader.result,
           imagePreviewUrl3: reader.result,
-          picstring3: reader.result,
+          picstring3: res.data[0].universalid,
           picscounter:tmp,
+          loader:false,
         });
       }
 
-
-
-
+     })
+     .catch(err => {
+       console.log("Error in CreateBook!");
+     });
 
 
     }
@@ -274,6 +290,11 @@ if (tmp==1){
     bonds: this.state.bonds,
     bills: this.state.bills,
     picstring: this.state.picstring,
+
+    picstringone: this.state.picstring1,
+    picstringtwo: this.state.picstring2,
+    picstringthree: this.state.picstring3,
+
     itemid:this.uuidv4(),
     };
 
@@ -287,7 +308,7 @@ if (tmp==1){
 
     })
     .catch(err => {
-      console.log("Error in CreateBook!");
+      console.log("Error in handleImageUpload! while upload pic and also roomornw");
     });
 
 

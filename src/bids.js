@@ -1,22 +1,32 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
 import './sliding.css';
-import {
-  faCoffee, faCog, faSpinner, faQuoteLeft, faSquare, faCheckSquare, faBackward,
-} from '@fortawesome/free-solid-svg-icons'
+
 import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import imageCompression from 'browser-image-compression';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faCog,
+  faAtlas,
+  faCheck,
+  faBriefcase,
+  faBackward,
+  faHome,
+  faCoffee,
+  faQuoteLeft
+
+} from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
+
 
 
 export class bids extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -31,29 +41,17 @@ export class bids extends React.Component {
       productprice: "",
       productnumber: "",
       producthour: "",
-
       buttontext: "Lets Go!",
       isWarranty: "",
-
       imagePreviewUrl: '',
       picstring:"",
       warrantydiv1:"innervbuuton",
       warrantydiv2:"innervbuuton",
       
-
     }
-
     this.callinsert = this.callinsert.bind(this);
-    
     this.handlproductName = this.handlproductName.bind(this);
   }
-
-
-
-
-
-
-
 
   async  handleImageUpload(event) {
 
@@ -161,7 +159,7 @@ export class bids extends React.Component {
                   <div className="col-sm-12 ">
                     <div>HI,let's Sell auction your product!</div>
                     <div className="col-sm-12">
-                      <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome} /></div>
+                      <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome}/></div>
                     </div>
                   </div>
                 </div>

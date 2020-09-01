@@ -1,21 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTumblr, faTwitter,FaFacebookF } from '@fortawesome/free-solid-svg-icons'
 import './sliding.css';
 import axios from 'axios';
-
-import {
-    faCoffee,
-    faCog,
-    faSpinner,
-    faQuoteLeft,
-    faSquare,
-    faCheckSquare,
-    faBackward,
-} from '@fortawesome/free-solid-svg-icons'
-
 import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
