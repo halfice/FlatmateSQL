@@ -1,6 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import uploader from './uloaaderimage.gif'
 
 import './sliding.css';
 import axios from 'axios';
@@ -51,10 +51,10 @@ export class RoomOwners extends React.Component {
       rent: "",
       bonds: "",
       bills: "",
-      imagePreviewUrl: '',
-      imagePreviewUrl1: '',
-      imagePreviewUrl2: '',
-      imagePreviewUrl3: '',
+      imagePreviewUrl: uploader,
+      imagePreviewUrl1: uploader,
+      imagePreviewUrl2: uploader,
+      imagePreviewUrl3: uploader,
       
       
       picscounter:0,

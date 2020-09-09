@@ -50,14 +50,14 @@ export class screenlogin extends React.Component {
         this.setState({
             loader:true,
         });
-        //alert(this.state.email);
+       
          const params = {
             email: this.state.email,
             password: this.state.password,          
            };
-          //console.log(data);
+         // console.log(params);
          axios
-         .get('http://localhost:4000/users/', {params})
+         .get('http://localhost:4000/users/login', {params})
          .then(res => {
            //  console.log(res);
              if (res.data==null){
@@ -105,7 +105,7 @@ export class screenlogin extends React.Component {
   }
  
    responseFacebook = (response) => {
-    console.log(response);
+    //console.log(response);
     this.setState({
         email:response.email,
     });
@@ -117,7 +117,7 @@ export class screenlogin extends React.Component {
     this.setState({
         loader:true,
     });
-    console.log(response);
+   // console.log(response);
   }
 
   

@@ -13,8 +13,6 @@ var sql = require("mssql");
 
 Tenants.get('/', (req, res) => res.send('Tenant Route Testing!'));
 
-
-
 Tenants.post('/register', (req, res) => {
   
   var db = require("./db");

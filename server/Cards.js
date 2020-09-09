@@ -22,7 +22,7 @@ Cards.get('/', (req, res) => {
       } else if (rows) {
         // Process the rows returned from the database
         res = res.json(rows);
-        //console.log('Reapnose is ->'+res);
+      //console.log('Reapnose is ->'+res);
         return res;
       } else {
         // No rows returns; handle appropriately

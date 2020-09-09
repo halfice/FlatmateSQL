@@ -314,7 +314,7 @@ export class lookingoforroom extends React.Component {
     this.setState({
       loader: true,
     });
-    alert(this.state.LoginUserID);
+  //  alert(this.state.LoginUserID);
     const data = {
 
       userid: this.state.LoginUserID,
@@ -416,8 +416,12 @@ export class lookingoforroom extends React.Component {
                     {this.state.UserProfileExits == 1 &&
 
                       <div className="subheadingsListDiv" onClick={this.Lisintingfunc}> 
-                      <div icon={faCog}>
-                        </div> 
+                     
+                     <FontAwesomeIcon icon={faCog} /> 
+
+                     
+                     
+                    
                        Listing/Offers</div>
                     }
                   </div>
@@ -431,8 +435,10 @@ export class lookingoforroom extends React.Component {
                         <div>Thanks Abdul Aziz Farooqi,let's list your place</div>
                         <div className="col-sm-12">
                           <div className="iconsclassgray" >
-                            <div icon={faHome} >
-                              </div>
+                            
+
+                              <FontAwesomeIcon icon={faHome} /> 
+
                             
                             
                             

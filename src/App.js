@@ -21,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 3,
+      needwizard: 0,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -80,7 +80,8 @@ class App extends Component {
 
         {this.state.needwizard == 1 &&
 
-          <div className="col-sm-12"><Looking UserID={this.state.userid} /></div>
+          <div className="col-sm-12">
+            <Looking UserID={this.state.userid} /></div>
 
         }
 
