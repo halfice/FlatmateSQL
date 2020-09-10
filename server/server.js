@@ -43,5 +43,10 @@ app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);
 });
 
+
+app.get('*',(req,res)=>{
+  res.sendfile(path.resolve(__dirname,'build','index.html'));
+});
+
 //for authenticateion
 //https://stackoverflow.com/questions/54845053/express-react-with-cors-setting-http-only-secure-cookie-for-react-spa

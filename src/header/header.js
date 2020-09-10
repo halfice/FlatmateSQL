@@ -9,7 +9,10 @@ import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logoheader from './mainicon.gif';
 import profilepic from './profile.png'
-import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons'
+import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
+import RangeSlider from 'react-bootstrap-range-slider';
 
 import BeautyStars from "beauty-stars";
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -41,7 +44,18 @@ export class Header extends React.Component {
     this.state = {
       value: 2,
       userLoginId: this.props.userLoginId,
+      rangevalue: 200,
     }
+  }
+
+  setValue(event) {
+    var valx=event.target.value;
+    var tmp=parseInt(valx);
+    tmp=tmp+200;
+    this.setState({
+      rangevalue: tmp
+    });
+
   }
   componentDidMount() {
 
@@ -59,12 +73,20 @@ export class Header extends React.Component {
         <div className="row">
           <div className="col-sm-4">
             <div>
-              <img src={logoheader} />
-            </div></div>
-          <div className="col-sm-4 hideonmobile"><div className="mansearch">
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates"></input>
 
-          </div></div>
+            </div></div>
+          <div className="col-sm-4 hideonmobile">
+            <div className="mansearch">
+              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
+              <RangeSlider
+                value={this.setState.rangevalue}
+                onChange={this.setValue.bind(this)}
+              /> 
+              <div className="paragrap">
+              {this.state.rangevalue} ft
+              </div>
+            </div>
+          </div>
 
           <div className="col-sm-4 hideonmobile">
             <div className="row">
@@ -101,6 +123,73 @@ export class Header extends React.Component {
 
           </div>
         </div>
+
+
+        <div className="row">
+
+          <div className="col-sm-3">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Property Type
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Rent</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Sale</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+
+
+
+          </div>
+
+
+          <div className="col-sm-3">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Location
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Marina</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Reem</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Al-Reef </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+
+          <div className="col-sm-3">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                BedRooms
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">2 </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+
+
+          <div className="col-sm-3">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Funished
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Yes</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">No</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+
+        </div>
+
+
       </div>
 
 
@@ -109,4 +198,3 @@ export class Header extends React.Component {
   }
 
 }
-

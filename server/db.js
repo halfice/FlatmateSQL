@@ -1,4 +1,3 @@
-
 var Connection = require('tedious').Connection;
 var Request = require('tedious').Request;
 var uuid = require('node-uuid');
@@ -360,9 +359,8 @@ function GetBids(data, callback) {
   var newdata = [];
   var dataset = [];
   var universalid = data[2];
-  var mycols=["ownerid","typeofAccomodation","rent","totalbed","propertyAddress"];
   connection.on('connect', function (err) {
-    var sql = "SELECt [Typeofacc], [Rent] ,[Totalbed] ,[Propertyaddress] ,[picId] ,[active],w.Imagestr FROM [dbo].[Ownerdisplay] o inner join WebSiteImages w  ON o.picid = w.ImageId";//where UserEmail = '" + data[0] + "'";
+    var sql = "SELECt o.Typeofacc, o.Rent ,o.Totalbed ,o.Propertyaddress ,o.picId ,o.active,w.Imagestr,o.ownerid FROM dbo.Ownerdisplay o inner join WebSiteImages w  ON o.picid = w.ImageId";//where UserEmail = '" + data[0] + "'";
     var Request = require('tedious').Request;
     var request = new Request(sql, function (err, rowCount) {
       if (err) {
@@ -376,23 +374,9 @@ function GetBids(data, callback) {
         }
       }
     });
-
     request.on('row', function (columns) {
-     // columns.forEach(function (column) {
-       // dataset.push({
-        //  col: column.metadata.colName,
-         // val: column.value
-       // });
-
-
-      //});
-
-
       newdata.push(columns);
-
     });
-
-
     connection.execSql(request);
 
   });
@@ -450,7 +434,7 @@ function GetCardTenants(data, callback) {
   var dataset = [];
   var universalid = data[2];
   connection.on('connect', function (err) {
-    var sql = "select Area,Rent,DatetoCome,age,picstring from Tenants";//users where UserEmail = '" + data[0] + "'";
+    var sql = "select top 10 Area,Rent,DatetoCome,age,picstring,TenantId from Tenants";//users where UserEmail = '" + data[0] + "'";
     var Request = require('tedious').Request;
     var request = new Request(sql, function (err, rowCount) {
 
@@ -466,22 +450,21 @@ function GetCardTenants(data, callback) {
       }
     });
 
+    //  request.on('row', function (columns) {
+    // columns.forEach(function (column) {
+    //  dataset.push({
+    //  col: column.metadata.colName,
+    // val: column.value
+    //});
+    //  newdata.push(columns);
+
+
+    //  });   
+
+
     request.on('row', function (columns) {
-      columns.forEach(function (column) {
-        dataset.push({
-          col: column.metadata.colName,
-          val: column.value
-        });
-
-
-      });   
-
-
-      newdata.push(dataset);
-
+      newdata.push(columns);
     });
-
-
     connection.execSql(request);
 
   });
@@ -513,10 +496,10 @@ function GetRegFiles(data, callback) {
         if (rowCount < 1) {
 
           callback(null, false);
-         // console.log("zijij");
+          // console.log("zijij");
         } else {
           callback(null, newdata);
-        //  console.log(newdata);
+          //  console.log(newdata);
         }
       }
     });
@@ -525,11 +508,11 @@ function GetRegFiles(data, callback) {
     request.addOutputParameter('documentID', TYPES.Int);
 
 
-    request.on('returnValue', function(parameterName, value, metadata) {
+    request.on('returnValue', function (parameterName, value, metadata) {
       //console.log(parameterName + ' = ' + value);      // number = 42
       newdata.push({
         "universalid": value
-      });                                             
+      });
     });
 
     connection.callProcedure(request);
@@ -549,7 +532,7 @@ function GetImageStr(data, callback) {
 
   //[0][owner id]
   connection.on('connect', function (err) {
-    var sql = "Select top 1 Imagestr from WebSiteImages where ownerid='"+data[0]+"'"; 
+    var sql = "Select top 1 Imagestr from WebSiteImages where ownerid='" + data[0] + "'";
     var Request = require('tedious').Request;
     var request = new Request(sql, function (err, rowCount) {
       if (err) {
@@ -562,8 +545,8 @@ function GetImageStr(data, callback) {
         }
       }
     });
-   
-    
+
+
 
     connection.execSql(request);
 

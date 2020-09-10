@@ -1,3 +1,39 @@
+.closebuttondi{
+  padding: 11px;
+    color: #ffc107;
+    font-stretch: ultra-condensed;
+    font: icon;
+    font-size: 33px;
+    cursor: pointer;
+}
+
+
+.parentdiv{
+ 
+  width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.43);;
+    position: absolute;
+    z-index: 1111;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.carousaldiv{
+  z-index: 2222;
+ 
+  background: rgba(255,255,255,0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
 .myijcondiv{
   font-size: 11px;
     font-weight: bolder;
@@ -6,6 +42,10 @@
     border-radius: 11px;
     cursor: pointer;
     color: white;;
+}
+
+div{
+  cursor: pointer;;
 }
 
 
@@ -70,6 +110,11 @@
     border-radius: 50%;
     animation: spin .8s linear infinite;
   
+}
+
+.paragrap{
+  color:white;
+  font-size:14px;;
 }
 
 .paragraphcss:hover{
