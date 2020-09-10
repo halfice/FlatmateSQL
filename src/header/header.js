@@ -13,7 +13,7 @@ import { faTumblr, faTwitter } from '@fortawesome/free-solid-svg-icons';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 import RangeSlider from 'react-bootstrap-range-slider';
-
+import MyRange from './Range'
 import BeautyStars from "beauty-stars";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -26,37 +26,20 @@ import {
   faCoffee,
   faQuoteLeft,
   faUser
-
-
 } from '@fortawesome/free-solid-svg-icons';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
-
-
-
-
 export class Header extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       value: 2,
       userLoginId: this.props.userLoginId,
-      rangevalue: 200,
+      rangevalue: 0,
     }
   }
 
-  setValue(event) {
-    var valx=event.target.value;
-    var tmp=parseInt(valx);
-    tmp=tmp+200;
-    this.setState({
-      rangevalue: tmp
-    });
-
-  }
   componentDidMount() {
 
   }
@@ -75,16 +58,10 @@ export class Header extends React.Component {
             <div>
 
             </div></div>
-          <div className="col-sm-4 hideonmobile">
+          <div className="col-sm-4">
             <div className="mansearch">
               <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
-              <RangeSlider
-                value={this.setState.rangevalue}
-                onChange={this.setValue.bind(this)}
-              /> 
-              <div className="paragrap">
-              {this.state.rangevalue} ft
-              </div>
+
             </div>
           </div>
 
@@ -111,11 +88,7 @@ export class Header extends React.Component {
 
 
               </div>
-              <div className="col-sm-4">
 
-
-
-              </div>
 
 
 
@@ -127,12 +100,11 @@ export class Header extends React.Component {
 
         <div className="row">
 
-          <div className="col-sm-3">
+          <div className="col-md-2 m-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Property Type
   </Dropdown.Toggle>
-
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1">Rent</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Sale</Dropdown.Item>
@@ -143,9 +115,7 @@ export class Header extends React.Component {
 
 
           </div>
-
-
-          <div className="col-sm-3">
+          <div className="col-lg-2 m-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Location
@@ -158,8 +128,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-
-          <div className="col-sm-3">
+          <div className="col-lg-2 m-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 BedRooms
@@ -172,9 +141,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-
-
-          <div className="col-sm-3">
+          <div className="col-lg-2 m-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Funished
@@ -186,10 +153,85 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
+          <div className="col-lg-2 m-2">
+
+
+
+            <MyRange />
+
+          </div>
 
         </div>
 
 
+        <div className="row">
+
+          <div className="col-md-2 m-2">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Price - Min
+  </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Rent</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Sale</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+
+
+
+          </div>
+          <div className="col-lg-2 m-2">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Price - Max
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Marina</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Reem</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Al-Reef </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+          <div className="col-lg-2 m-2">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+               State
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">2 </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+          <div className="col-lg-2 m-2">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Deal - Hot / Cold
+  </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Yes</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">No</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+          <div className="col-lg-2 m-2">
+
+            <div className="mainbutnd">
+              <div className="innerbt">
+                Let go
+  </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
       </div>
 
 

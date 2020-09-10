@@ -7,14 +7,14 @@ import innedflavtmate from './images.jpg';
 import { Switch, Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 
 
-class Loginsecion extends Component {
+class MainBodyCards extends Component {
 
   render() {
     return (
-      <div className="container-fluid mt-5">
-        <div className="row mt-5">
+      <div className="container-fluid mt-2">
+        <div className="row mt-2">
         
-          <div className="col-sm-4">
+        <div className="col-sm-3">
             <div >
               <div className="bottombordr" >
                 <div className="row">
@@ -47,7 +47,7 @@ class Loginsecion extends Component {
   
   
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-3">
           <div >
               <div className="bottombordr" >
                 <div className="row">
@@ -81,7 +81,43 @@ class Loginsecion extends Component {
   
           </div>
 
-          <div className="col-sm-4">
+          <div className="col-sm-3">
+          <div >
+              <div className="bottombordr" >
+                <div className="row">
+                  <div className="col-sm-6">
+                    <div className="row marginljeft">
+                      <span className="spanclasstext">I Sell</span>
+                    </div>
+                    <div className="row marginleft">
+                      <p>Shelve your potential property.
+  
+                      </p>
+                    </div>
+                    <div className="container row marginljeft">
+                    <Button className="mybuttons" onClick = {() => this.props.handler('4')}>Wizard</Button>
+                    </div>
+                  </div>
+                  <div className="col-sm-6">
+                    <div>
+                      <img src={innedflavtmate} className="imageclassheader" />
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+  
+  
+            </div>
+  
+  
+  
+  
+          </div>
+
+
+
+          <div className="col-sm-3">
           <div >
               <div className="bottombordr" >
                 <div className="row">
@@ -138,4 +174,4 @@ class Loginsecion extends Component {
 
 
 
-export default Loginsecion;
+export default MainBodyCards;

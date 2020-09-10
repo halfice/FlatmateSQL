@@ -4,7 +4,7 @@ import './App.css';
 import { Header } from "./header/header";
 import Footer from "./footer/footer";
 import Bodycards from "./bodycards";
-import Loginsecion from './loginsecion'
+import MainBodyCards from './MainBodyCards'
 import { Rating } from "./rating";
 import Looking from './lookingforroom';
 import RoomOwner from './roomowner';
@@ -42,66 +42,57 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className=""><Header handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
+        <div className="">
+          <Header handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
-          <div className=""><Rating handler={this.handler} />
+          <div className="">
+            <Rating handler={this.handler} />
           </div>
         }
         <br></br>
         {this.state.needwizard == 1000 &&
-
-
           <div className="row">
-
-
             <Register handleRegisnteredUserId={this.handleRegisnteredUserId} />
-
-
           </div>
-
         }
 
-
         {this.state.needwizard == 100 &&
-
           <div className="row">
-
             <LoginScreen handlerRegister={this.handlerRegister} handleRegisnteredUserId={this.handleRegisnteredUserId} />
-
           </div>
 
         }
 
         {this.state.needwizard == 0 &&
-
-          <div className="row"><Loginsecion handler={this.handler} /></div>
-
+          <div className="row">
+            <MainBodyCards handler={this.handler} />
+            </div>
         }
 
-        {this.state.needwizard == 1 &&
-
+        {
+        this.state.needwizard == 1 &&
           <div className="col-sm-12">
-            <Looking UserID={this.state.userid} /></div>
-
+            <Looking UserID={this.state.userid} />
+            </div>
         }
 
         {
           this.state.needwizard == 3 &&
-
-          <div className="col-sm-12"><RoomOwner UserID={this.state.userid} /></div>
-
+          <div className="col-sm-12">
+            <RoomOwner UserID={this.state.userid} /></div>
         }
 
         {
           this.state.needwizard == 4 &&
-
-          <div className="col-sm-12"><Bids UserID={this.state.userid} /></div>
+          <div className="col-sm-12">
+            <Bids UserID={this.state.userid} />
+          </div>
 
         }
         {
           this.state.needwizard == 500 &&
-
-          <div className="col-sm-12"><Profile UserID={this.state.userid} /></div>
+          <div className="col-sm-12"><Profile UserID={this.state.userid} />
+          </div>
 
         }
 

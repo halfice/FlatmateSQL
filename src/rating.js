@@ -29,31 +29,31 @@ export class Rating extends React.Component {
 
     render() {
         return (
-            
-
-              
-                <div className="container-fluid ratingdiv">
-                    <div className="row">
-                        <div className="col-sm-4">
-
-                        </div>
-                        <div className="col-sm-4">
-                        <Ratinkg
-  emptySymbol="fa fa-star-o fa-2x"
-  fullSymbol="fa fa-star fa-2x"
-  fractions={2}
-/>
 
 
 
-                           
-                        </div>
-                        <div className="col-sm-4"></div>
+            <div className="container-fluid ratingdiv">
+                <div className="row">
+                    <div className="col-sm-4">
+
                     </div>
-                </div>
+                    <div className="col-sm-4">
+                        <Ratinkg
+                            emptySymbol="fa fa-star-o fa-2x"
+                            fullSymbol="fa fa-star fa-2x"
+                            fractions={2}
+                        />
 
-               
-  
+
+
+
+                    </div>
+                    <div className="col-sm-4"></div>
+                </div>
+            </div>
+
+
+
         );
     }
 

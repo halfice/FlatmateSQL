@@ -1,3 +1,14 @@
+.mainbutnd{
+      border: solid 5px white;
+      border-radius: 22px;
+      color: white;
+      padding: 5px;
+      background-color: rgb(33,153,27,20);
+  }
+
+
+
+
 .closebuttondi{
   padding: 11px;
     color: #ffc107;
@@ -5,6 +16,22 @@
     font: icon;
     font-size: 33px;
     cursor: pointer;
+}
+.range-slider__tooltip__label{
+  color:white;
+  font-weight: bold;
+}
+
+.btn-success {
+  color: #fff!important;
+  background-color: #c3c8c4!important;
+  border-color: #444950!important;
+  color: black!important;
+  padding: 11px!important;
+}
+
+.btn{
+  width:100%!important;
 }
 
 
