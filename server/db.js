@@ -5,12 +5,12 @@ var async = require('async');
 
 GetConfigmethod = () => {
   var config = {
-    server: 'abdulazizdevops.database.windows.net',
+    server: '',
     authentication: {
       type: 'default',
       options: {
-        userName: 'finalflatmate', // update me
-        password: 'P@ssw0rd123#', // update me
+        userName: '', // update me
+        password: '', // update me
         encrypt: true,
       }
     },
