@@ -28,16 +28,16 @@ const MyFiles=require('./MyFiles');
 
 
 
-app.use('/users', userRoutes);
-app.use('/tenant', tenantroutes);
-app.use('/owner', OwnerRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/tenant', tenantroutes);
+app.use('/api/owner', OwnerRoutes);
 
-app.use('/card', CardsRoutes);
-app.use('/bids', Bids);
+app.use('/api/card', CardsRoutes);
+app.use('/api/bids', Bids);
 
-app.use('/cardtenants', CardTenants);
-app.use('/cardowners', CardOwners);
-app.use('/MyFiles', MyFiles);
+app.use('/api/cardtenants', CardTenants);
+app.use('/api/cardowners', CardOwners);
+app.use('/api/MyFiles', MyFiles);
 
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);
