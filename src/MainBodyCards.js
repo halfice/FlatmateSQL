@@ -123,7 +123,7 @@ class MainBodyCards extends Component {
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="row marginljeft">
-                      <span className="spanclasstext">I Sell</span>
+                      <span className="spanclasstext">Upload</span>
                     </div>
                     <div className="row marginleft">
                       <p>Shelve your potential property.
