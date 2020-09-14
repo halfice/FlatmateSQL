@@ -119,7 +119,7 @@ class bodycards extends Component {
   componentDidMount() {
     var retrueneddata = [];
     axios
-      .get('/card/')
+      .get('http://localhost:4000/card/')
       .then(res => {
         // console.log(res);
         //res.data[0][0].value
@@ -160,7 +160,7 @@ class bodycards extends Component {
     }
 
     axios
-      .get('/MyFiles/getfiles', data)
+      .get('http://localhost:4000/MyFiles/getfiles', data)
       .then(res => {
         console.log(res.data[0].Imagestr);
 
