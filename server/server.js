@@ -5,11 +5,11 @@ const helmet = require('helmet');
 const passport = require('passport');
 const cors = require('cors');
 
-const PORT = 4000;
+const PORT = process.env.PORT;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cookieParser());  
 app.use(cors());
 app.use(express.json())
 
@@ -31,17 +31,19 @@ const MyFiles=require('./MyFiles');
 app.use('/api/users', userRoutes);
 app.use('/api/tenant', tenantroutes);
 app.use('/api/owner', OwnerRoutes);
-
 app.use('/api/card', CardsRoutes);
 app.use('/api/bids', Bids);
-
 app.use('/api/cardtenants', CardTenants);
 app.use('/api/cardowners', CardOwners);
 app.use('/api/MyFiles', MyFiles);
 
+app.use(express.static('./build'));
+
+
 app.listen(PORT, function () {
   console.log("Server is running on Port: " + PORT);
 });
+
 
 
 app.get('*',(req,res)=>{
