@@ -89,7 +89,7 @@ class bodycards extends Component {
 
     var xcount = 102;
     axios
-      .get('/cardtenants/')
+      .get('/api/cardtenants/')
       .then(res => {
         for (var i = 0; i < res.data.length; i++) {
           xcount = xcount + 1;
@@ -119,7 +119,7 @@ class bodycards extends Component {
   componentDidMount() {
     var retrueneddata = [];
     axios
-      .get('/card/')
+      .get('/api/card/')
       .then(res => {
         // console.log(res);
         //res.data[0][0].value
