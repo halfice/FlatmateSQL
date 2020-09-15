@@ -2,14 +2,14 @@
   "name": "myflatmatemongo",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "server.js",
+  "main": "server/server.js",
   "homepage": "http://.",
   "scripts": {
     "client": "react-scripts start",
     "server": "node server/server.js ",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build-pro": "react-scripts build && rimraf build/static/**/*.map",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "start":"npm run build && npm run server"
   },
   "keywords": [],
   "author": "",
