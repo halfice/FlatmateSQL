@@ -70,7 +70,7 @@ class bodycards extends Component {
 
   componentDidMountbids() {
     axios
-      .get('/cardbids/')
+      .get('http://localhost:5000/cardbids/')
       .then(res => {
 
         this.setState({
@@ -89,7 +89,7 @@ class bodycards extends Component {
 
     var xcount = 102;
     axios
-      .get('/api/cardtenants/')
+      .get('http://localhost:5000/cardtenants/')
       .then(res => {
         for (var i = 0; i < res.data.length; i++) {
           xcount = xcount + 1;
@@ -119,7 +119,7 @@ class bodycards extends Component {
   componentDidMount() {
     var retrueneddata = [];
     axios
-      .get('/api/card/')
+      .get('http://localhost:5000/card/')
       .then(res => {
         // console.log(res);
         //res.data[0][0].value
@@ -160,7 +160,7 @@ class bodycards extends Component {
     }
 
     axios
-      .get('http://localhost:4000/MyFiles/getfiles', data)
+      .get('http://localhost:5000/MyFiles/getfiles', data)
       .then(res => {
         console.log(res.data[0].Imagestr);
 

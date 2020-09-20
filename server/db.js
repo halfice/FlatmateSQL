@@ -5,7 +5,7 @@ var async = require('async');
 
 GetConfigmethod = () => {
   var config = {
-    server: 'abdulazizdevops.database.windows.net',
+    server: 'mademyflat.database.windows.net',
     authentication: {
       type: 'default',
       options: {

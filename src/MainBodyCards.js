@@ -123,15 +123,15 @@ class MainBodyCards extends Component {
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="row marginljeft">
-                      <span className="spanclasstext">Upload</span>
+                      <span className="spanclasstext">Property</span>
                     </div>
                     <div className="row marginleft">
-                      <p>Shelve your potential property.
+                      <p>Add your Potentital Property.
   
                       </p>
                     </div>
                     <div className="container row marginljeft">
-                    <Button className="mybuttons" onClick = {() => this.props.handler('4')}>Wizard</Button>
+                    <Button className="mybuttons" onClick = {() => this.props.handler('5')}>Wizard</Button>
                     </div>
                   </div>
                   <div className="col-sm-6">

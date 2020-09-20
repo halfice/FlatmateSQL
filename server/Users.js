@@ -12,6 +12,7 @@ var Users = express.Router();
 var sql = require("mssql");
 
 Users.get('/login', (req, res) => {
+  console.log("sdf");
   var itememail = req.query.email;
   var itempassword = req.query.password;
   var db = require("./db");

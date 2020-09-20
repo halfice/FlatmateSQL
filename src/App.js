@@ -17,6 +17,8 @@ import LoginScreen from './screenlogin'
 import Register from './screenregister'
 import Profile from './Profile'
 import Bids from './bids';
+import Property from './property'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -86,6 +88,14 @@ class App extends Component {
           this.state.needwizard == 4 &&
           <div className="col-sm-12">
             <Bids UserID={this.state.userid} />
+          </div>
+
+        }
+
+{
+          this.state.needwizard == 5 &&
+          <div className="col-sm-12">
+            <Property UserID={this.state.userid} />
           </div>
 
         }
