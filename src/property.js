@@ -1,12 +1,9 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import uploader from './uloaaderimage.gif'
-
 import './sliding.css';
 import axios from 'axios';
-import imageCompression from 'browser-image-compression';
-
-
+import imageCompression from 'browser-image-compression'
 import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
@@ -20,7 +17,6 @@ import {  faCog,
     faHome
     
   } from '@fortawesome/free-solid-svg-icons';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas,faCheck,faBriefcase,faBackward,faHome)
 
@@ -42,21 +38,16 @@ export class Property extends React.Component {
       totalbathrooms: "",
       parking: "",
       internet: "",
-      roomename: "",
-      roomtype: "",
+      
       roomfuninishing: "",
       bathroom: "",
-      bedsize: "",
-      roomfeatures: "",
-      rent: "",
-      bonds: "",
-      bills: "",
+            rent: "",
+     
       imagePreviewUrl: uploader,
       imagePreviewUrl1: uploader,
       imagePreviewUrl2: uploader,
       imagePreviewUrl3: uploader,
-      
-      
+    
       picscounter:0,
 
       picstring:"",
@@ -135,6 +126,7 @@ export class Property extends React.Component {
       bedsizediv3:"innervbuuton",
       bedsizediv4:"innervbuuton",
       loader:false,
+      price:"0.000",
 
     }
 
@@ -146,24 +138,22 @@ export class Property extends React.Component {
 
     this.hovermefdiv2 = this.hovermefdiv2.bind(this);
     this.removehovermefdiv2 = this.removehovermefdiv2.bind(this);
-    
+  
     this.hovermefdiv3 = this.hovermefdiv3.bind(this);
     this.removehovermefdiv3 = this.removehovermefdiv3.bind(this);
     this.hovermefdiv4 = this.hovermefdiv4.bind(this);
     this.removehovermefdiv4 = this.removehovermefdiv4.bind(this);
-
-
     this.handlearent = this.handlearent.bind(this);
     this.handlebond = this.handlebond.bind(this);
     this.handlebills = this.handlebills.bind(this);
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
-    this.handleroomename = this.handleroomename.bind(this);
+    this.handleprince = this.handleprince.bind(this);
+  }
 
-
-
-
-
-
+  handleprince(event) {
+    this.setState({
+      price: event.target.value,
+    });
   }
 
   async  handleImageUpload(event) {
@@ -176,7 +166,7 @@ export class Property extends React.Component {
    
     const options = {
       maxSizeMB: 1,
-      maxWidthOrHeight: 300,
+      maxWidthOrHeight: 200,
       useWebWorker: true
     }
     try {
@@ -280,26 +270,17 @@ export class Property extends React.Component {
     totalbathrooms: this.state.totalbathrooms,
     parking: this.state.parking,
     internet: this.state.internet,
-    roomename: this.state.roomename,
-    roomtype: this.state.roomtype,
+    Price: this.state.price,
     roomfuninishing: this.state.roomfuninishing,
-    bathroom: this.state.bathroom,
-    bedsize: this.state.bedsize,
-    roomfeatures: this.state.roomfeatures,
-    rent: this.state.rent,
-    bonds: this.state.bonds,
-    bills: this.state.bills,
     picstring: this.state.picstring,
-
     picstringone: this.state.picstring1,
     picstringtwo: this.state.picstring2,
     picstringthree: this.state.picstring3,
-
     itemid:this.uuidv4(),
     };
 
     axios
-    .post('http://localhost:4000/owner/register', data)
+    .post('http://localhost:4000/Property/register', data)
     .then(res => {
       this.setState({
         universalid: res.data,
@@ -314,6 +295,9 @@ export class Property extends React.Component {
 
 
   }
+
+
+
 
 
   
@@ -342,12 +326,12 @@ export class Property extends React.Component {
         </div>
       }
       { imagePreviewUrl2 !=null &&
-      <div className="col-sm-6">
+      <div className="col-sm-6 mt-6">
         <img src={imagePreviewUrl2} className="mypreviewimage" />
         </div>
       }
       { imagePreviewUrl3 !=null &&
-      <div className="col-sm-6">
+      <div className="col-sm-6 mt-6">
         <img src={imagePreviewUrl3} className="mypreviewimage" />
         </div>
       }
@@ -384,7 +368,7 @@ export class Property extends React.Component {
                     this.state.parentdiv == 0 &&
                     <div className="row">
                       <div className="col-sm-12 ">
-                        <div>Thanks Abdul Aziz Farooqi,let's list your place</div>
+                        <div>Thanks Abdul Aziz Farooqi,let's list your Property</div>
                         <div className="col-sm-12">
                           <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome} /></div>
                         </div>
@@ -419,40 +403,24 @@ export class Property extends React.Component {
                         <div className="col-sm-3">
                         
                             <div className={ this.state.fdiv1Active }   
-                            onClick={this.handletypeofAccormodation.bind(this, 'Rooms(s) in sharehouse','1')} >
-                              Rooms(s) in sharehouse
+                            onClick={this.handletypeofAccormodation.bind(this, 'Villa','1')} >
+                             Villa
                           </div>
                           
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-6">
                           
-                        <div className={this.state.fdiv2Active} onClick={this.handletypeofAccormodation.bind(this, 'Whole property for rent','2')} 
+                        <div className={this.state.fdiv2Active} onClick={this.handletypeofAccormodation.bind(this, 'Appartment','2')} 
                          >
-                              Whole property for rent
+                             Appartment
                          
                           </div>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-6">
                           
-                        <div className={this.state.fdiv3Active}  
-                        onClick={this.handletypeofAccormodation.bind(this, 'Student Accomodation','3')}
-                         
-                         >
-                              Student Accomodation
                         
-                          </div>
                         </div>
-                        <div className="col-sm-3">
-                         
-                        <div className={this.state.fdiv4Active}  
-                        onClick={this.handletypeofAccormodation.bind(this, 'Homestay','4')} 
                        
-                        
-                        >
-                              Homestay
-                          
-                          </div>
-                        </div>
 
                       </div>
 <hr></hr>
@@ -625,96 +593,34 @@ export class Property extends React.Component {
                     </div>
                   }
 
+                  
                   {
                     this.state.divcountre == 3 &&
                     <div className={this.state.divcountre == 3 ? this.state.visibleclass : this.state.hiddenclass}>
-                      <div className="row">
-                        <div className="col-sm-12"> Who Currently live in the property.</div>
+
+
+<div className="row textalighleft">
+                       
+<div className="row">
+                        <div className="col-sm-12"> Price</div>
                       </div>
+                        
+                        
+                        <input type="text" className="form-control" onChange={this.handleprince} placeholder="AED 0.00000"></input>
 
-
-                      <div className="row textalighleft">
-                        <div className="col-sm-12">
-                          <div className="smalheadingcss">
-                            Total number of flate mates
-                        </div>
-                        </div>
-                        <div className="col-sm-2">
-                         <div className={this.state.flatmatediv1} onClick={this.handleflatemates.bind(this, '1','1')} >
-                            1
-                         </div>
-                        </div>
-                        <div className="col-sm-2">
-                         <div className={this.state.flatmatediv2} onClick={this.handleflatemates.bind(this, '2','2')} >
-                            2
-                         </div>
-                        </div>
-                        <div className="col-sm-2">
-                         <div className={this.state.flatmatediv3} onClick={this.handleflatemates.bind(this, '3','3')} >
-                            3
-                         </div>
-                        </div>
-                        <div className="col-sm-2">
-                         <div className={this.state.flatmatediv4} onClick={this.handleflatemates.bind(this, '4','4')} >
-                            4
-                         </div>
-                        </div>
-                        <div className="col-sm-2">
-                         <div className={this.state.flatmatediv5} onClick={this.handleflatemates.bind(this, '5','5')} >
-                            5
-                         </div>
-                        </div>
-                        <div className="col-sm-2">
-                         <div className={this.state.flatmatediv6} onClick={this.handleflatemates.bind(this, '6 plus','6')} >
-                            6+
-                         </div>
-                        </div>
                       </div>
 
 
 
 
-                    </div>
-                  }
 
-                  {
-                    this.state.divcountre == 4 &&
-                    <div className={this.state.divcountre == 4 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> About the rooms.</div>
-                      </div>
-
-                      <div className="row textalighleft" >
-                        <div className="col-sm-12">
-                          <div className="" >
-                            Room Name
-                          </div>
-                        </div>
-                        <div className="col-sm-12">
-                          <div className="iconsclassgray" >
-                            <input type="text" className="form-control" onChange={this.handleroomename} placeholder="Room name"></input>
-                          </div>
-                        </div>
+                        <hr></hr>
                       </div>
 
 
-                      <div className="row textalighleft">
-                        <div className="col-sm-12">
-                          <div className="" >
-                            Room type
-                          </div>
-                        </div>
-                        <div className="col-sm-6">
-                         <div className={this.state.roomtypediv1} onClick={this.handleroomtype.bind(this, 'Private','1')} >
-                            Private
-                         </div>
-                        </div>
-                        <div className="col-sm-6">
-                         <div className={this.state.roomtypediv2} onClick={this.handleroomtype.bind(this, 'Shared','2')} >
-                            Shared
-                         </div>
-                        </div>
-                      </div>
+
 
                       <div className="row textalighleft">
                         <div className="col-sm-12">
@@ -740,33 +646,6 @@ export class Property extends React.Component {
                         </div>
                       </div>
 
-
-                      <div className="row textalighleft">
-                        <div className="col-sm-12">
-                          <div className="" >
-                            Bathroom
-                          </div>
-                        </div>
-                        <div className="col-sm-4">
-                         <div className={this.state.bathroompdiv1} onClick={this.handlebathroom.bind(this, 'Shared','1')} >
-                            Shared
-                         </div>
-                        </div>
-                        <div className="col-sm-4">
-                         <div className={this.state.bathroompdiv2} onClick={this.handlebathroom.bind(this, 'Own','2')} >
-                            Own
-                         </div>
-                        </div>
-
-                        <div className="col-sm-4">
-                         <div className={this.state.bathroompdiv3} onClick={this.handlebathroom.bind(this, 'Esuit','3')} >
-                            Esuit
-                         </div>
-                        </div>
-                      </div>
-
-
-
                     </div>
                   }
 
@@ -778,60 +657,9 @@ export class Property extends React.Component {
                         <div className="col-sm-12"> Room Features.</div>
                       </div>
 
-                      <div className="row textalighleft">
-                        <div className="col-sm-12">
-                          <div className="" >
-                            Bed Size
-                          </div>
-                        </div>
 
-<div className="row">
-
-                        <div className="col-sm-3">
-                         <div className={this.state.bedsizediv1} onClick={this.handlebedsize.bind(this, 'Single','1')} >
-                            Single
-                         </div>
-                        </div>
-                        <div className="col-sm-3">
-                         <div className={this.state.bedsizediv2} onClick={this.handlebedsize.bind(this, 'Double','2')} >
-                            Double
-                         </div>
-                        </div>
-
-                        <div className="col-sm-3">
-                         <div className={this.state.bedsizediv3} onClick={this.handlebedsize.bind(this, 'King','3')} >
-                            King
-                         </div>
-                        </div>
-
-                        <div className="col-sm-3">
-                         <div className={this.state.bedsizediv4} onClick={this.handlebedsize.bind(this, 'Queen','4')} >
-                            Queen
-                         </div>
-                        </div>
-                        </div>
-
-
-                      </div>
-
-
-                      <div className="row textalighleft">
-                        <div className="col-sm-12">
-                        <div className="" >
-                            Room Furnishing and features
-                            </div>
-                        </div>
-
-
-
-                      
- </div>
  <div className="row"> 
-                        <div className="col-sm-3">
-                         <div className={this.state.feturediv5} onClick={this.handleroomfeatures.bind(this, 'Bed side table','5')} >
-                            Bed table
-                         </div>
-                        </div>
+                       
 
                         <div className="col-sm-3">
                          <div className={this.state.feturediv6} onClick={this.handleroomfeatures.bind(this, 'Wardrobe','6')} >
@@ -850,59 +678,7 @@ export class Property extends React.Component {
                             AC
                          </div>
                         </div>
-  </div>
 
-
-
-  <div className="row"> 
-                        <div className="col-sm-3">
-                         <div className={this.state.feturediv9} onClick={this.handleroomfeatures.bind(this, 'Heater','9')} >
-                            Heater
-                         </div>
-                        </div>
-                       
-
-                        <div className="col-sm-3">
-                         <div className={this.state.feturediv10} onClick={this.handleroomfeatures.bind(this, 'Desk','10')} >
-                            Desk
-                         </div>
-                        </div>
-
-
-                       
-                        <div className="col-sm-3">
-                         <div className={this.state.feturediv11} onClick={this.handleroomfeatures.bind(this, 'Lamp','11')} >
-                            Lamp
-                         </div>
-                        </div>
-
-
-                        <div className="col-sm-3">
-                         <div className={this.state.feturediv12} onClick={this.handleroomfeatures.bind(this, 'Chair','12')} >
-                            Chair
-                         </div>
-                        </div>
-</div>
-
-
-<div className="row"> 
-                     
-                     <div className="col-sm-3">
-                      <div className={this.state.feturediv13} onClick={this.handleroomfeatures.bind(this, 'Couch','13')} >
-                         Couch
-                      </div>
-                     </div>
-
-
-
-                     <div className="col-sm-3">
-                      <div className={this.state.feturediv14} onClick={this.handleroomfeatures.bind(this, 'TV','14')} >
-                         TV
-                      </div>
-                     </div>
-              
-
-                    
 
                      <div className="col-sm-3">
                       <div className={this.state.feturediv15} onClick={this.handleroomfeatures.bind(this, 'Balcony','15')} >
@@ -910,24 +686,8 @@ export class Property extends React.Component {
                       </div>
                      </div>
 
-                     <div className="col-sm-3">
-                      <div className={this.state.feturediv16} onClick={this.handleroomfeatures.bind(this, 'kitchentee','16')} >
-                         kitchentee
-                      </div>
-                     </div>
 
-
-                   </div>
-
-
-
-                    </div>
-                  }
-
-                  {
-                    this.state.divcountre == 6 &&
-                    <div className={this.state.divcountre == 6 ? this.state.visibleclass : this.state.hiddenclass}>
-                      <div className="row textalighleft">
+                     <div className="row textalighleft">
                         <div className="col-sm-12"> Rent  and time.</div>
                       </div>
                       <div className="row">
@@ -947,8 +707,19 @@ export class Property extends React.Component {
                           </div>
                         </div>
                       </div>
+
+
+  </div>
+
+
+
+
+
+
                     </div>
                   }
+
+                  
 
 
 
@@ -977,20 +748,20 @@ export class Property extends React.Component {
   }
   handleClick() {
     var tmp = this.state.divcountre;
-    if (tmp < 7) {
+    if (tmp < 4) {
       tmp = tmp + 1;
     }
     var btntext = "Lets Start!!!";
-    if (tmp > 1 && tmp < 6) {
+    if (tmp > 1 && tmp < 3) {
       btntext = "Next"
     }
 
-    if (tmp == 6) {
+    if (tmp == 3) {
       btntext = "Finish"
-      tmp = 6;
+      tmp = 3;
     }
 
-    if (tmp < 7) {
+    if (tmp < 4) {
       this.setState({
         parentdiv: 2,
         visibleclass: "visible",
@@ -999,7 +770,7 @@ export class Property extends React.Component {
         buttontext: btntext
       });
     }
-    if (tmp == 7) {
+    if (tmp == 4) {
       this.callingInsert();
     }
   }
@@ -1081,6 +852,7 @@ if (divval==4)
   handlepropertyAddress(event) {
     this.setState({
       propertyAddress: event.target.value,
+      location: event.target.value,
     });
   }
 
@@ -1388,29 +1160,8 @@ switch(tbval){
   }
 
 
-  handleroomename(event) {
-    this.setState({
-      roomename: event.target.value,
-    });
-  }
+  
 
-  handleroomtype(val,rtval) {
-    if (rtval==1){
-      this.setState({
-       roomtypediv1:"innervbuutonhover",
-       roomtypediv2:"innervbuuton",
-        roomtype: val,
-      });
-    }else{
-      this.setState({
-        roomtype: val,
-        roomtypediv1:"innervbuuton",
-       roomtypediv2:"innervbuutonhover",
-      });
-    }
-
-    
-  }
 
   handlebathroom(val,bval) {
     if (bval==1){

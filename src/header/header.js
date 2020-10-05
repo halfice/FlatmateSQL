@@ -37,8 +37,13 @@ export class Header extends React.Component {
       value: 2,
       userLoginId: this.props.userLoginId,
       rangevalue: 0,
+      area:"",
+
     }
   }
+
+
+
 
   componentDidMount() {
 
@@ -98,9 +103,9 @@ export class Header extends React.Component {
         </div>
 
 
-        <div className="row">
+        <div className="searchRow">
 
-          <div className="col-md-2 m-2">
+          <div className="col-md-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Property Type
@@ -115,7 +120,7 @@ export class Header extends React.Component {
 
 
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Location
@@ -128,7 +133,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 BedRooms
@@ -141,7 +146,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Funished
@@ -153,20 +158,21 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
 
 
 
-            <MyRange />
+          <input type="text" className="form-control" onChange={this.handlearea} placeholder="SQL FEET 0 - 999"></input>
+
 
           </div>
 
         </div>
 
 
-        <div className="row">
+        <div className="searchRow">
 
-          <div className="col-md-2 m-2">
+          <div className="col-md-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Price - Min
@@ -181,7 +187,7 @@ export class Header extends React.Component {
 
 
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
               Price - Max
@@ -194,7 +200,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                State
@@ -207,7 +213,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Deal - Hot / Cold
@@ -219,7 +225,7 @@ export class Header extends React.Component {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-lg-2 m-2">
+          <div className="col-lg-2">
 
             <div className="mainbutnd">
               <div className="innerbt">
@@ -237,6 +243,13 @@ export class Header extends React.Component {
 
 
     );
+  }
+
+
+  handlearea(event) {
+    this.setState({
+      area: event.target.value,
+    });
   }
 
 }

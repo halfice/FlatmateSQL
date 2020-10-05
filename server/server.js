@@ -24,6 +24,7 @@ const CardTenants = require('./Cardstenants');
 const CardOwners = require('./CardOwners');
 const Bids = require('./Bids');
 const MyFiles = require('./MyFiles');
+const Property = require('./Property');
 
 app.use('/users', userRoutes);
 app.use('/tenant', tenantroutes);
@@ -33,7 +34,7 @@ app.use('/bids', Bids);
 app.use('/cardtenants', CardTenants);
 app.use('/cardowners', CardOwners);
 app.use('/MyFiles', MyFiles);
-
+app.use('/Property', Property);
 //app.use(express.static('./build'));
 
 

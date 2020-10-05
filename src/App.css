@@ -277,6 +277,15 @@ a:hover{
     position: absolute;
 }
 
+
+.searchRow{
+  display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+    padding:3;
+}
+
 .headerrow{
   padding: 0px!important;
   font-size: 23px;

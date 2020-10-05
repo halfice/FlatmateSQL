@@ -352,6 +352,53 @@ function OwnerLogin(data, callback) {
 
 }
 
+//Property Insert 
+function PropertyRegister(data, callback) {
+  var connection = new Connection(GetConfigmethod());
+  var newdata = [];
+  var dataset = [];
+  var universalid = data.userid;
+  connection.on('connect', function (err) {
+    var sql = "InsertProperty"; // "insert into users values ('" + data[1] + "','" + data[0] + "','" + data[3] + "','" + data[2] + "','" + data[2] + "','" + data[2] + "')";
+    //console.log(sql);
+    var Request = require('tedious').Request;
+    var request = new Request(sql, function (err, rowCount) {
+
+      if (err) {
+        console.log(err);
+        callback(err);
+      } else {
+
+        if (rowCount < 1) {
+          callback(null, false);
+        } else {
+          callback(null, newdata);
+        }
+      }
+    });
+
+    request.addParameter("LoginUserID", TYPES.NVarChar, data.LoginUserID);
+    request.addParameter("Type", TYPES.NVarChar, data.typeofAccomodation);
+    request.addParameter("location", TYPES.NVarChar, data.location);
+    request.addParameter("Bedrooms", TYPES.NVarChar, data.totalbed);
+    request.addParameter("totalbathrooms", TYPES.NVarChar, data.totalbathrooms);
+    request.addParameter("parking", TYPES.NVarChar, data.parking);
+    request.addParameter("internet", TYPES.NVarChar, data.internet);
+    request.addParameter("Price", TYPES.NVarChar, data.Price);
+    request.addParameter("FurnishedTyope", TYPES.NVarChar, data.roomfuninishing);
+    request.addParameter("State", TYPES.NVarChar, "");
+    request.addParameter("Deal", TYPES.NVarChar, "Yes");
+    request.addParameter("picstring", TYPES.NVarChar, data.picstring);
+    request.addParameter("picsstringone", TYPES.NVarChar, data.picstringone);
+    request.addParameter("picsstringtwo", TYPES.NVarChar, data.picstringtwo);
+    request.addParameter("picsstringthree", TYPES.NVarChar, data.picstringthree);
+    connection.callProcedure(request);
+
+  });
+
+}
+//Property Inser End
+
 
 //Bid //get the clietns cards
 function GetBids(data, callback) {
@@ -570,7 +617,8 @@ module.exports = {
   GetCardOwners,
   GetCardTenants,
   GetRegFiles,
-  GetImageStr
+  GetImageStr,
+  PropertyRegister
 };
 
 /*
