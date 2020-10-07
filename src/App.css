@@ -281,9 +281,9 @@ a:hover{
 .searchRow{
   display: flex;
     flex-wrap: wrap;
-    margin-right: -5px;
-    margin-left: -5px;
-    padding:3;
+    margin-right: 5px;
+    margin-left: 15px;
+    padding:3px;
 }
 
 .headerrow{

@@ -120,7 +120,7 @@ export class Header extends React.Component {
 
 
           </div>
-          <div className="col-lg-2">
+          <div className="col-lg-3">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Location
@@ -187,7 +187,7 @@ export class Header extends React.Component {
 
 
           </div>
-          <div className="col-lg-2">
+          <div className="col-lg-3">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
               Price - Max
