@@ -5,11 +5,11 @@
 
   "homepage": "http://.",
   "scripts": {
-    "client": "react-scripts start",
-    "server": "node server/server.js ",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "start": "npm run build && npm run server"
+    "test":"react-script test",
+    "eject":"react-scripts eject"
+    
   },
   "keywords": [],
   "author": "",
