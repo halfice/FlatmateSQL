@@ -36,15 +36,20 @@ export class screenregister extends React.Component {
             loader:true,
         });
        //alert(this.state.name);
+
         const params = {
+            
             userid: this.state.name,
             email: this.state.email,
             phone:this.state.phone, 
             password: this.state.password,
                     
+            
           };
+          var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+
         axios
-        .post('http://localhost:4000/users/register', {params})
+        .post(regurl, {params})
         .then(res => {
           this.setState({
             universalid:res.data[0]["universalid"],
