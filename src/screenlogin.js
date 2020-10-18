@@ -50,6 +50,13 @@ export class screenlogin extends React.Component {
         this.setState({
             loader:true,
         });
+
+        let config = {
+            headers  = {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "Get, Post, Options"
+            }
+          }
        
          const params = {
             functiontype:"c",
@@ -61,7 +68,7 @@ export class screenlogin extends React.Component {
          var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
 
          axios
-         .post(loginurl)
+         .post(loginurl,config)
          .then(res => {
            //  console.log(res);
              if (res.data==null){
