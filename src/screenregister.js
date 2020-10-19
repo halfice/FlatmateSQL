@@ -59,7 +59,7 @@ export class screenregister extends React.Component {
         .post(regurl, {params})
         .then(res => {
           this.setState({
-            universalid:res.data[0]["universalid"],
+            universalid:res.data.recordsets[0].recordset[0].UserId,
             loader:false,
         });
         console.log(this.state.universalid);

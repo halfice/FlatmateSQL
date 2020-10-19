@@ -76,7 +76,7 @@ export class screenlogin extends React.Component {
              }else{
                 // console.log(res);
                 this.setState({
-                    universalid:res.data[0][6].val,
+                    universalid:res.data.recordsets[0].recordset[0].UserId,
                     loader:false,
                 });
                 this.props.handleRegisnteredUserId(this.state.universalid);
@@ -120,7 +120,7 @@ export class screenlogin extends React.Component {
     .post(regurl, data, config)
     .then(res => {
       this.setState({
-        universalid:res.data,
+        universalid:res.res.data.recordsets[0].recordset[0].UserId,
         loader:false,
     });
     this.props.handleRegisnteredUserId(this.state.universalid);
