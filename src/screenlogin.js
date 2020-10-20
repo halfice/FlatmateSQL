@@ -47,6 +47,7 @@ export class screenlogin extends React.Component {
 
 
     handleClick() {
+        var _Response=null;
         this.setState({
             loader:true,
         });
@@ -62,8 +63,9 @@ export class screenlogin extends React.Component {
          .post(loginurl)
          .then(res => {
                 console.log(res);
+                _Response=res;
                 this.setState({
-                    universalid:res.data.recordsets[0].UserId,
+                    universalid:_Response.data.recordsets[0].UserId,
                     loader:false,
                 });
                 this.props.handleRegisnteredUserId(this.state.universalid);
