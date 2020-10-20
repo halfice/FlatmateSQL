@@ -58,19 +58,16 @@ export class screenlogin extends React.Component {
            };
 
            var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
-
-           try {
+    try {
                let res=await axios.post(loginurl);
-
                this.setState({
                 universalid:res,
                 loader:false,
             });
-
+            this.props.handleRegisnteredUserId(this.state.universalid);
                console.log(res.data);
            } catch (error) {
                console.log(error);
-               
            }
           /* axios.get(loginurl)
            .then(response => {
@@ -80,7 +77,7 @@ export class screenlogin extends React.Component {
                 universalid:_Response.data.recordsets[0].UserId,
                 loader:false,
             });
-            this.props.handleRegisnteredUserId(this.state.universalid);
+            
            })
            .catch(function (error) {
              // handle error
@@ -103,25 +100,22 @@ export class screenlogin extends React.Component {
         password: "facebookpassword",
              
       };
-      // var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b`;
-      var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
 
-    axios
-    .post(regurl, data)
-    .then(res => {
-      this.setState({
-        universalid:res.res.data.recordsets[0].recordset[0].UserId,
-        loader:false,
-    });
-    this.props.handleRegisnteredUserId(this.state.universalid);
-    })
-    .catch(err => {
-      console.log("Error in CreateBook!k");
-    });
+      var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+    try {
+               let res=await axios.post(loginurl);
+               this.setState({
+                universalid:res,
+                loader:false,
+            });
+            this.props.handleRegisnteredUserId(this.state.universalid);
+               console.log(res.data);
+           } catch (error) {
+               console.log(error);
+           }
   }
  
    responseFacebook = (response) => {
-    //console.log(response);
     this.setState({
         email:response.email,
     });
@@ -131,10 +125,8 @@ export class screenlogin extends React.Component {
     this.setState({
         loader:true,
     });
-   // console.log(response);
   }
 
-  
 
 
     render() {

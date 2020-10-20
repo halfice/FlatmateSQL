@@ -47,29 +47,23 @@ export class screenregister extends React.Component {
             
           };
 
-        
-          var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
 
-        axios
-        .post(regurl, {params})
-        .then(res => {
-          this.setState({
-            universalid:res.data.recordsets[0].recordset[0].UserId,
-            loader:false,
-        });
-        console.log(this.state.universalid);
-        this.props.handleRegisnteredUserId(this.state.universalid);
-        })
-        .catch(err => {
-          console.log("Error in Registring user!");
-        });
-    
 
+        //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+ try {
+                     let res=await axios.post(loginurl);
+                     this.setState({
+                      universalid:res,
+                      loader:false,
+                  });
+                  this.props.handleRegisnteredUserId(this.state.universalid);
+                     console.log(res.data);
+                 } catch (error) {
+                     console.log(error);
+                 }
 
  }
-
-
-
 
 
     render() {
