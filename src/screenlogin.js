@@ -57,24 +57,26 @@ export class screenlogin extends React.Component {
             password: this.state.password,          
            };
 
-         var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
-        axios
-         .get(loginurl)
-         .then(res => {
-                console.log(res);
-                _Response=res;
-                this.setState({
-                    universalid:_Response.data.recordsets[0].UserId,
-                    loader:false,
-                });
-                this.props.handleRegisnteredUserId(this.state.universalid);
-         })
-         .catch(err => {
+           var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
 
-           console.log("Error in login user : "+err);
-         });
-     
- 
+           axios.get(loginurl)
+           .then(function (response) {
+             // handle success
+             console.log(response);
+             this.setState({
+                universalid:_Response.data.recordsets[0].UserId,
+                loader:false,
+            });
+            this.props.handleRegisnteredUserId(this.state.universalid);
+
+           })
+           .catch(function (error) {
+             // handle error
+             console.log(error);
+           })
+           .then(function () {
+             // always executed
+           });
  
   }
 
