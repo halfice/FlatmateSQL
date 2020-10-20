@@ -59,6 +59,29 @@ export class screenlogin extends React.Component {
 
          var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
 
+
+fetch(loginurl)
+.then(res=>{
+    console.log(res);
+    _Response=res;
+    this.setState({
+        universalid:_Response.data.recordsets[0].UserId,
+        loader:false,
+    });
+    this.props.handleRegisnteredUserId(this.state.universalid);
+})
+.then(response=> {
+    console.log(response);
+    _Response=response;
+    this.setState({
+        universalid:_Response.data.recordsets[0].UserId,
+        loader:false,
+    });
+    this.props.handleRegisnteredUserId(this.state.universalid);
+});
+
+
+
          axios
          .post(loginurl)
          .then(res => {
