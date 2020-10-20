@@ -50,32 +50,23 @@ export class screenlogin extends React.Component {
         this.setState({
             loader:true,
         });
-
-       
          const params = {
             functiontype:"c",
             email: this.state.email,
             password: this.state.password,          
            };
-         // console.log(params);
-//http://localhost:4000/users/login
+
          var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
 
          axios
          .post(loginurl)
          .then(res => {
-            console.log(res);
-             if (res.data==null){
-                this.registeruser();
-             }else{
                 console.log(res);
                 this.setState({
                     universalid:res.data.recordsets[0].UserId,
                     loader:false,
                 });
                 this.props.handleRegisnteredUserId(this.state.universalid);
-             }
-          
          })
          .catch(err => {
 
@@ -97,12 +88,7 @@ export class screenlogin extends React.Component {
         password: "facebookpassword",
              
       };
-
-
-    
-
-      
-     // var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b`;
+      // var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b`;
       var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
 
     axios
@@ -124,9 +110,7 @@ export class screenlogin extends React.Component {
     this.setState({
         email:response.email,
     });
-
-
-    this.handleClick();
+    this.registeruser();
   }
   componentClicked = (response) => {
     this.setState({
