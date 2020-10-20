@@ -196,7 +196,7 @@ export class screenlogin extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12">
                                 
-                                <Button className="mybuttons" onClick={this.handleClick} >Log In</Button>
+                                <Button className="mybuttons" onClick={this.handleClick.bind(this)} >Log In</Button>
                             </div>
 
                         </div>
