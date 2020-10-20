@@ -74,7 +74,7 @@ export class screenlogin extends React.Component {
              if (res.data==null){
                 this.registeruser();
              }else{
-                // console.log(res);
+                console.log(res);
                 this.setState({
                     universalid:res.data.recordsets[0].recordset[0].UserId,
                     loader:false,
