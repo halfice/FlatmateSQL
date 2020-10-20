@@ -60,7 +60,7 @@ export class screenlogin extends React.Component {
            var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
 
            axios.get(loginurl)
-           .then(function (response) {
+           .then(response => {
              // handle success
              console.log(response);
              this.setState({
