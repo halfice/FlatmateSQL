@@ -58,9 +58,9 @@ export class screenregister extends React.Component {
                       loader:false,
                   });
                   this.props.handleRegisnteredUserId(this.state.universalid);
-                     console.log(res.data);
+                    // console.log(res.data);
                  } catch (error) {
-                     console.log(error);
+                     //console.log(error);
                  }
 
  }

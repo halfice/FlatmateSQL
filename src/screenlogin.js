@@ -65,9 +65,9 @@ export class screenlogin extends React.Component {
                 loader:false,
             });
             this.props.handleRegisnteredUserId(this.state.universalid);
-               console.log(res.data);
+             //  console.log(res.data);
            } catch (error) {
-               console.log(error);
+              // console.log(error);
            }
           /* axios.get(loginurl)
            .then(response => {
@@ -109,9 +109,9 @@ export class screenlogin extends React.Component {
                 loader:false,
             });
             this.props.handleRegisnteredUserId(this.state.universalid);
-               console.log(res.data);
+               //console.log(res.data);
            } catch (error) {
-               console.log(error);
+               //console.log(error);
            }
   }
  

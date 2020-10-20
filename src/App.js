@@ -147,15 +147,14 @@ class App extends Component {
     })
   }
   handlerRegister = (val) => {
-
-    this.setState({
+   this.setState({
       needwizard: val,
       showcard: 0,
 
     })
   }
   handleRegisnteredUserId = (useridfromdb) => {
-    //alert(useridfromdb);
+    console.log(useridfromdb);
     this.setState({
       userid: useridfromdb,
       needwizard: 0,
