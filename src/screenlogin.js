@@ -64,13 +64,13 @@ export class screenlogin extends React.Component {
          axios
          .post(loginurl)
          .then(res => {
-           //  console.log(res);
+            console.log(res);
              if (res.data==null){
                 this.registeruser();
              }else{
                 console.log(res);
                 this.setState({
-                    universalid:res.data.recordsets[0].recordset[0].UserId,
+                    universalid:res.data.recordsets[0].UserId,
                     loader:false,
                 });
                 this.props.handleRegisnteredUserId(this.state.universalid);
