@@ -89,7 +89,7 @@ export class screenlogin extends React.Component {
  
   }
 
-  registeruser(){
+  async registeruser(){
 
     
     const data = {
@@ -103,7 +103,7 @@ export class screenlogin extends React.Component {
 
       var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
     try {
-               let res=await axios.post(loginurl);
+               let res=await axios.post(regurl);
                this.setState({
                 universalid:res,
                 loader:false,
