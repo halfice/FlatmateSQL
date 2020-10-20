@@ -59,7 +59,14 @@ export class screenlogin extends React.Component {
 
            var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
 
-           axios.get(loginurl)
+           try {
+               let res=await axios.post(loginurl);
+               console.log(res.data);
+           } catch (error) {
+               console.log(error);
+               
+           }
+          /* axios.get(loginurl)
            .then(response => {
              // handle success
              console.log(response);
@@ -68,7 +75,6 @@ export class screenlogin extends React.Component {
                 loader:false,
             });
             this.props.handleRegisnteredUserId(this.state.universalid);
-
            })
            .catch(function (error) {
              // handle error
@@ -76,7 +82,7 @@ export class screenlogin extends React.Component {
            })
            .then(function () {
              // always executed
-           });
+           });*/
  
   }
 
