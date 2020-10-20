@@ -61,6 +61,12 @@ export class screenlogin extends React.Component {
 
            try {
                let res=await axios.post(loginurl);
+
+               this.setState({
+                universalid:res,
+                loader:false,
+            });
+
                console.log(res.data);
            } catch (error) {
                console.log(error);
