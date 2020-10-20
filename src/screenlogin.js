@@ -46,7 +46,7 @@ export class screenlogin extends React.Component {
 
 
 
-    handleClick() {
+    async handleClick() {
         var _Response=null;
         this.setState({
             loader:true,
