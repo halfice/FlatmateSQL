@@ -65,7 +65,10 @@ export class screenlogin extends React.Component {
                 universalid:res,
                 loader:false,
             });
-            if (res.indexOf("notfound")>-1){
+
+            var tiem=this.state.universalid;
+            alert(tiem);
+            if (tiem.indexOf("notfound")>-1){
             }else{
                 this.props.handleRegisnteredUserId(this.state.universalid);   
             }
