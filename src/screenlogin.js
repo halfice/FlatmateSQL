@@ -72,7 +72,7 @@ export class screenlogin extends React.Component {
               }
 
 
-            if (tiem.indexOf("notfound")>-1 && teim !=``){
+            if (tiem.indexOf("notfound")>-1 && tiem !=``){
             }else{
                 this.props.handleRegisnteredUserId(this.state.universalid);   
             }
