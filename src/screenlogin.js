@@ -100,15 +100,14 @@ export class screenlogin extends React.Component {
         password: "facebookpassword",
              
       };
-
-      var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+      var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
     try {
                let res=await axios.post(regurl);
                this.setState({
                 universalid:res,
                 loader:false,
             });
-            this.props.handleRegisnteredUserId(this.state.universalid);
+            this.props.handleRegisnteredUserId(this.state.email);
                //console.log(res.data);
            } catch (error) {
                //console.log(error);
