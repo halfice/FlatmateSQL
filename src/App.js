@@ -156,8 +156,13 @@ class App extends Component {
   handleRegisnteredUserId = (useridfromdb) => {
    
     var myObject = JSON.stringify(useridfromdb.data);
+    if (useridfromdb.data==undefined){
+      myObject=useridfromdb;
+    }
+
+
     console.log(myObject);
-    var userid=useridfromdb.data;
+    var userid=myObject;
     this.setState({
       userid: userid,
       needwizard: 0,
