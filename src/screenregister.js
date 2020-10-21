@@ -37,15 +37,14 @@ export class screenregister extends React.Component {
         });
        //alert(this.state.name);
 
-        const params = {
-            
-            userid: this.state.name,
-            email: this.state.email,
-            phone:this.state.phone, 
-            password: this.state.password,
+       //     
+           var userid= this.state.name;
+            var email=this.state.email;
+           var  phone=this.state.phone;
+           var  password=this.state.password;
                     
             
-          };
+         // };
 
 
 

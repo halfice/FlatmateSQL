@@ -92,14 +92,14 @@ export class screenlogin extends React.Component {
   async registeruser(){
 
     
-    const data = {
-        functiontype:"b",
-        email: this.state.email,
-        userid: "facebook user",
-        phone:"9999",
-        password: "facebookpassword",
+    const data = "";
+        const  functiontype="b";
+        const email= this.state.email;
+        const  userid= "facebook user";
+        const  phone="9999";
+        const  password= "facebookpassword";
              
-      };
+     // };
       var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
     try {
                let res=await axios.post(regurl);
