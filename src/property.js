@@ -167,7 +167,8 @@ export class Property extends React.Component {
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 200,
-      useWebWorker: true
+      useWebWorker: true,
+      usbd:22,
     }
     try {
       const compressedFile = await imageCompression(imageFile, options);
@@ -185,6 +186,7 @@ export class Property extends React.Component {
      // alert(tmp);
      const data ={
       picstring:reader.result,
+    
      }
         
      axios
