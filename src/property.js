@@ -188,9 +188,13 @@ export class Property extends React.Component {
       picstring:reader.result,
     
      }
-        
+
+     const filestrint=reader.result;
+
+     var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=${filestrint}`
+
      axios
-     .post('http://localhost:4000/MyFiles/register', data)
+     .post(loginurl)
      .then(res => {
        console.log(res.data[0].universalid);
        if (tmp==1){
