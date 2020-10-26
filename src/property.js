@@ -190,11 +190,13 @@ export class Property extends React.Component {
      }
 
      const filestrint=reader.result;
-
+     const params = {
+      filestrint: this.props.UserID,
+    };
      var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=${filestrint}`
 
      axios
-     .post(loginurl)
+     .post(loginurl,params)
      .then(res => {
        console.log(res.data[0].universalid);
        if (tmp==1){
