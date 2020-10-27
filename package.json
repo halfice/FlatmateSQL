@@ -2,19 +2,18 @@
   "name": "myflatmatemongo",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-
   "homepage": "http://.",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test":"react-script test",
-    "eject":"react-scripts eject"
-    
+    "test": "react-script test",
+    "eject": "react-scripts eject"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/storage-blob": "^12.2.1",
     "@fortawesome/fontawesome-svg-core": "1.2.0",
     "@fortawesome/free-regular-svg-icons": "5.1.0",
     "@fortawesome/free-solid-svg-icons": "5.1.0",

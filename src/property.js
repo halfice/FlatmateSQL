@@ -17,6 +17,8 @@ import {  faCog,
     faHome
     
   } from '@fortawesome/free-solid-svg-icons';
+  import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas,faCheck,faBriefcase,faBackward,faHome)
 
@@ -161,9 +163,8 @@ export class Property extends React.Component {
       loader: true,
     });
     const imageFile = event.target.files[0];
-    //console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
-    //console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
-   
+
+
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 200,
@@ -172,14 +173,30 @@ export class Property extends React.Component {
     }
     try {
       const compressedFile = await imageCompression(imageFile, options);
-      //console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
-      //console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
-
+     
+      //https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js
       let reader = new FileReader();
       let file = compressedFile;
       var newfile = file;
       //console.log(compressedFile);
       reader.onloadend = () => {
+
+        const account =  "userfunctionsapi";
+        const accountKey = "HBMiE9MN9Zqe5nt5Lmk2yMMu6dxuMMhOUDWN0AW0msF1uXUJhDebmnGb98f1+2jNJ1u2JkZIv5RT3+QcfMbqVQ==";
+
+// Use StorageSharedKeyCredential with storage account and account key
+  // StorageSharedKeyCredential is only avaiable in Node.js runtime, not in browsers
+  const sharedKeyCredential = new StorageSharedKeyCredential(account, accountKey);
+
+
+
+  // Create a blob
+  const content = "hello";
+  const blobName = "newblob" + new Date().getTime();
+  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+  const uploadBlobResponse = await blockBlobClient.upload(content, Buffer.byteLength(content));
+  console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
+
     
       var tmp =this.state.picscounter;
       tmp=tmp+1;
@@ -193,58 +210,9 @@ export class Property extends React.Component {
      const params = {
       filestrint: this.props.UserID,
     };
-     var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=${filestrint}`
-
-     axios
-     .post(loginurl,params)
-     .then(res => {
-       console.log(res.data[0].universalid);
-       if (tmp==1){
-        this.setState({
-          file: reader.result,
-          imagePreviewUrl: reader.result,
-          picstring: res.data[0].universalid,//reader.result,
-          picscounter:tmp,
-          loader:false,
-        });
-      }
 
 
-      if (tmp==2){
-        this.setState({
-          file: reader.result,
-          imagePreviewUrl1: reader.result,
-          picstring1: res.data[0].universalid,
-          picscounter:tmp,
-          loader:false,
-        });
-      }
-
-      if (tmp==3){
-        this.setState({
-          file: reader.result,
-          imagePreviewUrl2: reader.result,
-          picstring2: res.data[0].universalid,
-          picscounter:tmp,
-          loader:false,
-        });
-      }
-
-      if (tmp==4){
-        this.setState({
-          file: reader.result,
-          imagePreviewUrl3: reader.result,
-          picstring3: res.data[0].universalid,
-          picscounter:tmp,
-          loader:false,
-        });
-      }
-
-     })
-     .catch(err => {
-       console.log("Error in CreateBook!");
-     });
-
+     
 
     }
 
@@ -1448,7 +1416,112 @@ switch(tbval){
       });
     }
 
-
+    async  AzureApoihandleImageUpload(event) {
+      this.setState({
+        loader: true,
+      });
+      const imageFile = event.target.files[0];
+      //console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+      //console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+     
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 200,
+        useWebWorker: true,
+        usbd:22,
+      }
+      try {
+        const compressedFile = await imageCompression(imageFile, options);
+        //console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+        //console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+  
+        let reader = new FileReader();
+        let file = compressedFile;
+        var newfile = file;
+        //console.log(compressedFile);
+        reader.onloadend = () => {
+      
+        var tmp =this.state.picscounter;
+        tmp=tmp+1;
+       // alert(tmp);
+       const data ={
+        picstring:reader.result,
+      
+       }
+  
+       const filestrint=reader.result;
+       const params = {
+        filestrint: this.props.UserID,
+      };
+       var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=${filestrint}`
+  
+       axios
+       .post(loginurl,params)
+       .then(res => {
+         console.log(res.data[0].universalid);
+         if (tmp==1){
+          this.setState({
+            file: reader.result,
+            imagePreviewUrl: reader.result,
+            picstring: res.data[0].universalid,//reader.result,
+            picscounter:tmp,
+            loader:false,
+          });
+        }
+  
+  
+        if (tmp==2){
+          this.setState({
+            file: reader.result,
+            imagePreviewUrl1: reader.result,
+            picstring1: res.data[0].universalid,
+            picscounter:tmp,
+            loader:false,
+          });
+        }
+  
+        if (tmp==3){
+          this.setState({
+            file: reader.result,
+            imagePreviewUrl2: reader.result,
+            picstring2: res.data[0].universalid,
+            picscounter:tmp,
+            loader:false,
+          });
+        }
+  
+        if (tmp==4){
+          this.setState({
+            file: reader.result,
+            imagePreviewUrl3: reader.result,
+            picstring3: res.data[0].universalid,
+            picscounter:tmp,
+            loader:false,
+          });
+        }
+  
+       })
+       .catch(err => {
+         console.log("Error in CreateBook!");
+       });
+  
+  
+      }
+  
+      
+  
+  
+  
+  
+  
+        reader.readAsDataURL(file)
+     
+        //await uploadToServer(compressedFile); // write your own logic
+      } catch (error) {
+        console.log(error);
+      }
+     
+    }
 
 }
 
