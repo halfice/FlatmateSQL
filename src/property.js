@@ -179,7 +179,7 @@ export class Property extends React.Component {
       let file = compressedFile;
       var newfile = file;
       //console.log(compressedFile);
-      reader.onloadend = () => {
+     reader.onloadend = () => {
 
         const account =  "userfunctionsapi";
         const accountKey = "HBMiE9MN9Zqe5nt5Lmk2yMMu6dxuMMhOUDWN0AW0msF1uXUJhDebmnGb98f1+2jNJ1u2JkZIv5RT3+QcfMbqVQ==";
@@ -194,7 +194,7 @@ export class Property extends React.Component {
   const content = "hello";
   const blobName = "newblob" + new Date().getTime();
   const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-  const uploadBlobResponse = await blockBlobClient.upload(content, Buffer.byteLength(content));
+  const uploadBlobResponse =  blockBlobClient.upload(content, Buffer.byteLength(content));
   console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
 
     
