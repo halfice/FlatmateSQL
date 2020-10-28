@@ -188,8 +188,12 @@ export class Property extends React.Component {
   // StorageSharedKeyCredential is only avaiable in Node.js runtime, not in browsers
   const sharedKeyCredential = new StorageSharedKeyCredential(account, accountKey);
 
+  const blobServiceClient = new BlobServiceClient(
+    `https://${account}.blob.core.windows.net`,
+    sharedKeyCredential
+  );
 
-
+  const containerClient = blobServiceClient.getContainerClient('myfiles');
   // Create a blob
   const content = "hello";
   const blobName = "newblob" + new Date().getTime();
