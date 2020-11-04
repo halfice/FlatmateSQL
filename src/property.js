@@ -40,6 +40,7 @@ export class Property extends React.Component {
       totalbathrooms: "",
       parking: "",
       internet: "",
+      blobtoken:"",
       
       roomfuninishing: "",
       bathroom: "",
@@ -152,11 +153,30 @@ export class Property extends React.Component {
     this.handleprince = this.handleprince.bind(this);
   }
 
+  componentDidMount(){
+this.getblobtoken();
+  }
+
+  getblobtoken(){
+    var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
+    try {
+               let res=await axios.post(loginurl);
+               this.setState({
+                blobtoken:res,
+                loader:false,
+            });
+           } catch (error) {
+               console.log(error);
+           }
+  }
+
   handleprince(event) {
     this.setState({
       price: event.target.value,
     });
   }
+
+  
 
   async  handleImageUpload(event) {
     this.setState({
@@ -175,32 +195,26 @@ export class Property extends React.Component {
       const compressedFile = await imageCompression(imageFile, options);
      
       //https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js
-      let reader = new FileReader();
+     
+      der = new FileReader();
       let file = compressedFile;
       var newfile = file;
-      //console.log(compressedFile);
+      
      reader.onloadend = () => {
+      //final//https://www.npmjs.com/package/@azure/storage-blob#with-sas-token
+      const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
 
-        const account =  "userfunctionsapi";
-        const accountKey = "HBMiE9MN9Zqe5nt5Lmk2yMMu6dxuMMhOUDWN0AW0msF1uXUJhDebmnGb98f1+2jNJ1u2JkZIv5RT3+QcfMbqVQ==";
-
-// Use StorageSharedKeyCredential with storage account and account key
-  // StorageSharedKeyCredential is only avaiable in Node.js runtime, not in browsers
-  const sharedKeyCredential = new StorageSharedKeyCredential(account, accountKey);
-
-  const blobServiceClient = new BlobServiceClient(
-    `https://${account}.blob.core.windows.net`,
-    sharedKeyCredential
-  );
-
-  const containerClient = blobServiceClient.getContainerClient('myfiles');
-  // Create a blob
-  const content = "hello";
-  const blobName = "newblob" + new Date().getTime();
-  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-  const uploadBlobResponse =  blockBlobClient.upload(content, Buffer.byteLength(content));
-  console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
-
+      const account = "<account name>";
+      const sas = this.state.blobtoken;
+       //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
+      const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${sas}`);
+      let i = 1;
+      let iter = blobServiceClient.listContainers();
+      let containerItem = await iter.next();
+      while (!containerItem.done) {
+        console.log(`Container ${i++}: ${containerItem.value.name}`);
+        containerItem = await iter.next();
+      }
     
       var tmp =this.state.picscounter;
       tmp=tmp+1;
