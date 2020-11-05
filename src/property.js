@@ -157,10 +157,10 @@ export class Property extends React.Component {
 this.getblobtoken();
   }
 
-  getblobtoken(){
+  async getblobtoken(){
     var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
     try {
-               let res=await axios.post(loginurl);
+               let res=await  axios.post(loginurl);
                this.setState({
                 blobtoken:res,
                 loader:false,
@@ -196,7 +196,10 @@ this.getblobtoken();
      
       //https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js
      
-      der = new FileReader();
+     
+
+
+      let reader = new FileReader();
       let file = compressedFile;
       var newfile = file;
       
@@ -210,10 +213,10 @@ this.getblobtoken();
       const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${sas}`);
       let i = 1;
       let iter = blobServiceClient.listContainers();
-      let containerItem = await iter.next();
+      let containerItem =  iter.next();
       while (!containerItem.done) {
         console.log(`Container ${i++}: ${containerItem.value.name}`);
-        containerItem = await iter.next();
+        containerItem =  iter.next();
       }
     
       var tmp =this.state.picscounter;
