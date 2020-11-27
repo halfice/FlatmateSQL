@@ -217,7 +217,7 @@ this.getblobtoken();
       const content = "Hello world!";
       const blobName = "newblob" + new Date().getTime();
       const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-      const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
+      const uploadBlobResponse =  blockBlobClient.upload(content, content.length);
       console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
 
 
