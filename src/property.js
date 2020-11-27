@@ -185,6 +185,8 @@ this.getblobtoken();
     const imageFile = event.target.files[0];
 
 
+   
+
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 200,
@@ -193,63 +195,37 @@ this.getblobtoken();
     }
     try {
       const compressedFile = await imageCompression(imageFile, options);
-     
-      //https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js
-     
-     
-
-
+    
+      const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+      const sas = this.state.blobtoken;
+      //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
+     var finalToken=sas.data.token;
+      const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
+      const containerClient =  blobServiceClient.getContainerClient("myfiles");
+      const content = "Hello world!";
+      const blobName = "newblob" + new Date().getTime();
+      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+      const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
+      console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
       let reader = new FileReader();
       let file = compressedFile;
       var newfile = file;
       
      reader.onloadend = () => {
       //final//https://www.npmjs.com/package/@azure/storage-blob#with-sas-token
-      const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
-
-      const account = "<account name>";
-      const sas = this.state.blobtoken;
-       //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
-      var finalToken=sas.data.token;
-       const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
-      
-       const containerClient = blobServiceClient.getContainerClient("myfiles");
-      const content = "Hello world!";
-      const blobName = "newblob" + new Date().getTime();
-      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-      const uploadBlobResponse =  blockBlobClient.upload(content, content.length);
-      console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
-
-
-
-
-    
+      //https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js
       var tmp =this.state.picscounter;
       tmp=tmp+1;
-     // alert(tmp);
-     const data ={
-      picstring:reader.result,
-    
-     }
-
+          const data ={
+            picstring:reader.result,
+          }
      const filestrint=reader.result;
-     const params = {
-      filestrint: this.props.UserID,
-    };
+        const params = {
+          filestrint: this.props.UserID,
+        };
 
-
-     
-
-    }
-
-    
-
-
-
-
-
+    }//onload end
       reader.readAsDataURL(file)
-   
       //await uploadToServer(compressedFile); // write your own logic
     } catch (error) {
       console.log(error);
