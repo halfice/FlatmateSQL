@@ -161,9 +161,9 @@ this.getblobtoken();
     var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
     try {
                let res=await  axios.post(loginurl);
-               console.log(res);
+               console.log(res.Data.token);
                this.setState({
-                blobtoken:res,
+                blobtoken:res.Data.token,
                 loader:false,
             });
            } catch (error) {
