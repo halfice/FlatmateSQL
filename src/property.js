@@ -161,7 +161,6 @@ this.getblobtoken();
     var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
     try {
                let res=await  axios.post(loginurl);
-               console.log(res.Data.token);
                this.setState({
                 blobtoken:res.Data.token,
                 loader:false,
@@ -211,7 +210,7 @@ this.getblobtoken();
       const account = "<account name>";
       const sas = this.state.blobtoken;
        //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
-      
+      console.log(sas);
        const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${sas}`);
       let i = 1;
       let iter = blobServiceClient.listContainers();
