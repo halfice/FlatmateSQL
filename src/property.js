@@ -212,13 +212,17 @@ this.getblobtoken();
        //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
       var finalToken=sas.data.token;
        const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
-      let i = 1;
-      let iter = blobServiceClient.listContainers();
-      let containerItem =  iter.next();
-      while (!containerItem.done) {
-        console.log(`Container ${i++}: ${containerItem.value.name}`);
-        containerItem =  iter.next();
-      }
+      
+       const containerClient = blobServiceClient.getContainerClient("myfiles");
+      const content = "Hello world!";
+      const blobName = "newblob" + new Date().getTime();
+      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+      const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
+      console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
+
+
+
+
     
       var tmp =this.state.picscounter;
       tmp=tmp+1;
