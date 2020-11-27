@@ -2,7 +2,7 @@
       border: solid 5px white;
       border-radius: 22px;
       color: white;
-      padding: 5px;
+      padding: 4px;
       background-color: rgb(33,153,27,20);
   }
 
@@ -10,7 +10,7 @@
 
 
 .closebuttondi{
-  padding: 11px;
+  padding: 9px;
     color: #ffc107;
     font-stretch: ultra-condensed;
     font: icon;
@@ -27,7 +27,7 @@
   background-color: #c3c8c4!important;
   border-color: #444950!important;
   color: black!important;
-  padding: 11px!important;
+  padding: 9px!important;
 }
 
 .btn{
