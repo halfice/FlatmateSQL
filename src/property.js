@@ -200,6 +200,8 @@ this.getblobtoken();
       const sas = this.state.blobtoken;
       //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
      var finalToken=sas.data.token;
+     finalToken="";
+     finalToken="?sv=2019-12-12&ss=bfqt&srt=sc&sp=rwdlacupx&se=2020-11-27T18:48:33Z&st=2020-11-27T10:48:33Z&spr=https&sig=ZS5whqYEcb6V%2Bs8U2I5abxC59fSMe00wd2hH5cHLn%2BI%3D";
       const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}&comp=list&restype=container`);
       const containerClient =  blobServiceClient.getContainerClient("myfiles");
       var content = "Hello world!";
