@@ -176,9 +176,61 @@ this.getblobtoken();
     });
   }
 
-  
+  async handleImageUpload (files) {
+    if (files.length) {
+      const file = event.target.files[0];
+      this.uploadFile(file)
+    }
+  }
 
-  async  handleImageUpload(event) {
+  async uploadFile (file) {
+    //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
+
+    const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+    const sas = this.state.blobtoken;
+   var finalToken=sas.data.token;
+   finalToken="";
+  finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2021-11-28T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
+
+    const STORAGE_ACCOUNT_NAME = 'userfunctionsapi'
+    const CONTAINER_NAME = 'myfiles'
+    // for browser, SAS_TOKEN is get from API?
+    const SAS_TOKEN = finalToken;
+    const sasURL = `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net/${SAS_TOKEN}`
+  
+    const blobServiceClient = new BlobServiceClient(sasURL)
+    const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
+  
+    const filename = file.name.substring(0, file.name.lastIndexOf('.'))
+    const ext = file.name.substring(file.name.lastIndexOf('.'))
+    const blobName = filename + '_' + new Date().getTime() + ext
+    const blockBlobClient = containerClient.getBlockBlobClient(blobName)
+    const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
+    console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId)
+
+   
+    //const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
+    //const containerClient =  blobServiceClient.getContainerClient("myfiles");
+    //var content = imageFile;//"Hello world!";
+
+   // const filename = event.target.files[0].name.substring(0, file.name.lastIndexOf('.'))
+    //const ext = file.name.substring(file.name.lastIndexOf('.'));
+    //const blobName = filename + '_' + new Date().getTime() + ext;
+    //const blobName = "newblob" + new Date().getTime();
+    //const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+   // const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
+  //  console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
+   // let reader = new FileReader();
+    //let file = compressedFile;
+    //var newfile = file;
+    
+
+
+  }
+
+
+
+  async  handleImageUploadold(event) {
     this.setState({
       loader: true,
     });
@@ -196,7 +248,6 @@ this.getblobtoken();
     try {
       const compressedFile = await imageCompression(imageFile, options);
     
-      const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
       const sas = this.state.blobtoken;
       //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
      var finalToken=sas.data.token;
