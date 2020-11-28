@@ -204,7 +204,7 @@ this.getblobtoken();
     finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2021-11-28T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
       const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
       const containerClient =  blobServiceClient.getContainerClient("myfiles");
-      var content = compressedFile;//"Hello world!";
+      var content = imageFile;//"Hello world!";
       const blobName = "newblob" + new Date().getTime();
       const blockBlobClient = containerClient.getBlockBlobClient(blobName);
       const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
