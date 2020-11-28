@@ -205,7 +205,11 @@ this.getblobtoken();
       const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
       const containerClient =  blobServiceClient.getContainerClient("myfiles");
       var content = imageFile;//"Hello world!";
-      const blobName = "newblob" + new Date().getTime();
+
+      const filename = event.target.files[0].name.substring(0, file.name.lastIndexOf('.'))
+      const ext = file.name.substring(file.name.lastIndexOf('.'));
+      const blobName = filename + '_' + new Date().getTime() + ext;
+      //const blobName = "newblob" + new Date().getTime();
       const blockBlobClient = containerClient.getBlockBlobClient(blobName);
       const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
       console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
