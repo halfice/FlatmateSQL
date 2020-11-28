@@ -200,11 +200,11 @@ this.getblobtoken();
       const sas = this.state.blobtoken;
       //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
      var finalToken=sas.data.token;
-     //finalToken="";
-    //finalToken="?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-12-28T13:31:33Z&st=2020-11-28T05:31:33Z&spr=https&sig=F748phHeqAqfrmcQJ%2FDZPPfLzayjTE4MZD9pLXOXX34%3D";
+     finalToken="";
+    finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2020-11-28T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
       const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
       const containerClient =  blobServiceClient.getContainerClient("myfiles");
-      var content = "Hello world!";
+      var content = compressedFile;//"Hello world!";
       const blobName = "newblob" + new Date().getTime();
       const blockBlobClient = containerClient.getBlockBlobClient(blobName);
       const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
