@@ -177,7 +177,7 @@ this.getblobtoken();
   }
 
   async handleImageUpload (files) {
-    if (files.target.files[0].length) {
+    if (files.target.files[0].length>0) {
       const file = files.target.files[0];
       this.uploadFile(file)
     }
