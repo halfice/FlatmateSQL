@@ -179,7 +179,8 @@ this.getblobtoken();
   async handleImageUpload (files) {
     if (files.target.files.length>0) {
       const file = files.target.files[0];
-      this.uploadFile(file)
+      this.uploadFile(file);
+      this.handleImageUploadold(file);
     }
   }
 
@@ -206,39 +207,17 @@ this.getblobtoken();
     const blobName = filename + '_' + new Date().getTime() + ext
     const blockBlobClient = containerClient.getBlockBlobClient(blobName)
     const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
-    console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId)
-
-   
-    //const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
-    //const containerClient =  blobServiceClient.getContainerClient("myfiles");
-    //var content = imageFile;//"Hello world!";
-
-   // const filename = event.target.files[0].name.substring(0, file.name.lastIndexOf('.'))
-    //const ext = file.name.substring(file.name.lastIndexOf('.'));
-    //const blobName = filename + '_' + new Date().getTime() + ext;
-    //const blobName = "newblob" + new Date().getTime();
-    //const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-   // const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
-  //  console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
-   // let reader = new FileReader();
-    //let file = compressedFile;
-    //var newfile = file;
-    
-
+    console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
 
-
-
-  async  handleImageUploadold(event) {
+    async handleImageUploadold(file) {
     this.setState({
       loader: true,
     });
-    const imageFile = event.target.files[0];
-
-
-   
-
+    const imageFile = file;
+    let reader = new FileReader();
+    var newfile = imageFile;
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 200,
@@ -246,43 +225,67 @@ this.getblobtoken();
       usbd:22,
     }
     try {
-      const compressedFile = await imageCompression(imageFile, options);
-    
-      const sas = this.state.blobtoken;
-      //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
-     var finalToken=sas.data.token;
-     finalToken="";
-    finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2021-11-28T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
-      const blobServiceClient = new BlobServiceClient(`https://userfunctionsapi.blob.core.windows.net?${finalToken}`);
-      const containerClient =  blobServiceClient.getContainerClient("myfiles");
-      var content = imageFile;//"Hello world!";
-
-      const filename = event.target.files[0].name.substring(0, file.name.lastIndexOf('.'))
-      const ext = file.name.substring(file.name.lastIndexOf('.'));
-      const blobName = filename + '_' + new Date().getTime() + ext;
-      //const blobName = "newblob" + new Date().getTime();
-      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-      const uploadBlobResponse = await blockBlobClient.upload(content, content.length);
-      console.log(`Upload block blob ${blobName} successfully`, uploadBlobResponse.requestId);
-      let reader = new FileReader();
-      let file = compressedFile;
-      var newfile = file;
-      
+      const compressedFile = await  imageCompression(imageFile, options);
+  
      reader.onloadend = () => {
-      //final//https://www.npmjs.com/package/@azure/storage-blob#with-sas-token
-      //https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js
       var tmp =this.state.picscounter;
-      tmp=tmp+1;
+       tmp=tmp+1;
           const data ={
             picstring:reader.result,
           }
+
+          if (tmp==1){
+            this.setState({
+              file: reader.result,
+              imagePreviewUrl: reader.result,
+              picstring: imageFile.filename,//reader.result,
+              picscounter:tmp,
+              loader:false,
+            });
+          }
+    
+    
+          if (tmp==2){
+            this.setState({
+              file: reader.result,
+              imagePreviewUrl1: reader.result,
+              picstring1: imageFile.filename,
+              picscounter:tmp,
+              loader:false,
+            });
+          }
+    
+          if (tmp==3){
+            this.setState({
+              file: reader.result,
+              imagePreviewUrl2: reader.result,
+              picstring2: imageFile.filename,
+              picscounter:tmp,
+              loader:false,
+            });
+          }
+    
+          if (tmp==4){
+            this.setState({
+              file: reader.result,
+              imagePreviewUrl3: reader.result,
+              picstring3: imageFile.filename,
+              picscounter:tmp,
+              loader:false,
+            });
+          }
+
+
+
+
+
      const filestrint=reader.result;
         const params = {
           filestrint: this.props.UserID,
         };
 
     }//onload end
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(newfile)
       //await uploadToServer(compressedFile); // write your own logic
     } catch (error) {
       console.log(error);
@@ -330,12 +333,6 @@ this.getblobtoken();
 
 
   }
-
-
-
-
-
-  
 
   render() {
     const varclaas = "visible";
@@ -884,6 +881,7 @@ if (divval==4)
     
   
   }
+
   handlepropertyAddress(event) {
     this.setState({
       propertyAddress: event.target.value,
@@ -1071,7 +1069,6 @@ switch(tbval){
     }
   }
 
-
   handleparking(val,pval) {
 
     if (pval==1){
@@ -1090,7 +1087,6 @@ switch(tbval){
     }
    
   }
-
 
   handleinternet(val,ival) {
 
@@ -1194,10 +1190,6 @@ switch(tbval){
    
   }
 
-
-  
-
-
   handlebathroom(val,bval) {
     if (bval==1){
       this.setState({
@@ -1260,7 +1252,6 @@ switch(tbval){
     
   }
 
-
   handlebedsize(val,bdval) {
     switch(bdval){
       case "1": this.setState({
@@ -1304,7 +1295,6 @@ switch(tbval){
     }
    
   }
-
 
   handleroomfeatures(val,fval) {
     var tmpfeature=this.state.roomfeatures;
