@@ -143,6 +143,23 @@ cursor: pointer;
   text-align: left;
 }
 
+.normaldivbutton:hover {
+  border-radius: 3px;
+    color: white;
+    font-size: 11px;
+    padding: 3px;
+    cursor: pointer;
+    background-color:#117a8b;
+    border: solid 1px white;
+    height: 60px;
+    width: 160px;
+    margin: 1px;
+    padding-top: 20px;
+    font-weight: bold;
+
+}
+
+
 .normaldivbutton{
   border-radius: 3px;
     color: #495057;

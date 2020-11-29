@@ -37,7 +37,7 @@ export class Header extends React.Component {
       value: 2,
       userLoginId: this.props.userLoginId,
       rangevalue: 0,
-      area:"",
+      area: "",
 
     }
   }
@@ -61,15 +61,13 @@ export class Header extends React.Component {
         <div className="row">
           <div className="col-sm-4">
             <div>
-
-            </div></div>
+         </div></div>
           <div className="col-sm-4">
             <div className="mansearch">
               <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
-
+              
             </div>
           </div>
-
           <div className="col-sm-4 hideonmobile">
             <div className="row">
 
@@ -82,23 +80,14 @@ export class Header extends React.Component {
                 <div className="whitecolorcss"> <FontAwesomeIcon icon={faQuoteLeft} /></div>
               </div>
               <div className="col-sm-2">
-
                 {
                   this.props.userLoginId != 0 &&
                   <div className="whitecolorcss">
                     <FontAwesomeIcon icon={faUser} onClick={() => this.props.handlerhome('500')} />
                   </div>
-
                 }
-
-
               </div>
-
-
-
-
             </div>
-
           </div>
         </div>
 
@@ -162,7 +151,7 @@ export class Header extends React.Component {
 
 
 
-          <input type="text" className="form-control" onChange={this.handlearea} placeholder="SQL FEET 0 - 999"></input>
+            <input type="text" className="form-control" onChange={this.handlearea} placeholder="SQL FEET 0 - 999"></input>
 
 
           </div>
@@ -190,7 +179,7 @@ export class Header extends React.Component {
           <div className="col-lg-3">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Price - Max
+                Price - Max
   </Dropdown.Toggle>
 
               <Dropdown.Menu>
@@ -203,7 +192,7 @@ export class Header extends React.Component {
           <div className="col-lg-2">
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
-               State
+                State
   </Dropdown.Toggle>
 
               <Dropdown.Menu>

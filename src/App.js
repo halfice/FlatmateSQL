@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Header } from "./header/header";
 import Footer from "./footer/footer";
+
+
+
 import Bodycards from "./bodycards";
 import MainBodyCards from './MainBodyCards'
 import { Rating } from "./rating";
@@ -146,6 +149,8 @@ class App extends Component {
       showcard: 1,
     })
   }
+
+  
   handlerRegister = (val) => {
    this.setState({
       needwizard: val,
