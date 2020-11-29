@@ -18,12 +18,9 @@ import {  faCog,
     
   } from '@fortawesome/free-solid-svg-icons';
   import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas,faCheck,faBriefcase,faBackward,faHome)
-
 export class Property extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -152,11 +149,9 @@ export class Property extends React.Component {
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
     this.handleprince = this.handleprince.bind(this);
   }
-
   componentDidMount(){
 this.getblobtoken();
   }
-
   async getblobtoken(){
     var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
     try {
@@ -169,17 +164,15 @@ this.getblobtoken();
                console.log(error);
            }
   }
-
   handleprince(event) {
     this.setState({
       price: event.target.value,
     });
   }
-
   async handleImageUpload (files) {
     if (files.target.files.length>0) {
       const file = files.target.files[0];
-      this.uploadFile(file);
+     // this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -233,12 +226,11 @@ this.getblobtoken();
           const data ={
             picstring:reader.result,
           }
-
           if (tmp==1){
             this.setState({
               file: reader.result,
               imagePreviewUrl: reader.result,
-              picstring: imageFile.filename,//reader.result,
+              picstring: imageFile.name,//reader.result,
               picscounter:tmp,
               loader:false,
             });
@@ -249,7 +241,7 @@ this.getblobtoken();
             this.setState({
               file: reader.result,
               imagePreviewUrl1: reader.result,
-              picstring1: imageFile.filename,
+              picstring1: imageFile.name,
               picscounter:tmp,
               loader:false,
             });
@@ -259,7 +251,7 @@ this.getblobtoken();
             this.setState({
               file: reader.result,
               imagePreviewUrl2: reader.result,
-              picstring2: imageFile.filename,
+              picstring2: imageFile.name,
               picscounter:tmp,
               loader:false,
             });
@@ -269,7 +261,7 @@ this.getblobtoken();
             this.setState({
               file: reader.result,
               imagePreviewUrl3: reader.result,
-              picstring3: imageFile.filename,
+              picstring3: imageFile.name,
               picscounter:tmp,
               loader:false,
             });
@@ -348,22 +340,22 @@ this.getblobtoken();
       $imagePreview = (
         <div className="row" >
       { imagePreviewUrl !=null &&
-      <div className="col-sm-6">
+      <div className="col-sm-6 previewpadding">
         <img src={imagePreviewUrl} className="mypreviewimage" />
         </div>
       }
     { imagePreviewUrl1 !=null &&
-    <div className="col-sm-6">
+    <div className="col-sm-6 previewpadding">
         <img src={imagePreviewUrl1} className="mypreviewimage" />
         </div>
       }
       { imagePreviewUrl2 !=null &&
-      <div className="col-sm-6 mt-6">
+      <div className="col-sm-6 mt-6 previewpadding">
         <img src={imagePreviewUrl2} className="mypreviewimage" />
         </div>
       }
       { imagePreviewUrl3 !=null &&
-      <div className="col-sm-6 mt-6">
+      <div className="col-sm-6 mt-6 previewpadding">
         <img src={imagePreviewUrl3} className="mypreviewimage" />
         </div>
       }
@@ -465,7 +457,7 @@ this.getblobtoken();
                         <div className="col-sm-12">
                           
 
-                          <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)}></input>
+                          <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="inputfilecss"></input>
 
                           <div className="imgPreview">
                             {$imagePreview}
@@ -772,7 +764,6 @@ this.getblobtoken();
     );
   }
   //rnder end
-
   shoonChangewsp() {
     this.setState({
       value: 4
@@ -806,7 +797,6 @@ this.getblobtoken();
       this.callingInsert();
     }
   }
-
   handleGoBackClick() {
     var tmp = this.state.divcountre;
     tmp = tmp - 1;
@@ -830,7 +820,6 @@ this.getblobtoken();
     })
   }
   //after rend
-
   handletypeofAccormodation(val,divval) {
 if (divval==1)
 {
