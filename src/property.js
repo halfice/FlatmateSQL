@@ -38,6 +38,7 @@ export class Property extends React.Component {
       parking: "",
       internet: "",
       blobtoken:"",
+      deal:"1",
       
       roomfuninishing: "",
       bathroom: "",
@@ -204,7 +205,7 @@ this.getblobtoken();
 
   }
 
-    async handleImageUploadold(file) {
+  async handleImageUploadold(file) {
     this.setState({
       loader: true,
     });
@@ -285,8 +286,7 @@ this.getblobtoken();
    
   }
 
-  callingInsert(){
-
+  async callingInsert(){
     this.setState({
       loader: true,
     });
@@ -309,18 +309,21 @@ this.getblobtoken();
     itemid:this.uuidv4(),
     };
 
-    axios
-    .post('http://localhost:4000/Property/register', data)
-    .then(res => {
-      this.setState({
-        universalid: res.data,
-        loader:false,
-      });
+   
+            
 
-    })
-    .catch(err => {
-      console.log("Error in handleImageUpload! while upload pic and also roomornw");
-    });
+    var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=b&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.Price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}`
+    try {
+                        let res=await axios.post(regurl);
+                        this.setState({
+                         universalid:res,
+                         loader:false,
+                     });
+                     this.props.handleRegisnteredUserId(this.state.email);
+                       // console.log(res.data);
+                    } catch (error) {
+                        //console.log(error);
+                    }
 
 
 
