@@ -393,7 +393,7 @@ export class lookingoforroom extends React.Component {
 
 
 
-  callingInsert() {
+ async callingInsert() {
 
     this.setState({
       loader: true,
@@ -431,7 +431,7 @@ export class lookingoforroom extends React.Component {
       internetid: this.state.internetid,
       bathroomid: this.state.bathroomid,
     };
-    
+
     var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${this.state.Room_in_an_existing}&Area=${this.state.Area}&Rent=${this.state.Rent}&DatetoCome=${this.state.DatetoCome}&HowDays=${this.state.HowDays}&RoomFurnishing=${this.state.RoomFurnishing}&Internet=${this.state.Parking}&BathRoomType=${this.state.BathRoomType}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${this.state.itemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
     try {
       let res = await axios.post(regurl);
