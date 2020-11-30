@@ -151,6 +151,23 @@ export class lookingoforroom extends React.Component {
     this.handlearea = this.handlearea.bind(this);
   }
 
+  componentDidMount() {
+    this.getblobtoken();
+  }
+
+  async getblobtoken() {
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
+    try {
+      let res = await axios.post(loginurl);
+      this.setState({
+        blobtoken: res,
+        loader: false,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   Lisintingfunc() {
     this.setState({
       divcountre: 100,
@@ -228,7 +245,7 @@ export class lookingoforroom extends React.Component {
     })
   }
 
-  componentDidMount() {
+  componentDidMountv() {
     this.setState({
       loader: true,
     });
@@ -309,7 +326,7 @@ export class lookingoforroom extends React.Component {
         this.setState({
           file: reader.result,
           imagePreviewUrl: reader.result,
-          picstring: reader.result,
+          picstring: imageFile.name,
           loader: false,
         });
         
@@ -413,25 +430,20 @@ export class lookingoforroom extends React.Component {
       oomfurnishedid: this.state.oomfurnishedid,
       internetid: this.state.internetid,
       bathroomid: this.state.bathroomid,
-
-
-
     };
-    axios
-      .post('http://localhost:4000/tenant/register', data)
-      .then(res => {
-        this.setState({
-          universalid: res.data,
-          loader: false,
-        });
-
-      })
-      .catch(err => {
-        console.log("Error in CreateBook!");
+    
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${this.state.Room_in_an_existing}&Area=${this.state.Area}&Rent=${this.state.Rent}&DatetoCome=${this.state.DatetoCome}&HowDays=${this.state.HowDays}&RoomFurnishing=${this.state.RoomFurnishing}&Internet=${this.state.Parking}&BathRoomType=${this.state.BathRoomType}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${this.state.itemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
+    try {
+      let res = await axios.post(regurl);
+      this.setState({
+        universalid: res,
+        loader: false,
       });
-
-
-
+      this.props.handleRegisnteredUserId(this.state.email);
+      // console.log(res.data);
+    } catch (error) {
+      //console.log(error);
+    }
 
 
 
