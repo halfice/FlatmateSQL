@@ -179,7 +179,7 @@ export class Property extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-      // this.uploadFile(file);
+       this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -324,6 +324,7 @@ export class Property extends React.Component {
       this.setState({
         universalid: res,
         loader: false,
+        
       });
       this.props.handleRegisnteredUserId(this.state.email);
       // console.log(res.data);
@@ -510,7 +511,10 @@ export class Property extends React.Component {
                             Property Address
                         </div>
                           <div className="smalheadingcss">
-                            <input type="text" className="form-control" onChange={this.handlepropertyAddress} placeholder="Search for area"></input>
+                  {
+                    //                            <input  type="text" className="form-control" onChange={this.handlepropertyAddress} placeholder="Search for area"></input>
+
+                  }
                             <div>
                               <Lockz   handlerhomek={this.handlerhomek} />
                             </div>

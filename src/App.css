@@ -6,7 +6,9 @@
       background-color: rgb(33,153,27,20);
   }
 
-
+.hideid{
+  display: none;
+}
 
 
 .closebuttondi{
@@ -226,7 +228,62 @@ div{
   box-shadow: 0px 5px 3px #7f73736e!important;
   width: 130px!important;
 }
+.bcimage{
+  background-image: url('./map.png');
+}
+.bcimagep{
+  background-image: url('./homgif.gif');
+}
+.bcimage3{
+  background-image: url('./parti.gif');
+}
 
+
+.mainbodyball1{
+  width: 67px;
+    background-color: #785b03;
+    border-radius: 60%;
+    height: 54px;
+    padding: 3px;
+}
+
+.mainbodyball2{
+  width: 67px;
+    background-color: #026018;
+    border-radius: 60%;
+    height: 54px;
+    padding: 3px;
+}
+.mainbodyball3{
+  width: 67px;
+    background-color: #129EAF;
+    border-radius: 60%;
+    height: 54px;
+    padding: 3px;
+}
+
+.mainbodyball4{
+  width: 67px;
+    background-color: #aa0a19;
+    border-radius: 60%;
+    height: 54px;
+    padding: 3px;
+}
+
+.mainbodyball5{
+  width: 67px;
+    background-color: #026018;
+    border-radius: 60%;
+    height: 54px;
+    padding: 3px;
+}
+
+
+.homeicon{
+  width: 50%!important;
+    height: 140px;
+
+}
 
 a:hover{
   cursor: pointer;
@@ -246,7 +303,7 @@ a:hover{
 
 
 .bottombordr{
-  box-shadow: 0px 5px 3px #7f73736e;
+  box-shadow: 1px 3px 3px 5px #7f73736e;
 }
 
 .whitecolorcss{

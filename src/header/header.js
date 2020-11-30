@@ -216,7 +216,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-2">
 
-            <div className="mainbutnd">
+            <div className="mybuttons btn btn-primary">
               <div className="innerbt">
                 Let go
   </div>

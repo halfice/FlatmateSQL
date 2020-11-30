@@ -20,11 +20,10 @@ import {
   faQuoteLeft
 
 } from '@fortawesome/free-solid-svg-icons';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Lockz from './Locationsuggest';
+
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
-
-
 
 
 export class lookingoforroom extends React.Component {
@@ -256,10 +255,78 @@ export class lookingoforroom extends React.Component {
       });
   }
 
+  async handleImageUpload(files) {
+    if (files.target.files.length > 0) {
+      const file = files.target.files[0];
+      this.uploadFile(file);
+      this.handleImageUploadold(file);
+    }
+  }
+
+  async uploadFile(file) {
+    //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
+
+    const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+    const sas = this.state.blobtoken;
+    var finalToken = sas.data.token;
+    //finalToken="";
+    //finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2021-12-29T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
+
+    const STORAGE_ACCOUNT_NAME = 'userfunctionsapi'
+    const CONTAINER_NAME = 'myfiles'
+    // for browser, SAS_TOKEN is get from API?
+    const SAS_TOKEN = finalToken;
+    const sasURL = `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net/${SAS_TOKEN}`
+
+    const blobServiceClient = new BlobServiceClient(sasURL)
+    const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
+
+    const filename = file.name.substring(0, file.name.lastIndexOf('.'))
+    const ext = file.name.substring(file.name.lastIndexOf('.'))
+    const blobName = filename + '_' + new Date().getTime() + ext
+    const blockBlobClient = containerClient.getBlockBlobClient(blobName)
+    const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
+    console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
+
+  }
+
+  async handleImageUploadold(file) {
+    this.setState({
+      loader: true,
+    });
+    const imageFile = file;
+    let reader = new FileReader();
+    var newfile = imageFile;
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 200,
+      useWebWorker: true,
+      usbd: 22,
+    }
+    try {
+      const compressedFile = await imageCompression(imageFile, options);
+      reader.onloadend = () => {
+        this.setState({
+          file: reader.result,
+          imagePreviewUrl: reader.result,
+          picstring: reader.result,
+          loader: false,
+        });
+        
+       
+       
+
+      }//onload end
+      reader.readAsDataURL(newfile)
+      //await uploadToServer(compressedFile); // write your own logic
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
 
-
-  async handleImageUpload(event) {
+  async handleImageUploadx(event) {
     this.setState({
       loader: true,
     });
@@ -371,7 +438,13 @@ export class lookingoforroom extends React.Component {
 
   }
 
-
+  handlerhomek= (val) => {
+    this.setState({
+      propertyAddress: val,
+      location: val,
+      SelectedAreas:val,
+    })
+  }
 
   render() {
     const varclaas = "visible";
@@ -400,7 +473,7 @@ export class lookingoforroom extends React.Component {
                   <div className="col-sm-2">
                     <div className="iconsclassgray" onClick={this.handleGoBackClick} >
 
-                      <div className icon={faBackward} >
+                      <div className="iconsclassgray" icon={faBackward} >
 
                       </div>
                       
@@ -539,8 +612,15 @@ export class lookingoforroom extends React.Component {
                       </div>
                       <div className="row">
                         <div className="col-sm-12">
-                          <div className="iconsclassgray" >
-                            <input type="email" className="form-control" onChange={this.handlearea.bind(this)} placeholder="Search for area"></input>
+                          <div>
+                          
+                          <Lockz   handlerhomek={this.handlerhomek} />
+
+                           {
+                             //   
+//                           <input type="email" className="form-control" onChange={this.handlearea.bind(this)} placeholder="Search for area"></input>
+
+                           } 
 
                           </div>
                         </div>
