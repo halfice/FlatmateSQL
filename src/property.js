@@ -44,6 +44,7 @@ export class Property extends React.Component {
       imagePreviewUrl3: uploader,
 
       picscounter: 0,
+      AgentId:0,//mean hei owner
 
       picstring: "",
       picstring1: "",
@@ -64,7 +65,8 @@ export class Property extends React.Component {
       fdiv6Active: "normaldivbutton",
 
 
-
+      agentdiv1: "innervbuuton",
+      agentdiv2: "innervbuuton",
 
 
 
@@ -313,12 +315,13 @@ export class Property extends React.Component {
       picstringtwo: this.state.picstring2,
       picstringthree: this.state.picstring3,
       itemid: this.uuidv4(),
+      AgentId:this.state.AgentId,//mean it is owner
     };
 
 
 
 
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=b&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=b&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -502,6 +505,25 @@ export class Property extends React.Component {
                     <div className={this.state.divcountre == 2 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row ">
                         <div className="col-sm-12"> About the Property.</div>
+                      </div>
+
+                      <div className="row textalighleft">
+                        <div className="col-sm-12">
+                          <div className="smalheadingcss">
+                            Agent / Owner
+                        </div>
+                        </div>
+                        <div className="col-sm-6">
+                          <div className={this.state.agentdiv1} onClick={this.handleIsAgent.bind(this, 'Yes', '1')} >
+                            Yes
+                         </div>
+                        </div>
+                        <div className="col-sm-6">
+                          <div className={this.state.agentdiv2} onClick={this.handleIsAgent.bind(this, 'No-Owner', '2')} >
+                            Direct Owner
+                         </div>
+                        </div>
+
                       </div>
 
 
@@ -1131,6 +1153,25 @@ export class Property extends React.Component {
         parking: val,
         parkingdiv1: "innervbuuton",
         parkingdiv2: "innervbuutonhover",
+      });
+    }
+
+  }
+
+  handleIsAgent(val, pval) {
+
+    if (pval == 1) {
+      this.setState({
+        AgentId: val,
+        agentdiv1: "innervbuutonhover",
+        agentdiv2: "innervbuuton",
+      });
+    }
+    if (pval == 2) {
+      this.setState({
+        AgentId: val,
+        agentdiv1: "innervbuuton",
+        agentdiv2: "innervbuutonhover",
       });
     }
 
