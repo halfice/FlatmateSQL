@@ -276,7 +276,7 @@ export class lookingoforroom extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-     this.uploadFile(file);
+    // this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -402,12 +402,14 @@ export class lookingoforroom extends React.Component {
 
     var finalitemid= this.uuidv4();
     var roomforexisting=1;
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Parking}&BathRoomType=${this.state.BathRoomType}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Internet}&BathRoomType=${this.state.BathRoomType}&parking=${this.state.Parking}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
     try {
       let res = await axios.post(regurl);
       this.setState({
         universalid: res,
         loader: false,
+        needwizard: 0,
+
       });
       this.props.handleRegisnteredUserId(this.state.email);
       // console.log(res.data);
@@ -592,7 +594,7 @@ export class lookingoforroom extends React.Component {
                       </div>
                       <div className="row">
                         <div className="col-sm-12">
-                          <div>
+                          <div className="mytextbosauto">
                           
                           <Lockz   handlerhomek={this.handlerhomek} />
 
@@ -980,7 +982,7 @@ export class lookingoforroom extends React.Component {
                         <div className="col-sm-12">
 
 
-                          <input type="textarea" className="form-control" onChange={this.handlabouturselfparagraph} placeholder="fews line for all others"></input>
+                          <textarea type="textarea" className="form-control mytextbosauto" onChange={this.handlabouturselfparagraph} placeholder="fews line for all others"></textarea>
 
                         </div>
 
