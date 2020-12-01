@@ -66,7 +66,7 @@ export class lookingoforroom extends React.Component {
       gender: "",
       employeestatus: "",
       abouturselfparagraph: "",
-      TenantId:1,
+      TenantId: 1,
 
       selectedFile: null,
 
@@ -276,7 +276,7 @@ export class lookingoforroom extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-    // this.uploadFile(file);
+      // this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -330,9 +330,9 @@ export class lookingoforroom extends React.Component {
           picstring: imageFile.name,
           loader: false,
         });
-        
-       
-       
+
+
+
 
       }//onload end
       reader.readAsDataURL(newfile)
@@ -394,14 +394,14 @@ export class lookingoforroom extends React.Component {
 
 
 
- async callingInsert() {
+  async callingInsert() {
 
     this.setState({
       loader: true,
     });
 
-    var finalitemid= this.uuidv4();
-    var roomforexisting=1;
+    var finalitemid = this.uuidv4();
+    var roomforexisting = 1;
     var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Internet}&BathRoomType=${this.state.BathRoomType}&parking=${this.state.Parking}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
     try {
       let res = await axios.post(regurl);
@@ -419,12 +419,12 @@ export class lookingoforroom extends React.Component {
 
   }
 
-  handlerhomek= (val) => {
+  handlerhomek = (val) => {
     this.setState({
       propertyAddress: val,
       location: val,
-      SelectedAreas:val,
-      area:val,
+      SelectedAreas: val,
+      area: val,
     })
   }
 
@@ -458,8 +458,8 @@ export class lookingoforroom extends React.Component {
                       <div className="iconsclassgray" icon={faBackward} >
 
                       </div>
-                      
-                       </div>
+
+                    </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="subheadings"> welcome</div>
@@ -470,14 +470,14 @@ export class lookingoforroom extends React.Component {
 
                     {this.state.UserProfileExits == 1 &&
 
-                      <div className="subheadingsListDiv" onClick={this.Lisintingfunc}> 
-                     
-                     <FontAwesomeIcon icon={faCog} /> 
+                      <div className="subheadingsListDiv" onClick={this.Lisintingfunc}>
 
-                     
-                     
-                    
-                       Listing/Offers</div>
+                        <FontAwesomeIcon icon={faCog} />
+
+
+
+
+                        Listing/Offers</div>
                     }
                   </div>
 
@@ -490,14 +490,14 @@ export class lookingoforroom extends React.Component {
                         <div>Thanks Abdul Aziz Farooqi,let's list your place</div>
                         <div className="col-sm-12">
                           <div className="iconsclassgray" >
-                            
 
-                              <FontAwesomeIcon icon={faHome} /> 
 
-                            
-                            
-                            
-                            </div>
+                            <FontAwesomeIcon icon={faHome} />
+
+
+
+
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -595,14 +595,14 @@ export class lookingoforroom extends React.Component {
                       <div className="row">
                         <div className="col-sm-12">
                           <div className="mytextbosauto">
-                          
-                          <Lockz   handlerhomek={this.handlerhomek} />
 
-                           {
-                             //   
-//                           <input type="email" className="form-control" onChange={this.handlearea.bind(this)} placeholder="Search for area"></input>
+                            <Lockz handlerhomek={this.handlerhomek} />
 
-                           } 
+                            {
+                              //   
+                              //                           <input type="email" className="form-control" onChange={this.handlearea.bind(this)} placeholder="Search for area"></input>
+
+                            }
 
                           </div>
                         </div>
@@ -995,13 +995,102 @@ export class lookingoforroom extends React.Component {
                     this.state.divcountre == 10 &&
                     <div className={this.state.divcountre == 10 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
-                        <div className="col-sm-12"> listing Preview.</div>
+                        <div className="col-sm-12">
+<h3> listing Preview.</h3>
+<div className="row">
+<div className="col-sm-2">
+${this.state.myname}
+  </div>
+
+  <div className="col-sm-2">
+  ,${this.state.age}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.gender}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.Area}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.Area}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.parking}
+  </div>
+
+</div>
+
+
+<div className="row">
+<div className="col-sm-2">
+${this.state.Room_in_an_existing}
+  </div>
+
+  <div className="col-sm-2">
+  ,${this.state.DatetoCome}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.HowDays}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.RoomFurnishing}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.Internet}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.BathRoomType}
+  </div>
+
+</div>
+
+
+<div className="row">
+<div className="col-sm-2">
+${this.state.MaxNumberoflatemate}
+  </div>
+
+  <div className="col-sm-2">
+  ,${this.state.thisplaceisfor}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.employeestatus}
+  </div>
+
+  <div className="col-sm-2">
+  ${this.state.abouturselfparagraph}
+  </div>
+
+
+
+</div>
+<div className="row">
+<div className="col-sm-2">
+  ${this.state.abouturselfparagraph}
+  </div>
+
+  </div>                    
+           
+
+
+
+
+
+                         </div>
                         <div className="col-sm-4">
-                          <div className="iconsclassgray" > 
-                          
-                          <div className="iconsclassgray"></div>
-                          
-                          
+                          <div className="iconsclassgray" >
+
+                            <div className="iconsclassgray"></div>
+
                           </div>
                         </div>
 
@@ -1016,9 +1105,9 @@ export class lookingoforroom extends React.Component {
                         <div className="col-sm-12"> listing Preview/ Offers.</div>
                         <div className="col-sm-4">
                           <div className="iconsclassgray" >
-                             <div icon={faHome} ></div>
-                             
-                             </div>
+                            <div icon={faHome} ></div>
+
+                          </div>
                         </div>
 
                       </div>
