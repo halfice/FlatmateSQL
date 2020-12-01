@@ -240,42 +240,45 @@ div{
 
 
 .mainbodyball1{
-  width: 67px;
+  width: 37px;
     background-color: #785b03;
     border-radius: 60%;
-    height: 54px;
-    padding: 3px;
+    height: 34px;
+    padding: 4px;
 }
 
+.imgclss{
+  width: 30px;
+}
 .mainbodyball2{
-  width: 67px;
+  width: 37px;
     background-color: #026018;
     border-radius: 60%;
-    height: 54px;
-    padding: 3px;
+    height: 34px;
+    padding: 4px;
 }
 .mainbodyball3{
-  width: 67px;
+  width: 37px;
     background-color: #129EAF;
     border-radius: 60%;
-    height: 54px;
-    padding: 3px;
+    height: 34px;
+    padding: 4px;
 }
 
 .mainbodyball4{
-  width: 67px;
+  width: 37px;
     background-color: #aa0a19;
     border-radius: 60%;
-    height: 54px;
-    padding: 3px;
+    height: 34px;
+    padding: 4px;
 }
 
 .mainbodyball5{
-  width: 67px;
+  width: 37px;
     background-color: #026018;
     border-radius: 60%;
-    height: 54px;
-    padding: 3px;
+    height: 34px;
+    padding: 4px;
 }
 
 

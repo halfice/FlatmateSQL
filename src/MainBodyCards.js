@@ -52,7 +52,12 @@ class MainBodyCards extends Component {
                   </div>
                   <div className="col-sm-4">
                     <div>
-                    <FontAwesomeIcon icon={faCoffee} className="homeicon"/>                 </div>
+                      {
+//                    <FontAwesomeIcon icon={faCoffee} className="homeicon"/>                 
+
+
+                      }
+                      </div>
                   </div>
                 </div>
 
@@ -77,7 +82,10 @@ class MainBodyCards extends Component {
                   </div>
                   <div className="col-sm-6">
                     <div>
-                      <FontAwesomeIcon icon={faHome} className="homeicon" />
+                      {
+//                      <FontAwesomeIcon icon={faHome} className="homeicon" />
+
+                      }
                     </div>
                   </div>
                 </div>
@@ -107,7 +115,7 @@ class MainBodyCards extends Component {
                   </div>
                   <div className="col-sm-2">
                     <div className="mainbodyball1">
-                  <img alt="" src={trolly}  ></img>
+                  <img alt="" src={trolly}  className="imgclss"></img>
                   </div>
                   
                   
@@ -115,21 +123,21 @@ class MainBodyCards extends Component {
 
                   <div className="col-sm-2">
                   <div className="mainbodyball2">
-                  <img alt="" src={cult}  ></img>
+                  <img alt="" src={cult}  className="imgclss"></img>
                   </div>
                   </div>
 
 
                   <div className="col-sm-2">
                   <div className="mainbodyball3">
-                  <img alt="" src={beds}  ></img>
+                  <img alt="" src={beds} className="imgclss"  ></img>
                   </div>
                   </div>
 
 
                   <div className="col-sm-2">
                   <div className="mainbodyball4">
-                  <img alt="" src={bins}  ></img>
+                  <img alt="" src={bins}  className="imgclss"></img>
                   </div>
                   </div>
 

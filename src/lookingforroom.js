@@ -66,6 +66,7 @@ export class lookingoforroom extends React.Component {
       gender: "",
       employeestatus: "",
       abouturselfparagraph: "",
+      TenantId:1,
 
       selectedFile: null,
 
@@ -275,7 +276,7 @@ export class lookingoforroom extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-      this.uploadFile(file);
+     this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -398,41 +399,10 @@ export class lookingoforroom extends React.Component {
     this.setState({
       loader: true,
     });
-  //  alert(this.state.LoginUserID);
-    const data = {
 
-      userid: this.state.LoginUserID,
-      type: this.state.type,
-      Area: this.state.SelectedAreas,
-      Rent: this.state.rent,
-      DatetoCome: this.state.datetocome,
-      HowDays: this.state.timelength,
-      RoomFurnishing: this.state.RoomFurnishing,
-      Internet: this.state.Internet,
-      BathRoomType: this.state.BathRoomType,
-      Parking: this.state.Parking,
-      MaxNumberoflatemate: this.state.MaxNumberoflatemate,
-      picstring: this.state.picstring,
-      thisplaceisfor: this.state.thisplaceisfor,
-      myname: this.state.myname,
-      age: this.state.age,
-      gender: this.state.gender,
-      employeestatus: this.state.employeestatus,
-      lifestyle: this.state.lifestyle,
-      abouturselfparagraph: this.state.abouturselfparagraph,
-      itemid: this.uuidv4(),
-      lifestyleid: this.state.lifestyleid,
-      emploeestatusid: this.state.emploeestatusid,
-      genderid: this.state.genderid,
-      placeforid: this.state.placeforid,
-      noflatmateid: this.state.noflatmateid,
-      parkingid: this.state.parkingid,
-      oomfurnishedid: this.state.oomfurnishedid,
-      internetid: this.state.internetid,
-      bathroomid: this.state.bathroomid,
-    };
-
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${this.state.Room_in_an_existing}&Area=${this.state.Area}&Rent=${this.state.Rent}&DatetoCome=${this.state.DatetoCome}&HowDays=${this.state.HowDays}&RoomFurnishing=${this.state.RoomFurnishing}&Internet=${this.state.Parking}&BathRoomType=${this.state.BathRoomType}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${this.state.itemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
+    var finalitemid= this.uuidv4();
+    var roomforexisting=1;
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Parking}&BathRoomType=${this.state.BathRoomType}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -445,9 +415,6 @@ export class lookingoforroom extends React.Component {
       //console.log(error);
     }
 
-
-
-
   }
 
   handlerhomek= (val) => {
@@ -455,6 +422,7 @@ export class lookingoforroom extends React.Component {
       propertyAddress: val,
       location: val,
       SelectedAreas:val,
+      area:val,
     })
   }
 
@@ -1229,7 +1197,7 @@ export class lookingoforroom extends React.Component {
     switch (roomfurval) {
       case "1":
         this.setState({
-          roomfurnishedid: roomfurval,
+          oomfurnishedid: roomfurval,
           roomfurdiv1: "innervbuutonhover",
           roomfurdiv2: "innervbuuton",
           roomfurdiv3: "innervbuuton",
