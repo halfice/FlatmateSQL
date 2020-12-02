@@ -8,6 +8,7 @@ import i18next from 'i18next';
 import Button from 'react-bootstrap/Button'
 import uploader from './uloaaderimage.gif'
 import imageCompression from 'browser-image-compression'
+import Select from 'react-select';
 
 
 export class screenregister extends React.Component {
@@ -24,6 +25,9 @@ export class screenregister extends React.Component {
             imagePreviewUrl: uploader,
             picstring: "",
             picscounter: 0,
+            profilepicname:"",
+            copmayname:"",
+      selectedOption: null,
            
 
         }
@@ -34,6 +38,14 @@ export class screenregister extends React.Component {
         this.handlepasswordchange = this.handlepasswordchange.bind(this);
 
     }
+
+    
+    handleChangedrp = selectedOption => {
+      this.setState(
+        { selectedOption,
+        copmayname:selectedOption });
+      console.log(`Option selected:`, selectedOption);
+    };
 
 
 
@@ -51,13 +63,10 @@ export class screenregister extends React.Component {
            var  phone=this.state.phone;
            var  password=this.state.password;
                     
-            
-         // };
-
-
+    
 
         //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
  try {
                      let res=await axios.post(regurl);
                      this.setState({
@@ -198,6 +207,13 @@ export class screenregister extends React.Component {
           );
             }
 
+
+            const options = [
+              { value: 'Purple Property', label: 'Purple Property' },
+              { value: 'Al Dar', label: 'Al Dar' },
+              { value: 'Free Property', label: 'Free Property' },
+            ];
+
         return (
             <div className="container-fluid ">
                 <div className="row centeraligh">
@@ -242,6 +258,14 @@ export class screenregister extends React.Component {
   <div className="form-group">
    
    <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
+
+</div>
+<div className="form-group">
+<Select
+        value={this.state.selectedOption}
+        onChange={this.handleChangedrp}
+        options={options}
+      />
 
 </div>
 <div className="form-group">
