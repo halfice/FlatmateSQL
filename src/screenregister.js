@@ -43,8 +43,8 @@ export class screenregister extends React.Component {
     handleChangedrp = selectedOption => {
       this.setState(
         { selectedOption,
-        copmayname:selectedOption });
-      console.log(`Option selected:`, selectedOption);
+        copmayname:selectedOption.label });
+      console.log(`Option selected:`, selectedOption.label);
     };
 
 
