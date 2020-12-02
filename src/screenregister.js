@@ -6,6 +6,10 @@ import './i18n';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Button from 'react-bootstrap/Button'
+import uploader from './uloaaderimage.gif'
+import imageCompression from 'browser-image-compression'
+
+
 export class screenregister extends React.Component {
 
     constructor(props) {
@@ -17,6 +21,10 @@ export class screenregister extends React.Component {
             password:"",
             universalid:"",
             loader:false,
+            imagePreviewUrl: uploader,
+            picstring: "",
+            picscounter: 0,
+           
 
         }
         this.handleClick = this.handleClick.bind(this);
@@ -63,11 +71,132 @@ export class screenregister extends React.Component {
                  }
 
  }
+ componentDidMount() {
+    this.getblobtoken();
+  }
+
+  async getblobtoken() {
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
+    try {
+      let res = await axios.post(loginurl);
+      this.setState({
+        blobtoken: res,
+        loader: false,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async handleImageUpload(files) {
+    if (files.target.files.length > 0) {
+      const file = files.target.files[0];
+       this.uploadFile(file);
+      this.handleImageUploadold(file);
+    }
+  }
+
+  async uploadFile(file) {
+    //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
+
+    const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+    const sas = this.state.blobtoken;
+    var finalToken = sas.data.token;
+    //finalToken="";
+    //finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2021-12-29T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
+
+    const STORAGE_ACCOUNT_NAME = 'userfunctionsapi'
+    const CONTAINER_NAME = 'profilepics'
+    // for browser, SAS_TOKEN is get from API?
+    const SAS_TOKEN = finalToken;
+    const sasURL = `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net/${SAS_TOKEN}`
+
+    const blobServiceClient = new BlobServiceClient(sasURL)
+    const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
+
+    const filename = file.name.substring(0, file.name.lastIndexOf('.'))
+    const ext = file.name.substring(file.name.lastIndexOf('.'))
+    const blobName = filename + '_' + new Date().getTime() + ext
+    const blockBlobClient = containerClient.getBlockBlobClient(blobName)
+    const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
+    console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
+
+  }
+  async handleImageUploadold(file) {
+    this.setState({
+      loader: true,
+    });
+    const imageFile = file;
+    let reader = new FileReader();
+    var newfile = imageFile;
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 100,
+      useWebWorker: true,
+      usbd: 22,
+    }
+    try {
+      const compressedFile = await imageCompression(imageFile, options);
+
+      reader.onloadend = () => {
+        var tmp = this.state.picscounter;
+        tmp = tmp + 1;
+        const data = {
+          picstring: reader.result,
+        }
+        if (tmp == 1) {
+          this.setState({
+            file: reader.result,
+            imagePreviewUrl: reader.result,
+            picstring: imageFile.name,//reader.result,
+            picscounter: tmp,
+            loader: false,
+          });
+        }
+
+
+       
+        
+
+
+
+
+
+        const filestrint = reader.result;
+        const params = {
+          filestrint: this.props.UserID,
+        };
+
+      }//onload end
+      reader.readAsDataURL(newfile)
+      //await uploadToServer(compressedFile); // write your own logic
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 
 
     render() {
 
-
+        let $imagePreview = null;
+        let { imagePreviewUrl } = this.state;
+        if (imagePreviewUrl) {
+          $imagePreview = (
+            <div className="" >
+              {imagePreviewUrl != null &&
+                <div className="previewpadding">
+                  <img src={imagePreviewUrl} className="mypreviewimagepro" />
+                </div>
+              }
+              
+              
+              
+    
+    
+            </div>
+          );
+            }
 
         return (
             <div className="container-fluid ">
@@ -94,27 +223,39 @@ export class screenregister extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12 graytext">
                                 
-                            <div class="form-group">
+                            <div className="form-group">
    
    <input type="email" className="form-control"  placeholder="Enter name" onChange={this.handlenamechange}></input>
   
 
  </div>     
- <div class="form-group">
+ <div className="form-group">
    
    <input type="email" className="form-control" onChange={this.handlenphonechange} placeholder="Enter phone"></input>
   
  </div>     
-  <div class="form-group">
+  <div className="form-group">
    
     <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
    
   </div>
-  <div class="form-group">
+  <div className="form-group">
    
    <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
 
 </div>
+<div className="form-group">
+                        <div className="">
+                          <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
+
+                          <div className="imgPreviewpro">
+                            {$imagePreview}
+
+                          </div>
+
+                        </div>
+
+                      </div>
 
   
 
