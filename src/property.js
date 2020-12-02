@@ -181,7 +181,7 @@ export class Property extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-       this.uploadFile(file);
+      // this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -361,22 +361,22 @@ export class Property extends React.Component {
       $imagePreview = (
         <div className="row" >
           {imagePreviewUrl != null &&
-            <div className="col-sm-6 previewpadding">
+            <div className="col-sm-3 previewpadding">
               <img src={imagePreviewUrl} className="mypreviewimage" />
             </div>
           }
           {imagePreviewUrl1 != null &&
-            <div className="col-sm-6 previewpadding">
+            <div className="col-sm-3 previewpadding">
               <img src={imagePreviewUrl1} className="mypreviewimage" />
             </div>
           }
           {imagePreviewUrl2 != null &&
-            <div className="col-sm-6 mt-6 previewpadding">
+            <div className="col-sm-3 mt-6 previewpadding">
               <img src={imagePreviewUrl2} className="mypreviewimage" />
             </div>
           }
           {imagePreviewUrl3 != null &&
-            <div className="col-sm-6 mt-6 previewpadding">
+            <div className="col-sm-3 mt-6 previewpadding">
               <img src={imagePreviewUrl3} className="mypreviewimage" />
             </div>
           }
