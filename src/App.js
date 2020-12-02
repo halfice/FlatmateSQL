@@ -22,6 +22,10 @@ import Profile from './Profile'
 import Bids from './bids';
 import Property from './property'
 
+import AgentProfile from './agentprofile';
+
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -104,7 +108,7 @@ class App extends Component {
         }
         {
           this.state.needwizard == 500 &&
-          <div className="col-sm-12"><Profile UserID={this.state.userid} />
+          <div className="col-sm-12"><AgentProfile UserID={this.state.userid} />
           </div>
 
         }
