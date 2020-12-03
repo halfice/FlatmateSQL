@@ -28,6 +28,7 @@ export class screenregister extends React.Component {
             profilepicname:"",
             copmayname:"",
       selectedOption: null,
+      existingemails:[],
            
 
         }
@@ -47,9 +48,28 @@ export class screenregister extends React.Component {
       console.log(`Option selected:`, selectedOption.label);
     };
 
+  
 
+    async fetchprofile() {
+      var _Response=null;
+      this.setState({
+          loader:true,
+      });
+         var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username="+this.state.userLoginId+"&functiontype=y";
+  try {
+             let res=await axios.post(loginurl);
+             console.log(res);
+             this.setState({
+              profileitems:res,
+              loader:false,
+              existingemails:res,
+          });
+         } catch (error) {
+            // console.log(error);
+         }
+       
 
-
+}
     
     async handleClick() {
         this.setState({
@@ -82,6 +102,7 @@ export class screenregister extends React.Component {
  }
  componentDidMount() {
     this.getblobtoken();
+    this.fetchprofile();
   }
 
   async getblobtoken() {

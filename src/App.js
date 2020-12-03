@@ -108,7 +108,7 @@ class App extends Component {
         }
         {
           this.state.needwizard == 500 &&
-          <div className="col-sm-12"><AgentProfile UserID={this.state.userid} />
+          <div className="col-sm-12"><AgentProfile  userLoginId={this.state.userid}/>
           </div>
 
         }
