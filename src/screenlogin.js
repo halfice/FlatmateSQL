@@ -73,6 +73,10 @@ export class screenlogin extends React.Component {
 
 
             if (tiem.indexOf("notfound")>-1 && tiem !=``){
+                this.setState({
+                    universalid:_Response.data.recordsets[0].UserId,
+                    loader:false,
+                });
             }else{
                 this.props.handleRegisnteredUserId(this.state.universalid);   
             }
@@ -84,10 +88,7 @@ export class screenlogin extends React.Component {
            .then(response => {
              // handle success
              console.log(response);
-             this.setState({
-                universalid:_Response.data.recordsets[0].UserId,
-                loader:false,
-            });
+             
             
            })
            .catch(function (error) {

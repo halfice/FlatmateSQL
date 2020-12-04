@@ -54,9 +54,7 @@ export class screenregister extends React.Component {
     async fetchprofile(emailaddress) {
       var _Response=null;
       var userexitstemp="1";
-      this.setState({
-          loader:true,
-      });
+     
          var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username=${emailaddress}&functiontype=y`;
   try {
              let res=await axios.post(loginurl);
@@ -327,7 +325,7 @@ export class screenregister extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12">
                                 
-                                <Button className="mybuttons" onClick={this.handleClick} >Register</Button>
+                                <Button className="mybuttons" onClick={this.handleClick} >Sign Up!</Button>
                             </div>
 
                         </div>
