@@ -29,6 +29,7 @@ export class screenregister extends React.Component {
             copmayname:"",
       selectedOption: null,
       existingemails:[],
+      isUserExits:"1"
            
 
         }
@@ -50,19 +51,22 @@ export class screenregister extends React.Component {
 
   
 
-    async fetchprofile() {
+    async fetchprofile(emailaddress) {
       var _Response=null;
+      var userexitstemp="1";
       this.setState({
           loader:true,
       });
-         var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username="+this.state.userLoginId+"&functiontype=y";
+         var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username=${emailaddress}&functiontype=y`;
   try {
              let res=await axios.post(loginurl);
              console.log(res);
+             if (res!="found"){
+              userexitstemp="0";
+             }
              this.setState({
-              profileitems:res,
-              loader:false,
-              existingemails:res,
+               isUserExits:"0",
+             
           });
          } catch (error) {
             // console.log(error);
@@ -102,7 +106,7 @@ export class screenregister extends React.Component {
  }
  componentDidMount() {
     this.getblobtoken();
-    this.fetchprofile();
+    //this.fetchprofile();
   }
 
   async getblobtoken() {
@@ -259,7 +263,13 @@ export class screenregister extends React.Component {
 
                         <div className="row" >
                             <div className="col-sm-12 graytext">
-                                
+                            <div className="form-group">
+   
+   <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
+  
+ </div>
+
+
                             <div className="form-group">
    
    <input type="email" className="form-control"  placeholder="Enter name" onChange={this.handlenamechange}></input>
@@ -271,11 +281,7 @@ export class screenregister extends React.Component {
    <input type="email" className="form-control" onChange={this.handlenphonechange} placeholder="Enter phone"></input>
   
  </div>     
-  <div className="form-group">
-   
-    <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
-   
-  </div>
+ 
   <div className="form-group">
    
    <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
@@ -316,7 +322,7 @@ export class screenregister extends React.Component {
 
                         </div>
 
-
+{this.state.isUserExits =="0" &&
 
                         <div className="row" >
                             <div className="col-sm-12">
@@ -325,6 +331,11 @@ export class screenregister extends React.Component {
                             </div>
 
                         </div>
+
+  }
+
+
+
                         <div className="row" >
                             <div className="col-sm-12">
                                 
@@ -361,6 +372,9 @@ export class screenregister extends React.Component {
         this.setState({
             email: event.target.value
           });
+          if (event.target.value.indexOf('@')>0){
+            this.fetchprofile(event.target.value)
+          }
     }
     handlenphonechange(event)
     {
