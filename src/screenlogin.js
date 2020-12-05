@@ -76,7 +76,7 @@ export class screenlogin extends React.Component {
                     });
                 }
             else{
-                this.props.handleRegisnteredUserId(this.state.universalid);   
+                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail);   
                 
             }
              //  console.log(res.data);
