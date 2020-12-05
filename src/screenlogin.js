@@ -73,32 +73,20 @@ export class screenlogin extends React.Component {
 
 
             if (tiem.indexOf("notfound")>-1 && tiem !=``){
+                //user not found 
                 this.setState({
-                    universalid:res.data.recordsets[0].UserEmail,
                     loader:false,
-
                 });
+
             }else{
                 this.props.handleRegisnteredUserId(this.state.universalid);   
+                
             }
              //  console.log(res.data);
            } catch (error) {
               // console.log(error);
            }
-          /* axios.get(loginurl)
-           .then(response => {
-             // handle success
-             console.log(response);
-             
-            
-           })
-           .catch(function (error) {
-             // handle error
-             console.log(error);
-           })
-           .then(function () {
-             // always executed
-           });*/
+         
  
   }
 
