@@ -51,8 +51,8 @@ export class agentprofile extends React.Component {
                console.log(res);
                this.setState({
                 profileitems:res,
-                name:"llllll",
-                email:"llllll",
+                name:res.data[0].UserName,
+                email:res.data[0].UserEmail,
                 phone:res.data[0].Mobile,
                 loader:false,
             });
@@ -91,7 +91,7 @@ export class agentprofile extends React.Component {
 
 
         //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=bupdate&moibile=${this.state.phone}`;
+        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=bupdate&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
  try {
                      let res=await axios.post(regurl);
                      this.setState({
@@ -106,12 +106,7 @@ export class agentprofile extends React.Component {
 
  }
  componentDidMount() {
-  this.setState({
-   
-    name:"llllll",
-    email:"llllll",
-     
-});
+  
     this.getblobtoken();
     this.fetchprofile();
   }
