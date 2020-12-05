@@ -74,9 +74,9 @@ export class screenlogin extends React.Component {
 
             if (tiem.indexOf("notfound")>-1 && tiem !=``){
                 this.setState({
-                    universalid:res.data.recordsets[0].email,
+                    universalid:res.data.recordsets[0].UserEmail,
                     loader:false,
-                    
+
                 });
             }else{
                 this.props.handleRegisnteredUserId(this.state.universalid);   
