@@ -68,7 +68,7 @@ export class screenlogin extends React.Component {
 
             var tiem=``;
             if (this.state.universalid.data!=undefined
-                && this.state.universalid.data.indexOf("notfound")>-1 &&
+                && this.state.universalid.data=="notfound" &&
                 this.state.universalid.data!=``
                 ){
                     this.setState({
