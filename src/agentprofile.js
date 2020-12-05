@@ -8,6 +8,7 @@ import i18next from 'i18next';
 import Button from 'react-bootstrap/Button'
 import uploader from './uloaaderimage.gif'
 import imageCompression from 'browser-image-compression'
+import Select from 'react-select';
 
 
 export class agentprofile extends React.Component {
