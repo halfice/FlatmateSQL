@@ -51,8 +51,8 @@ export class agentprofile extends React.Component {
                console.log(res);
                this.setState({
                 profileitems:res,
-                name:res.data[0].UserName,
-                email:res.data[0].UserEmail,
+                name:"llllll",
+                email:"llllll",
                 phone:res.data[0].Mobile,
                 loader:false,
             });
@@ -106,6 +106,12 @@ export class agentprofile extends React.Component {
 
  }
  componentDidMount() {
+  this.setState({
+   
+    name:"llllll",
+    email:"llllll",
+     
+});
     this.getblobtoken();
     this.fetchprofile();
   }
@@ -261,18 +267,19 @@ export class agentprofile extends React.Component {
                                 
                             <div className="form-group">
    
-   <input type="email" className="form-control"  placeholder="Enter name" ></input>
+   <input type="email" className="form-control"  placeholder="Enter name" value={this.state.name}
+   onChange={this.handlenamechange}></input>
   
 
  </div>     
  <div className="form-group">
    
-   <input type="email" className="form-control" onChange={this.handlenphonechange} placeholder="Enter phone"></input>
+   <input type="email" value={this.state.phone} className="form-control"  placeholder="Enter phone"></input>
   
  </div>     
   <div className="form-group">
    
-    <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
+    <input type="email"  value={this.state.email} className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
    
   </div>
   <div className="form-group">
