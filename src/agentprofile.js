@@ -50,6 +50,9 @@ export class agentprofile extends React.Component {
                console.log(res);
                this.setState({
                 profileitems:res,
+                name:res.data[0].UserName,
+                email:res.data[0].UserEmail,
+                phone:res.data[0].Mobile,
                 loader:false,
             });
 
@@ -61,7 +64,12 @@ export class agentprofile extends React.Component {
   }
 
 
-
+  handleChangedrp = selectedOption => {
+    this.setState(
+      { selectedOption,
+      copmayname:selectedOption.label });
+    console.log(`Option selected:`, selectedOption.label);
+  };
 
     
     async handleClick() {
@@ -82,7 +90,7 @@ export class agentprofile extends React.Component {
 
 
         //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=bupdate&moibile=${this.state.phone}`;
  try {
                      let res=await axios.post(regurl);
                      this.setState({
@@ -205,6 +213,12 @@ export class agentprofile extends React.Component {
 
     render() {
 
+      const options = [
+        { value: 'Purple Property', label: 'Purple Property' },
+        { value: 'Al Dar', label: 'Al Dar' },
+        { value: 'Free Property', label: 'Free Property' },
+      ];
+
         let $imagePreview = null;
         let { imagePreviewUrl } = this.state;
         if (imagePreviewUrl) {
@@ -215,11 +229,6 @@ export class agentprofile extends React.Component {
                   <img src={imagePreviewUrl} className="mypreviewimagepro" />
                 </div>
               }
-              
-              
-              
-    
-    
             </div>
           );
             }
@@ -237,7 +246,7 @@ export class agentprofile extends React.Component {
                                
                                <div className="facbookbutton">
                              
-                              Register
+                              Update profileitems
                        
                                
                                </div>
@@ -251,7 +260,7 @@ export class agentprofile extends React.Component {
                                 
                             <div className="form-group">
    
-   <input type="email" className="form-control"  placeholder="Enter name" onChange={this.handlenamechange}></input>
+   <input type="email" className="form-control"  placeholder="Enter name" ></input>
   
 
  </div>     
@@ -270,6 +279,16 @@ export class agentprofile extends React.Component {
    <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
 
 </div>
+
+<div className="form-group">
+<Select
+        value={this.state.selectedOption}
+        onChange={this.handleChangedrp}
+        options={options}
+      />
+
+</div>
+
 <div className="form-group">
                         <div className="">
                           <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
@@ -302,7 +321,7 @@ export class agentprofile extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12">
                                 
-                                <Button className="mybuttons" onClick={this.handleClick} >Register</Button>
+                                <Button className="mybuttons" onClick={this.handleClick} >Update</Button>
                             </div>
 
                         </div>
