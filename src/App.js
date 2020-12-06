@@ -30,7 +30,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 0,
+      needwizard: 1,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -108,7 +108,7 @@ class App extends Component {
         }
         {
           this.state.needwizard == 500 &&
-          <div className="col-sm-12"><AgentProfile  userLoginId={this.state.userid}/>
+          <div className="col-sm-12"><AgentProfile  userLoginId={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
           </div>
 
         }
