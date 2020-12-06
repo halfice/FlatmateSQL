@@ -145,7 +145,7 @@ class bodycards extends Component {
     var _Response = null;
     var TempUserProfileExisits=0;
     var TempDivCounter=0;
-
+    var retrueneddata = [];
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=b";
     try {
       let res = await axios.post(loginurl);
@@ -165,6 +165,10 @@ class bodycards extends Component {
           retrueneddata.push(obs);
 
         }
+        this.setState({
+          ObjectArray: retrueneddata,
+          loader: false,
+        });
 
     } catch (error) {
 
