@@ -9,23 +9,10 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faCog,
-  faAtlas,
-  faCheck,
-  faBriefcase,
-  faBackward,
-  faHome,
-  faCoffee,
-  faQuoteLeft
-
-} from '@fortawesome/free-solid-svg-icons';
+import {faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome,faCoffee,faQuoteLeft} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
-
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
-
-
 export class lookingoforroom extends React.Component {
 
   constructor(props) {
@@ -152,17 +139,9 @@ export class lookingoforroom extends React.Component {
     this.handlearea = this.handlearea.bind(this);
   }
 
-  componentDidMount() {
-    // alert(this.state.LoginUserID);
+componentDidMount() { 
    this.getblobtoken();
     this.fetchMyhome();
-    //this.setState({
-     // loader: false,
-     // UserProfileExits:1,
-    ///  divcountre:1,
-   // });
-
-
   }
 
 async getblobtoken() {
@@ -245,11 +224,12 @@ shoonChangewsp() {
   }
 
 handleClick() {
+
     var tmp = this.state.divcountre;
-    if (tmp > 11) {
+    if (tmp > 12) {
       tmp = 0;
     }
-    if (tmp < 10) {
+    if (tmp < 11) {
       tmp = tmp + 1;
     }
     var btntext = "Lets Start!!!";
@@ -262,10 +242,14 @@ handleClick() {
       tmp = 9;
     }
     if (tmp == 10 && this.state.UserProfileExits == 0) {
+      btntext = "Go Live!"
+    }
+
+    if (tmp == 11 && this.state.UserProfileExits == 0) {
       this.callingInsert();
     }
 
-    if (tmp == 10 && this.state.UserProfileExits == 1) {
+    if (tmp > 11 && this.state.UserProfileExits == 1) {
       //alert("updaing");
       this.handleClickUpdate();
     }
@@ -465,6 +449,7 @@ async callingInsert() {
         universalid: res,
         loader: false,
         needwizard: 0,
+        divcountre:12,
 
       });
       this.props.handleRegisnteredUserId(this.state.email);
@@ -489,7 +474,7 @@ handletype(val, tval) {
     switch (tval) {
       case "1":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv1: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -503,7 +488,7 @@ handletype(val, tval) {
 
       case "2":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv2: "fdvihover",
           typediv1: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -517,7 +502,7 @@ handletype(val, tval) {
 
       case "3":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv3: "fdvihover",
           typediv2: "normaldivbutton",
           typediv1: "normaldivbutton",
@@ -531,7 +516,7 @@ handletype(val, tval) {
 
       case "4":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv4: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -546,7 +531,7 @@ handletype(val, tval) {
 
       case "5":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv5: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -561,7 +546,7 @@ handletype(val, tval) {
 
       case "6":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv6: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -575,7 +560,7 @@ handletype(val, tval) {
 
       case "7":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv7: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -589,7 +574,7 @@ handletype(val, tval) {
 
       case "8":
         this.setState({
-          type: val+"-"+val,
+          type: val+"-"+tval,
           typediv8: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -1629,88 +1614,94 @@ handlroomfurnishing(val, roomfurval) {
                   {
                     this.state.divcountre == 10 && this.state.UserProfileExits == 0 &&
                     <div className={this.state.divcountre == 10 ? this.state.visibleclass : this.state.hiddenclass}>
-                      <div className="row">
+                      <div className="row Tenantlistingdiv">
                         <div className="col-sm-12">
                           <h3> listing Preview.</h3>
                           <div className="row">
                             <div className="col-sm-2">
-                              ${this.state.myname}
+                             Name: {this.state.myname}
                             </div>
 
                             <div className="col-sm-2">
-                              ,${this.state.age}
+                            Age:  {this.state.age}
                             </div>
 
                             <div className="col-sm-2">
-                              ${this.state.gender}
+                            Gender: {this.state.gender}
                             </div>
 
                             <div className="col-sm-2">
-                              ${this.state.Area}
+                            Area: {this.state.area}
                             </div>
 
                             <div className="col-sm-2">
-                              ${this.state.Area}
+                            Rent:  {this.state.rent}
                             </div>
 
                             <div className="col-sm-2">
-                              ${this.state.parking}
-                            </div>
-
-                          </div>
-
-
-                          <div className="row">
-                            <div className="col-sm-2">
-                              ${this.state.Room_in_an_existing}
-                            </div>
-
-                            <div className="col-sm-2">
-                              ,${this.state.DatetoCome}
-                            </div>
-
-                            <div className="col-sm-2">
-                              ${this.state.HowDays}
-                            </div>
-
-                            <div className="col-sm-2">
-                              ${this.state.RoomFurnishing}
-                            </div>
-
-                            <div className="col-sm-2">
-                              ${this.state.Internet}
-                            </div>
-
-                            <div className="col-sm-2">
-                              ${this.state.BathRoomType}
+                            Parking:  {this.state.parking}
                             </div>
 
                           </div>
 
 
                           <div className="row">
-                            <div className="col-sm-2">
-                              ${this.state.MaxNumberoflatemate}
+                            <div className="col-sm-4">
+                             Type: {this.state.type}
                             </div>
 
                             <div className="col-sm-2">
-                              ,${this.state.thisplaceisfor}
+                             Expected: {this.state.datetocome}
                             </div>
 
                             <div className="col-sm-2">
-                              ${this.state.employeestatus}
+                             Duration: {this.state.timelength}
                             </div>
 
                             <div className="col-sm-2">
-                              ${this.state.abouturselfparagraph}
+                             Furniture  {this.state.RoomFurnishing}
                             </div>
+
+                            <div className="col-sm-2">
+                              {this.state.Internet}
+                            </div>
+
+                          
+
+                          </div>
+
+
+                          <div className="row">
+
+                          <div className="col-sm-2">
+                            Bathroom;  {this.state.BathRoomType}
+                            </div>
+
+
+                            <div className="col-sm-2">
+                            Sharing:{this.state.MaxNumberoflatemate}
+                            </div>
+
+                            <div className="col-sm-2">
+                            Intend for:{this.state.thisplaceisfor}
+                            </div>
+
+                            <div className="col-sm-2">
+                            My Status:{this.state.employeestatus}
+                            </div>
+
+                            
 
 
 
                           </div>
+
                           <div className="row">
-                            <div className="col-sm-2">
-                              ${this.state.abouturselfparagraph}
+                          <div className="col-sm-2">
+                              About My self:
+                            </div>
+                            <div className="col-sm-8">
+                              {this.state.abouturselfparagraph}
                             </div>
 
                           </div>
@@ -1736,7 +1727,7 @@ handlroomfurnishing(val, roomfurval) {
                   {
                     this.state.divcountre == 100 && this.state.UserProfileExits == 0 &&
                     <div className={this.state.divcountre == 10 ? this.state.visibleclass : this.state.hiddenclass}>
-                      <div className="row">
+                      <div className="row ">
                         <div className="col-sm-12"> listing Preview/ Offers.</div>
                         <div className="col-sm-4">
                           <div className="iconsclassgray" >

@@ -141,11 +141,21 @@ cursor: pointer;
 }
 
 
+.Tenantlistingdiv{
+   background-color: #e6cbcb12;
+     border: solid 6px #117a8b26;
+    border-radius: 13px;
+     box-shadow: 6px 1px 16px 2px;
+     text-align: left;
+  
+  }
+
+
 .previewpadding{
   padding: 5px;
 }
 .mypreviewimage{
-  width: 62%;
+  width: 200px!important;
     height: 100%;
     border-radius: 3px;
     border: solid 9px #117a8b26;
