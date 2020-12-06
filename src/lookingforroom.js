@@ -182,7 +182,7 @@ export class lookingoforroom extends React.Component {
     var _Response = null;
     var TempUserProfileExisits=0;
     var TempDivCounter=0;
-    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&email=" + this.state.userLoginId + "&functiontype=x";
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&email=" + this.state.LoginUserID + "&functiontype=x";
     try {
       let res = await axios.post(loginurl);
       console.log(res);
