@@ -165,7 +165,7 @@ export class lookingoforroom extends React.Component {
 
   }
 
-  async getblobtoken() {
+async getblobtoken() {
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
     try {
       let res = await axios.post(loginurl);
@@ -178,7 +178,7 @@ export class lookingoforroom extends React.Component {
     }
   }
 
-  async fetchMyhome() {
+async fetchMyhome() {
     var _Response = null;
     var TempUserProfileExisits=0;
     var TempDivCounter=0;
@@ -194,7 +194,6 @@ export class lookingoforroom extends React.Component {
         TempDivCounter=1;
       }
 
-
       this.setState({
         UserProfileExits: TempUserProfileExisits,
         ExistingData: res.data,
@@ -207,7 +206,8 @@ export class lookingoforroom extends React.Component {
 
     }
   }
- async handleClickUpdate(){
+
+async handleClickUpdate(){
   this.setState({
     loader: true,
   });
@@ -228,20 +228,23 @@ export class lookingoforroom extends React.Component {
   } catch (error) {
     //console.log(error);
   }
- }
-  Lisintingfunc() {
+  }
+
+Lisintingfunc() {
     this.setState({
       divcountre: 100,
       parentdiv: 2,
 
     });
   }
-  shoonChangewsp() {
+
+shoonChangewsp() {
     this.setState({
       value: 4
     });
   }
-  handleClick() {
+
+handleClick() {
     var tmp = this.state.divcountre;
     if (tmp > 11) {
       tmp = 0;
@@ -264,6 +267,7 @@ export class lookingoforroom extends React.Component {
 
     if (tmp == 10 && this.state.UserProfileExits == 1) {
       //alert("updaing");
+      this.handleClickUpdate();
     }
 
     this.setState({
@@ -275,7 +279,7 @@ export class lookingoforroom extends React.Component {
     })
   }
 
-  handleGoBackClick() {
+handleGoBackClick() {
     var tempparentdiv = 2;
     var tmp = this.state.divcountre;
     if (tmp > 11) {
@@ -306,7 +310,7 @@ export class lookingoforroom extends React.Component {
     })
   }
 
-  componentDidMountv() {
+componentDidMountv() {
     this.setState({
       loader: true,
     });
@@ -333,7 +337,7 @@ export class lookingoforroom extends React.Component {
       });
   }
 
-  async handleImageUpload(files) {
+async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
       // this.uploadFile(file);
@@ -341,7 +345,7 @@ export class lookingoforroom extends React.Component {
     }
   }
 
-  async uploadFile(file) {
+async uploadFile(file) {
     //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
 
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
@@ -368,7 +372,7 @@ export class lookingoforroom extends React.Component {
 
   }
 
-  async handleImageUploadold(file) {
+async handleImageUploadold(file) {
     this.setState({
       loader: true,
     });
@@ -404,7 +408,7 @@ export class lookingoforroom extends React.Component {
   }
 
 
-  async handleImageUploadx(event) {
+async handleImageUploadx(event) {
     this.setState({
       loader: true,
     });
@@ -447,15 +451,13 @@ export class lookingoforroom extends React.Component {
 
   }
 
-
-  async callingInsert() {
-
-    this.setState({
+async callingInsert() {
+ this.setState({
       loader: true,
     });
 
     var finalitemid = this.uuidv4();
-    var roomforexisting = 1;
+    var roomforexisting = this.state.type;
     var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Internet}&BathRoomType=${this.state.BathRoomType}&parking=${this.state.Parking}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
     try {
       let res = await axios.post(regurl);
@@ -473,7 +475,7 @@ export class lookingoforroom extends React.Component {
 
   }
 
-  handlerhomek = (val) => {
+handlerhomek = (val) => {
     this.setState({
       propertyAddress: val,
       location: val,
@@ -483,11 +485,11 @@ export class lookingoforroom extends React.Component {
   }
 
   
-  handletype(val, tval) {
+handletype(val, tval) {
     switch (tval) {
       case "1":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv1: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -501,7 +503,7 @@ export class lookingoforroom extends React.Component {
 
       case "2":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv2: "fdvihover",
           typediv1: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -515,7 +517,7 @@ export class lookingoforroom extends React.Component {
 
       case "3":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv3: "fdvihover",
           typediv2: "normaldivbutton",
           typediv1: "normaldivbutton",
@@ -529,7 +531,7 @@ export class lookingoforroom extends React.Component {
 
       case "4":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv4: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -544,7 +546,7 @@ export class lookingoforroom extends React.Component {
 
       case "5":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv5: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -559,7 +561,7 @@ export class lookingoforroom extends React.Component {
 
       case "6":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv6: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -573,7 +575,7 @@ export class lookingoforroom extends React.Component {
 
       case "7":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv7: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -587,7 +589,7 @@ export class lookingoforroom extends React.Component {
 
       case "8":
         this.setState({
-          type: val,
+          type: val+"-"+val,
           typediv8: "fdvihover",
           typediv2: "normaldivbutton",
           typediv3: "normaldivbutton",
@@ -604,7 +606,7 @@ export class lookingoforroom extends React.Component {
 
   }
 
-  handlearea = (event) => {
+handlearea = (event) => {
     //alert(event.target.value);
     this.setState({
       area: event.target.value,
@@ -613,28 +615,28 @@ export class lookingoforroom extends React.Component {
     });
   }
 
-  handlearent(event) {
+handlearent(event) {
     //alert(event.target.value);
     this.setState({
       rent: event.target.value,
     });
   }
 
-  handledate(event) {
+handledate(event) {
     this.setState({
       datetocome: event.target.value,
     });
   }
 
 
-  handlestaylength(event) {
+handlestaylength(event) {
     this.setState({
       timelength: event.target.value,
     });
   }
 
 
-  handlroomfurnishing(val, roomfurval) {
+handlroomfurnishing(val, roomfurval) {
     switch (roomfurval) {
       case "1":
         this.setState({
@@ -1164,10 +1166,8 @@ export class lookingoforroom extends React.Component {
 
                   {
                     this.state.divcountre == 1 && 
-
-
                     <div className={this.state.divcountre == 1 ? this.state.visibleclass : this.state.hiddenclass}>
-
+                    
                       <div>
                         <div className="col-sm-12"> What type of Place you are looking for.</div>
                       </div>
@@ -1752,17 +1752,13 @@ export class lookingoforroom extends React.Component {
 
 
                 </div>
-                {this.state.divcountre != 100 && this.state.UserProfileExits == 0 &&
+                {this.state.divcountre != 100 && 
                   <div className="row centeraligh">
                     <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
                   </div>
                 }
 
-{this.state.divcountre != 100 && this.state.UserProfileExits == 1 &&
-                  <div className="row centeraligh">
-                    <Button className="mybuttons" onClick={this.handleClickUpdate} >Update</Button>
-                  </div>
-                }
+
 
               </div>
             </div>
