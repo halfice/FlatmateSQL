@@ -173,6 +173,10 @@ async fetchMyhome() {
         TempDivCounter=1;
       }
 
+      var TmpType=res.data[0].Room_in_an_existing;
+      var Tmp2=TmpType.toString().split("-");
+      this.handletype(Tmp2[0],Tmp2[1]);
+
       this.setState({
         UserProfileExits: TempUserProfileExisits,
         ExistingData: res.data,
@@ -452,7 +456,7 @@ async callingInsert() {
         divcountre:12,
 
       });
-      this.props.handleRegisnteredUserId(this.state.email);
+      this.props.handleRegisnteredUserId(this.state.LoginUserID);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);

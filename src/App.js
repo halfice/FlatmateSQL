@@ -81,20 +81,20 @@ class App extends Component {
         {
         this.state.needwizard == 1 &&
           <div className="col-sm-12">
-            <Looking UserID={this.state.userid} />
+            <Looking UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
             </div>
         }
 
         {
           this.state.needwizard == 3 &&
           <div className="col-sm-12">
-            <RoomOwner UserID={this.state.userid} /></div>
+            <RoomOwner UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/></div>
         }
 
         {
           this.state.needwizard == 4 &&
           <div className="col-sm-12">
-            <Bids UserID={this.state.userid} />
+            <Bids UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
           </div>
 
         }
@@ -102,7 +102,7 @@ class App extends Component {
 {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property UserID={this.state.userid} />
+            <Property UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
           </div>
 
         }
