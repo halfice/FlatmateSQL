@@ -30,7 +30,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 1,
+      needwizard: 0,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,

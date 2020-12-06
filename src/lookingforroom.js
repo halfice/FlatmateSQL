@@ -154,13 +154,15 @@ export class lookingoforroom extends React.Component {
 
   componentDidMount() {
     // alert(this.state.LoginUserID);
-   // this.getblobtoken();
-    //this.fetchMyhome();
-    this.setState({
-      loader: false,
-      UserProfileExits:1,
-      divcountre:1,
-    });
+   this.getblobtoken();
+    this.fetchMyhome();
+    //this.setState({
+     // loader: false,
+     // UserProfileExits:1,
+    ///  divcountre:1,
+   // });
+
+
   }
 
   async getblobtoken() {
