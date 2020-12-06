@@ -329,7 +329,7 @@ export class Property extends React.Component {
         loader: false,
         
       });
-      this.props.handleRegisnteredUserId(this.state.email);
+      this.props.handleRegisnteredUserId(this.state.LoginUserID);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);

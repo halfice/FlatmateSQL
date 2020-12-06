@@ -176,12 +176,16 @@ async fetchMyhome() {
       var TmpType=res.data[0].Room_in_an_existing;
       var Tmp2=TmpType.toString().split("-");
       this.handletype(Tmp2[0],Tmp2[1]);
+      this.handlerhomek(res.data[0].Area);
 
       this.setState({
         UserProfileExits: TempUserProfileExisits,
         ExistingData: res.data,
         type: res.data["type"],
         divcountre:TempDivCounter,
+        rent:res.data[0].Area,
+        datetocome:res.data[0].DatetoCome,
+        timelength:res.data[0].HowDays
 
       });
 
@@ -334,14 +338,11 @@ async handleImageUpload(files) {
   }
 
 async uploadFile(file) {
-    //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
-
+  
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
     const sas = this.state.blobtoken;
     var finalToken = sas.data.token;
-    //finalToken="";
-    //finalToken="?sv=2019-12-12&ss=bf&srt=s&sp=rwlac&se=2021-12-29T22:25:54Z&st=2020-11-28T14:25:54Z&spr=https&sig=F2JpyoUBdGW96gnefEsi3xZHA6J%2F7e2isHXz3p3G824%3D";
-
+  
     const STORAGE_ACCOUNT_NAME = 'userfunctionsapi'
     const CONTAINER_NAME = 'myfiles'
     // for browser, SAS_TOKEN is get from API?
@@ -1235,7 +1236,7 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 2 && this.state.UserProfileExits == 0 &&
+                    this.state.divcountre == 2 && 
                     <div className={this.state.divcountre == 2 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> Where would you like to live.</div>
@@ -1264,7 +1265,7 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 3 && this.state.UserProfileExits == 0 &&
+                    this.state.divcountre == 3 && 
                     <div className={this.state.divcountre == 3 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> Rent  and time.</div>
@@ -1290,7 +1291,7 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 4 && this.state.UserProfileExits == 0 &&
+                    this.state.divcountre == 4 && 
                     <div className={this.state.divcountre == 4 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> Peroperty preferences.</div>
