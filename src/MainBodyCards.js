@@ -8,19 +8,9 @@ import trolly from './trolly.png';
 import cult from './cult.png';
 import beds from './beds.png';
 import bins from './bins.png';
-
-
 import { Switch, Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import {
-  faCog,
-  faAtlas,
-  faCheck,
-  faBriefcase,
-  faBackward,
-  faHome,
-  faCoffee,
-  faQuoteLeft,
-  faUser
+  faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome,faCoffee,faQuoteLeft, faUser
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MyMaps from './MapContainer'

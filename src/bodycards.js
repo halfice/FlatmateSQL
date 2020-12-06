@@ -21,17 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import {
-  faCog,
-  faAtlas,
-  faCheck,
-  faBriefcase,
-  faBackward,
-  faHome,
-  faCoffee,
-  faQuoteLeft,
-  faTimes,
-} from '@fortawesome/free-solid-svg-icons';
+import {faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome,faCoffee,faQuoteLeft,faTimes,} from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -46,6 +36,7 @@ class bodycards extends Component {
       loader: true,
       ImagesArray: [],
       ShowCarousal: false,
+      blobtoken:""
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -53,11 +44,7 @@ class bodycards extends Component {
 
   }
 
-  CloseModal() {
-    this.setState({
-      ShowCarousal: false,
-    });
-  }
+ 
 
 
   getCarousal(ownerid) {
@@ -116,7 +103,7 @@ class bodycards extends Component {
       });
   }
 
-  componentDidMount() {
+  componentDidMountd() {
     var retrueneddata = [];
     axios
       .get('http://localhost:5000/card/')
@@ -147,27 +134,42 @@ class bodycards extends Component {
       .catch(err => {
         console.log("Error in Getting Card!" + err);
       });
-    this.componentDidMountme();
+    //this.componentDidMountme();
     // this.componentDidMountbids();
 
 
   }
 
-  getImageStr(ownerid) {
-    const data = {
-      ownerid: ownerid,
-      imagecount: 1,
+ 
+  async fetchproperties() {
+    var _Response = null;
+    var TempUserProfileExisits=0;
+    var TempDivCounter=0;
+
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=b";
+    try {
+      let res = await axios.post(loginurl);
+      console.log(res);
+      var xcount = 10;
+        for (var i = 0; i < res.data.length; i++) {
+          xcount = xcount + 1;
+          var obs = {
+            'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+            'rent': res.data[i].Price,//metadata.colName,
+            'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+            'propertyAddress': res.data[i].Location,//.metadata.colName,
+           // 'Imagestr': res.data[i].value,//.metadata.colName,
+            'key': xcount,
+           // 'ownerid': res.data[i].value
+          }
+          retrueneddata.push(obs);
+
+        }
+
+    } catch (error) {
+
     }
-
-    axios
-      .get('http://localhost:5000/MyFiles/getfiles', data)
-      .then(res => {
-        console.log(res.data[0].Imagestr);
-
-      }
-      );
   }
-
 
   render() {
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
@@ -374,7 +376,29 @@ class bodycards extends Component {
 
     );
   }
+  async getblobtoken() {
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
+    try {
+      let res = await axios.post(loginurl);
+      this.setState({
+        blobtoken: res,
+        loader: false,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
+  componentDidMount() { 
+    this.getblobtoken();
+     this.fetchproperties();
+   }
+
+   CloseModal() {
+    this.setState({
+      ShowCarousal: false,
+    });
+  }
 }
 
 export default withTranslation()(bodycards);
