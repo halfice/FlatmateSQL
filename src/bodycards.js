@@ -109,23 +109,21 @@ class bodycards extends Component {
               <div className="row">
                 <div className="col-sm-3 ">
                   <div className="myicondiv">
-                    <img src={calls} width="120px"  />
+                    <img src={calls} width="60px"  />
                     
                     
                         </div>
                 </div>
                 <div className="col-sm-3 ">
                   <div className="myicondiv">
-                    <img src={whatsapp} width="120px"  />
+                    <img src={whatsapp} width="80px"  />
                   </div>   </div>
                 <div className="col-sm-3 ">
-                  <div className="myicondiv">
-                    <img src={gmails} width="120px"  />
-                  </div>
+                <div className="buttnemail" >Email</div>
                 </div>
                 <div className="col-sm-3 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBriefcase} />
+                   <div className="buttn" >Message</div>
                   </div>
                 </div>
 
