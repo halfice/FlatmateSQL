@@ -559,33 +559,33 @@ export class Property extends React.Component {
                         </div>
                         </div>
                         <div className="col-sm-2">
-                          <div className={this.state.totalbeddiv1} onClick={this.handletotalbed.bind(this, '1', '1')} >
-                            1
+                          <div className={this.state.totalbeddiv1} onClick={this.handletotalbed.bind(this, 'Studio', '100')} >
+                            Studio
                           </div>
                         </div>
                         <div className="col-sm-2">
-                          <div className={this.state.totalbeddiv2} onClick={this.handletotalbed.bind(this, '2', '2')} >
+                          <div className={this.state.totalbeddiv2} onClick={this.handletotalbed.bind(this, '1', '1')} >
+                            1
+                         </div>
+                        </div>
+                        <div className="col-sm-2">
+                          <div className={this.state.totalbeddiv3} onClick={this.handletotalbed.bind(this, '2', '2')} >
                             2
                          </div>
                         </div>
                         <div className="col-sm-2">
-                          <div className={this.state.totalbeddiv3} onClick={this.handletotalbed.bind(this, '3', '3')} >
+                          <div className={this.state.totalbeddiv4} onClick={this.handletotalbed.bind(this, '3', '3')} >
                             3
                          </div>
                         </div>
                         <div className="col-sm-2">
-                          <div className={this.state.totalbeddiv4} onClick={this.handletotalbed.bind(this, '4', '4')} >
+                          <div className={this.state.totalbeddiv5} onClick={this.handletotalbed.bind(this, '4', '4')} >
                             4
                          </div>
                         </div>
                         <div className="col-sm-2">
-                          <div className={this.state.totalbeddiv5} onClick={this.handletotalbed.bind(this, '5', '5')} >
-                            5
-                         </div>
-                        </div>
-                        <div className="col-sm-2">
-                          <div className={this.state.totalbeddiv6} onClick={this.handletotalbed.bind(this, '6plus', '6')} >
-                            6+
+                          <div className={this.state.totalbeddiv6} onClick={this.handletotalbed.bind(this, '5plus', '5')} >
+                            5+
                          </div>
                         </div>
                       </div>
@@ -970,7 +970,7 @@ export class Property extends React.Component {
   handletotalbed(val, tbval) {
     switch (tbval) {
 
-      case "1":
+      case "100":
         this.setState({
           totalbed: val,
           totalbeddiv1: "innervbuutonhover",
@@ -983,7 +983,7 @@ export class Property extends React.Component {
         });
         break;
 
-      case "2":
+      case "1":
         this.setState({
           totalbed: val,
           totalbeddiv1: "innervbuuton",
@@ -996,8 +996,7 @@ export class Property extends React.Component {
         });
         break;
 
-
-      case "3":
+      case "2":
         this.setState({
           totalbed: val,
           totalbeddiv1: "innervbuuton",
@@ -1011,7 +1010,7 @@ export class Property extends React.Component {
         break;
 
 
-      case "4":
+      case "3":
         this.setState({
           totalbed: val,
           totalbeddiv1: "innervbuuton",
@@ -1025,7 +1024,7 @@ export class Property extends React.Component {
         break;
 
 
-      case "5":
+      case "4":
         this.setState({
           totalbed: val,
           totalbeddiv1: "innervbuuton",
@@ -1034,6 +1033,20 @@ export class Property extends React.Component {
           totalbeddiv4: "innervbuuton",
           totalbeddiv5: "innervbuutonhover",
           totalbeddiv6: "innervbuuton",
+
+        });
+        break;
+
+
+      case "5":
+        this.setState({
+          totalbed: val,
+          totalbeddiv1: "innervbuuton",
+          totalbeddiv2: "innervbuuton",
+          totalbeddiv3: "innervbuuton",
+          totalbeddiv4: "innervbuuton",
+          totalbeddiv5: "innervbuuton",
+          totalbeddiv6: "innervbuutonhover",
 
         });
         break;

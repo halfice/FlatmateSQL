@@ -8,6 +8,7 @@ import trolly from './trolly.png';
 import cult from './cult.png';
 import beds from './beds.png';
 import bins from './bins.png';
+
 import { Switch, Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import {
   faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome,faCoffee,faQuoteLeft, faUser
@@ -27,9 +28,9 @@ class MainBodyCards extends Component {
             <div onClick={() => this.props.handler('1')} >
               <div className="bottombordr" >
                 <div className="row bcimagep">
-                  <div className="col-sm-4">
+                  <div className="col-sm-12">
                     <div className="row marginljeft">
-                      <span className="spanclasstext">Flatmate</span>
+                      <span className="spanclasstext">Share Flatmate</span>
                     </div>
                     <div className="row marginleft">
                       
@@ -56,13 +57,13 @@ class MainBodyCards extends Component {
 
             </div>
           </div>
-          <div className="col-sm-4 card-body">
+          <div className="col-sm-3 card-body">
             <div onClick={() => this.props.handler('5')}> 
               <div className="bottombordr" >
                 <div className="row bcimage">
-                  <div className="col-sm-6">
+                  <div className="col-sm-12">
                     <div className="row marginljeft">
-                      <span className="spanclasstext">Property</span>
+                      <span className="spanclasstext">Share Property</span>
                     </div>
                     <div className="row marginleft">
                       
