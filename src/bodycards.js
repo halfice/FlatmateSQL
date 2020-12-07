@@ -95,9 +95,9 @@ class bodycards extends Component {
     const imgstr ="https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
-        <div className="col-sm-4" key={item["key"]} >
+        <div className="col-sm-3" key={item["key"]} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
-            <Card.Img height="120px" variant="top" src={imgstr} onClick={this.getCarousal.bind(this, item["key"])} />
+            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["key"])} />
             <Card.Body>
               <div className="row bottomborder" >
                 <div className="col-sm-12 paragraphcss">{item["typeofAccomodation"]}</div>
