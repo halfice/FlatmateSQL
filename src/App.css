@@ -94,7 +94,7 @@ div{
 }
 .paragraphcss{
   
-    font-size: 40px;
+    font-size: 23px;
     COLOR: #004085;
 
 }
@@ -151,14 +151,18 @@ div{
 
 .paragraphcss:hover{
   
-  cursor: pointer;
-  background-color: #343a40;
-  cursor: pointer;
-  border-radius: 9px;
-  color: white;
-  /* text-align: center; */
-  /* font-size: 13px; */
-  padding: 2px;
+
+    background-color: #28a745;
+    cursor: pointer;
+    border-radius: 9px;
+    color: #ffffff;
+    padding: 2px;
+
+  
+  
+ 
+  
+ 
 }
 
 @keyframes spin {

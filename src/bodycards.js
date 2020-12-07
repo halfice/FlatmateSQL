@@ -21,7 +21,9 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faPhone,faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
+import gmails from './gmail.gif';
+import whatsapp from './whatsapp.gif';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -107,15 +109,15 @@ class bodycards extends Component {
               <div className="row">
                 <div className="col-sm-3 paragraphcss">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faAtlas} />             </div>
+                    <FontAwesomeIcon icon={faPhone} />             </div>
                 </div>
                 <div className="col-sm-3 paragraphcss">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faCheck} />
+                    <FontAwesomeIcon icon={whatsapp} />
                   </div>   </div>
                 <div className="col-sm-3 paragraphcss">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faCog} />
+                    <img src={gmails}  />
                   </div>
                 </div>
                 <div className="col-sm-3 paragraphcss">
