@@ -121,7 +121,7 @@ class bodycards extends Component {
                 <div className="col-sm-4 zerpadding">
                 <div className="buttnemail" >Email</div>
                 </div>
-                <div className="col-sm-4 ">
+                <div className="col-sm-4 zerpadding">
                   <div className="myicondiv">
                    <div className="buttn" >Message</div>
                   </div>
