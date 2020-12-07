@@ -25,6 +25,8 @@ import Property from './property'
 import AgentProfile from './agentprofile';
 
 
+import NearbyPlace from './nearbyplaces';
+
 
 class App extends Component {
   constructor(props) {
@@ -125,7 +127,7 @@ class App extends Component {
           }
 
 
-
+<div className="col-sm-12"><NearbyPlace /></div>
         </div>
         <div className="dontshow" >
           <p>{t('Thanks.1')}</p>  <p>{t('Why.1')}</p>

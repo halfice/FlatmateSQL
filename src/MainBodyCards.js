@@ -90,62 +90,7 @@ class MainBodyCards extends Component {
 
          
         </div>
-        <div>
-
-        <div className="col-sm-12 card-body">
-            <div onClick={() => this.props.handler('5')}> 
-              <div className="" >
-                <div className="row ">
-                <div className="col-sm-2">
-                    <div className="">
-                  
-                  </div>
-                  
-                  
-                  </div>
-                  <div className="col-sm-2">
-                    <div className="mainbodyball1">
-                  <img alt="" src={trolly}  className="imgclss"></img>
-                  </div>
-                  
-                  
-                  </div>
-
-                  <div className="col-sm-2">
-                  <div className="mainbodyball2">
-                  <img alt="" src={cult}  className="imgclss"></img>
-                  </div>
-                  </div>
-
-
-                  <div className="col-sm-2">
-                  <div className="mainbodyball3">
-                  <img alt="" src={beds} className="imgclss"  ></img>
-                  </div>
-                  </div>
-
-
-                  <div className="col-sm-2">
-                  <div className="mainbodyball4">
-                  <img alt="" src={bins}  className="imgclss"></img>
-                  </div>
-                  </div>
-
-                  <div className="col-sm-2">
-                  <div className="">
-                 
-                  </div>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
+        
        
       </div>
 
