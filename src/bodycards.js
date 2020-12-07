@@ -318,7 +318,7 @@ class bodycards extends Component {
 
   componentDidMount() {
     this.getblobtoken();
-    this.fetchproperties();
+   
   }
 
   CloseModal() {
@@ -413,6 +413,7 @@ var imgstr=blobClient.url;
       myBlobs: tempblog,
 
     });
+    this.fetchproperties();
 
     
 
