@@ -332,7 +332,7 @@ componentDidMountv() {
 async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-      // this.uploadFile(file);
+      this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
