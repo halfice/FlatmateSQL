@@ -290,7 +290,7 @@ export class screenregister extends React.Component {
         value={this.state.selectedOption}
         onChange={this.handleChangedrp}
         options={options}
-        className="dropdown"
+        className="dropdowng"
       />
 
 </div>
@@ -388,6 +388,18 @@ export class screenregister extends React.Component {
           });
     }
 
+     uniqueNumber() {
+      var date = Date.now();
+      
+     
+      
+      return date;
+  }
+
+
+
 }
+
+
 
 export default withTranslation()(screenregister);
