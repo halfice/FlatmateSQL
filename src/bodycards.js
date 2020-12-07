@@ -357,6 +357,17 @@ class bodycards extends Component {
       });
   }
 
+  async  blobToString(blob) {
+    const fileReader = new FileReader();
+    return new Promise((resolve, reject) => {
+      fileReader.onloadend = (ev) => {
+        resolve(ev.target.result);
+      };
+      fileReader.onerror = reject;
+      fileReader.readAsText(blob);
+    });
+  }
+
   async fetchblobs(file) {
     //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
 
@@ -378,17 +389,33 @@ class bodycards extends Component {
 var tempblog=[];
     let blobs = containerClient.listBlobsFlat();
     for await (const blob of blobs) {
+      
+      const blobClient = containerClient.getBlobClient(blob.name);
+      const downloadBlockBlobResponse = await blobClient.download();
+      const downloaded = await this.blobToString(await downloadBlockBlobResponse.blobBody);
+      console.log("Downloaded blob content", downloaded);
+
+      // [Browsers only] A helper method used to convert a browser Blob into string.
       var obs = {
         'name': blob.name,//.metadata.colName,
-        
+        str:downloaded
+
       }
+
+
+
+
       tempblog.push(obs);
       console.log(`Blob ${i++}: ${blob.name}`);
     }
     this.setState({
       myBlobs: tempblog,
-      
+
     });
+
+    
+
+      
   
 
 

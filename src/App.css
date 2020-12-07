@@ -93,7 +93,10 @@ div{
     font-stretch: extra-expanded;
 }
 .paragraphcss{
-  font-size: 10px;
+  
+    font-size: 40px;
+    COLOR: #004085;
+
 }
 
 .loadoer {
