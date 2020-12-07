@@ -21,7 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import {faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome,faCoffee,faQuoteLeft,faTimes,} from '@fortawesome/free-solid-svg-icons';
+import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -36,7 +36,8 @@ class bodycards extends Component {
       loader: true,
       ImagesArray: [],
       ShowCarousal: false,
-      blobtoken:""
+      blobtoken: "",
+      myBlobs:[],
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -44,7 +45,7 @@ class bodycards extends Component {
 
   }
 
- 
+
 
 
   getCarousal(ownerid) {
@@ -55,120 +56,40 @@ class bodycards extends Component {
 
 
 
-  componentDidMountbids() {
-    axios
-      .get('http://localhost:5000/cardbids/')
-      .then(res => {
-
-        this.setState({
-          ObjectArrayBids: res.data,
-          loader: false,
-        });
-
-      })
-      .catch(err => {
-        console.log("Error in Getting Card!" + err);
-      });
-  }
-
-  componentDidMountme() {
-    var retrueneddata = [];
-
-    var xcount = 102;
-    axios
-      .get('http://localhost:5000/cardtenants/')
-      .then(res => {
-        for (var i = 0; i < res.data.length; i++) {
-          xcount = xcount + 1;
-
-          var obs = {
-            'Area': res.data[i][0].value,//.metadata.colName,
-            'rent': res.data[i][1].value,//metadata.colName,
-            'DatetoCome': res.data[i][2].value,//.metadata.colName,
-            'age': res.data[i][3].value,//.metadata.colName,
-            'Imagestr': res.data[i][4].value,//.metadata.colName,
-            'key': xcount,
-            'tenantid': res.data[i][5].value,//.metadata.colName,
-          }
-          retrueneddata.push(obs);
-        }
-        console.log(retrueneddata);
-        this.setState({
-          ObjectArrayTenant: retrueneddata,
-          loader: false,
-        });
-      })
-      .catch(err => {
-        console.log("Error in Getting Card!" + err);
-      });
-  }
-
-  componentDidMountd() {
-    var retrueneddata = [];
-    axios
-      .get('http://localhost:5000/card/')
-      .then(res => {
-        // console.log(res);
-        //res.data[0][0].value
-        var xcount = 10;
-        for (var i = 0; i < res.data.length; i++) {
-          xcount = xcount + 1;
-          var obs = {
-            'typeofAccomodation': res.data[i][0].value,//.metadata.colName,
-            'rent': res.data[i][1].value,//metadata.colName,
-            'totalbed': res.data[i][2].value,//.metadata.colName,
-            'propertyAddress': res.data[i][3].value,//.metadata.colName,
-            'Imagestr': res.data[i][6].value,//.metadata.colName,
-            'key': xcount,
-            'ownerid': res.data[i][7].value
-          }
-          retrueneddata.push(obs);
-
-        }
-
-        this.setState({
-          ObjectArray: retrueneddata,
-          loader: false,
-        });
-      })
-      .catch(err => {
-        console.log("Error in Getting Card!" + err);
-      });
-    //this.componentDidMountme();
-    // this.componentDidMountbids();
 
 
-  }
 
- 
+
+
+
   async fetchproperties() {
     var _Response = null;
-    var TempUserProfileExisits=0;
-    var TempDivCounter=0;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
     var retrueneddata = [];
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=b";
     try {
       let res = await axios.post(loginurl);
       console.log(res);
       var xcount = 10;
-        for (var i = 0; i < res.data.length; i++) {
-          xcount = xcount + 1;
-          var obs = {
-            'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-            'rent': res.data[i].Price,//metadata.colName,
-            'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-            'propertyAddress': res.data[i].Location,//.metadata.colName,
-           // 'Imagestr': res.data[i].value,//.metadata.colName,
-            'key': xcount,
-           // 'ownerid': res.data[i].value
-          }
-          retrueneddata.push(obs);
-
+      for (var i = 0; i < res.data.length; i++) {
+        xcount = xcount + 1;
+        var obs = {
+          'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+          'rent': res.data[i].Price,//metadata.colName,
+          'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+          'propertyAddress': res.data[i].Location,//.metadata.colName,
+          // 'Imagestr': res.data[i].value,//.metadata.colName,
+          'key': xcount,
+          // 'ownerid': res.data[i].value
         }
-        this.setState({
-          ObjectArray: retrueneddata,
-          loader: false,
-        });
+        retrueneddata.push(obs);
+
+      }
+      this.setState({
+        ObjectArray: retrueneddata,
+        loader: false,
+      });
 
     } catch (error) {
 
@@ -393,16 +314,86 @@ class bodycards extends Component {
     }
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     this.getblobtoken();
-     this.fetchproperties();
-   }
+    this.fetchproperties();
+  }
 
-   CloseModal() {
+  CloseModal() {
     this.setState({
       ShowCarousal: false,
     });
   }
+  componentDidMountme() {
+    var retrueneddata = [];
+
+    var xcount = 102;
+    axios
+      .get('http://localhost:5000/cardtenants/')
+      .then(res => {
+        for (var i = 0; i < res.data.length; i++) {
+          xcount = xcount + 1;
+
+          var obs = {
+            'Area': res.data[i][0].value,//.metadata.colName,
+            'rent': res.data[i][1].value,//metadata.colName,
+            'DatetoCome': res.data[i][2].value,//.metadata.colName,
+            'age': res.data[i][3].value,//.metadata.colName,
+            'Imagestr': res.data[i][4].value,//.metadata.colName,
+            'key': xcount,
+            'tenantid': res.data[i][5].value,//.metadata.colName,
+          }
+          retrueneddata.push(obs);
+        }
+        console.log(retrueneddata);
+        this.setState({
+          ObjectArrayTenant: retrueneddata,
+          loader: false,
+        });
+      })
+      .catch(err => {
+        console.log("Error in Getting Card!" + err);
+      });
+  }
+
+  async uploadFile(file) {
+    //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
+
+    const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+    const sas = this.state.blobtoken;
+    var finalToken = sas.data.token;
+
+    const STORAGE_ACCOUNT_NAME = 'userfunctionsapi'
+    const CONTAINER_NAME = 'myfiles'
+    // for browser, SAS_TOKEN is get from API?
+    const SAS_TOKEN = finalToken;
+    const sasURL = `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net/${SAS_TOKEN}`
+
+    const blobServiceClient = new BlobServiceClient(sasURL)
+    const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
+
+    let i = 1;
+
+var tempblog=[];
+    let blobs = containerClient.listBlobsFlat();
+    for await (const blob of blobs) {
+      var obs = {
+        'name': blob.name,//.metadata.colName,
+        
+      }
+      tempblog.push(obs);
+      console.log(`Blob ${i++}: ${blob.name}`);
+    }
+    this.setState({
+      myBlobs: tempblog,
+      
+    });
+  
+
+
+}
+
+
 }
 
 export default withTranslation()(bodycards);
