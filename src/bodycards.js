@@ -74,7 +74,7 @@ class bodycards extends Component {
           'rent': res.data[i].Price,//metadata.colName,
           'totalbed': res.data[i].Bedrooms,//.metadata.colName,
           'propertyAddress': res.data[i].Location,//.metadata.colName,
-          // 'Imagestr': res.data[i].value,//.metadata.colName,
+           'Imagestr': this.state.imgstarturl+res.data[i].picstring+this.state.imgStartEnd,//.metadata.colName,
           'key': xcount,
           // 'ownerid': res.data[i].value
         }
@@ -306,7 +306,8 @@ class bodycards extends Component {
         blobtoken: res,
         loader: false,
       });
-      this.fetchblobs();
+     // this.fetchblobs();
+     this.fetchproperties();
     } catch (error) {
       console.log(error);
     }
