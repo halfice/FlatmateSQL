@@ -181,8 +181,14 @@ export class Property extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-       this.uploadFile(file);
-      this.handleImageUploadold(file);
+
+      const filename = file.name.substring(0, file.name.lastIndexOf('.'));
+      const ext = file.name.substring(file.name.lastIndexOf('.'));
+      const blobName = filename + '_' + new Date().getTime() + ext;
+
+
+       this.uploadFile(file,blobName);
+      this.handleImageUploadold(file,blobName);
     }
   }
 
@@ -193,7 +199,7 @@ export class Property extends React.Component {
     return date;
 }
 
-  async uploadFile(file) {
+  async uploadFile(file,blobName) {
     //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
 
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
@@ -211,16 +217,14 @@ export class Property extends React.Component {
     const blobServiceClient = new BlobServiceClient(sasURL)
     const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
 
-    const filename = file.name.substring(0, file.name.lastIndexOf('.'))
-    const ext = file.name.substring(file.name.lastIndexOf('.'))
-    const blobName = filename + '_' + this.uniqueNumber() + ext
+    
     const blockBlobClient = containerClient.getBlockBlobClient(blobName)
     const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
     console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
 
-  async handleImageUploadold(file) {
+  async handleImageUploadold(file,blobName) {
     this.setState({
       loader: true,
     });
@@ -246,7 +250,7 @@ export class Property extends React.Component {
           this.setState({
             file: reader.result,
             imagePreviewUrl: reader.result,
-            picstring: imageFile.name,//reader.result,
+            picstring: blobName,//reader.result,
             picscounter: tmp,
             loader: false,
           });
@@ -257,7 +261,7 @@ export class Property extends React.Component {
           this.setState({
             file: reader.result,
             imagePreviewUrl1: reader.result,
-            picstring1: imageFile.name,
+            picstring1: blobName,
             picscounter: tmp,
             loader: false,
           });
@@ -267,7 +271,7 @@ export class Property extends React.Component {
           this.setState({
             file: reader.result,
             imagePreviewUrl2: reader.result,
-            picstring2: imageFile.name,
+            picstring2: blobName,
             picscounter: tmp,
             loader: false,
           });
@@ -277,7 +281,7 @@ export class Property extends React.Component {
           this.setState({
             file: reader.result,
             imagePreviewUrl3: reader.result,
-            picstring3: imageFile.name,
+            picstring3: blobName,
             picscounter: tmp,
             loader: false,
           });

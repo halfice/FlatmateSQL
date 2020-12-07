@@ -124,9 +124,9 @@ export class screenregister extends React.Component {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
 
-      const filename = file.name.substring(0, file.name.lastIndexOf('.'))
-      const ext = file.name.substring(file.name.lastIndexOf('.'))
-      const blobName = filename + '_' + new Date().getTime() + ext
+      const filename = file.name.substring(0, file.name.lastIndexOf('.'));
+      const ext = file.name.substring(file.name.lastIndexOf('.'));
+      const blobName = filename + '_' + new Date().getTime() + ext;
 
 
 
