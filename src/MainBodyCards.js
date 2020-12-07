@@ -23,7 +23,7 @@ class MainBodyCards extends Component {
         <div className="col-sm-2 card-body"></div>
 
 
-          <div className="col-sm-4 card-body">
+          <div className="col-sm-3 card-body">
             <div onClick={() => this.props.handler('1')} >
               <div className="bottombordr" >
                 <div className="row bcimagep">
