@@ -27,7 +27,7 @@ class MainBodyCards extends Component {
             <div onClick={() => this.props.handler('1')} >
               <div className="bottombordr" >
                 <div className="row bcimagep">
-                  <div className="col-sm-6">
+                  <div className="col-sm-4">
                     <div className="row marginljeft">
                       <span className="spanclasstext">Flatmate</span>
                     </div>

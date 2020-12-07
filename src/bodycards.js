@@ -78,6 +78,8 @@ class bodycards extends Component {
           'propertyAddress': res.data[i].Location,//.metadata.colName,
            'Imagestr': this.state.imgstarturl+res.data[i].picstring+this.state.imgStartEnd,//.metadata.colName,
           'key': xcount,
+          'Price': res.data[i].Price,
+          
           // 'ownerid': res.data[i].value
         }
         retrueneddata.push(obs);
@@ -102,8 +104,10 @@ class bodycards extends Component {
             <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["key"])} />
             <Card.Body>
               <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item["typeofAccomodation"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
                 <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
+                
               </div>
 
               <div className="row">
