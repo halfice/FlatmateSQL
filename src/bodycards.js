@@ -24,7 +24,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import { faCog, faPhone,faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
-
+import calls from './call.gif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
@@ -107,20 +107,23 @@ class bodycards extends Component {
               </div>
 
               <div className="row">
-                <div className="col-sm-3 paragraphcss">
+                <div className="col-sm-3 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faPhone} />             </div>
+                    <img src={calls} width="120px"  />
+                    
+                    
+                        </div>
                 </div>
-                <div className="col-sm-3 paragraphcss">
+                <div className="col-sm-3 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={whatsapp} />
+                    <img src={whatsapp} width="120px"  />
                   </div>   </div>
-                <div className="col-sm-3 paragraphcss">
+                <div className="col-sm-3 ">
                   <div className="myicondiv">
-                    <img src={gmails}  />
+                    <img src={gmails} width="120px"  />
                   </div>
                 </div>
-                <div className="col-sm-3 paragraphcss">
+                <div className="col-sm-3 ">
                   <div className="myicondiv">
                     <FontAwesomeIcon icon={faBriefcase} />
                   </div>
