@@ -290,6 +290,7 @@ export class screenregister extends React.Component {
         value={this.state.selectedOption}
         onChange={this.handleChangedrp}
         options={options}
+        className="dropdown"
       />
 
 </div>
