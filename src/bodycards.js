@@ -38,6 +38,8 @@ class bodycards extends Component {
       ShowCarousal: false,
       blobtoken: "",
       myBlobs:[],
+      imgstarturl:"https://userfunctionsapi.blob.core.windows.net/myfiles/",
+      imgStartEnd:"?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -53,13 +55,6 @@ class bodycards extends Component {
       ShowCarousal: true
     });
   }
-
-
-
-
-
-
-
 
 
   async fetchproperties() {
@@ -302,6 +297,7 @@ class bodycards extends Component {
 
     );
   }
+
   async getblobtoken() {
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
     try {
