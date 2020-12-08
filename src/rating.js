@@ -32,7 +32,7 @@ export class Rating extends React.Component {
 
 
 
-            <div className="container-fluid ratingdiv">
+            <div className="container-fluid ">
                 <div className="row">
                     <div className="col-sm-4">
 

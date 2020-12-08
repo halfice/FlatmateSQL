@@ -26,7 +26,10 @@ import AgentProfile from './agentprofile';
 
 
 import NearbyPlace from './nearbyplaces';
+import ViewOffers from './Offers';
 
+
+//view offers 101
 
 class App extends Component {
   constructor(props) {
@@ -55,11 +58,31 @@ class App extends Component {
       <div className="App">
         <div className="">
           <Header handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
+        
+        
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
-          <div className="">
+            
+            
+            <div className=" row zeeomargin zerpadding">
+           
+
+            <div className="col-sm-10 zerpadding">
             <Rating handler={this.handler} />
           </div>
+
+{ this.state.userid!=0 &&
+          <div className="col-sm-2 ratingdiv2 zerpadding">
+          <div className="offersdiv" onClick={this.handleoffers.bind(this)}> Offers </div>
+          </div>
+  }
+
+
+
+          </div>
         }
+
+
+
         <br></br>
         {this.state.needwizard == 1000 &&
           <div className="row">
@@ -110,6 +133,20 @@ class App extends Component {
           </div>
 
         }
+
+
+{
+          this.state.needwizard == 5 &&
+          <div className="col-sm-12">
+            <ViewOffers UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
+          </div>
+
+        }
+
+
+
+
+
         {
           this.state.needwizard == 500 &&
           <div className="col-sm-12"><AgentProfile  userLoginId={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
@@ -123,6 +160,9 @@ class App extends Component {
           {
             this.state.showcard == 1 && this.state.needwizard != 3 && this.state.needwizard != 1 &&
             this.state.needwizard != 4 &&
+            this.state.needwizard == 0 && this.state.needwizard != 1000 &&
+              this.state.needwizard != 100 && this.state.needwizard != 1 &&
+              this.state.needwizard != 500 && this.state.needwizard != 5 &&
 
             <div className="col-sm-12"><Bodycards /></div>
 
@@ -158,12 +198,20 @@ class App extends Component {
     })
   }
 
+
+
+  handleoffers(){
+    this.setState({
+      needwizard: 101,
+      
+    })
+  }
+
   
   handlerRegister = (val) => {
    this.setState({
       needwizard: val,
       showcard: 0,
-
     })
   }
   handleRegisnteredUserId = (useridfromdb) => {
