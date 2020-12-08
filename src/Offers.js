@@ -271,17 +271,29 @@ export class Offers extends React.Component {
         return (
             <div className="row centeraligh">
                 <div className="row ">
-                    <div className="container-fluid">
+                    <div className="row">
                         {
 
                             this.state.OfferScreen == 0 &&
-                            <div>
-                                <div className="col-sm-6 ratingdiv2 zerpadding">
-                                    <div className="offersdiv" onClick={this.handleoffersscreen.bind(this)}> Property  </div>
+                            <div className="row">
+                                <div className="col-sm-6  zerpadding">
+                                    <div className="offerdivinner" onClick={this.handleoffersscreenflatmate.bind(this)}> 
+                                    <div className="offerinternaldivpadding">
+
+                                    Property 
+                                     </div>
+                                     </div>
                                 </div>
 
-                                <div className="col-sm-6 ratingdiv2 zerpadding">
-                                    <div className="offersdiv" onClick={this.handleoffersscreen.bind(this)}> Flatmate </div>
+                                <div className="col-sm-6  zerpadding">
+                                    <div className="offerdivinner" onClick={this.handleoffersscreenflatmate.bind(this)}> 
+                                    
+                                    <div className="offerinternaldivpadding">
+                                    
+                                    Flatmate
+                                    </div>
+                                    
+                                     </div>
                                 </div>
                             </div>
 
