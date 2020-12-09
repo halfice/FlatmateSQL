@@ -21,7 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import { faCog, faPhone,faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
@@ -39,9 +39,11 @@ class bodycards extends Component {
       ImagesArray: [],
       ShowCarousal: false,
       blobtoken: "",
-      myBlobs:[],
-      imgstarturl:"https://userfunctionsapi.blob.core.windows.net/myfiles/",
-      imgStartEnd:"?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
+      myBlobs: [],
+      imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
+      imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
+      carousalObject: [],
+      carousalObjectitem:[],
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -52,9 +54,14 @@ class bodycards extends Component {
 
 
 
-  getCarousal(ownerid) {
+  getCarousal(propertyid) {
+    var tmpitem=this.state.carousalObject.map(answer => answer.propertyid === propertyid);
+    
+
     this.setState({
-      ShowCarousal: true
+      carousalObjectitem:tmpitem,
+      ShowCarousal: true,
+      
     });
   }
 
@@ -64,6 +71,7 @@ class bodycards extends Component {
     var TempUserProfileExisits = 0;
     var TempDivCounter = 0;
     var retrueneddata = [];
+    var TempCarousalData = [];
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=b";
     try {
       let res = await axios.post(loginurl);
@@ -76,17 +84,38 @@ class bodycards extends Component {
           'rent': res.data[i].Price,//metadata.colName,
           'totalbed': res.data[i].Bedrooms,//.metadata.colName,
           'propertyAddress': res.data[i].Location,//.metadata.colName,
-           'Imagestr': this.state.imgstarturl+res.data[i].picstring+this.state.imgStartEnd,//.metadata.colName,
+          'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
           'key': xcount,
           'Price': res.data[i].Price,
-          
-          // 'ownerid': res.data[i].value
+          'PropertyId':res.data[i].PropertyId,
         }
         retrueneddata.push(obs);
+        var objectcarousal = {
+          'AgentId': res.data[i].AgentId,
+          'Bedrooms': res.data[i].Bedrooms,
+          'Deal': res.data[i].Deal,
+          'FurnishedTyope': res.data[i].FurnishedTyope,
+          'Location': res.data[i].Location,
+          'LoginUserID': res.data[i].LoginUserID,
+          'Price': res.data[i].Price,
+          'PropertyId': res.data[i].PropertyId,
+          'State': res.data[i].State,
+          'Type': res.data[i].Type,
+          'internet': res.data[i].internet,
+          'parking': res.data[i].parking,
+          'picsstringone': res.data[i].picsstringone,
+          'picsstringthree': res.data[i].picsstringthree,
+          'picsstringtwo': res.data[i].picsstringtwo,
+          'picstring': res.data[i].picstring,
+          'totalbathrooms': res.data[i].totalbathrooms,
+        }
+        TempCarousalData.push(objectcarousal);
+
 
       }
       this.setState({
         ObjectArray: retrueneddata,
+        carousalObject: TempCarousalData,
         loader: false,
       });
 
@@ -96,38 +125,38 @@ class bodycards extends Component {
   }
 
   render() {
-    const imgstr ="https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
+    const imgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
-        <div className="col-sm-3" key={item["key"]} >
+        <div className="col-sm-3" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
-            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["key"])} />
+            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
               <div className="row bottomborder" >
                 <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
                 <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
                 <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
-                
+
               </div>
 
               <div className="row">
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-                    <img src={calls} width="40px"  />
-                    
-                    
-                        </div>
+                    <img src={calls} width="40px" />
+
+
+                  </div>
                 </div>
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-                    <img src={whatsapp} width="50px"  />
+                    <img src={whatsapp} width="50px" />
                   </div>   </div>
                 <div className="col-sm-4 zerpadding">
-                <div className="buttnemail" >Email</div>
+                  <div className="buttnemail" >Email</div>
                 </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="myicondiv">
-                   <div className="buttn" >Message</div>
+                    <div className="buttn" >Message</div>
                   </div>
                 </div>
 
@@ -181,6 +210,27 @@ class bodycards extends Component {
           </Card>
         </div>
       </div>);
+    });
+
+
+    var carousalitem = this.state.carousalObjectitem.map((item, i) => {
+      return (
+        <div>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://business.nab.com.au/wp-content/uploads/2017/07/house-740x530.png"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </div>
+
+      );
+
     });
 
 
@@ -258,41 +308,7 @@ class bodycards extends Component {
 
               <div className="carousaldiv">
                 <Carousel>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100"
-                      src="https://business.nab.com.au/wp-content/uploads/2017/07/house-740x530.png"
-                      alt="First slide"
-                    />
-                    <Carousel.Caption>
-                      <h3>First slide label</h3>
-                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100"
-                      src="https://lifestyle.prod.content.iproperty.com/news/wp-content/uploads/sites/3/2020/04/28185320/property-market-malaysia-Covid-19-300x200.jpg"
-                      alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>Second slide label</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100"
-                      src="https://lifestyle.prod.content.iproperty.com/news/wp-content/uploads/sites/3/2020/04/28185320/property-market-malaysia-Covid-19-300x200.jpg"
-                      alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>Third slide label</h3>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
+                  {}
                 </Carousel>
               </div>
             </div>
@@ -313,8 +329,8 @@ class bodycards extends Component {
         blobtoken: res,
         loader: false,
       });
-     // this.fetchblobs();
-     this.fetchproperties();
+      // this.fetchblobs();
+      this.fetchproperties();
     } catch (error) {
       console.log(error);
     }
@@ -322,7 +338,7 @@ class bodycards extends Component {
 
   componentDidMount() {
     this.getblobtoken();
-   
+
   }
 
   CloseModal() {
@@ -391,19 +407,19 @@ class bodycards extends Component {
 
     let i = 1;
 
-var tempblog=[];
+    var tempblog = [];
     let blobs = containerClient.listBlobsFlat();
     for await (const blob of blobs) {
-      
+
       const blobClient = containerClient.getBlobClient(blob.name);
-     // const downloadBlockBlobResponse = await blobClient.download();
+      // const downloadBlockBlobResponse = await blobClient.download();
       //const downloaded = await this.blobToString(await downloadBlockBlobResponse.blobBody);
       //console.log("Downloaded blob content", downloaded);
-var imgstr=blobClient.url;
+      var imgstr = blobClient.url;
       // [Browsers only] A helper method used to convert a browser Blob into string.
       var obs = {
         'name': blob.name,//.metadata.colName,
-        str:imgstr
+        str: imgstr
 
       }
 
@@ -419,13 +435,13 @@ var imgstr=blobClient.url;
     });
     this.fetchproperties();
 
-    
-
-      
-  
 
 
-}
+
+
+
+
+  }
 
 
 }
