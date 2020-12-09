@@ -43,7 +43,7 @@ class bodycards extends Component {
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
       carousalObject: [],
-      carousalObjectitem:[],
+      carousalObjectitem: [],
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -55,13 +55,20 @@ class bodycards extends Component {
 
 
   getCarousal(propertyid) {
-    var tmpitem=this.state.carousalObject.map(answer => answer.PropertyId === propertyid);
-    
+    var tmpitem = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid);
+
+
+    var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
+      .map((item, id) => {
+        console.log(item[id]);
+
+      });
+
 
     this.setState({
-      carousalObjectitem:tmpitem,
+      carousalObjectitem: tmpitem,
       ShowCarousal: true,
-      
+
     });
   }
 
@@ -87,7 +94,7 @@ class bodycards extends Component {
           'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
           'key': xcount,
           'Price': res.data[i].Price,
-          'PropertyId':res.data[i].PropertyId,
+          'PropertyId': res.data[i].PropertyId,
         }
         retrueneddata.push(obs);
         var objectcarousal = {
@@ -308,7 +315,7 @@ class bodycards extends Component {
 
               <div className="carousaldiv">
                 <Carousel>
-                  {}
+                  {carousalitem}
                 </Carousel>
               </div>
             </div>
