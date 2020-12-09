@@ -55,7 +55,7 @@ class bodycards extends Component {
 
 
   getCarousal(propertyid) {
-    var tmpitem=this.state.carousalObject.map(answer => answer.propertyid === propertyid);
+    var tmpitem=this.state.carousalObject.map(answer => answer.PropertyId === propertyid);
     
 
     this.setState({
