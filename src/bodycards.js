@@ -69,7 +69,7 @@ class bodycards extends Component {
 
     if (tmp1stImag.length > 3) {
       tmpitem[0].picstring = tmp1stImag;
-      TampCarousalItem.push(tmpitem;
+      TampCarousalItem.push(tmpitem);
     }
     if (tmp2stImag.length > 3) {
       tmpitem[0].picstring = tmp2stImag;
