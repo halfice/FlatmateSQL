@@ -75,24 +75,96 @@ class bodycards extends Component {
     if (tmp1stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp1stImag + this.state.imgStartEnd;//.metadata.colName,
       tempItem1[0].picstring = Imagestr;
-      TampCarousalItem.push(tempItem1);
+
+      var objectcarousal = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': tmpitem[0].Price,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'picstring': Imagestr,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+      }
+      
+      TampCarousalItem.push(objectcarousal);
     }
     if (tmp2stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp2stImag + this.state.imgStartEnd;//.metadata.colName,
       tempItem2[0].picstring = Imagestr;
       TampCarousalItem.push(tempItem2);
+      var objectcarousal = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': tmpitem[0].Price,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'picstring': Imagestr,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+      }
+      
+      TampCarousalItem.push(objectcarousal);
     }
 
     if (tmp3stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp3stImag + this.state.imgStartEnd;//.metadata.colName,
       tempItem3[0].picstring = Imagestr;
       TampCarousalItem.push(tempItem3);
+      var objectcarousal = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': tmpitem[0].Price,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'picstring': Imagestr,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+      }
+      
+      TampCarousalItem.push(objectcarousal);
     }
 
     if (tmp4stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
       tmp4stImag[0].picstring = Imagestr;
       TampCarousalItem.push(tmp4stImag);
+      var objectcarousal = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': tmpitem[0].Price,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'picstring': Imagestr,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+      }
+      
+      TampCarousalItem.push(objectcarousal);
     }
 
 
