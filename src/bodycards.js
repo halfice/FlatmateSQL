@@ -260,14 +260,19 @@ class bodycards extends Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={item[0]["picstring"]}
+              src={item[0].picstring
+              
+              }
+              
+
               alt="First slide"
             />
+            {console.log(item[0])}
             <Carousel.Caption>
               <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item[0]["Type"]}</div>
-                <div className="col-sm-12 paragraphcss">{item[0]["propertyAddress"]}</div>
-                <div className="col-sm-12 paragraphcss">{item[0]["Price"]}</div>
+                <div className="col-sm-12 paragraphcss">{item[0].Typ}</div>
+                <div className="col-sm-12 paragraphcss">{item[0].propertyAddress}</div>
+                <div className="col-sm-12 paragraphcss">{item[0].Price}</div>
 
               </div>
             </Carousel.Caption>
