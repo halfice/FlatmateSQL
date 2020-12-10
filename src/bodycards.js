@@ -56,17 +56,41 @@ class bodycards extends Component {
 
   getCarousal(propertyid) {
     var tmpitem = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid);
+    var TampCarousalItem = [];
+    //var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
+    // .map((item, id) => {
+    // console.log(item[id]);
+    //});
+
+    var tmp1stImag = tmpitem[0].picstring;
+    var tmp2stImag = tmpitem[0].picsstringone;
+    var tmp3stImag = tmpitem[0].picsstringtwo;
+    var tmp4stImag = tmpitem[0].picsstringthree;
+
+    if (tmp1stImag.length > 3) {
+      tmpitem[0].picstring = tmp1stImag;
+      TampCarousalItem.push();
+    }
+    if (tmp2stImag.length > 3) {
+      tmpitem[0].picstring = tmp2stImag;
+      TampCarousalItem.push();
+    }
+
+    if (tmp3stImag.length > 3) {
+      tmpitem[0].picstring = tmp3stImag;
+      TampCarousalItem.push();
+    }
+
+    if (tmp4stImag.length > 3) {
+      tmpitem[0].picstring = tmp4stImag;
+      TampCarousalItem.push();
+    }
 
 
-    var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
-      .map((item, id) => {
-        console.log(item[id]);
-
-      });
 
 
     this.setState({
-      carousalObjectitem: tmpitem,
+      carousalObjectitem: TampCarousalItem,
       ShowCarousal: true,
 
     });
@@ -230,8 +254,12 @@ class bodycards extends Component {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <div className="row bottomborder" >
+                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
+
+              </div>
             </Carousel.Caption>
           </Carousel.Item>
         </div>
