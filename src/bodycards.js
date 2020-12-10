@@ -57,6 +57,11 @@ class bodycards extends Component {
   getCarousal(propertyid) {
     var tmpitem = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid);
     var TampCarousalItem = [];
+
+    var tempItem1=tmpitem;
+    var tempItem2=tmpitem;
+    var tempItem3=tmpitem;
+    var tempItem4=tmpitem;
     //var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
     // .map((item, id) => {
     // console.log(item[id]);
@@ -68,22 +73,26 @@ class bodycards extends Component {
     var tmp4stImag = tmpitem[0].picsstringthree;
 
     if (tmp1stImag.length > 3) {
-      tmpitem[0].picstring = tmp1stImag;
-      TampCarousalItem.push(tmpitem);
+      var Imagestr= this.state.imgstarturl + tmp1stImag + this.state.imgStartEnd;//.metadata.colName,
+      tempItem1[0].picstring = Imagestr;
+      TampCarousalItem.push(tempItem1);
     }
     if (tmp2stImag.length > 3) {
-      tmpitem[0].picstring = tmp2stImag;
-      TampCarousalItem.push(tmpitem);
+      var Imagestr= this.state.imgstarturl + tmp2stImag + this.state.imgStartEnd;//.metadata.colName,
+      tempItem2[0].picstring = Imagestr;
+      TampCarousalItem.push(tempItem2);
     }
 
     if (tmp3stImag.length > 3) {
-      tmpitem[0].picstring = tmp3stImag;
-      TampCarousalItem.push(tmpitem);
+      var Imagestr= this.state.imgstarturl + tmp3stImag + this.state.imgStartEnd;//.metadata.colName,
+      tempItem3[0].picstring = Imagestr;
+      TampCarousalItem.push(tempItem3);
     }
 
     if (tmp4stImag.length > 3) {
-      tmpitem[0].picstring = tmp4stImag;
-      TampCarousalItem.push(tmpitem);
+      var Imagestr= this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
+      tmp4stImag[0].picstring = Imagestr;
+      TampCarousalItem.push(tmp4stImag);
     }
 
 
@@ -246,18 +255,18 @@ class bodycards extends Component {
 
     var carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
-        <div>
+        <div className="CarousalDivItem">
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://business.nab.com.au/wp-content/uploads/2017/07/house-740x530.png"
+              src={item[0]["picstring"]}
               alt="First slide"
             />
             <Carousel.Caption>
               <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
+                <div className="col-sm-12 paragraphcss">{item[0]["Type"]}</div>
+                <div className="col-sm-12 paragraphcss">{item[0]["propertyAddress"]}</div>
+                <div className="col-sm-12 paragraphcss">{item[0]["Price"]}</div>
 
               </div>
             </Carousel.Caption>
