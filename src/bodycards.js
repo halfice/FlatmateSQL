@@ -252,9 +252,10 @@ class bodycards extends Component {
       </div>);
     });
 
-
+console.log(this.state.carousalObjectitem);
     var carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
+      
         <div className="CarousalDivItem">
           <Carousel.Item>
             <img
