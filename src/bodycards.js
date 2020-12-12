@@ -99,6 +99,7 @@ class bodycards extends Component {
         'picstring': Imagestr,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
+      Imagestr="";
       
       TampCarousalItem.push(objectcarousal);
     }
@@ -124,6 +125,7 @@ class bodycards extends Component {
       }
       
       TampCarousalItem.push(objectcarousal);
+      Imagestr="";
     }
 
     if (tmp3stImag.length > 3) {
@@ -148,6 +150,7 @@ class bodycards extends Component {
       }
       
       TampCarousalItem.push(objectcarousal);
+      Imagestr="";
     }
 
     if (tmp4stImag.length > 3) {
@@ -172,6 +175,7 @@ class bodycards extends Component {
       }
       
       TampCarousalItem.push(objectcarousal);
+      Imagestr="";
     }
 
 
