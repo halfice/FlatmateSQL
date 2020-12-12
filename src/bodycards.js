@@ -158,9 +158,9 @@ class bodycards extends Component {
     }
 
     if (tmp4stImag.length > 3) {
-      var Imagestr= this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
-      tmp4stImag[0].picstring = "";
-      tmp4stImag[0].picstring = Imagestr;
+      var Imagestr4= this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
+      //tmp4stImag[0].picstring = "";
+      //tmp4stImag[0].picstring = Imagestr;
       TampCarousalItem.push(tmp4stImag);
       var objectcarousal = {
         'AgentId': tmpitem[0].AgentId,
@@ -180,7 +180,7 @@ class bodycards extends Component {
       }
       
       TampCarousalItem.push(objectcarousal);
-      Imagestr="";
+      Imagestr4="";
     }
 
 
@@ -253,7 +253,7 @@ class bodycards extends Component {
   }
 
   render() {
-    const imgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
+    //const imgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
         <div className="col-sm-3" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
