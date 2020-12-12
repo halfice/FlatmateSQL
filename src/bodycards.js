@@ -97,7 +97,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': Imagestr,
+        'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
       Imagestr="";
@@ -122,7 +122,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': Imagestr,
+        'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
       
@@ -149,7 +149,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': Imagestr,
+        'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
       
@@ -175,7 +175,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': Imagestr,
+        'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
       
