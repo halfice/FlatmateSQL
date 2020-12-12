@@ -81,6 +81,7 @@ class bodycards extends Component {
 
     if (tmp1stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp1stImag + this.state.imgStartEnd;//.metadata.colName,
+      tempItem1[0].picstring = "";
       tempItem1[0].picstring = Imagestr;
 
       var objectcarousal = {
@@ -105,6 +106,7 @@ class bodycards extends Component {
     }
     if (tmp2stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp2stImag + this.state.imgStartEnd;//.metadata.colName,
+      tempItem2[0].picstring = "";
       tempItem2[0].picstring = Imagestr;
       TampCarousalItem.push(tempItem2);
       var objectcarousal = {
@@ -130,7 +132,9 @@ class bodycards extends Component {
 
     if (tmp3stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp3stImag + this.state.imgStartEnd;//.metadata.colName,
+      tempItem3[0].picstring = "";
       tempItem3[0].picstring = Imagestr;
+
       TampCarousalItem.push(tempItem3);
       var objectcarousal = {
         'AgentId': tmpitem[0].AgentId,
@@ -155,6 +159,7 @@ class bodycards extends Component {
 
     if (tmp4stImag.length > 3) {
       var Imagestr= this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
+      tmp4stImag[0].picstring = "";
       tmp4stImag[0].picstring = Imagestr;
       TampCarousalItem.push(tmp4stImag);
       var objectcarousal = {
