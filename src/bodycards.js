@@ -340,14 +340,11 @@ class bodycards extends Component {
       </div>);
     });
 
-
-    var carousalitem = this.state.carousalObjectitem.map((item, i) => {
+    var carousalitem=null;
+     carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
-
         <div className="CarousalDivItem">
-
-
-
+          <div className="container-fluid">
           <Carousel.Item>
             {console.log(item)}
             <div className="row">
@@ -356,7 +353,6 @@ class bodycards extends Component {
               </div>
               <div className="col-sm-4 paragraphcss">
                 <h1>Send Message form</h1>
-
               </div>
 
             </div>
@@ -373,6 +369,9 @@ class bodycards extends Component {
               </div>
             </Carousel.Caption>
           </Carousel.Item>
+
+          </div>
+        
         </div>
 
       );

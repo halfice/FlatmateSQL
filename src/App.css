@@ -60,7 +60,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  widows: 80%;
+  width: 90%;
   height: 100%;;
 }
 
