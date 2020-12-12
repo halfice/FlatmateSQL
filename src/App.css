@@ -482,3 +482,9 @@ a:hover{
     z-index: 11px;
     z-index: 111;
 }
+
+.carousel-item {
+ 
+ display: block;
+ 
+}
