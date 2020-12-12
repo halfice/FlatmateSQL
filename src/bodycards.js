@@ -44,7 +44,7 @@ class bodycards extends Component {
       imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
       carousalObject: [],
       carousalObjectitem: [],
-      carousalItemCount:0,
+      carousalItemCount: 0,
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -65,10 +65,10 @@ class bodycards extends Component {
     var tmpitem = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid);
     var TampCarousalItem = [];
 
-    var tempItem1=tmpitem;
-    var tempItem2=tmpitem;
-    var tempItem3=tmpitem;
-    var tempItem4=tmpitem;
+    var tempItem1 = tmpitem;
+    var tempItem2 = tmpitem;
+    var tempItem3 = tmpitem;
+    var tempItem4 = tmpitem;
     //var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
     // .map((item, id) => {
     // console.log(item[id]);
@@ -80,7 +80,7 @@ class bodycards extends Component {
     var tmp4stImag = tmpitem[0].picsstringthree;
 
     if (tmp1stImag.length > 3) {
-      var Imagestr= this.state.imgstarturl + tmp1stImag + this.state.imgStartEnd;//.metadata.colName,
+      var Imagestr = this.state.imgstarturl + tmp1stImag + this.state.imgStartEnd;//.metadata.colName,
       tempItem1[0].picstring = "";
       tempItem1[0].picstring = Imagestr;
 
@@ -88,7 +88,7 @@ class bodycards extends Component {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
-        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
         'Price': tmpitem[0].Price,
@@ -100,12 +100,12 @@ class bodycards extends Component {
         'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
-      Imagestr="";
-      
+      Imagestr = "";
+
       TampCarousalItem.push(objectcarousal);
     }
     if (tmp2stImag.length > 3) {
-      var Imagestr= this.state.imgstarturl + tmp2stImag + this.state.imgStartEnd;//.metadata.colName,
+      var Imagestr = this.state.imgstarturl + tmp2stImag + this.state.imgStartEnd;//.metadata.colName,
       tempItem2[0].picstring = "";
       tempItem2[0].picstring = Imagestr;
       TampCarousalItem.push(tempItem2);
@@ -113,7 +113,7 @@ class bodycards extends Component {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
-        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
         'Price': tmpitem[0].Price,
@@ -125,13 +125,13 @@ class bodycards extends Component {
         'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
-      
+
       TampCarousalItem.push(objectcarousal);
-      Imagestr="";
+      Imagestr = "";
     }
 
     if (tmp3stImag.length > 3) {
-      var Imagestr= this.state.imgstarturl + tmp3stImag + this.state.imgStartEnd;//.metadata.colName,
+      var Imagestr = this.state.imgstarturl + tmp3stImag + this.state.imgStartEnd;//.metadata.colName,
       tempItem3[0].picstring = "";
       tempItem3[0].picstring = Imagestr;
 
@@ -140,7 +140,7 @@ class bodycards extends Component {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
-        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
         'Price': tmpitem[0].Price,
@@ -152,13 +152,13 @@ class bodycards extends Component {
         'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
-      
+
       TampCarousalItem.push(objectcarousal);
-      Imagestr="";
+      Imagestr = "";
     }
 
     if (tmp4stImag.length > 3) {
-      var Imagestr4= this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
+      var Imagestr4 = this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
       //tmp4stImag[0].picstring = "";
       //tmp4stImag[0].picstring = Imagestr;
       TampCarousalItem.push(tmp4stImag);
@@ -166,7 +166,7 @@ class bodycards extends Component {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
-        'FurnishedTyope':tmpitem[0].FurnishedTyope,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
         'Price': tmpitem[0].Price,
@@ -178,9 +178,9 @@ class bodycards extends Component {
         'picstring': "https://userfunctionsapi.blob.core.windows.net/myfiles/img_villa_1607310304981_1607359338519.jpeg?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
-      
+
       TampCarousalItem.push(objectcarousal);
-      Imagestr4="";
+      Imagestr4 = "";
     }
 
 
@@ -343,17 +343,33 @@ class bodycards extends Component {
 
     var carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
-      
-        <div className="CarousalDivItem">
-          <Carousel.Item>
-            <img className="d-block w-100" src={item.picstring} alt="First slide"/>
-            {console.log(item)}
-            <Carousel.Caption>
-              <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item.Typ}</div>
-                <div className="col-sm-12 paragraphcss">{item.propertyAddress}</div>
-                <div className="col-sm-12 paragraphcss">{item.Price}</div>
 
+        <div className="CarousalDivItem">
+
+
+
+          <Carousel.Item>
+            {console.log(item)}
+            <div className="row">
+              <div className="col-sm-8 paragraphcss">
+                <img className="d-block w-100" src={item.picstring} alt="First slide" />
+              </div>
+              <div className="col-sm-4 paragraphcss">
+                <h1>Send Message form</h1>
+
+              </div>
+
+            </div>
+            <Carousel.Caption>
+              <div className="row">
+                <div className="col-sm-4 paragraphcss">Bedrooms:{item.Bedrooms}</div>
+                <div className="col-sm-4 paragraphcss">Location:{item.Location}</div>
+                <div className="col-sm-4 paragraphcss">Price:{item.Price}</div>
+              </div>
+              <div className="row">
+                <div className="col-sm-4 paragraphcss">FurnishedTyope:{item.FurnishedTyope}</div>
+                <div className="col-sm-4 paragraphcss">Type:{item.Type}</div>
+                <div className="col-sm-4 paragraphcss">parking:{item.parking}</div>
               </div>
             </Carousel.Caption>
           </Carousel.Item>
