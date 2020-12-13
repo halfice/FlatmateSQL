@@ -51,7 +51,7 @@ export class Message extends React.Component {
     render() {
         return (
             <div className="container-fluid ">
-                <div className="row centeraligh">
+                <div className="row">
                     <div className="container-fluid divborder">
                         {
                             this.state.loader == true &&
