@@ -31,7 +31,23 @@ export class Message extends React.Component {
         this.handlchangeMessage = this.handlchangeMessage.bind(this);
 
     }
-
+    componentDidMount() {
+        this.getblobtoken();
+        //this.fetchprofile();
+      }
+    
+      async getblobtoken() {
+        var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
+        try {
+          let res = await axios.post(loginurl);
+          this.setState({
+            blobtoken: res,
+            loader: false,
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      }
     async handleClick() {
         this.setState({
             loader: true,

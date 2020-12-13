@@ -355,21 +355,13 @@ class bodycards extends Component {
                <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
 
                <div className="row">
-                <div className="col-sm-2 zerpadding">
-                  <div className="myicondiv">
-                    <img src={calls} width="40px" />
-                  </div>
-                </div>
-                <div className="col-sm-2 zerpadding">
-                  <div className="myicondiv">
-                    <img src={whatsapp} width="50px" />
-                  </div>   </div>
+                
                 <div className="col-sm-4 zerpadding">
-                  <div className="buttnemail" >Email</div>
+                  <div className="buttnemail" >Show Location</div>
                 </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="myicondiv">
-                    <div className="buttn" >Message</div>
+                    <div className="buttn" >Show Number</div>
                   </div>
                 </div>
 
