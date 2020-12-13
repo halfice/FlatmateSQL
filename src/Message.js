@@ -19,35 +19,24 @@ export class Message extends React.Component {
             userEmail: this.props.Userid,
             Message: "",
             PropertyId: this.props.PropertyId,
-
+            Phone:"",
+            UserName:"",
 
 
 
         }
         this.handleClick = this.handleClick.bind(this);
-        this.handlenamechange = this.handlenamechange.bind(this);
-        this.handleemailchange = this.handleemailchange.bind(this);
-        this.handlenphonechange = this.handlenphonechange.bind(this);
-        this.handlepasswordchange = this.handlepasswordchange.bind(this);
+        this.handleChangePhone = this.handleChangePhone.bind(this);
+        this.handlChangeName = this.handlChangeName.bind(this);
+        this.handlchangeMessage = this.handlchangeMessage.bind(this);
 
     }
-
 
     async handleClick() {
         this.setState({
             loader: true,
         });
-        //alert(this.state.name);
-
-        //     
-        var userid = this.state.name;
-        var email = this.state.email;
-        var phone = this.state.phone;
-        var password = this.state.password;
-
-
-
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email=${this.state.userEmail}&propertyid=${this.state.PropertyId}&msg=${this.state.Message}`;
         try {
             let res = await axios.post(regurl);
             this.setState({
@@ -55,11 +44,8 @@ export class Message extends React.Component {
                 loader: false,
             });
             this.props.handleRegisnteredUserId(this.state.email);
-            // console.log(res.data);
         } catch (error) {
-            //console.log(error);
         }
-
     }
 
     render() {
@@ -81,13 +67,13 @@ export class Message extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12 graytext">
                                 <div className="form-group">
-                                    <input type="UserName" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
+                                    <input type="UserName" className="form-control" onChange={this.handlChangeName} placeholder="Enter Name"></input>
                                 </div>
                                 <div className="form-group">
-                                    <input type="Phone" className="form-control" placeholder="Enter name" onChange={this.handlenamechange}></input>
+                                    <input type="Phone" className="form-control" placeholder="Enter Phone" onChange={this.handleChangePhone}></input>
                                 </div>
                                 <div className="form-group">
-                                    <input type="Mesage" className="form-control" onChange={this.handlenphonechange} placeholder="Enter phone"></input>
+                                    <input type="Mesage" className="form-control" onChange={this.handlchangeMessage} placeholder="Enter Message"></input>
 
                                 </div>
                             </div>
@@ -110,44 +96,25 @@ export class Message extends React.Component {
         );
     }
 
-
-
-    handlenamechange(event) {
+    handleChangePhone(event) {
         this.setState({
-            name: event.target.value
+            Phone: event.target.value
         });
     }
-    handleemailchange(event) {
+    handlChangeName(event) {
         this.setState({
-            email: event.target.value
+            UserName: event.target.value
         });
         if (event.target.value.indexOf('@') > 0) {
             this.fetchprofile(event.target.value)
         }
     }
-    handlenphonechange(event) {
+    handlchangeMessage(event) {
         this.setState({
-            phone: event.target.value
+            Message: event.target.value
         });
     }
-    handlepasswordchange(event) {
-        this.setState({
-            password: event.target.value
-        });
-    }
-
-    uniqueNumber() {
-        var date = Date.now();
-
-
-
-        return date;
-    }
-
-
 
 }
-
-
 
 export default withTranslation()(Message);
