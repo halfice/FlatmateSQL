@@ -87,11 +87,8 @@ class bodycards extends Component {
     var tmp4stImag = tmpitem[0].picsstringthree;
 
     if (tmp1stImag.length > 3) {
-      var Imagestr = this.state.imgstarturl + tmp1stImag + this.state.imgStartEnd;//.metadata.colName,
-      tempItem1[0].picstring = "";
-      tempItem1[0].picstring = Imagestr;
-
-      var objectcarousal = {
+  
+      var objectcarousalone = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
@@ -107,16 +104,11 @@ class bodycards extends Component {
         'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
-      Imagestr = "";
-
-      TampCarousalItem.push(objectcarousal);
+      TampCarousalItem.push(objectcarousalone);
     }
     if (tmp2stImag.length > 3) {
-      var Imagestr = this.state.imgstarturl + tmp2stImag + this.state.imgStartEnd;//.metadata.colName,
-      tempItem2[0].picstring = "";
-      tempItem2[0].picstring = Imagestr;
-      TampCarousalItem.push(tempItem2);
-      var objectcarousal = {
+      
+      var objectcarousaltwo = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
@@ -133,17 +125,11 @@ class bodycards extends Component {
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
-      TampCarousalItem.push(objectcarousal);
-      Imagestr = "";
+      TampCarousalItem.push(objectcarousaltwo);
     }
 
     if (tmp3stImag.length > 3) {
-      var Imagestr = this.state.imgstarturl + tmp3stImag + this.state.imgStartEnd;//.metadata.colName,
-      tempItem3[0].picstring = "";
-      tempItem3[0].picstring = Imagestr;
-
-      TampCarousalItem.push(tempItem3);
-      var objectcarousal = {
+          var objectcarousalthree = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
@@ -160,16 +146,11 @@ class bodycards extends Component {
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
-      TampCarousalItem.push(objectcarousal);
-      Imagestr = "";
+      TampCarousalItem.push(objectcarousalthree);
     }
 
     if (tmp4stImag.length > 3) {
-      var Imagestr4 = this.state.imgstarturl + tmp4stImag + this.state.imgStartEnd;//.metadata.colName,
-      //tmp4stImag[0].picstring = "";
-      //tmp4stImag[0].picstring = Imagestr;
-      TampCarousalItem.push(tmp4stImag);
-      var objectcarousal = {
+     var objectcarousalfour = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
@@ -186,17 +167,13 @@ class bodycards extends Component {
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
-      TampCarousalItem.push(objectcarousal);
-      Imagestr4 = "";
+      TampCarousalItem.push(objectcarousalfour);
     }
-
-
-
 
     this.setState({
       carousalObjectitem: TampCarousalItem,
       ShowCarousal: true,
-      currenproperyid:1,
+      currenproperyid:0,
 
     });
   }
