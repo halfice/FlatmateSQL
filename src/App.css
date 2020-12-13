@@ -72,17 +72,19 @@
 
 .carousel-caption {
   position: fixed;
-   right: 0%!important;
-  bottom: 20px;
-  left: 0%!important;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
-  border: solid 1px;
-    background-color: white;
+    right: 0!important;
+    bottom: 20px;
+    left: 0!important;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #343a40;
+    text-align: center;
+    border: 1px solid;
+    background-color: #fff;
     width: 100%;
+    text-align: left;
+    border-bottom: solid 1px;
 }
 
 
