@@ -23,8 +23,6 @@ import Bids from './bids';
 import Property from './property'
 
 import AgentProfile from './agentprofile';
-
-
 import NearbyPlace from './nearbyplaces';
 import ViewOffers from './Offers';
 
@@ -59,7 +57,7 @@ class App extends Component {
         <div className="">
           <Header handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
         
-        
+
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
             
             
@@ -102,6 +100,7 @@ class App extends Component {
         this.state.needwizard != 500 && this.state.needwizard != 5 &&
           <div className="row">
             <MainBodyCards handler={this.handler} />
+
             </div>
         }
 
