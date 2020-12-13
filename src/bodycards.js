@@ -345,7 +345,7 @@ class bodycards extends Component {
       return (
         <div className="CarousalDivItem">
           <div className="container-fluid">
-          <Carousel.Item>
+        
             {console.log(item)}
             <div className="row">
               <div className="col-sm-8 ">
@@ -379,7 +379,7 @@ class bodycards extends Component {
               </div>
 
             </div>
-            <Carousel.Caption>
+           
               <div className="row">
                 <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
                 <div className="col-sm-4 ">Location:{item.Location}</div>
@@ -390,8 +390,7 @@ class bodycards extends Component {
                 <div className="col-sm-4 ">Type:{item.Type}</div>
                 <div className="col-sm-4 ">parking:{item.parking}</div>
               </div>
-            </Carousel.Caption>
-          </Carousel.Item>
+           
 
           </div>
         
@@ -475,9 +474,9 @@ class bodycards extends Component {
                 <FontAwesomeIcon icon={faTimes} />. </div>
 
               <div className="carousaldiv">
-                <Carousel>
+                
                   {carousalitem}
-                </Carousel>
+               
               </div>
             </div>
           }
