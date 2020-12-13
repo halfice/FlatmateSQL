@@ -21,9 +21,6 @@ export class Message extends React.Component {
             PropertyId: this.props.PropertyId,
             Phone:"",
             UserName:"",
-
-
-
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleChangePhone = this.handleChangePhone.bind(this);
@@ -32,11 +29,9 @@ export class Message extends React.Component {
 
     }
     componentDidMount() {
-        //this.getblobtoken();
-        //this.fetchprofile();
-      }
+}
     
-      async getblobtoken() {
+async getblobtoken() {
         var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
         try {
           let res = await axios.post(loginurl);
@@ -52,7 +47,8 @@ export class Message extends React.Component {
         this.setState({
             loader: true,
         });
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email=${this.state.userEmail}&propertyid=${this.state.PropertyId}&msg=${this.state.Message}`;
+       // http://localhost:7071/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email=777&propertyid=92&msg=0000
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email=${this.state.Phone}&propertyid=${this.state.PropertyId}&msg=${this.state.Message}`;
         try {
             let res = await axios.post(regurl);
             this.setState({
