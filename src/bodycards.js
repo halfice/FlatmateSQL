@@ -99,7 +99,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
       Imagestr = "";
@@ -124,7 +124,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
@@ -151,7 +151,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
@@ -177,7 +177,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'picstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
@@ -349,7 +349,7 @@ class bodycards extends Component {
             {console.log(item)}
             <div className="row">
               <div className="col-sm-8 ">
-                <img className="d-block w-100" src={item.picstring} alt="First slide" />
+                <img className="d-block w-100" src={item.mypicstring} alt="First slide" />
               </div>
               <div className="col-sm-4 ">
                <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
@@ -472,7 +472,7 @@ class bodycards extends Component {
 
             <div className="parentdiv">
               <div className="closebuttondi" onClick={this.CloseModal}>
-                <FontAwesomeIcon icon={faTimes} />     Close        </div>
+                <FontAwesomeIcon icon={faTimes} />. </div>
 
               <div className="carousaldiv">
                 <Carousel>
