@@ -332,7 +332,7 @@ class bodycards extends Component {
             {console.log(item)}
             <div className="row">
               <div className="col-sm-8 ">
-                <img className="d-block w-100" src={item.mypicstring}  />
+                <img className="d-block w-100" src={item.mypicstring} key={i}  />
               </div>
               <div className="col-sm-4 ">
                <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
