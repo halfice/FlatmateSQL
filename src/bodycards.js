@@ -62,7 +62,7 @@ class bodycards extends Component {
   getCarousal(propertyid) {
 
     if(this.state.currenproperyid!=0){
-      return;
+     // return;
     }
     this.setState({
       carousalObjectitem: [],
