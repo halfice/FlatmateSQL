@@ -348,24 +348,24 @@ class bodycards extends Component {
           <Carousel.Item>
             {console.log(item)}
             <div className="row">
-              <div className="col-sm-8 paragraphcss">
+              <div className="col-sm-8 ">
                 <img className="d-block w-100" src={item.picstring} alt="First slide" />
               </div>
-              <div className="col-sm-4 paragraphcss">
+              <div className="col-sm-4 ">
                 <h1>Send Message form</h1>
               </div>
 
             </div>
             <Carousel.Caption>
               <div className="row">
-                <div className="col-sm-4 paragraphcss">Bedrooms:{item.Bedrooms}</div>
-                <div className="col-sm-4 paragraphcss">Location:{item.Location}</div>
-                <div className="col-sm-4 paragraphcss">Price:{item.Price}</div>
+                <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
+                <div className="col-sm-4 ">Location:{item.Location}</div>
+                <div className="col-sm-4 ">Price:{item.Price}</div>
               </div>
               <div className="row">
-                <div className="col-sm-4 paragraphcss">FurnishedTyope:{item.FurnishedTyope}</div>
-                <div className="col-sm-4 paragraphcss">Type:{item.Type}</div>
-                <div className="col-sm-4 paragraphcss">parking:{item.parking}</div>
+                <div className="col-sm-4 ">FurnishedTyope:{item.FurnishedTyope}</div>
+                <div className="col-sm-4 ">Type:{item.Type}</div>
+                <div className="col-sm-4 ">parking:{item.parking}</div>
               </div>
             </Carousel.Caption>
           </Carousel.Item>
