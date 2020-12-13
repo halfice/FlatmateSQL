@@ -47,6 +47,8 @@ class bodycards extends Component {
       carousalObject: [],
       carousalObjectitem: [],
       carousalItemCount: 0,
+      currenproperyid:0,
+
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -59,6 +61,9 @@ class bodycards extends Component {
 
   getCarousal(propertyid) {
 
+    if(this.state.currenproperyid!=0){
+      return;
+    }
     this.setState({
       carousalObjectitem: [],
       ShowCarousal: true,
@@ -191,6 +196,7 @@ class bodycards extends Component {
     this.setState({
       carousalObjectitem: TampCarousalItem,
       ShowCarousal: true,
+      currenproperyid:1,
 
     });
   }
