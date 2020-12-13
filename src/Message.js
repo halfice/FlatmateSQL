@@ -16,7 +16,7 @@ export class Message extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userEmail: this.props.Userid,
+            userEmail: "",//this.props.Userid,
             Message: "",
             PropertyId: this.props.PropertyId,
             Phone:"",
@@ -83,13 +83,13 @@ export class Message extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12 graytext">
                                 <div className="form-group">
-                                    <input type="UserName" className="form-control" onChange={this.handlChangeName} placeholder="Enter Name"></input>
+                                    <input type="UserName" className="form-control" onChange={this.handlChangeName} placeholder="Enter Name" style="height:77px"></input>
                                 </div>
                                 <div className="form-group">
-                                    <input type="Phone" className="form-control" placeholder="Enter Phone" onChange={this.handleChangePhone}></input>
+                                    <input type="Phone" className="form-control" placeholder="Enter Phone" onChange={this.handleChangePhone} style="height:77px"></input>
                                 </div>
                                 <div className="form-group">
-                                    <input type="Mesage" className="form-control" onChange={this.handlchangeMessage} placeholder="Enter Message"></input>
+                                    <input type="Mesage" className="form-control" onChange={this.handlchangeMessage} placeholder="Enter Message" style="height:77px"></input>
 
                                 </div>
                             </div>
