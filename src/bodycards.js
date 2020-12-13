@@ -26,6 +26,8 @@ import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Message from './Message'
+
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
 class bodycards extends Component {
@@ -352,7 +354,7 @@ class bodycards extends Component {
                 <img className="d-block w-100" src={item.picstring} alt="First slide" />
               </div>
               <div className="col-sm-4 ">
-                <h1>Send Message form</h1>
+               <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
               </div>
 
             </div>
