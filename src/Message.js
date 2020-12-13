@@ -32,7 +32,7 @@ export class Message extends React.Component {
 
     }
     componentDidMount() {
-        this.getblobtoken();
+        //this.getblobtoken();
         //this.fetchprofile();
       }
     
