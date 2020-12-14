@@ -345,7 +345,7 @@ selectedIndex :0,
       return (
         <div className="CarousalDivItem">
           <div className="container-fluid">
-          <Carousel.Item>
+          <Carousel.Item interval={1000}>
             {console.log(item)}
             <div className="row">
               <div className="col-sm-8 ">
