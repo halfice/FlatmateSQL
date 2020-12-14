@@ -48,7 +48,7 @@ class bodycards extends Component {
       carousalObjectitem: [],
       carousalItemCount: 0,
       currenproperyid:0,
-
+selectedIndex :0,
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -242,14 +242,16 @@ class bodycards extends Component {
     }
   }
 
+   handleSelect = (selectedIndex, e) => {
+    
+  };
+
   render() {
     
     
-      const [index, setIndex] = 0;
+      
     
-      const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-      };
+      
     
     
     
@@ -473,7 +475,7 @@ class bodycards extends Component {
                 <FontAwesomeIcon icon={faTimes} /></div>
 
               <div className="carousaldiv">
-                <Carousel activeIndex={index} onSelect={handleSelect} >
+                <Carousel  >
                   {carousalitem}
                 </Carousel>
               </div>
