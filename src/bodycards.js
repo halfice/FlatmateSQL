@@ -460,7 +460,7 @@ class bodycards extends Component {
 
             <div className="parentdiv">
               <div className="closebuttondi" onClick={this.CloseModal}>
-                <FontAwesomeIcon icon={faTimes} />. </div>
+                <FontAwesomeIcon icon={faTimes} /></div>
 
               <div className="carousaldiv">
                 <Carousel>

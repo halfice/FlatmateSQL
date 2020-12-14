@@ -41,6 +41,9 @@
   width:100%!important;
 }
 
+.carousel-indicators{
+  position: relative;
+}
 
 .parentdiv{
  
