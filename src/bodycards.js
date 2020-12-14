@@ -85,6 +85,11 @@ class bodycards extends Component {
     var tmp2stImag = tmpitem[0].picsstringone;
     var tmp3stImag = tmpitem[0].picsstringtwo;
     var tmp4stImag = tmpitem[0].picsstringthree;
+    tmp1stImag=tmp1stImag.replace(",","");
+    tmp2stImag=tmp2stImag.replace(",","");
+    tmp3stImag=tmp3stImag.replace(",","");
+    tmp4stImag=tmp4stImag.replace(",","");
+    
 
     if (tmp1stImag.length > 3) {
   
