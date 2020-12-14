@@ -58,6 +58,10 @@
     transform: translate(-50%, -50%);
 }
 
+.active{
+  position:fixed!important;
+}
+
 .carousaldiv{
   z-index: 2222;
   background: rgba(255,255,255,0.5);
