@@ -46,7 +46,6 @@
 }
 
 .parentdiv{
- 
   width: 100%;
     height: 100%;
     background-color:#0c5965;
@@ -61,7 +60,6 @@
 
 .carousaldiv{
   z-index: 2222;
- 
   background: rgba(255,255,255,0.5);
   position: fixed;
   top: 50%;

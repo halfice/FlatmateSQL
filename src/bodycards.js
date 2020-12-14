@@ -243,6 +243,16 @@ class bodycards extends Component {
   }
 
   render() {
+    
+    
+      const [index, setIndex] = 0;
+    
+      const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+      };
+    
+    
+    
     //const imgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
@@ -463,7 +473,7 @@ class bodycards extends Component {
                 <FontAwesomeIcon icon={faTimes} /></div>
 
               <div className="carousaldiv">
-                <Carousel>
+                <Carousel activeIndex={index} onSelect={handleSelect} >
                   {carousalitem}
                 </Carousel>
               </div>
