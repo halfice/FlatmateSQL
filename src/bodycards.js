@@ -345,11 +345,13 @@ selectedIndex :0,
       return (
         <div className="CarousalDivItem">
           <div className="container-fluid">
-          <Carousel.Item interval={1000}>
-            {console.log(item)}
+
             <div className="row">
-              <div className="col-sm-8 ">
+              
+            <div className="col-sm-8 ">
+            <Carousel.Item interval={1000}>
                 <img className="d-block w-100" src={item.mypicstring} key={i}  />
+                </Carousel.Item>
               </div>
               <div className="col-sm-4 ">
                <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
@@ -373,12 +375,10 @@ selectedIndex :0,
 
               </div>
 
-
-
-
               </div>
 
             </div>
+         
             <Carousel.Caption>
               <div className="row">
                 <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
@@ -391,7 +391,7 @@ selectedIndex :0,
                 <div className="col-sm-4 ">parking:{item.parking}</div>
               </div>
             </Carousel.Caption>
-          </Carousel.Item>
+          
 
           </div>
         
