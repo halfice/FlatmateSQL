@@ -356,7 +356,7 @@ class bodycards extends Component {
               </div>
               <div className="col-sm-4 ">
                 <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
-
+                </div>
                 <div className="row">
 
                   <div className="col-sm-4 zerpadding">
@@ -376,7 +376,7 @@ class bodycards extends Component {
 
                 </div>
 
-              </div>
+            
 
             </div>
 
@@ -474,6 +474,8 @@ class bodycards extends Component {
             <div className="parentdiv">
               <div className="closebuttondi" onClick={this.CloseModal}>
                 <FontAwesomeIcon icon={faTimes} /></div>
+
+
 
               <div className="carousaldiv">
                 <Carousel  >
