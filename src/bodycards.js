@@ -356,30 +356,26 @@ class bodycards extends Component {
               </div>
               <div className="col-sm-4 ">
                 <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
+              </div>
+            </div>
+            <div className="row">
+
+              <div className="col-sm-4 zerpadding">
+                <div className="buttnemail" >Show Location</div>
+              </div>
+              <div className="col-sm-4 zerpadding">
+                <div className="myicondiv">
+                  <div className="buttn" >Show Number</div>
                 </div>
-                <div className="row">
+              </div>
 
-                  <div className="col-sm-4 zerpadding">
-                    <div className="buttnemail" >Show Location</div>
-                  </div>
-                  <div className="col-sm-4 zerpadding">
-                    <div className="myicondiv">
-                      <div className="buttn" >Show Number</div>
-                    </div>
-                  </div>
-
-                  <div className="col-sm-4 zerpadding">
-                    <div className="myicondiv">
-                      <div className="buttnemail" >Thumbs Up</div>
-                    </div>
-                  </div>
-
+              <div className="col-sm-4 zerpadding">
+                <div className="myicondiv">
+                  <div className="buttnemail" >Thumbs Up</div>
                 </div>
-
-            
+              </div>
 
             </div>
-
 
             <div className="row">
               <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
