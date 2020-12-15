@@ -486,17 +486,17 @@ class bodycards extends Component {
                     <div className="row">
 
                       <div className="col-sm-4 zerpadding">
-                        <div className="buttnemail" >Show Location</div>
+                        <div className="buttnemail" > Location</div>
                       </div>
                       <div className="col-sm-4 zerpadding">
                         <div className="myicondiv">
-                          <div className="buttn" >Show Number</div>
+                          <div className="buttn" > Number</div>
                         </div>
                       </div>
 
                       <div className="col-sm-4 zerpadding">
                         <div className="myicondiv">
-                          <div className="buttnemail" >Thumbs Up</div>
+                          <div className="buttnemail" >ThumbsUp</div>
                         </div>
                       </div>
 
