@@ -49,7 +49,14 @@ class bodycards extends Component {
       carousalItemCount: 0,
       currenproperyid: 0,
       selectedIndex: 0,
-      selectedPropertyId:0,
+      selectedPropertyId: 0,
+      selectedBedrooms:0,
+      selectedLocation:0,
+      selectedPrice:0,
+      selectedFurnitureType:0,
+      selectedType:"",
+      selectedParking:"",
+      selectedPool:"",
 
 
     }
@@ -69,7 +76,7 @@ class bodycards extends Component {
     this.setState({
       carousalObjectitem: [],
       ShowCarousal: true,
-      selectedPropertyId:propertyid
+      selectedPropertyId: propertyid
 
     });
     var tmpitem = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid);
@@ -182,6 +189,12 @@ class bodycards extends Component {
       carousalObjectitem: TampCarousalItem,
       ShowCarousal: true,
       currenproperyid: 0,
+      selectedBedrooms:tmpitem[0].Bedrooms,
+      selectedLocation:tmpitem[0].Location,
+      selectedPrice:tmpitem[0].Price,
+      selectedFurnitureType:tmpitem[0].FurnishedTyope,
+      selectedType:tmpitem[0].Type,
+      selectedParking:tmpitem[0].parking,
 
     });
   }
@@ -355,35 +368,9 @@ class bodycards extends Component {
               <Carousel.Caption></Carousel.Caption>
             </Carousel.Item>
 
-            <div className="row">
 
-              <div className="col-sm-4 zerpadding">
-                <div className="buttnemail" >Show Location</div>
-              </div>
-              <div className="col-sm-4 zerpadding">
-                <div className="myicondiv">
-                  <div className="buttn" >Show Number</div>
-                </div>
-              </div>
 
-              <div className="col-sm-4 zerpadding">
-                <div className="myicondiv">
-                  <div className="buttnemail" >Thumbs Up</div>
-                </div>
-              </div>
 
-            </div>
-
-            <div className="row">
-              <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
-              <div className="col-sm-4 ">Location:{item.Location}</div>
-              <div className="col-sm-4 ">Price:{item.Price}</div>
-            </div>
-            <div className="row">
-              <div className="col-sm-4 ">FurnishedTyope:{item.FurnishedTyope}</div>
-              <div className="col-sm-4 ">Type:{item.Type}</div>
-              <div className="col-sm-4 ">parking:{item.parking}</div>
-            </div>
 
 
 
@@ -477,10 +464,39 @@ class bodycards extends Component {
                       {carousalitem}
                     </Carousel>
 
+                    <div className="row">
+                      <div className="col-sm-4 ">Bedrooms:{this.state.selectedBedrooms}</div>
+                      <div className="col-sm-4 ">Location:{this.state.selectedLocation}</div>
+                      <div className="col-sm-4 ">Price:{this.state.selectedPrice}</div>
+                    </div>
+                    <div className="row">
+                      <div className="col-sm-4 ">FurnishedTyope:{this.state.selectedFurnitureType}</div>
+                      <div className="col-sm-4 ">Type:{this.state.selectedType}</div>
+                      <div className="col-sm-4 ">parking:{this.state.selectedParking}</div>
+                    </div>
                   </div>
                   <div className="col-sm-4 ">
                     <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
                   </div>
+                  <div className="row">
+
+                    <div className="col-sm-4 zerpadding">
+                      <div className="buttnemail" >Show Location</div>
+                    </div>
+                    <div className="col-sm-4 zerpadding">
+                      <div className="myicondiv">
+                        <div className="buttn" >Show Number</div>
+                      </div>
+                    </div>
+
+                    <div className="col-sm-4 zerpadding">
+                      <div className="myicondiv">
+                        <div className="buttnemail" >Thumbs Up</div>
+                      </div>
+                    </div>
+
+                  </div>
+
                 </div>
 
 
