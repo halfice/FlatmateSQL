@@ -346,18 +346,12 @@ class bodycards extends Component {
         <div className="CarousalDivItem">
           <div className="container-fluid">
 
-            <div className="row">
 
-              <div className="col-sm-8 ">
-                <Carousel.Item interval={1000}>
-                  <img className="d-block w-100" src={item.mypicstring} key={i} />
-                  <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-              </div>
-              <div className="col-sm-4 ">
-                <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
-              </div>
-            </div>
+            <Carousel.Item interval={1000}>
+              <img className="d-block w-100" src={item.mypicstring} key={i} />
+              <Carousel.Caption></Carousel.Caption>
+            </Carousel.Item>
+
             <div className="row">
 
               <div className="col-sm-4 zerpadding">
@@ -474,9 +468,19 @@ class bodycards extends Component {
 
 
               <div className="carousaldiv">
-                <Carousel  >
-                  {carousalitem}
-                </Carousel>
+                <div className="row">
+                  <div className="col-sm-8 ">
+                    <Carousel  >
+                      {carousalitem}
+                    </Carousel>
+
+                  </div>
+                  <div className="col-sm-4 ">
+                    <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
+                  </div>
+                </div>
+
+
               </div>
             </div>
           }
