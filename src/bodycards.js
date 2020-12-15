@@ -47,8 +47,8 @@ class bodycards extends Component {
       carousalObject: [],
       carousalObjectitem: [],
       carousalItemCount: 0,
-      currenproperyid:0,
-selectedIndex :0,
+      currenproperyid: 0,
+      selectedIndex: 0,
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -61,8 +61,8 @@ selectedIndex :0,
 
   getCarousal(propertyid) {
 
-    if(this.state.currenproperyid!=0){
-     // return;
+    if (this.state.currenproperyid != 0) {
+      // return;
     }
     this.setState({
       carousalObjectitem: [],
@@ -85,14 +85,14 @@ selectedIndex :0,
     var tmp2stImag = tmpitem[0].picsstringone;
     var tmp3stImag = tmpitem[0].picsstringtwo;
     var tmp4stImag = tmpitem[0].picsstringthree;
-    tmp1stImag=tmp1stImag.replace(",","");
-    tmp2stImag=tmp2stImag.replace(",","");
-    tmp3stImag=tmp3stImag.replace(",","");
-    tmp4stImag=tmp4stImag.replace(",","");
-    
+    tmp1stImag = tmp1stImag.replace(",", "");
+    tmp2stImag = tmp2stImag.replace(",", "");
+    tmp3stImag = tmp3stImag.replace(",", "");
+    tmp4stImag = tmp4stImag.replace(",", "");
+
 
     if (tmp1stImag.length > 3) {
-  
+
       var objectcarousalone = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
@@ -112,7 +112,7 @@ selectedIndex :0,
       TampCarousalItem.push(objectcarousalone);
     }
     if (tmp2stImag.length > 3) {
-      
+
       var objectcarousaltwo = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
@@ -134,7 +134,7 @@ selectedIndex :0,
     }
 
     if (tmp3stImag.length > 3) {
-          var objectcarousalthree = {
+      var objectcarousalthree = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
@@ -155,7 +155,7 @@ selectedIndex :0,
     }
 
     if (tmp4stImag.length > 3) {
-     var objectcarousalfour = {
+      var objectcarousalfour = {
         'AgentId': tmpitem[0].AgentId,
         'Bedrooms': tmpitem[0].Bedrooms,
         'Deal': tmpitem[0].Deal,
@@ -178,7 +178,7 @@ selectedIndex :0,
     this.setState({
       carousalObjectitem: TampCarousalItem,
       ShowCarousal: true,
-      currenproperyid:0,
+      currenproperyid: 0,
 
     });
   }
@@ -242,19 +242,19 @@ selectedIndex :0,
     }
   }
 
-   handleSelect = (selectedIndex, e) => {
-    
+  handleSelect = (selectedIndex, e) => {
+
   };
 
   render() {
-    
-    
-      
-    
-      
-    
-    
-    
+
+
+
+
+
+
+
+
     //const imgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
@@ -340,61 +340,62 @@ selectedIndex :0,
       </div>);
     });
 
-    var carousalitem=null;
-     carousalitem = this.state.carousalObjectitem.map((item, i) => {
+    var carousalitem = null;
+    carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
         <div className="CarousalDivItem">
           <div className="container-fluid">
 
             <div className="row">
-              
-            <div className="col-sm-8 ">
-            <Carousel.Item interval={1000}>
-                <img className="d-block w-100" src={item.mypicstring} key={i}  />
+
+              <div className="col-sm-8 ">
+                <Carousel.Item interval={1000}>
+                  <img className="d-block w-100" src={item.mypicstring} key={i} />
+                  <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
               </div>
               <div className="col-sm-4 ">
-               <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
+                <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
 
-               <div className="row">
-                
-                <div className="col-sm-4 zerpadding">
-                  <div className="buttnemail" >Show Location</div>
-                </div>
-                <div className="col-sm-4 zerpadding">
-                  <div className="myicondiv">
-                    <div className="buttn" >Show Number</div>
+                <div className="row">
+
+                  <div className="col-sm-4 zerpadding">
+                    <div className="buttnemail" >Show Location</div>
                   </div>
-                </div>
-
-                <div className="col-sm-4 zerpadding">
-                  <div className="myicondiv">
-                    <div className="buttnemail" >Thumbs Up</div>
+                  <div className="col-sm-4 zerpadding">
+                    <div className="myicondiv">
+                      <div className="buttn" >Show Number</div>
+                    </div>
                   </div>
-                </div>
 
-              </div>
+                  <div className="col-sm-4 zerpadding">
+                    <div className="myicondiv">
+                      <div className="buttnemail" >Thumbs Up</div>
+                    </div>
+                  </div>
+
+                </div>
 
               </div>
 
             </div>
-         
-            <Carousel.Caption>
-              <div className="row">
-                <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
-                <div className="col-sm-4 ">Location:{item.Location}</div>
-                <div className="col-sm-4 ">Price:{item.Price}</div>
-              </div>
-              <div className="row">
-                <div className="col-sm-4 ">FurnishedTyope:{item.FurnishedTyope}</div>
-                <div className="col-sm-4 ">Type:{item.Type}</div>
-                <div className="col-sm-4 ">parking:{item.parking}</div>
-              </div>
-            </Carousel.Caption>
-          
+
+
+            <div className="row">
+              <div className="col-sm-4 ">Bedrooms:{item.Bedrooms}</div>
+              <div className="col-sm-4 ">Location:{item.Location}</div>
+              <div className="col-sm-4 ">Price:{item.Price}</div>
+            </div>
+            <div className="row">
+              <div className="col-sm-4 ">FurnishedTyope:{item.FurnishedTyope}</div>
+              <div className="col-sm-4 ">Type:{item.Type}</div>
+              <div className="col-sm-4 ">parking:{item.parking}</div>
+            </div>
+
+
 
           </div>
-        
+
         </div>
 
       );
