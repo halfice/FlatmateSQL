@@ -49,6 +49,8 @@ class bodycards extends Component {
       carousalItemCount: 0,
       currenproperyid: 0,
       selectedIndex: 0,
+      selectedPropertyId:0,
+
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -67,6 +69,7 @@ class bodycards extends Component {
     this.setState({
       carousalObjectitem: [],
       ShowCarousal: true,
+      selectedPropertyId:propertyid
 
     });
     var tmpitem = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid);
@@ -476,7 +479,7 @@ class bodycards extends Component {
 
                   </div>
                   <div className="col-sm-4 ">
-                    <Message userEmail={this.props.LoginUserID} PropertyId={item.PropertyId} />
+                    <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
                   </div>
                 </div>
 
