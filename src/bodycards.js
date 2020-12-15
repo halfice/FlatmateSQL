@@ -50,13 +50,13 @@ class bodycards extends Component {
       currenproperyid: 0,
       selectedIndex: 0,
       selectedPropertyId: 0,
-      selectedBedrooms:0,
-      selectedLocation:0,
-      selectedPrice:0,
-      selectedFurnitureType:0,
-      selectedType:"",
-      selectedParking:"",
-      selectedPool:"",
+      selectedBedrooms: 0,
+      selectedLocation: 0,
+      selectedPrice: 0,
+      selectedFurnitureType: 0,
+      selectedType: "",
+      selectedParking: "",
+      selectedPool: "",
 
 
     }
@@ -189,12 +189,12 @@ class bodycards extends Component {
       carousalObjectitem: TampCarousalItem,
       ShowCarousal: true,
       currenproperyid: 0,
-      selectedBedrooms:tmpitem[0].Bedrooms,
-      selectedLocation:tmpitem[0].Location,
-      selectedPrice:tmpitem[0].Price,
-      selectedFurnitureType:tmpitem[0].FurnishedTyope,
-      selectedType:tmpitem[0].Type,
-      selectedParking:tmpitem[0].parking,
+      selectedBedrooms: tmpitem[0].Bedrooms,
+      selectedLocation: tmpitem[0].Location,
+      selectedPrice: tmpitem[0].Price,
+      selectedFurnitureType: tmpitem[0].FurnishedTyope,
+      selectedType: tmpitem[0].Type,
+      selectedParking: tmpitem[0].parking,
 
     });
   }
@@ -475,29 +475,35 @@ class bodycards extends Component {
                       <div className="col-sm-4 ">parking:{this.state.selectedParking}</div>
                     </div>
                   </div>
+
+
                   <div className="col-sm-4 ">
-                  <div className="row">
-                    <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
+
+                    <div className="row">
+                      <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
+                    </div>
+
+                    <div className="row">
+
+                      <div className="col-sm-4 zerpadding">
+                        <div className="buttnemail" >Show Location</div>
+                      </div>
+                      <div className="col-sm-4 zerpadding">
+                        <div className="myicondiv">
+                          <div className="buttn" >Show Number</div>
+                        </div>
+                      </div>
+
+                      <div className="col-sm-4 zerpadding">
+                        <div className="myicondiv">
+                          <div className="buttnemail" >Thumbs Up</div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
-                  <div className="row">
 
-                    <div className="col-sm-4 zerpadding">
-                      <div className="buttnemail" >Show Location</div>
-                    </div>
-                    <div className="col-sm-4 zerpadding">
-                      <div className="myicondiv">
-                        <div className="buttn" >Show Number</div>
-                      </div>
-                    </div>
 
-                    <div className="col-sm-4 zerpadding">
-                      <div className="myicondiv">
-                        <div className="buttnemail" >Thumbs Up</div>
-                      </div>
-                    </div>
-
-                  </div>
 
                 </div>
 
