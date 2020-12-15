@@ -58,6 +58,11 @@
     transform: translate(-50%, -50%);
 }
 
+.d-block {
+  display: block!important;
+  height: 600px!important;
+}
+
 .active{
   position:fixed!important;
 }

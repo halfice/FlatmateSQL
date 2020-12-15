@@ -476,7 +476,9 @@ class bodycards extends Component {
                     </div>
                   </div>
                   <div className="col-sm-4 ">
+                  <div className="row">
                     <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
+                    </div>
                   </div>
                   <div className="row">
 
