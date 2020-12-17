@@ -4,7 +4,7 @@ import './App.css';
 import { Header } from "./header/header";
 import Footer from "./footer/footer";
 
-
+//updated by abdulaziz
 
 import Bodycards from "./bodycards";
 import MainBodyCards from './MainBodyCards'
@@ -56,23 +56,23 @@ class App extends Component {
       <div className="App">
         <div className="">
           <Header handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
-        
+
 
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
-            
-            
-            <div className=" row zeeomargin zerpadding">
-           
+
+
+          <div className=" row zeeomargin zerpadding">
+
 
             <div className="col-sm-10 zerpadding">
-            <Rating handler={this.handler} />
-          </div>
+              <Rating handler={this.handler} />
+            </div>
 
-{ this.state.userid!=0 &&
-          <div className="col-sm-2 ratingdiv2 zerpadding">
-          <div className="offersdiv" onClick={this.handleoffers.bind(this)}> Offers </div>
-          </div>
-  }
+            {this.state.userid != 0 &&
+              <div className="col-sm-2 ratingdiv2 zerpadding">
+                <div className="offersdiv" onClick={this.handleoffers.bind(this)}> Offers </div>
+              </div>
+            }
 
 
 
@@ -96,48 +96,48 @@ class App extends Component {
         }
 
         {this.state.needwizard == 0 && this.state.needwizard != 1000 &&
-        this.state.needwizard != 100 && this.state.needwizard != 1 &&
-        this.state.needwizard != 500 && this.state.needwizard != 5 &&
+          this.state.needwizard != 100 && this.state.needwizard != 1 &&
+          this.state.needwizard != 500 && this.state.needwizard != 5 &&
           <div className="row">
             <MainBodyCards handler={this.handler} />
 
-            </div>
+          </div>
         }
 
         {
-        this.state.needwizard == 1 &&
+          this.state.needwizard == 1 &&
           <div className="col-sm-12">
-            <Looking UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
-            </div>
+            <Looking UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+          </div>
         }
 
         {
           this.state.needwizard == 3 &&
           <div className="col-sm-12">
-            <RoomOwner UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/></div>
+            <RoomOwner UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} /></div>
         }
 
         {
           this.state.needwizard == 4 &&
           <div className="col-sm-12">
-            <Bids UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
+            <Bids UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
 
-{
+        {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
+            <Property UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
 
 
-{
+        {
           this.state.needwizard == 101 &&
           <div className="col-sm-12">
-            <ViewOffers UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
+            <ViewOffers UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -148,7 +148,7 @@ class App extends Component {
 
         {
           this.state.needwizard == 500 &&
-          <div className="col-sm-12"><AgentProfile  userLoginId={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId}/>
+          <div className="col-sm-12"><AgentProfile userLoginId={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -160,15 +160,15 @@ class App extends Component {
             this.state.showcard == 1 && this.state.needwizard != 3 && this.state.needwizard != 1 &&
             this.state.needwizard != 4 &&
             this.state.needwizard == 0 && this.state.needwizard != 1000 &&
-              this.state.needwizard != 100 && this.state.needwizard != 1 &&
-              this.state.needwizard != 500 && this.state.needwizard != 5 &&
+            this.state.needwizard != 100 && this.state.needwizard != 1 &&
+            this.state.needwizard != 500 && this.state.needwizard != 5 &&
 
             <div className="col-sm-12"><Bodycards /></div>
 
           }
 
 
-<div className="col-sm-12"><NearbyPlace /></div>
+          <div className="col-sm-12"><NearbyPlace /></div>
         </div>
         <div className="dontshow" >
           <p>{t('Thanks.1')}</p>  <p>{t('Why.1')}</p>
@@ -199,30 +199,30 @@ class App extends Component {
 
 
 
-  handleoffers(){
+  handleoffers() {
     this.setState({
       needwizard: 101,
-      
+
     })
   }
 
-  
+
   handlerRegister = (val) => {
-   this.setState({
+    this.setState({
       needwizard: val,
       showcard: 0,
     })
   }
   handleRegisnteredUserId = (useridfromdb) => {
-   
+
     var myObject = JSON.stringify(useridfromdb.data);
-    if (useridfromdb.data==undefined){
-      myObject=useridfromdb;
+    if (useridfromdb.data == undefined) {
+      myObject = useridfromdb;
     }
 
 
     console.log(myObject);
-    var userid=myObject;
+    var userid = myObject;
     this.setState({
       userid: userid,
       needwizard: 0,
