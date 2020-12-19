@@ -488,3 +488,8 @@ a:hover{
     z-index: 111;
 }
 
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+  display: block;
+}
+
