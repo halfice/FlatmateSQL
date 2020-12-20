@@ -498,7 +498,7 @@ a:hover{
   z-index: 3333333;
 }
 .carousel-item {
-  position: relative;
+  position: fixed;
    display: block;
   float: left;
   width: 100%;
