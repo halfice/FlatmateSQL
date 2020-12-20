@@ -69,8 +69,8 @@ class App extends Component {
             </div>
 
             {this.state.userid != 0 &&
-              <div className="col-sm-2 ratingdiv2 zerpadding">
-                <div className="offersdiv" onClick={this.handleoffers.bind(this)}> Offers </div>
+              <div className="col-sm-2 ">
+                <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers </div>
               </div>
             }
 
