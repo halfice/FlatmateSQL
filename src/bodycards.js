@@ -362,8 +362,8 @@ class bodycards extends Component {
     carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
        
-          <div className="">
-             <Carousel>
+         
+           
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -373,8 +373,8 @@ class bodycards extends Component {
             
             </Carousel.Item>
            
-            </Carousel>
-          </div>
+           
+        
 
        
 
@@ -460,8 +460,9 @@ class bodycards extends Component {
               <div className="carousaldiv">
                 <div className="row">
                   <div className="col-sm-8 ">
-                   
+                  <Carousel>
                       {carousalitem}
+                      </Carousel> 
                    
 
                     <div className="row">
