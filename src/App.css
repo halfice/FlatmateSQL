@@ -493,3 +493,18 @@ a:hover{
   display: block;
 }
 
+
+.carousel-item {
+  position: relative;
+   display: block;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform .6s ease-in-out;
+}
+
+.carousel-item.active {
+  display: block;
+}

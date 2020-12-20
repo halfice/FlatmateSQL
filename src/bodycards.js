@@ -27,7 +27,6 @@ import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
-var Carousel = require('react-responsive-carousel').Carousel;
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -365,26 +364,29 @@ class bodycards extends Component {
         <div className="CarousalDivItem">
           <div className="container-fluid">
 
-            
-          <Carousel showArrows={true} onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}>
-                <div>
-                    <img src={simgstr} />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                <img src={simgstr1} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                <img src={simgstr} />
-                    <p className="legend">Legend 3</p>
-                </div>
-                <div>
-                <img src={simgstr1} />
-                    <p className="legend">Legend 4</p>
-                </div>
-                
-            </Carousel>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={simgstr}
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={simgstr1}
+                alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
           
 
 
