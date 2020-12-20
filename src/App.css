@@ -514,3 +514,9 @@ a:hover{
 .carousel-item-next, .carousel-item-prev, .carousel-item.active {
   display: block;
 }
+
+.w-100 {
+  width: 60%!important;
+  left: 33px;
+  position: fixed;
+}
