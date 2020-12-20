@@ -363,6 +363,7 @@ class bodycards extends Component {
       return (
        
           <div className="">
+             <Carousel>
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -380,6 +381,7 @@ class bodycards extends Component {
 
              
             </Carousel.Item>
+            </Carousel>
           </div>
 
        
@@ -466,9 +468,9 @@ class bodycards extends Component {
               <div className="carousaldiv">
                 <div className="row">
                   <div className="col-sm-8 ">
-                    <Carousel  >
+                   
                       {carousalitem}
-                    </Carousel>
+                   
 
                     <div className="row">
                       <div className="col-sm-4 ">Bedrooms:{this.state.selectedBedrooms}</div>
