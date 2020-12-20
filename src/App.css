@@ -515,8 +515,14 @@ a:hover{
   display: block;
 }
 
+
+
+
+
 .w-100 {
   width: 60%!important;
   left: 33px;
   position: fixed;
+  height: 500px;
+  top: 180px;
 }
