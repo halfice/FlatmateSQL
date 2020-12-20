@@ -367,20 +367,12 @@ class bodycards extends Component {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src={simgstr}
+                src={item.mypicstring} key={i} 
                 alt="First slide"
               />
             
             </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={simgstr1}
-                alt="Third slide"
-              />
-
-             
-            </Carousel.Item>
+           
             </Carousel>
           </div>
 
