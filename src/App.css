@@ -508,6 +508,9 @@ a:hover{
   transition: transform .16s ease-in-out;
 }
 
-.carousel-item.active {
+
+
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
   display: block;
 }
