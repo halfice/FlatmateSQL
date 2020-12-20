@@ -493,7 +493,10 @@ a:hover{
   display: block;
 }
 
-
+.active{
+  display: block;
+  z-index: 3333333;
+}
 .carousel-item {
   position: relative;
    display: block;
@@ -502,7 +505,7 @@ a:hover{
   margin-right: -100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transition: transform .6s ease-in-out;
+  transition: transform .16s ease-in-out;
 }
 
 .carousel-item.active {
