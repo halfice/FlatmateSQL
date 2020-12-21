@@ -13,10 +13,10 @@ import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome } from '@forta
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
-library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 import PropertyGrid from './propertyGrids'
 
 
+library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
 export class Offers extends React.Component {
     constructor(props) {
