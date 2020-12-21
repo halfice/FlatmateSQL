@@ -526,3 +526,11 @@ a:hover{
   height: 500px;
   top: 180px;
 }
+
+
+.carousalpropertydetail{
+  color:white;
+  font-family: inherit;
+  font-variant: all-small-caps;
+  text-align: right;
+}

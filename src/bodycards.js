@@ -466,14 +466,14 @@ class bodycards extends Component {
                    
 
                     <div className="row">
-                      <div className="col-sm-4 ">Bedrooms:{this.state.selectedBedrooms}</div>
-                      <div className="col-sm-4 ">Location:{this.state.selectedLocation}</div>
-                      <div className="col-sm-4 ">Price:{this.state.selectedPrice}</div>
+                      <div className="col-sm-4 ">Bedrooms : {this.state.selectedBedrooms}</div>
+                      <div className="col-sm-4 ">Location : {this.state.selectedLocation}</div>
+                      <div className="col-sm-4 ">Price : {this.state.selectedPrice}</div>
                     </div>
                     <div className="row">
-                      <div className="col-sm-4 ">FurnishedTyope:{this.state.selectedFurnitureType}</div>
-                      <div className="col-sm-4 ">Type:{this.state.selectedType}</div>
-                      <div className="col-sm-4 ">parking:{this.state.selectedParking}</div>
+                      <div className="col-sm-4 ">FurnishedTyope : {this.state.selectedFurnitureType}</div>
+                      <div className="col-sm-4 ">Type : {this.state.selectedType}</div>
+                      <div className="col-sm-4 ">parking : {this.state.selectedParking}</div>
                     </div>
                   </div>
 
