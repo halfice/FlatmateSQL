@@ -14,12 +14,17 @@ import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-bl
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
+import PropertyGrid from './propertyGrids'
+
+
+
 export class Offers extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             LoginUserID: this.props.UserID,
             OfferScreen: 0,
+
 
 
         }
@@ -270,7 +275,7 @@ export class Offers extends React.Component {
 
         return (
             <div className="row centeraligh">
-                <div className="row ">
+                <div className="row">
                     <div className="row">
                         {
 
@@ -319,6 +324,11 @@ export class Offers extends React.Component {
 
                     </div>
                 </div>
+
+                {this.state.OfferScreen==2 &&
+                
+                <PropertyGrid />
+                }
             </div>
 
         );
