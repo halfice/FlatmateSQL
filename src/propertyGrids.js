@@ -94,7 +94,6 @@ class PropertyGrids extends Component {
         }
         retrueneddata.push(obs);
        
-        TempCarousalData.push(objectcarousal);
 
 
       }
