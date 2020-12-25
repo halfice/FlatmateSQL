@@ -69,6 +69,7 @@ class bodycards extends Component {
 
 
 
+
   getCarousal(propertyid) {
 
     if (this.state.currenproperyid != 0) {
@@ -111,7 +112,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': tmpitem[0].Price,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -131,7 +132,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': tmpitem[0].Price,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -152,7 +153,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': tmpitem[0].Price,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -173,7 +174,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': tmpitem[0].Price,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -221,7 +222,7 @@ class bodycards extends Component {
           'propertyAddress': res.data[i].Location,//.metadata.colName,
           'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
           'key': xcount,
-          'Price': res.data[i].Price,
+          'Price': this.formatMoney(res.data[i].Price),
           'PropertyId': res.data[i].PropertyId,
         }
         retrueneddata.push(obs);
@@ -232,7 +233,7 @@ class bodycards extends Component {
           'FurnishedTyope': res.data[i].FurnishedTyope,
           'Location': res.data[i].Location,
           'LoginUserID': res.data[i].LoginUserID,
-          'Price': res.data[i].Price,
+          'Price': this.formatMoney(res.data[i].Price),
           'PropertyId': res.data[i].PropertyId,
           'State': res.data[i].State,
           'Type': res.data[i].Type,
@@ -258,6 +259,17 @@ class bodycards extends Component {
 
     }
   }
+
+
+  formatMoney(num) {
+    var p = num.toFixed(2).split(".");
+    return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
+        return  num=="-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
+    }, "") + "." + p[1];
+    }
+
+
+
   async fetchpropertiesagent() {
     var _Response = null;
     var TempUserProfileExisits = 0;
@@ -698,6 +710,9 @@ class bodycards extends Component {
 
 
   }
+
+   
+    
 
 
 }
