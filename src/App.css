@@ -517,7 +517,11 @@ a:hover{
 
 
 
-
+.paragrpahNormaltext{
+  color: white;
+    font-size: 13px;
+    font-variant-caps: petite-caps;
+}
 
 .w-100 {
   width: 60%!important;
