@@ -258,7 +258,63 @@ class bodycards extends Component {
 
     }
   }
+  async fetchpropertiesagent() {
+    var _Response = null;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
+    var retrueneddata = [];
+    var TempCarousalData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
+    try {
+      let res = await axios.post(loginurl);
+      console.log(res);
+      var xcount = 10;
+      for (var i = 0; i < res.data.length; i++) {
+        xcount = xcount + 1;
+        var obs = {
+          'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+          'rent': res.data[i].Price,//metadata.colName,
+          'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+          'propertyAddress': res.data[i].Location,//.metadata.colName,
+          'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+          'key': xcount,
+          'Price': res.data[i].Price,
+          'PropertyId': res.data[i].PropertyId,
+        }
+        retrueneddata.push(obs);
+        var objectcarousal = {
+          'AgentId': res.data[i].AgentId,
+          'Bedrooms': res.data[i].Bedrooms,
+          'Deal': res.data[i].Deal,
+          'FurnishedTyope': res.data[i].FurnishedTyope,
+          'Location': res.data[i].Location,
+          'LoginUserID': res.data[i].LoginUserID,
+          'Price': res.data[i].Price,
+          'PropertyId': res.data[i].PropertyId,
+          'State': res.data[i].State,
+          'Type': res.data[i].Type,
+          'internet': res.data[i].internet,
+          'parking': res.data[i].parking,
+          'picsstringone': res.data[i].picsstringone,
+          'picsstringthree': res.data[i].picsstringthree,
+          'picsstringtwo': res.data[i].picsstringtwo,
+          'picstring': res.data[i].picstring,
+          'totalbathrooms': res.data[i].totalbathrooms,
+        }
+        TempCarousalData.push(objectcarousal);
 
+
+      }
+      this.setState({
+        ObjectArray: retrueneddata,
+        carousalObject: TempCarousalData,
+        loader: false,
+      });
+
+    } catch (error) {
+
+    }
+  }
   handleSelect = (selectedIndex, e) => {
 
   };
@@ -272,8 +328,8 @@ class bodycards extends Component {
 
 
 
-    const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
-    const simgstr1 = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
+   // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
+    //const simgstr1 = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
         <div className="col-sm-3" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
@@ -537,6 +593,7 @@ class bodycards extends Component {
 
   componentDidMount() {
     this.getblobtoken();
+    this.fetchpropertiesagent();
 
   }
 

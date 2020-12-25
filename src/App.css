@@ -183,7 +183,14 @@ div{
   background-color: #25ab25;
   color: white;
   font-weight: bold;
-  margin-left: 7px;
+  
+
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 7px;
+  font-size: 15px!important;
+
+
 }
 
 .buttnemail{
