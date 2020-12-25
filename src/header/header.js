@@ -28,6 +28,8 @@ import {
   faUser
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Select from 'react-select';
+
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
 export class Header extends React.Component {
@@ -38,9 +40,79 @@ export class Header extends React.Component {
       userLoginId: this.props.userLoginId,
       rangevalue: 0,
       area: "",
+      PropertyType:"",
+      Location:"",
+      NoOfBedRooms:"",
+      Furnished:"",
+      PriceMin:"",
+      PriceMax:"",
+      Statec:"",
+      Deal:"",
 
     }
   }
+
+  handlePropertyType = selectedOption => {
+    this.setState(
+      { selectedOption,
+        PropertyType:selectedOption.label });
+    
+  };
+
+  handleLocation = selectedOption => {
+    this.setState(
+      { selectedOption,
+        Location:selectedOption.label });
+    
+  };
+
+  handleNoOfBedRooms = selectedOption => {
+    this.setState(
+      { selectedOption,
+        NoOfBedRooms:selectedOption.label });
+    
+  };
+
+  handleFurnished = selectedOption => {
+    this.setState(
+      { selectedOption,
+        Furnished:selectedOption.label });
+    
+  };
+
+  handlePriceMin = selectedOption => {
+    this.setState(
+      { selectedOption,
+        PriceMin:selectedOption.label });
+    
+  };
+
+  handlePriceMax = selectedOption => {
+    this.setState(
+      { selectedOption,
+        PriceMax:selectedOption.label });
+    
+  };
+
+  handleStatec = selectedOption => {
+    this.setState(
+      { selectedOption,
+        Statec:selectedOption.label });
+    
+  };
+
+  handleDeal = selectedOption => {
+    this.setState(
+      { selectedOption,
+        Deal:selectedOption.label });
+    
+  };
+
+  handleSearchClient(){
+    alert("D");
+  }
+
+  
 
 
 
@@ -55,6 +127,71 @@ export class Header extends React.Component {
   }
 
   render() {
+
+    const optionsPropertyType = [
+      { value: 'Rent', label: 'Rent' },
+      { value: 'Sale', label: 'Sale' },
+    ];
+
+
+    const optionsLocation = [
+      { value: 'Marina', label: 'Marina' },
+      { value: 'Al-Reef', label: 'Al-Reef' },
+      { value: 'Sadiyat', label: 'Sadiyat' },
+    ];
+    
+
+    const optionsNoOfBedRooms = [
+      { value: '1', label: '1' },
+      { value: '2', label: '2' },
+      { value: '3', label: '2' },
+      { value: '4', label: '2' },
+      { value: '5', label: '2' },
+      { value: '6', label: '2' },
+      { value: '7', label: '2' },
+    ];
+
+    const optionsFurnished = [
+      { value: 'Yes', label: 'Yes' },
+      { value: 'No', label: 'No' },
+    ];
+
+    const optionsPriceMin = [
+      { value: '1M', label: '1M' },
+      { value: '200K', label: '200K' },
+      { value: '300K', label: '300K' },
+      { value: '400K', label: '400K' },
+      { value: '500K', label: '500K' },
+      { value: '2M', label: '2M' },
+    ];
+
+    const optionsPriceMax = [
+      { value: '1M', label: '1M' },
+      { value: '200K', label: '200K' },
+      { value: '300K', label: '300K' },
+      { value: '400K', label: '400K' },
+      { value: '500K', label: '500K' },
+      { value: '2M', label: '2M' },
+      { value: '3M', label: '3M' },
+      { value: '4M', label: '4M' },
+    ];
+
+    const optionsState = [
+      { value: 'AbuDhabi', label: 'AbuDhabi' },
+      { value: 'Al-Ain', label: 'Al-Ain' },
+    ];
+
+    const optionsDeal = [
+      { value: 'Yes', label: 'Yes' },
+      { value: 'No', label: 'No' },
+    ];
+
+  
+    
+    
+
+
+
     return (
 
       <div className="container-fluid headermaindiv">
@@ -95,57 +232,43 @@ export class Header extends React.Component {
         <div className="searchRow">
 
           <div className="col-md-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Property Type
-  </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Rent</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Sale</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
 
+          <Select
+        value={this.state.PropertyType}
+        onChange={this.handlePropertyType}
+        options={optionsPropertyType}
+        className="dropdowng"
+      />
+
+        
 
 
 
           </div>
           <div className="col-lg-3">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Location
-  </Dropdown.Toggle>
+          <Select
+        value={this.state.Location}
+        onChange={this.handleLocation}
+        options={optionsLocation}
+        className="dropdowng"
+      />
 
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Marina</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Reem</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Al-Reef </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
           </div>
           <div className="col-lg-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                BedRooms
-  </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">2 </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          <Select
+        value={this.state.NoOfBedRooms}
+        onChange={this.handleNoOfBedRooms}
+        options={optionsNoOfBedRooms}
+        className="dropdowng"
+      />
           </div>
           <div className="col-lg-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Funished
-  </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Yes</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">No</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          <Select
+        value={this.state.Furnished}
+        onChange={this.handleFurnished}
+        options={optionsFurnished}
+        className="dropdowng"
+      />
           </div>
           <div className="col-lg-2">
 
@@ -162,61 +285,44 @@ export class Header extends React.Component {
         <div className="searchRow">
 
           <div className="col-md-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Price - Min
-  </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Rent</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Sale</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          <Select
+        value={this.state.PriceMin}
+        onChange={this.handlePriceMin}
+        options={optionsPriceMin}
+        className="dropdowng"
+      />
 
 
 
 
           </div>
           <div className="col-lg-3">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Price - Max
-  </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Marina</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Reem</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Al-Reef </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          <Select
+        value={this.state.PriceMax}
+        onChange={this.handlePriceMax}
+        options={optionsPriceMax}
+        className="dropdowng"
+      />
           </div>
           <div className="col-lg-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                State
-  </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">2 </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          <Select
+        value={this.state.Statec}
+        onChange={this.handleStatec}
+        options={optionsState}
+        className="dropdowng"
+      />
           </div>
           <div className="col-lg-2">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Deal - Hot / Cold
-  </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Yes</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">No</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+          <Select
+        value={this.state.Deal}
+        onChange={this.handleDeal}
+        options={optionsDeal}
+        className="dropdowng"
+      />
           </div>
           <div className="col-lg-2">
 
-            <div className="mybuttons btn btn-primary">
+            <div className="mybuttons btn btn-primary" onClick={this.handleSearchClient}>
               <div className="innerbt">
                 Let go
   </div>
