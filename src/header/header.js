@@ -48,69 +48,110 @@ export class Header extends React.Component {
       PriceMax:"",
       Statec:"",
       Deal:"",
+      Feet:"",
+      SeachBox:"",
+
+    
+
+      selectedOptionPropertyType:null,
+      selectedOptionLocation:null,
+      selectedOptionNoOfBedRooms:null,
+      selectedOptionFurnished:null,
+      selectedOptionPriceMin:null,
+      selectedOptionPriceMax:null,
+      selectedOptionStatec:null,
+      selectedOptionDeal:null,
+      Feet:null,
+      SeachBox:null,
+
+
+
+
 
     }
+
+    this.handMainSearch = this.handMainSearch.bind(this);
+    this.handlearea = this.handlearea.bind(this);
+
+
   }
 
-  handlePropertyType = selectedOption => {
-    this.setState(
-      { selectedOption,
-        PropertyType:selectedOption.label });
-    
-  };
 
-  handleLocation = selectedOption => {
-    this.setState(
-      { selectedOption,
-        Location:selectedOption.label });
-    
-  };
-
-  handleNoOfBedRooms = selectedOption => {
-    this.setState(
-      { selectedOption,
-        NoOfBedRooms:selectedOption.label });
-    
-  };
-
-  handleFurnished = selectedOption => {
-    this.setState(
-      { selectedOption,
-        Furnished:selectedOption.label });
-    
-  };
-
-  handlePriceMin = selectedOption => {
-    this.setState(
-      { selectedOption,
-        PriceMin:selectedOption.label });
-    
-  };
-
-  handlePriceMax = selectedOption => {
-    this.setState(
-      { selectedOption,
-        PriceMax:selectedOption.label });
-    
-  };
-
-  handleStatec = selectedOption => {
-    this.setState(
-      { selectedOption,
-        Statec:selectedOption.label });
-    
-  };
-
-  handleDeal = selectedOption => {
-    this.setState(
-      { selectedOption,
-        Deal:selectedOption.label });
-    
-  };
-
-  handleSearchClient(){
-    alert("D");
+  
+  handMainSearch(event)
+  {
+      this.setState({
+        SeachBox: event.target.value
+        });
   }
+
+  handlearea(event)
+  {
+      this.setState({
+        Feet: event.target.value
+        });
+  }
+
+
+  handlePropertyType = selectedOptionPropertyType => {
+    this.setState(
+      { selectedOptionPropertyType,
+        PropertyType:selectedOptionPropertyType.label });
+    
+  };
+
+  handleLocation = selectedOptionLocation => {
+    this.setState(
+      { selectedOptionLocation,
+        Location:selectedOptionLocation.label });
+    
+  };
+
+  handleNoOfBedRooms = selectedOptionNoOfBedRooms => {
+    this.setState(
+      { selectedOptionNoOfBedRooms,
+        NoOfBedRooms:selectedOptionNoOfBedRooms.label });
+    
+  };
+
+  handleFurnished = selectedOptionFurnished => {
+    this.setState(
+      { selectedOptionFurnished,
+        Furnished:selectedOptionFurnished.label });
+    
+  };
+
+  handlePriceMin = selectedOptionPriceMin => {
+    this.setState(
+      { selectedOptionPriceMin,
+        PriceMin:selectedOptionPriceMin.label });
+    
+  };
+
+  handlePriceMax = selectedOptionPriceMax => {
+    this.setState(
+      { selectedOptionPriceMax,
+        PriceMax:selectedOptionPriceMax.label });
+    
+  };
+
+  handleStatec = selectedOptionStatec => {
+    this.setState(
+      { selectedOptionStatec,
+        Statec:selectedOptionStatec.label });
+    
+  };
+
+  handleDeal = selectedOptionDeal => {
+    this.setState(
+      { selectedOptionDeal,
+        Deal:selectedOptionDeal.label });
+    
+  };
+
+  
+
+  
 
   
 
@@ -144,11 +185,11 @@ export class Header extends React.Component {
     const optionsNoOfBedRooms = [
       { value: '1', label: '1' },
       { value: '2', label: '2' },
-      { value: '3', label: '2' },
-      { value: '4', label: '2' },
-      { value: '5', label: '2' },
-      { value: '6', label: '2' },
-      { value: '7', label: '2' },
+      { value: '3', label: '3' },
+      { value: '4', label: '4' },
+      { value: '5', label: '5' },
+      { value: '6', label: '6' },
+      { value: '7', label: '7' },
     ];
 
     const optionsFurnished = [
@@ -201,7 +242,7 @@ export class Header extends React.Component {
          </div></div>
           <div className="col-sm-4">
             <div className="mansearch">
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
+              <input type="email" className="form-control" onChange={this.handMainSearch} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
               
             </div>
           </div>
@@ -234,7 +275,7 @@ export class Header extends React.Component {
           <div className="col-md-2">
 
           <Select
-        value={this.state.PropertyType}
+         value={this.state.selectedOptionPropertyType}
         onChange={this.handlePropertyType}
         options={optionsPropertyType}
         className="dropdowng"
@@ -247,7 +288,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-3">
           <Select
-        value={this.state.Location}
+        value={this.state.selectedOptionLocation}
         onChange={this.handleLocation}
         options={optionsLocation}
         className="dropdowng"
@@ -256,7 +297,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-2">
           <Select
-        value={this.state.NoOfBedRooms}
+        value={this.state.selectedOptionNoOfBedRooms}
         onChange={this.handleNoOfBedRooms}
         options={optionsNoOfBedRooms}
         className="dropdowng"
@@ -264,7 +305,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-2">
           <Select
-        value={this.state.Furnished}
+        value={this.state.selectedOptionFurnished}
         onChange={this.handleFurnished}
         options={optionsFurnished}
         className="dropdowng"
@@ -286,7 +327,7 @@ export class Header extends React.Component {
 
           <div className="col-md-2">
           <Select
-        value={this.state.PriceMin}
+        value={this.state.selectedOptionPriceMin}
         onChange={this.handlePriceMin}
         options={optionsPriceMin}
         className="dropdowng"
@@ -298,7 +339,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-3">
           <Select
-        value={this.state.PriceMax}
+        value={this.state.selectedOptionPriceMax}
         onChange={this.handlePriceMax}
         options={optionsPriceMax}
         className="dropdowng"
@@ -306,7 +347,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-2">
           <Select
-        value={this.state.Statec}
+        value={this.state.selectedOptionStatec}
         onChange={this.handleStatec}
         options={optionsState}
         className="dropdowng"
@@ -314,7 +355,7 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-2">
           <Select
-        value={this.state.Deal}
+        value={this.state.selectedOptionDeal}
         onChange={this.handleDeal}
         options={optionsDeal}
         className="dropdowng"
@@ -322,7 +363,9 @@ export class Header extends React.Component {
           </div>
           <div className="col-lg-2">
 
-            <div className="mybuttons btn btn-primary" onClick={this.handleSearchClient}>
+            <div className="mybuttons btn btn-primary" onClick = {() => this.props.handleSearchClick(this.state.PropertyType,this.state.Location,this.state.NoOfBedRooms,
+              this.state.Furnished,this.state.PriceMin,this.state.PriceMax,this.state.Statec,
+              this.state.Deal,this.state.Feet,this.state.SeachBox)}>
               <div className="innerbt">
                 Let go
   </div>
@@ -341,10 +384,6 @@ export class Header extends React.Component {
   }
 
 
-  handlearea(event) {
-    this.setState({
-      area: event.target.value,
-    });
-  }
+
 
 }

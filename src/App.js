@@ -25,6 +25,7 @@ import Property from './property'
 import AgentProfile from './agentprofile';
 import NearbyPlace from './nearbyplaces';
 import ViewOffers from './Offers';
+import SearchProperty from './SearchProperty';
 
 
 //view offers 101
@@ -38,6 +39,17 @@ class App extends Component {
       userid: 0,
       showcard: 1,
       BodyCardLoader: true,
+      PropertyType:"0",
+      Location:"0",
+      NoOfBedRooms:"0",
+      Furnished:"0",
+      PriceMin:"0",
+      PriceMax:"0",
+      Statec:"0",
+      Deal:"0",
+      Feet:"0",
+      SeachBox:"0"
+
     }
   }
 
@@ -55,7 +67,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="">
-          <Header handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
+          <Header handleSearchClick={this.handleSearchClick} handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
 
 
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
@@ -153,6 +165,20 @@ class App extends Component {
 
         }
 
+{
+          this.state.needwizard == 600 &&
+          <div className="col-sm-12"><SearchProperty 
+          PropertyType={this.state.PropertyType} Location={this.state.Location}
+          NoOfBedRooms={this.state.NoOfBedRooms}Furnished={this.state.Furnished}
+          PriceMin={this.state.PriceMin}PriceMax={this.state.PriceMax}
+          Statec={this.state.Statec}Deal={this.state.Deal}
+          Feet={this.state.Feet}SeachBox={this.state.SeachBox}
+          
+          />
+          </div>
+
+        }
+
 
         <div className="row">
 
@@ -190,14 +216,13 @@ class App extends Component {
       </div>
     )
   }
+
   handlerhome = (val) => {
     this.setState({
       needwizard: val,
       showcard: 1,
     })
   }
-
-
 
   handleoffers() {
     this.setState({
@@ -206,13 +231,13 @@ class App extends Component {
     })
   }
 
-
   handlerRegister = (val) => {
     this.setState({
       needwizard: val,
       showcard: 0,
     })
   }
+
   handleRegisnteredUserId = (useridfromdb) => {
 
     var myObject = JSON.stringify(useridfromdb.data);
@@ -230,6 +255,7 @@ class App extends Component {
 
     })
   }
+
   handler = (val) => {
 
     var tmpuserchecking = 0;
@@ -247,6 +273,7 @@ class App extends Component {
       showcard: tmpshowcards,
     })
   }
+
   handlertwo = (val) => {
 
     var tmpuserchecking = 0;
@@ -263,6 +290,14 @@ class App extends Component {
       ownerwizard: tempval,
       showcard: tmpshowcards,
     })
+  }
+
+  handleSearchClick = (PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox) => {
+   //console.log(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
+  
+
+
+   
   }
 }
 export default withTranslation()(App);
