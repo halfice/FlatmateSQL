@@ -38,6 +38,9 @@ class bodycards extends Component {
       ObjectArray: [],
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
+
+      AgentObjectArray:[],
+      AgentcarousalObject: [],
       loader: true,
       ImagesArray: [],
       ShowCarousal: false,
@@ -279,7 +282,7 @@ class bodycards extends Component {
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
     try {
       let res = await axios.post(loginurl);
-      console.log(res);
+      console.log("Agent"+res);
       var xcount = 10;
       for (var i = 0; i < res.data.length; i++) {
         xcount = xcount + 1;
@@ -292,6 +295,7 @@ class bodycards extends Component {
           'key': xcount,
           'Price': res.data[i].Price,
           'PropertyId': res.data[i].PropertyId,
+          'profilepicname':res.data[i].profilepicname,
         }
         retrueneddata.push(obs);
         var objectcarousal = {
@@ -312,14 +316,15 @@ class bodycards extends Component {
           'picsstringtwo': res.data[i].picsstringtwo,
           'picstring': res.data[i].picstring,
           'totalbathrooms': res.data[i].totalbathrooms,
+          'profilepicname':res.data[i].profilepicname,
         }
         TempCarousalData.push(objectcarousal);
 
 
       }
       this.setState({
-        ObjectArray: retrueneddata,
-        carousalObject: TempCarousalData,
+        AgentObjectArray: retrueneddata,
+        AgentcarousalObject: TempCarousalData,
         loader: false,
       });
 
@@ -332,14 +337,6 @@ class bodycards extends Component {
   };
 
   render() {
-
-
-
-
-
-
-
-
    // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     //const simgstr1 = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
@@ -382,7 +379,45 @@ class bodycards extends Component {
       );
     });
 
+    var AGentSubProjectArrays = this.state.AgentObjectArray.map((item, i) => {
+      return (
+        <div className="col-sm-3" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
+          <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
+            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
+            <Card.Body>
+              <div className="row bottomborder" >
+                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
 
+              </div>
+
+              <div className="row">
+                <div className="col-sm-2 zerpadding">
+                  <div className="myicondiv">
+                    <img src={calls} width="40px" />
+                  </div>
+                </div>
+                <div className="col-sm-2 zerpadding">
+                  <div className="myicondiv">
+                    <img src={whatsapp} width="50px" />
+                  </div>   </div>
+                <div className="col-sm-4 zerpadding">
+                  <div className="buttnemail" >Email</div>
+                </div>
+                <div className="col-sm-4 zerpadding">
+                  <div className="myicondiv">
+                    <div className="buttn" >Message</div>
+                  </div>
+                </div>
+
+              </div>
+
+            </Card.Body>
+          </Card>
+        </div>
+      );
+    });
 
     var SubProjectArrays2 = this.state.ObjectArrayTenant.map((item, i) => {
       return (<div className="mansearch" key={item["key"]}>
@@ -451,6 +486,8 @@ class bodycards extends Component {
     });
 
 
+    
+
 
     if (this.state.ObjectArrayBids != null) {
       var SubProjectArrays3 = this.state.ObjectArrayBids.map((item, i) => {
@@ -512,7 +549,7 @@ class bodycards extends Component {
           {SubProjectArrays}
           {SubProjectArrays2}
           {SubProjectArrays3}
-
+          {AGentSubProjectArrays}
 
         </div>
         <div>
