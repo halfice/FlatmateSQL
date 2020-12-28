@@ -642,7 +642,7 @@ class bodycards extends Component {
 
   componentDidMount() {
     this.getblobtoken();
-    this.fetchpropertiesagent();
+    //this.fetchpropertiesagent();
 
   }
 
