@@ -525,7 +525,7 @@ a:hover{
   display: block;
 }
 
-.carousal-indicators {
+.carousel-indicators {
   background-color: cadetblue!important;
   border-radius: 11px!important;
 
