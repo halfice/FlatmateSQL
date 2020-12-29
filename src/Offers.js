@@ -48,12 +48,13 @@ export class Offers extends React.Component {
         this.handlebills = this.handlebills.bind(this);
         this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
         this.handleprince = this.handleprince.bind(this);
-   
+
         this.handleoffersscreenflatmate = this.handleoffersscreenflatmate.bind(this);
         this.handleoffersscreenproperty = this.handleoffersscreenproperty.bind(this);
+        this.handleoffersscreenflatmatemsg = this.handleoffersscreenflatmatemsg.bind(this);
+this.gobackbutton=this.gobackbutton.bind(this);
 
 
-   
     }
 
     componentDidMount() {
@@ -78,13 +79,25 @@ export class Offers extends React.Component {
             price: event.target.value,
         });
     }
+    gobackbutton(event) {
+        this.setState({
+            OfferScreen: 0,
+        });
+    }
+
+    
+    handleoffersscreenflatmatemsg(event) {
+        this.setState({
+            OfferScreen: 3,
+        });
+    }
 
     handleoffersscreenflatmate(event) {
         this.setState({
             OfferScreen: 1,
         });
     }
-    
+
     handleoffersscreenproperty(event) {
         this.setState({
             OfferScreen: 2,
@@ -268,6 +281,46 @@ export class Offers extends React.Component {
         })
     }
 
+
+    async fetchproperties() {
+        var _Response = null;
+        var TempUserProfileExisits = 0;
+        var TempDivCounter = 0;
+        var retrueneddata = [];
+        var TempCarousalData = [];
+        var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=msg";
+        try {
+          let res = await axios.post(loginurl);
+          
+          var xcount = 10;
+          for (var i = 0; i < res.data.length; i++) {
+            xcount = xcount + 1;
+            var obs = {
+              'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+              'rent': res.data[i].Price,//metadata.colName,
+              'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+              'propertyAddress': res.data[i].Location,//.metadata.colName,
+              'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+              'key': xcount,
+              'Price': this.formatMoney(res.data[i].Price),
+              'PropertyId': res.data[i].PropertyId,
+            }
+            retrueneddata.push(obs);
+            
+    
+    
+          }
+          this.setState({
+            ObjectArray: retrueneddata,
+            carousalObject: TempCarousalData,
+            loader: false,
+          });
+    
+        } catch (error) {
+    
+        }
+      }
+
     render() {
         const varclaas = "visible";
         const varclaashidden = "hidden";
@@ -276,48 +329,76 @@ export class Offers extends React.Component {
         return (
             <div className="row centeraligh">
                 <div className="row">
+                    {this.state.OfferScreen >0 &&
+                        <div className="row" onClick={this.gobackbutton.bind(this)}>
+                            <div className="mybuttons btn btn-primary">
+                                <div className="col-sm-12 zerpadding">
+                                    Go Back
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+                <div className="row">
+
+
+
+
                     <div className="row">
+
+
+
                         {
 
                             this.state.OfferScreen == 0 &&
                             <div className="row">
-                                <div className="col-sm-6  zerpadding">
-                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}> 
-                                    <div className="mybuttons btn btn-primary">
+                                <div className="col-sm-4  zerpadding">
+                                    <div className="" onClick={this.handleoffersscreenflatmatemsg.bind(this)}>
+                                        <div className="mybuttons btn btn-primary">
 
-                                    Property 
+                                            Messages
                                      </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-4  zerpadding">
+                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
+                                        <div className="mybuttons btn btn-primary">
+
+                                            Property
                                      </div>
+                                    </div>
                                 </div>
 
-                                <div className="col-sm-6  zerpadding">
-                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}> 
-                                    
-                                    <div className="mybuttons btn btn-primary">
-                                    
-                                    Flatmate
+                                <div className="col-sm-4  zerpadding">
+                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
+
+                                        <div className="mybuttons btn btn-primary">
+
+                                            Flatmate
                                     </div>
-                                    
-                                     </div>
+
+                                    </div>
                                 </div>
                             </div>
 
                         }
 
                         {
-                           this.state.OfferScreen == 1 &&
-                           <div>
+                            this.state.OfferScreen == 1 &&
+                            <div>
                                 <h1>falt mate  Grid</h1>
-                           </div>  
+                            </div>
                         }
 
 
-                        
-{
-                           this.state.OfferScreen == 2 &&
-                           <div>
-                               <h1>Property Grid</h1>
-                           </div>  
+
+                        {
+                            this.state.OfferScreen == 2 &&
+                            <div>
+                                <h1>Property Grid</h1>
+                            </div>
                         }
 
 
@@ -325,9 +406,9 @@ export class Offers extends React.Component {
                     </div>
                 </div>
 
-                {this.state.OfferScreen==2 &&
-                
-                <PropertyGrid />
+                {this.state.OfferScreen == 2 &&
+
+                    <PropertyGrid />
                 }
             </div>
 

@@ -525,8 +525,10 @@ a:hover{
   display: block;
 }
 
-.carousal-indicators li{
+.carousal-indicators {
   background-color: cadetblue;
+  border-radius: 11px;
+
 }
 
 .carousel-control-prev-icon{
