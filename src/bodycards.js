@@ -40,7 +40,6 @@ class bodycards extends Component {
       ObjectArrayBids: [],
 
       AgentObjectArray:[],
-      AgentcarousalObject: [],
       loader: true,
       ImagesArray: [],
       ShowCarousal: false,
@@ -61,6 +60,9 @@ class bodycards extends Component {
       selectedType: "",
       selectedParking: "",
       selectedPool: "",
+
+      AgentcarousalObject: [],
+      AgentcarousalObjectitem: [],
 
 
     }
@@ -203,7 +205,7 @@ class bodycards extends Component {
 
     });
   }
-
+  
 
   async fetchproperties() {
     var _Response = null;
@@ -381,7 +383,7 @@ class bodycards extends Component {
 
     var AGentSubProjectArrays = this.state.AgentObjectArray.map((item, i) => {
       return (
-        <div className="col-sm-3" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
+        <div className="col-sm-3" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
             <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
@@ -634,7 +636,9 @@ class bodycards extends Component {
         loader: false,
       });
       // this.fetchblobs();
+      this.fetchpropertiesagent();
       this.fetchproperties();
+
     } catch (error) {
       console.log(error);
     }
@@ -642,7 +646,7 @@ class bodycards extends Component {
 
   componentDidMount() {
     this.getblobtoken();
-    //this.fetchpropertiesagent();
+    this.fetchpropertiesagent();
 
   }
 
@@ -749,7 +753,140 @@ class bodycards extends Component {
   }
 
    
-    
+  getCarousalAgent(propertyid) {
+
+    if (this.state.currenproperyid != 0) {
+      // return;
+    }
+    this.setState({
+      AgentcarousalObjectitem: [],
+      ShowCarousal: true,
+      selectedPropertyId: propertyid
+
+    });
+    var tmpitem = this.state.AgentcarousalObject.filter(properties => properties.PropertyId === propertyid);
+    var TampCarousalItem = [];
+
+    var tempItem1 = tmpitem;
+    var tempItem2 = tmpitem;
+    var tempItem3 = tmpitem;
+    var tempItem4 = tmpitem;
+    //var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
+    // .map((item, id) => {
+    // console.log(item[id]);
+    //});
+
+    var tmp1stImag = tmpitem[0].picstring;
+    var tmp2stImag = tmpitem[0].picsstringone;
+    var tmp3stImag = tmpitem[0].picsstringtwo;
+    var tmp4stImag = tmpitem[0].picsstringthree;
+    tmp1stImag = tmp1stImag.replace(",", "");
+    tmp2stImag = tmp2stImag.replace(",", "");
+    tmp3stImag = tmp3stImag.replace(",", "");
+    tmp4stImag = tmp4stImag.replace(",", "");
+
+
+    if (tmp1stImag.length > 3) {
+
+      var objectcarousalone = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+         'agentpic':tmpitem[0].parking,
+      }
+      TampCarousalItem.push(objectcarousalone);
+    }
+    if (tmp2stImag.length > 3) {
+
+      var objectcarousaltwo = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+        'agentpic':tmpitem[0].parking,
+      }
+
+      TampCarousalItem.push(objectcarousaltwo);
+    }
+
+    if (tmp3stImag.length > 3) {
+      var objectcarousalthree = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+        'agentpic':tmpitem[0].parking,
+      }
+
+      TampCarousalItem.push(objectcarousalthree);
+    }
+
+    if (tmp4stImag.length > 3) {
+      var objectcarousalfour = {
+        'AgentId': tmpitem[0].AgentId,
+        'Bedrooms': tmpitem[0].Bedrooms,
+        'Deal': tmpitem[0].Deal,
+        'FurnishedTyope': tmpitem[0].FurnishedTyope,
+        'Location': tmpitem[0].Location,
+        'LoginUserID': tmpitem[0].LoginUserID,
+        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'PropertyId': tmpitem[0].PropertyId,
+        'State': tmpitem[0].State,
+        'Type': tmpitem[0].Type,
+        'internet': tmpitem[0].internet,
+        'parking': tmpitem[0].parking,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'totalbathrooms': tmpitem[0].totalbathrooms,
+        'agentpic':tmpitem[0].parking,
+      }
+
+      TampCarousalItem.push(objectcarousalfour);
+    }
+
+    this.setState({
+      carousalObjectitem: TampCarousalItem,
+      ShowCarousal: true,
+      currenproperyid: 0,
+      selectedBedrooms: tmpitem[0].Bedrooms,
+      selectedLocation: tmpitem[0].Location,
+      selectedPrice: tmpitem[0].Price,
+      selectedFurnitureType: tmpitem[0].FurnishedTyope,
+      selectedType: tmpitem[0].Type,
+      selectedParking: tmpitem[0].parking,
+
+    });
+  }
 
 
 }
