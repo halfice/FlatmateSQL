@@ -46,7 +46,7 @@
 .parentdiv{
   width: 100%;
     height: 100%;
-    background-color:#0c5965;
+    background-color:white;
     position: absolute;
     z-index: 1111;
     position: fixed;
@@ -521,10 +521,19 @@ a:hover{
   display: block;
 }
 
+li{
+  background-color: cadetblue;
+}
 
+.carousel-control-prev-icon{
+  background-color: black;;
+}
+.carousel-control-next-icon{
+  background-color: black;;
+}
 
 .paragrpahNormaltext{
-  color: white;
+  color: black;
     font-size: 13px;
     font-variant-caps: petite-caps;
 }
@@ -533,7 +542,7 @@ a:hover{
   width: 60%!important;
   left: 33px;
   position: fixed;
-  height: 500px;
+  height: 400px;
   top: 180px;
 }
 
