@@ -242,7 +242,7 @@ export class Header extends React.Component {
          </div></div>
           <div className="col-sm-4">
             <div className="mansearch">
-              <input type="email" className="form-control" onChange={this.handMainSearch} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
+              <input type="email" className="form-control texboscsssearch" onChange={this.handMainSearch} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
               
             </div>
           </div>
