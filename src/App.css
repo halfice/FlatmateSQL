@@ -526,8 +526,8 @@ a:hover{
 }
 
 .carousal-indicators {
-  background-color: cadetblue;
-  border-radius: 11px;
+  background-color: cadetblue!important;
+  border-radius: 11px!important;
 
 }
 
