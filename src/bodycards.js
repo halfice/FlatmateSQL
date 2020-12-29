@@ -358,12 +358,12 @@ class bodycards extends Component {
               <div className="row">
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-                    <img src={calls} width="40px" />
+                    <img src={calls} width="40px" height="39px" />
                   </div>
                 </div>
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-                    <img src={whatsapp} width="50px" />
+                    <img src={whatsapp} width="50px"  height="39px"/>
                   </div>   </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="buttnemail" >Email</div>
