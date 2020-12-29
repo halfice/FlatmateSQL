@@ -636,7 +636,7 @@ class bodycards extends Component {
         loader: false,
       });
       // this.fetchblobs();
-      this.fetchpropertiesagent();
+      //this.fetchpropertiesagent();
       this.fetchproperties();
 
     } catch (error) {
