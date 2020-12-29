@@ -14,6 +14,7 @@ import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-bl
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
 import PropertyGrid from './propertyGrids'
+import delicon from './del.jpg';
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -24,7 +25,7 @@ export class Offers extends React.Component {
         this.state = {
             LoginUserID: this.props.UserID,
             OfferScreen: 0,
-            ObjectArray:[],
+            ObjectArray: [],
 
 
         }
@@ -36,12 +37,12 @@ export class Offers extends React.Component {
 
 
 
-       
+
 
         this.handleoffersscreenflatmate = this.handleoffersscreenflatmate.bind(this);
         this.handleoffersscreenproperty = this.handleoffersscreenproperty.bind(this);
         this.handleoffersscreenflatmatemsg = this.handleoffersscreenflatmatemsg.bind(this);
-this.gobackbutton=this.gobackbutton.bind(this);
+        this.gobackbutton = this.gobackbutton.bind(this);
 
 
     }
@@ -63,14 +64,14 @@ this.gobackbutton=this.gobackbutton.bind(this);
         }
     }
 
-    
+
     gobackbutton(event) {
         this.setState({
             OfferScreen: 0,
         });
     }
 
-    
+
     handleoffersscreenflatmatemsg(event) {
         this.setState({
             OfferScreen: 3,
@@ -267,8 +268,8 @@ this.gobackbutton=this.gobackbutton.bind(this);
     }
     componentDidMount() {
         this.fetchmessages();
-    
-      }
+
+    }
 
     async fetchmessages() {
         var _Response = null;
@@ -278,46 +279,87 @@ this.gobackbutton=this.gobackbutton.bind(this);
         var TempCarousalData = [];
         var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=msg";
         try {
-          let res = await axios.post(loginurl);
-          console.log(res);
-          var xcount = 10;
-          for (var i = 0; i < res.data.length; i++) {
-            xcount = xcount + 1;
-            var obs = {
-              'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-              'rent': res.data[i].Price,//metadata.colName,
-              'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-              'propertyAddress': res.data[i].Location,//.metadata.colName,
-              'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
-              'key': xcount,
-              'Price': this.formatMoney(res.data[i].Price),
-              'PropertyId': res.data[i].PropertyId,
-              'Message': res.data[i].Message,
-              'Type': res.data[i].Type,
-            }
-            retrueneddata.push(obs);
-            
+            let res = await axios.post(loginurl);
+            console.log(res);
+            var xcount = 10;
+            for (var i = 0; i < res.data.length; i++) {
+                xcount = xcount + 1;
+                var obs = {
+                    'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+                    'rent': res.data[i].Price,//metadata.colName,
+                    'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+                    'propertyAddress': res.data[i].Location,//.metadata.colName,
+                    'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+                    'key': xcount,
+                    'Price': this.formatMoney(res.data[i].Price),
+                    'PropertyId': res.data[i].PropertyId,
+                    'Message': res.data[i].Message,
+                    'Type': res.data[i].Type,
+                }
+                retrueneddata.push(obs);
 
-          }
-          this.setState({
-            ObjectArray: retrueneddata,
-            loader: false,
-          });
-    
+
+            }
+            this.setState({
+                ObjectArray: retrueneddata,
+                loader: false,
+            });
+
         } catch (error) {
-    
+
         }
-      }
+    }
 
     render() {
-        const varclaas = "visible";
-        const varclaashidden = "hidden";
+        var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
+            return (
+                <div className="col-sm-3" key={item["key"]} 
+                 >
+
+                    <div className="row classforgrid">
+                        <div className="col-sm-2 zerpadding">
+                            <div className="myicondiv">
+                                {item["Message"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 zerpadding">
+                            <div className="myicondiv">
+                                {item["Type"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 zerpadding">
+                            <div className="myicondiv">
+                                {item["Location"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 zerpadding">
+                            <div className="myicondiv">
+                              
+                            <img
+                className="d-block w-100"
+                src={delicon} key={i} 
+                alt="First slide"
+              />
+                            
+                            
+                            
+                             {item["Message"]}
+                            </div>
+                        </div>
+
+                       
+                    </div>
+
+
+                </div>
+            );
+        });
 
 
         return (
             <div className="row centeraligh">
                 <div className="row">
-                    {this.state.OfferScreen >0 &&
+                    {this.state.OfferScreen > 0 &&
                         <div className="row" onClick={this.gobackbutton.bind(this)}>
                             <div className="mybuttons btn btn-primary">
                                 <div className="col-sm-12 zerpadding">
@@ -411,19 +453,19 @@ this.gobackbutton=this.gobackbutton.bind(this);
     }
 
     handleGoBackClick() {
-        
+
         this.setState({
-            parentdiv: 2,   
+            parentdiv: 2,
 
         })
     }
 
 
-    
 
-   
 
-  
+
+
+
 
 
 
