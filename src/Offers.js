@@ -402,25 +402,14 @@ export class Offers extends React.Component {
 
         return (
             <div className="row ">
-                <div className="row centeraligh">
-                    {this.state.OfferScreen > 0 &&
-                        <div className="row" onClick={this.gobackbutton.bind(this)}>
-                            <div className="mybuttons btn btn-primary">
-                                <div className="col-sm-12 zerpadding">
-                                    Go Back
-                                </div>
-                            </div>
-                        </div>
-
-                    }
-
-                </div>
-                <div className="row">
-                    <div className="row ">
+            
+                <div className="fullwidght">
+                    <div className="container ">
                         {
                             this.state.OfferScreen == 0 &&
-                            <div className="row centeraligh">
-                                <div className="col-sm-4  zerpadding">
+                            <div className="row">
+                                <div className="col-sm-2  "> </div>
+                                <div className="col-sm-3  ">
                                     <div className="" onClick={this.handleoffersscreenflatmatemsg.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
 
@@ -428,7 +417,7 @@ export class Offers extends React.Component {
                                      </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-4  zerpadding">
+                                <div className="col-sm-3  ">
                                     <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
 
@@ -436,7 +425,7 @@ export class Offers extends React.Component {
                                      </div>
                                     </div>
                                 </div>
-                                <div className="col-sm-4  zerpadding">
+                                <div className="col-sm-3  ">
                                     <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
 
                                         <div className="mybuttons btn btn-primary">
@@ -446,6 +435,7 @@ export class Offers extends React.Component {
 
                                     </div>
                                 </div>
+                              
                             </div>
 
                         }

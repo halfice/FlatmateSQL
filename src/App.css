@@ -540,6 +540,10 @@ a:hover{
   background-color: black;;
 }
 
+
+.fullwidght{
+  width:100%!important;
+}
 .paragrpahNormaltext{
   color: black;
     font-size: 13px;
