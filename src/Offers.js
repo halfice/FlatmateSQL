@@ -368,11 +368,7 @@ export class Offers extends React.Component {
 
 
                     <div className="row">
-
-
-
                         {
-
                             this.state.OfferScreen == 0 &&
                             <div className="row">
                                 <div className="col-sm-4  zerpadding">
@@ -423,7 +419,7 @@ export class Offers extends React.Component {
                         }
 
 {
-                            this.state.OfferScreen == 1 &&
+                            this.state.OfferScreen == 3 &&
                             <div>
                                 {SubProjectArrays}
                             </div>
