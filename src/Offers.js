@@ -26,6 +26,7 @@ export class Offers extends React.Component {
             LoginUserID: this.props.UserID,
             OfferScreen: 0,
             ObjectArray: [],
+            PropertyArray:[],
 
 
         }
@@ -50,6 +51,7 @@ export class Offers extends React.Component {
     componentDidMount() {
         this.getblobtoken();
         this.fetchmessages();
+        this.fetchproperties();
     }
 
     async getblobtoken() {
@@ -65,6 +67,45 @@ export class Offers extends React.Component {
         }
     }
 
+
+    async fetchproperties() {
+        var _Response = null;
+        var TempUserProfileExisits = 0;
+        var TempDivCounter = 0;
+        var retrueneddata = [];
+        var TempCarousalData = [];
+        var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=getallbyagent";
+        try {
+          let res = await axios.post(loginurl);
+          console.log("Proprties"+res);
+          var xcount = 10;
+          for (var i = 0; i < res.data.length; i++) {
+            xcount = xcount + 1;
+            var obs = {
+              'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+              'rent': res.data[i].Price,//metadata.colName,
+              'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+              'propertyAddress': res.data[i].Location,//.metadata.colName,
+              'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+              'key': xcount,
+              'Price': this.formatMoney(res.data[i].Price),
+              'PropertyId': res.data[i].PropertyId,
+            }
+            retrueneddata.push(obs);
+            
+    
+    
+          }
+          this.setState({
+            PropertyArray: retrueneddata,
+            
+            loader: false,
+          });
+    
+        } catch (error) {
+    
+        }
+      }
 
     gobackbutton(event) {
         this.setState({
