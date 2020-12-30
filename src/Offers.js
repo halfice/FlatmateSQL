@@ -98,7 +98,6 @@ export class Offers extends React.Component {
             }
             this.setState({
                 PropertyArray: retrueneddata,
-
                 loader: false,
             });
 
@@ -111,6 +110,17 @@ export class Offers extends React.Component {
         this.setState({
             OfferScreen: 0,
         });
+    }
+
+
+
+    itemupdateItem(itemid) {
+        alert(itemid);
+    }
+
+
+    itemdealfinishitem(itemid) {
+        alert(itemid);
     }
 
 
@@ -430,6 +440,88 @@ export class Offers extends React.Component {
             );
         });
 
+
+        var ProperTiesTempArray = this.state.PropertyArray.map((item, i) => {
+            return (
+                <div key={item["key"]}>
+                    {
+                        i == 0 &&
+                        <div className="row classforgrid">
+                            <div className="col-sm-2 gridheadher ">
+                                <div className="gridheadher">
+                                    <h3>Type</h3>
+                                </div>
+                            </div>
+                            <div className="col-sm-2 gridheadher">
+                                <div className="">
+                                    <h3>Location</h3>
+                                </div>
+                            </div>
+                            <div className="col-sm-2 gridheadher">
+                                <div className="">
+                                    <h3>Message</h3>
+                                </div>
+                            </div>
+                            <div className="col-sm-2 gridheadher">
+
+                            </div>
+
+
+                        </div>
+                    }
+                    <div className="row classforgrid">
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                                {item["typeofAccomodation"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                                {item["Price"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                                {item["propertyAddress"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                                <img className="gridimage" src={delicon} key={i} alt="First slide" onClick={this.deletemsgitem.bind(this, item["MessageId"])} />
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                               
+                               <div className="col-sm-10 mybuttons btn btn-primary" onClick={this.itemupdateItem.bind(this, item["PropertyId"])}>
+                                    Update
+                                </div>
+
+                               
+                               
+
+
+
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+
+                            <div className="col-sm-10 mybuttons btn btn-primary" onClick={this.itemdealfinishitem.bind(this, item["PropertyId"])}>
+                                    Finish Deal
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            );
+        });
 
         return (
             <div className="row ">
