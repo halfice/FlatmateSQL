@@ -360,8 +360,8 @@ export class Offers extends React.Component {
 
 
         return (
-            <div className="row centeraligh">
-                <div className="row">
+            <div className="row ">
+                <div className="row centeraligh">
                     {this.state.OfferScreen > 0 &&
                         <div className="row" onClick={this.gobackbutton.bind(this)}>
                             <div className="mybuttons btn btn-primary">
@@ -375,14 +375,10 @@ export class Offers extends React.Component {
 
                 </div>
                 <div className="row">
-
-
-
-
-                    <div className="row">
+                    <div className="row ">
                         {
                             this.state.OfferScreen == 0 &&
-                            <div className="row">
+                            <div className="row centeraligh">
                                 <div className="col-sm-4  zerpadding">
                                     <div className="" onClick={this.handleoffersscreenflatmatemsg.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
@@ -399,7 +395,6 @@ export class Offers extends React.Component {
                                      </div>
                                     </div>
                                 </div>
-
                                 <div className="col-sm-4  zerpadding">
                                     <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
 
