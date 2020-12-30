@@ -81,19 +81,18 @@ export class Offers extends React.Component {
             var xcount = 10;
             for (var i = 0; i < res.data.length; i++) {
                 xcount = xcount + 1;
+
                 var obs = {
-                    'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-                    'rent': res.data[i].Price,//metadata.colName,
-                    'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+                    'Location': res.data[i].Location,//.metadata.colName,
+                    'Type': res.data[i].Type,//metadata.colName,
+                    'totalbathrooms': res.data[i].totalbathrooms,//.metadata.colName,
                     'propertyAddress': res.data[i].Location,//.metadata.colName,
-                    'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+                    'PropertyId': this.state.PropertyId,// + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
                     'key': xcount,
                     'Price': this.formatMoney(res.data[i].Price),
                     'PropertyId': res.data[i].PropertyId,
                 }
                 retrueneddata.push(obs);
-
-
 
             }
             this.setState({
