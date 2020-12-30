@@ -540,6 +540,15 @@ a:hover{
   background-color: black;;
 }
 
+.gridcss{
+  height: 33px;
+  border:solid 1px gray;
+}
+.gridimage{
+  height: 26px;
+  width:21px;
+}
+
 
 .fullwidght{
   width:100%!important;

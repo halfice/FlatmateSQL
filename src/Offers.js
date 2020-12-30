@@ -365,27 +365,51 @@ export class Offers extends React.Component {
         var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
             return (
                 <div  key={item["key"]}> 
-            
+                    {
+                        i==0 &&
+                        <div className="row classforgrid">
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                               <h3>Type</h3>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                            <h3>Location</h3>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                            <h3>Message</h3>
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            
+                        </div>
+
+                       
+                    </div>
+                    }
                     <div className="row classforgrid">
-                        <div className="col-sm-2 ">
+                        <div className="col-sm-2 gridcss">
                             <div className="">
                                 {item["Message"]}
                             </div>
                         </div>
-                        <div className="col-sm-2 ">
+                        <div className="col-sm-2 gridcss">
                             <div className="">
                                 {item["Type"]}
                             </div>
                         </div>
-                        <div className="col-sm-2 ">
+                        <div className="col-sm-2 gridcss">
                             <div className="">
                                 {item["Location"]}
                             </div>
                         </div>
-                        <div className="col-sm-2 ">
+                        <div className="col-sm-2 gridcss">
                             <div className="">
                               
-                 <img className="smallimages"  src={delicon} key={i} alt="First slide" onClick={this.deletemsgitem.bind(this, item["MessageId"])}  />
+                 <img className="gridimage"  src={delicon} key={i} alt="First slide" onClick={this.deletemsgitem.bind(this, item["MessageId"])}  />
          
                              
                             </div>
@@ -408,7 +432,7 @@ export class Offers extends React.Component {
                         {
                             this.state.OfferScreen == 0 &&
                             <div className="row">
-                                <div className="col-sm-2  "> </div>
+                                <div className="col-sm-2   "> </div>
                                 <div className="col-sm-3  ">
                                     <div className="" onClick={this.handleoffersscreenflatmatemsg.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
@@ -458,7 +482,7 @@ export class Offers extends React.Component {
 
 {
                             this.state.OfferScreen == 3 &&
-                            <div>
+                            <div className="">
                                 {SubProjectArrays}
                             </div>
                         }
