@@ -531,6 +531,8 @@ a:hover{
 
 }
 
+
+
 .carousel-control-prev-icon{
   background-color: black;;
 }
@@ -544,6 +546,10 @@ a:hover{
     font-variant-caps: petite-caps;
 }
 
+
+.smallimages{
+  width: 100px;
+}
 .w-100 {
   width: 60%!important;
   left: 33px;

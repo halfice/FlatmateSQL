@@ -104,7 +104,9 @@ export class Offers extends React.Component {
             this.handleImageUploadold(file, blobName);
         }
     }
-
+    deletemsgitem(messageid){
+        alert(messageid0);
+    }
 
     uniqueNumber() {
         var date = Date.now();
@@ -267,6 +269,8 @@ export class Offers extends React.Component {
             location: val,
         })
     }
+
+    
    
 
     async fetchmessages() {
@@ -307,36 +311,29 @@ export class Offers extends React.Component {
     render() {
         var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
             return (
-                <div className="col-sm-3" key={item["key"]} 
-                 >
-
+                <div  key={item["key"]}> 
+            
                     <div className="row classforgrid">
-                        <div className="col-sm-2 zerpadding">
-                            <div className="myicondiv">
+                        <div className="col-sm-2 ">
+                            <div className="">
                                 {item["Message"]}
                             </div>
                         </div>
-                        <div className="col-sm-2 zerpadding">
-                            <div className="myicondiv">
+                        <div className="col-sm-2 ">
+                            <div className="">
                                 {item["Type"]}
                             </div>
                         </div>
-                        <div className="col-sm-2 zerpadding">
-                            <div className="myicondiv">
+                        <div className="col-sm-2 ">
+                            <div className="">
                                 {item["Location"]}
                             </div>
                         </div>
-                        <div className="col-sm-2 zerpadding">
-                            <div className="myicondiv">
+                        <div className="col-sm-2 ">
+                            <div className="">
                               
-                            <img
-                className="d-block w-100"
-                src={delicon} key={i} 
-                alt="First slide"
-              />
-                            
-                            
-                            
+                 <img className="smallimages"  src={delicon} key={i} alt="First slide" onClick={this.deletemsgitem.bind(this, item["MessageId"])}  />
+         
                              
                             </div>
                         </div>
