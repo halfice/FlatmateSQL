@@ -368,22 +368,22 @@ export class Offers extends React.Component {
                     {
                         i==0 &&
                         <div className="row classforgrid">
-                        <div className="col-sm-2 gridcss">
+                        <div className="col-sm-2 gridheadher ">
                             <div className="gridheadher">
                                <h3>Type</h3>
                             </div>
                         </div>
-                        <div className="col-sm-2 gridcss">
-                            <div className="gridheadher">
+                        <div className="col-sm-2 gridheadher">
+                            <div className="">
                             <h3>Location</h3>
                             </div>
                         </div>
-                        <div className="col-sm-2 gridcss">
-                            <div className="gridheadher">
+                        <div className="col-sm-2 gridheadher">
+                            <div className="">
                             <h3>Message</h3>
                             </div>
                         </div>
-                        <div className="col-sm-2 gridcss">
+                        <div className="col-sm-2 gridheadher">
                             
                         </div>
 
