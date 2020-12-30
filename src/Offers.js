@@ -426,6 +426,24 @@ export class Offers extends React.Component {
 
         return (
             <div className="row ">
+
+
+<div className="row ">
+                    {this.state.OfferScreen > 0 &&
+                        <div className="" onClick={this.gobackbutton.bind(this)}>
+                            <div className="">
+                            <div className="col-sm-2">
+                                   
+                                </div>
+                                <div className="col-sm-10 mybuttons btn btn-primary">
+                                    Go Back
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
             
                 <div className="fullwidght">
                     <div className="container ">
