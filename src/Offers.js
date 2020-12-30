@@ -105,7 +105,7 @@ export class Offers extends React.Component {
         }
     }
     deletemsgitem(messageid){
-        alert(messageid0);
+        alert(messageid);
     }
 
     uniqueNumber() {
