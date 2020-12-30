@@ -104,8 +104,20 @@ export class Offers extends React.Component {
             this.handleImageUploadold(file, blobName);
         }
     }
-    deletemsgitem(messageid){
-        alert(messageid);
+    async deletemsgitem(messageid){
+        this.setState({
+            loader: true,
+        });
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==&email=${messageid}&messageid=${messageid}&functiontype=u`;
+        try {
+            let res = await axios.post(regurl);
+            this.setState({
+                loader: false,
+            });
+            this.fetchmessages();
+            
+        } catch (error) {
+        }
     }
 
     uniqueNumber() {
