@@ -26,7 +26,7 @@ export class Offers extends React.Component {
             LoginUserID: this.props.UserID,
             OfferScreen: 0,
             ObjectArray: [],
-            PropertyArray:[],
+            PropertyArray: [],
 
 
         }
@@ -76,36 +76,36 @@ export class Offers extends React.Component {
         var TempCarousalData = [];
         var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=getallbyagent";
         try {
-          let res = await axios.post(loginurl);
-          console.log("Proprties"+res);
-          var xcount = 10;
-          for (var i = 0; i < res.data.length; i++) {
-            xcount = xcount + 1;
-            var obs = {
-              'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-              'rent': res.data[i].Price,//metadata.colName,
-              'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-              'propertyAddress': res.data[i].Location,//.metadata.colName,
-              'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
-              'key': xcount,
-              'Price': this.formatMoney(res.data[i].Price),
-              'PropertyId': res.data[i].PropertyId,
+            let res = await axios.post(loginurl);
+            console.log("Proprties" + res);
+            var xcount = 10;
+            for (var i = 0; i < res.data.length; i++) {
+                xcount = xcount + 1;
+                var obs = {
+                    'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+                    'rent': res.data[i].Price,//metadata.colName,
+                    'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+                    'propertyAddress': res.data[i].Location,//.metadata.colName,
+                    'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+                    'key': xcount,
+                    'Price': this.formatMoney(res.data[i].Price),
+                    'PropertyId': res.data[i].PropertyId,
+                }
+                retrueneddata.push(obs);
+
+
+
             }
-            retrueneddata.push(obs);
-            
-    
-    
-          }
-          this.setState({
-            PropertyArray: retrueneddata,
-            
-            loader: false,
-          });
-    
+            this.setState({
+                PropertyArray: retrueneddata,
+
+                loader: false,
+            });
+
         } catch (error) {
-    
+
         }
-      }
+    }
 
     gobackbutton(event) {
         this.setState({
@@ -131,6 +131,13 @@ export class Offers extends React.Component {
             OfferScreen: 2,
         });
     }
+    handleoffersscreenEarning(event) {
+        this.setState({
+            OfferScreen: 4,
+        });
+    }
+
+    
 
     async handleImageUpload(files) {
         if (files.target.files.length > 0) {
@@ -145,7 +152,7 @@ export class Offers extends React.Component {
             this.handleImageUploadold(file, blobName);
         }
     }
-    async deletemsgitem(messageid){
+    async deletemsgitem(messageid) {
         this.setState({
             loader: true,
         });
@@ -156,7 +163,7 @@ export class Offers extends React.Component {
                 loader: false,
             });
             this.fetchmessages();
-            
+
         } catch (error) {
         }
     }
@@ -324,7 +331,7 @@ export class Offers extends React.Component {
     }
 
     
-   
+
 
     async fetchmessages() {
         var _Response = null;
@@ -364,31 +371,31 @@ export class Offers extends React.Component {
     render() {
         var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
             return (
-                <div  key={item["key"]}> 
+                <div key={item["key"]}>
                     {
-                        i==0 &&
+                        i == 0 &&
                         <div className="row classforgrid">
-                        <div className="col-sm-2 gridheadher ">
-                            <div className="gridheadher">
-                               <h3>Type</h3>
+                            <div className="col-sm-2 gridheadher ">
+                                <div className="gridheadher">
+                                    <h3>Type</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-sm-2 gridheadher">
-                            <div className="">
-                            <h3>Location</h3>
+                            <div className="col-sm-2 gridheadher">
+                                <div className="">
+                                    <h3>Location</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-sm-2 gridheadher">
-                            <div className="">
-                            <h3>Message</h3>
+                            <div className="col-sm-2 gridheadher">
+                                <div className="">
+                                    <h3>Message</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-sm-2 gridheadher">
-                            
-                        </div>
+                            <div className="col-sm-2 gridheadher">
 
-                       
-                    </div>
+                            </div>
+
+
+                        </div>
                     }
                     <div className="row classforgrid">
                         <div className="col-sm-2 gridcss">
@@ -408,14 +415,14 @@ export class Offers extends React.Component {
                         </div>
                         <div className="col-sm-2 gridcss">
                             <div className="">
-                              
-                 <img className="gridimage"  src={delicon} key={i} alt="First slide" onClick={this.deletemsgitem.bind(this, item["MessageId"])}  />
-         
-                             
+
+                                <img className="gridimage" src={delicon} key={i} alt="First slide" onClick={this.deletemsgitem.bind(this, item["MessageId"])} />
+
+
                             </div>
                         </div>
 
-                       
+
                     </div>
 
 
@@ -428,12 +435,12 @@ export class Offers extends React.Component {
             <div className="row ">
 
 
-<div className="row ">
+                <div className="row ">
                     {this.state.OfferScreen > 0 &&
                         <div className="" onClick={this.gobackbutton.bind(this)}>
                             <div className="">
-                            <div className="col-sm-2">
-                                   
+                                <div className="col-sm-2">
+
                                 </div>
                                 <div className="col-sm-10 mybuttons btn btn-primary">
                                     Go Back
@@ -444,13 +451,13 @@ export class Offers extends React.Component {
                     }
 
                 </div>
-            
+
                 <div className="fullwidght">
                     <div className="container ">
                         {
                             this.state.OfferScreen == 0 &&
                             <div className="row">
-                                <div className="col-sm-2   "> </div>
+
                                 <div className="col-sm-3  ">
                                     <div className="" onClick={this.handleoffersscreenflatmatemsg.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
@@ -468,16 +475,22 @@ export class Offers extends React.Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-3  ">
-                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
-
+                                    <div className="" onClick={this.handleoffersscreenEarning.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
+                                            My Earnings
+                                    </div>
 
+                                    </div>
+                                </div>
+                                <div className="col-sm-3  ">
+                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
+                                        <div className="mybuttons btn btn-primary">
                                             Flatmate
                                     </div>
 
                                     </div>
                                 </div>
-                              
+
                             </div>
 
                         }
@@ -498,10 +511,17 @@ export class Offers extends React.Component {
                             </div>
                         }
 
-{
+                        {
                             this.state.OfferScreen == 3 &&
                             <div className="">
                                 {SubProjectArrays}
+                            </div>
+                        }
+
+{
+                            this.state.OfferScreen == 4 &&
+                            <div className="">
+                               <h1>Increase your earning</h1>
                             </div>
                         }
 
