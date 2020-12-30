@@ -549,6 +549,16 @@ a:hover{
   width:21px;
 }
 
+.gridheadher{
+  background-color: gray;
+    color: white;
+}
+
+.classforgrid{
+  padding-top: 0px!important;
+  padding-bottom: 0px!important;
+}
+
 
 .fullwidght{
   width:100%!important;
