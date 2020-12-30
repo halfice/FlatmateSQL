@@ -337,7 +337,7 @@ export class Offers extends React.Component {
                             
                             
                             
-                             {item["Message"]}
+                             
                             </div>
                         </div>
 
@@ -425,7 +425,12 @@ export class Offers extends React.Component {
                             </div>
                         }
 
-
+{
+                            this.state.OfferScreen == 1 &&
+                            <div>
+                                {SubProjectArrays}
+                            </div>
+                        }
 
                     </div>
                 </div>
