@@ -599,7 +599,7 @@ export class Offers extends React.Component {
                         {
                             this.state.OfferScreen == 2 &&
                             <div>
-                                <h1>Property Grid</h1>
+                               {ProperTiesTempArray}
                             </div>
                         }
 
