@@ -538,7 +538,7 @@ export class Offers extends React.Component {
                                 <div className="col-sm-2">
 
                                 </div>
-                                <div className="col-sm-10 mybuttons btn btn-primary">
+                                <div className="col-sm-12 mybuttons btn btn-primary">
                                     Go Back
                                 </div>
                             </div>
@@ -563,7 +563,7 @@ export class Offers extends React.Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-3  ">
-                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
+                                    <div className="" onClick={this.handleoffersscreenproperty.bind(this)}>
                                         <div className="mybuttons btn btn-primary">
 
                                             Property
