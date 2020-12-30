@@ -477,7 +477,7 @@ export class Offers extends React.Component {
                     <div className="row classforgrid">
                         <div className="col-sm-2 gridcss">
                             <div className="">
-                                {item["typeofAccomodation"]}
+                                {item["Type"]}
                             </div>
                         </div>
                         <div className="col-sm-2 gridcss">
@@ -487,7 +487,7 @@ export class Offers extends React.Component {
                         </div>
                         <div className="col-sm-2 gridcss">
                             <div className="">
-                                {item["propertyAddress"]}
+                                {item["Location"]}
                             </div>
                         </div>
                         <div className="col-sm-2 gridcss">
