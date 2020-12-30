@@ -109,6 +109,11 @@ async getblobtoken() {
     }
 
     handleChangePhone(event) {
+
+        if (event.target.value.length>10)
+        {
+            return;
+        }
         this.setState({
             Phone: event.target.value
         });
