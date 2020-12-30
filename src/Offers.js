@@ -469,6 +469,12 @@ export class Offers extends React.Component {
                             <div className="col-sm-2 gridheadher">
 
                             </div>
+                            <div className="col-sm-2 gridheadher">
+
+                            </div>
+                            <div className="col-sm-2 gridheadher">
+
+                            </div>
 
 
                         </div>
