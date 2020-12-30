@@ -13,7 +13,6 @@ import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome } from '@forta
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
-import PropertyGrid from './propertyGrids'
 import delicon from './del.jpg';
 
 
@@ -625,10 +624,7 @@ export class Offers extends React.Component {
                     </div>
                 </div>
 
-                {this.state.OfferScreen == 2 &&
-
-                    <PropertyGrid />
-                }
+               
             </div>
 
         );
