@@ -111,7 +111,13 @@ export class Offers extends React.Component {
         });
     }
 
-
+    formatMoney(num) {
+        num = parseInt(num);
+        var p = num.toFixed(2).split(".");
+        return "$" + p[0].split("").reverse().reduce(function (acc, num, i, orig) {
+            return num == "-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
+        }, "") + "." + p[1];
+    }
 
     itemupdateItem(itemid) {
         alert(itemid);
@@ -146,7 +152,7 @@ export class Offers extends React.Component {
         });
     }
 
-    
+
 
     async handleImageUpload(files) {
         if (files.target.files.length > 0) {
@@ -339,7 +345,7 @@ export class Offers extends React.Component {
         })
     }
 
-    
+
 
 
     async fetchmessages() {
@@ -491,13 +497,13 @@ export class Offers extends React.Component {
                         </div>
                         <div className="col-sm-2 gridcss">
                             <div className="">
-                               
-                               <div className="col-sm-10 mybuttons btn btn-primary" onClick={this.itemupdateItem.bind(this, item["PropertyId"])}>
+
+                                <div className="col-sm-10 mybuttons btn btn-primary" onClick={this.itemupdateItem.bind(this, item["PropertyId"])}>
                                     Update
                                 </div>
 
-                               
-                               
+
+
 
 
 
@@ -506,7 +512,7 @@ export class Offers extends React.Component {
                         <div className="col-sm-2 gridcss">
                             <div className="">
 
-                            <div className="col-sm-10 mybuttons btn btn-primary" onClick={this.itemdealfinishitem.bind(this, item["PropertyId"])}>
+                                <div className="col-sm-10 mybuttons btn btn-primary" onClick={this.itemdealfinishitem.bind(this, item["PropertyId"])}>
                                     Finish Deal
                                 </div>
 
@@ -598,7 +604,7 @@ export class Offers extends React.Component {
                         {
                             this.state.OfferScreen == 2 &&
                             <div>
-                               {ProperTiesTempArray}
+                                {ProperTiesTempArray}
                             </div>
                         }
 
@@ -609,10 +615,10 @@ export class Offers extends React.Component {
                             </div>
                         }
 
-{
+                        {
                             this.state.OfferScreen == 4 &&
                             <div className="">
-                               <h1>Increase your earning</h1>
+                                <h1>Increase your earning</h1>
                             </div>
                         }
 
