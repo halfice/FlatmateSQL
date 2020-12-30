@@ -49,6 +49,7 @@ export class Offers extends React.Component {
 
     componentDidMount() {
         this.getblobtoken();
+        this.fetchmessages();
     }
 
     async getblobtoken() {
@@ -266,10 +267,7 @@ export class Offers extends React.Component {
             location: val,
         })
     }
-    componentDidMount() {
-        this.fetchmessages();
-
-    }
+   
 
     async fetchmessages() {
         var _Response = null;
@@ -285,16 +283,12 @@ export class Offers extends React.Component {
             for (var i = 0; i < res.data.length; i++) {
                 xcount = xcount + 1;
                 var obs = {
-                    'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-                    'rent': res.data[i].Price,//metadata.colName,
-                    'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-                    'propertyAddress': res.data[i].Location,//.metadata.colName,
-                    'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+                    'Type': res.data[i].Type,//.metadata.colName,
+                    'Location': res.data[i].Location,//metadata.colName,
+                    'LoginUserID': res.data[i].LoginUserID,//.metadata.colName,
+                    'Message': res.data[i].Message,//.metadata.colName,
                     'key': xcount,
-                    'Price': this.formatMoney(res.data[i].Price),
-                    'PropertyId': res.data[i].PropertyId,
-                    'Message': res.data[i].Message,
-                    'Type': res.data[i].Type,
+                    'MessageId': res.data[i].MessageId,//.metadata.colName,    
                 }
                 retrueneddata.push(obs);
 
