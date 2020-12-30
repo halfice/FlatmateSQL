@@ -15,9 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
 import delicon from './del.jpg';
 
-
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
-
 export class Offers extends React.Component {
     constructor(props) {
         super(props);
@@ -26,24 +24,14 @@ export class Offers extends React.Component {
             OfferScreen: 0,
             ObjectArray: [],
             PropertyArray: [],
-
-
+            ShowCarousal:false,
         }
-
         //screen 1 flat mate grid
         //screen 2 property grid
-
-
-
-
-
-
-
         this.handleoffersscreenflatmate = this.handleoffersscreenflatmate.bind(this);
         this.handleoffersscreenproperty = this.handleoffersscreenproperty.bind(this);
         this.handleoffersscreenflatmatemsg = this.handleoffersscreenflatmatemsg.bind(this);
         this.gobackbutton = this.gobackbutton.bind(this);
-
 
     }
 
@@ -119,12 +107,18 @@ export class Offers extends React.Component {
     }
 
     itemupdateItem(itemid) {
-        alert(itemid);
+        this.setState({
+            ShowCarousal: true,
+        });
     }
 
 
     itemdealfinishitem(itemid) {
-        alert(itemid);
+       // alert(itemid);
+    
+        this.setState({
+            ShowCarousal: true,
+        });
     }
 
 
@@ -150,8 +144,6 @@ export class Offers extends React.Component {
             OfferScreen: 4,
         });
     }
-
-
 
     async handleImageUpload(files) {
         if (files.target.files.length > 0) {
@@ -293,7 +285,6 @@ export class Offers extends React.Component {
         }
 
     }
-
     async callingInsert() {
         this.setState({
             loader: true,
@@ -335,18 +326,12 @@ export class Offers extends React.Component {
 
 
     }
-
-
     handlerhomek = (val) => {
         this.setState({
             propertyAddress: val,
             location: val,
         })
     }
-
-
-
-
     async fetchmessages() {
         var _Response = null;
         var TempUserProfileExisits = 0;
@@ -381,7 +366,6 @@ export class Offers extends React.Component {
 
         }
     }
-
     render() {
         var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
             return (
@@ -630,13 +614,27 @@ export class Offers extends React.Component {
                     </div>
                 </div>
 
+                {
+            this.state.ShowCarousal == true &&
+
+            <div className="parentdiv">
+              <div className="closebuttondi" onClick={this.CloseModal}>
+                <FontAwesomeIcon icon={faTimes} /></div>
+
+              <div className="carousaldiv">
+                <div className="row">
+                    <div className="col-sm-8 ">
+                    </div>
+                </div>
+              </div>
+            </div>
+          }
+
                
             </div>
 
         );
     }
-
-
     shoonChangewsp() {
         this.setState({
             value: 4
@@ -650,15 +648,6 @@ export class Offers extends React.Component {
 
         })
     }
-
-
-
-
-
-
-
-
-
 
     async  AzureApoihandleImageUpload(event) {
         this.setState({
@@ -768,5 +757,4 @@ export class Offers extends React.Component {
     }
 
 }
-
 export default withTranslation()(Offers);
