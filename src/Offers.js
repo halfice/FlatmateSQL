@@ -9,7 +9,8 @@ import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Button from 'react-bootstrap/Button';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
+
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
