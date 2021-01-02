@@ -76,6 +76,13 @@ class bodycards extends Component {
 
 
 
+  showmymapfunction(){
+    this.setState({
+       showMyMap:1,
+      
+
+    });
+  }
 
   getCarousal(propertyid) {
 
@@ -603,7 +610,7 @@ class bodycards extends Component {
                     <div className="row">
 
                       <div className="col-sm-4 zerpadding">
-                        <div className="buttnemail" > Location</div>
+                        <div className="buttnemail" onClick={this.showmymapfunction.bind(this)} > Location</div>
                       </div>
                       <div className="col-sm-4 zerpadding">
                         <div className="myicondiv">
