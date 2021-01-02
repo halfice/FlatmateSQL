@@ -581,7 +581,7 @@ class bodycards extends Component {
 
 {
   this.state.showMyMap==1 &&
-  <div className="carousaldiv">
+  <div className="carousaldiv2">
 <GoogleMap />
                         </div>
 }
