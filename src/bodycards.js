@@ -27,6 +27,7 @@ import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
+import GoogleMap from './googlemap'
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -60,6 +61,7 @@ class bodycards extends Component {
       selectedType: "",
       selectedParking: "",
       selectedPool: "",
+      showMyMap:0,
 
       AgentcarousalObject: [],
       AgentcarousalObjectitem: [],
@@ -568,6 +570,15 @@ class bodycards extends Component {
                   <Carousel>
                       {carousalitem}
                       </Carousel> 
+
+
+{
+  this.sttae.showMyMap==1 &&
+  <div className="carousaldiv">
+<GoogleMap />
+                        </div>
+}
+                      
                    
 
                     <div className="row">
