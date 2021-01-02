@@ -467,9 +467,6 @@ class bodycards extends Component {
     var carousalitem = null;
     carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
-       
-         
-           
             <Carousel.Item interval={10000}>
               <img
                 className="d-block w-100"

@@ -588,3 +588,15 @@ a:hover{
   font-variant: all-small-caps;
   text-align: right;
 }
+
+.carousel-item {
+ 
+  display: none !important;
+  
+}
+
+.carousel-item.active {
+ 
+  display: none !important;
+  
+}
