@@ -507,9 +507,10 @@ a:hover{
   display: block;
   z-index: 3333333;
 }
+
+
 .carousel-item {
   position: inherit;
-   display: block;
   float: left;
   width: 100%;
   margin-right: -100%;
