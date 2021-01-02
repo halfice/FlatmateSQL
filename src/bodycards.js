@@ -669,6 +669,7 @@ class bodycards extends Component {
   CloseModal() {
     this.setState({
       ShowCarousal: false,
+      showMyMap:0,
     });
   }
   componentDidMountme() {

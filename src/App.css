@@ -601,3 +601,18 @@ a:hover{
   display: block !important;
   
 }
+.carousaldiv2{
+position: inherit;
+    z-index: 9999999;
+    
+    width: 100%;
+   
+    border: 60%;
+   
+    margin: 11px;
+    
+    padding-top: 46px;
+   
+    margin-bottom: 33px;
+  
+}
