@@ -600,7 +600,7 @@ class bodycards extends Component {
                       <h3>Agent Name</h3>
                       </div>
                     <div className="col-sm-6">
-                      <img src={agent} />
+                      <img src={agent} className="myimagesmall" />
                       </div>
                       <div className="col-sm-12">
                       <h4>Agent Company</h4>
