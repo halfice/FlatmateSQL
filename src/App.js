@@ -49,6 +49,8 @@ class App extends Component {
       AgentName:"",
       AgentPic:"",
       AgentMobile:"",
+      AgentCompany:"",
+
 
     }
   }
@@ -185,7 +187,7 @@ class App extends Component {
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
             this.state.needwizard != 500 && this.state.needwizard != 5 &&
 
-            <div className="col-sm-12"><Bodycards AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
+            <div className="col-sm-12"><Bodycards AgentName={this.state.AgentName}  AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
 
           }
 
@@ -234,7 +236,7 @@ class App extends Component {
     })
   }
 
-  handleRegisnteredUserId = (useridfromdb,AgentMobile,agentPic) => {
+  handleRegisnteredUserId = (useridfromdb,AgentMobile,agentPic,agentCompany,agentname) => {
 
     var myObject = JSON.stringify(useridfromdb.data);
     if (useridfromdb.data == undefined) {
@@ -249,6 +251,8 @@ class App extends Component {
       AgentPic:agentPic,
       needwizard: 0,
       showcard: 1,
+      AgentCompany:agentCompany,
+      AgentName:agentname,
 
     })
   }

@@ -94,7 +94,7 @@ export class screenregister extends React.Component {
                       universalid:res,
                       loader:false,
                   });
-                  this.props.handleRegisnteredUserId(this.state.email,this.state.phone,this.state.picstring);
+                  this.props.handleRegisnteredUserId(this.state.email,this.state.phone,this.state.picstring,this.state.copmayname,this.state.name);
                     // console.log(res.data);
                  } catch (error) {
                      //console.log(error);

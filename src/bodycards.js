@@ -64,9 +64,12 @@ class bodycards extends Component {
       selectedPool: "",
       showMyMap: 0,
 
-
+      AgentComapny:this.props.AgentComapny,
+      AgentMobile:this.props.AgentMobile,
+      AgentPic:this.props.AgentPic,
       AgentcarousalObject: [],
       AgentcarousalObjectitem: [],
+      AgentName:this.props.AgentName,
 
 
     }
@@ -597,13 +600,13 @@ class bodycards extends Component {
                   <div className="col-sm-4 ">
                     <div className="row">
                     <div className="col-sm-6">
-                      <h3>Agent Name</h3>
+                      <h3>{this.state.AgentName}</h3>
                       </div>
                     <div className="col-sm-6">
                       <img src={agent} className="myimagesmall" />
                       </div>
                       <div className="col-sm-12">
-                      <h4>Agent Company</h4>
+                      <h4>{this.state.AgentComapny}</h4>
                       </div>
 
                     </div>
