@@ -586,8 +586,17 @@ a:hover{
 .leftdiv{
   text-align: left;
   columns: #004085;
+  font-size: 11px;
   
-  ;
+  
+}
+
+.agentdivCss{
+  border:solid 1px #8080804d;
+  width:95%;
+  margin-left: 11px;
+  background-color: #e9e9e9;
+  border-radius: 11px;
 }
 
 

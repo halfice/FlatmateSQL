@@ -79,10 +79,10 @@ async getblobtoken() {
                         <div className="row" >
                             <div className="col-sm-12 graytext">
                                 <div className="form-group">
-                                    <input type="text" className="form-control mytextbox" onChange={this.handlChangeName} placeholder="Enter Name" ></input>
+                                    <input type="text" className="form-control " onChange={this.handlChangeName} placeholder="Enter Name" ></input>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control mytextbox" placeholder="Enter Phone" onChange={this.handleChangePhone} ></input>
+                                    <input type="text" className="form-control " placeholder="Enter Phone" onChange={this.handleChangePhone} ></input>
                                 </div>
                                 <div className="form-group">
                                     <input type="text" className="form-control mytextbox" onChange={this.handlchangeMessage} placeholder="Enter Message" ></input>
