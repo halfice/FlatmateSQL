@@ -38,63 +38,63 @@ const languages = [
   {
     name: 'Al Fattan Marine Towers',
     long: "54.672600",
-    lagt: "24.454165 ",
+    lat: "24.454165 ",
   },
   {
     name: 'The Royal Oceanic',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Atina Twin Towers',
 
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Paloma',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Majara 1',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Majara 2',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Majara 3',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Majara 4',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Majara 5',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Marsa Tower',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Sahab Tower 1',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Sahab Tower 2',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Seef Tower',
@@ -104,23 +104,23 @@ const languages = [
   {
     name: 'Emerald Residence',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Areifi Marina',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
 
   {
     name: 'Al Reef Villas',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
   {
     name: 'Al Reem Island',
     long: "54.672600",
-    lagt: "24.454165"
+    lat: "24.454165"
   },
 
 ];
@@ -169,7 +169,7 @@ export class Locationsuggest extends React.Component {
     var tmpitem = languages.filter(properties => properties.name === newValue);
     if (tmpitem.length>0 &&  tmpitem!= null) {
      // alert(tmpitem[0].lagt);
-      this.props.handlerhomek(newValue,tmpitem[0].lagt,tmpitem[0].lat)
+      this.props.handlerhomek(newValue,tmpitem[0].long,tmpitem[0].lat)
     }
      
       this.setState({

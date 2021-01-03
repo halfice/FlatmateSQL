@@ -356,11 +356,11 @@ export class Property extends React.Component {
   }
 
 
-  handlerhomek = (val,lag,lat) => {
+  handlerhomek = (val,long,lat) => {
     this.setState({
       propertyAddress: val,
       location: val,
-      longitude:lag,
+      longitude:long,
       latitude:lat
 
     })
