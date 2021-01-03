@@ -28,6 +28,7 @@ import calls from './call.gif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
 import GoogleMap from './googlemap'
+import agent from './agent.png'
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -40,7 +41,7 @@ class bodycards extends Component {
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
 
-      AgentObjectArray:[],
+      AgentObjectArray: [],
       loader: true,
       ImagesArray: [],
       ShowCarousal: false,
@@ -61,8 +62,8 @@ class bodycards extends Component {
       selectedType: "",
       selectedParking: "",
       selectedPool: "",
-      showMyMap:0,
-      
+      showMyMap: 0,
+
 
       AgentcarousalObject: [],
       AgentcarousalObjectitem: [],
@@ -74,10 +75,10 @@ class bodycards extends Component {
 
   }
 
-  showmymapfunction(){
+  showmymapfunction() {
     this.setState({
-       showMyMap:1,
-      
+      showMyMap: 1,
+
 
     });
   }
@@ -124,7 +125,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -144,7 +145,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -165,7 +166,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -186,7 +187,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -212,7 +213,7 @@ class bodycards extends Component {
 
     });
   }
-  
+
   async fetchproperties() {
     var _Response = null;
     var TempUserProfileExisits = 0;
@@ -272,12 +273,12 @@ class bodycards extends Component {
   }
 
   formatMoney(num) {
-    num =parseInt(num);
+    num = parseInt(num);
     var p = num.toFixed(2).split(".");
-    return "$" + p[0].split("").reverse().reduce(function(acc, num, i, orig) {
-        return  num=="-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
+    return "$" + p[0].split("").reverse().reduce(function (acc, num, i, orig) {
+      return num == "-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
     }, "") + "." + p[1];
-    }
+  }
 
   async fetchpropertiesagent() {
     var _Response = null;
@@ -288,7 +289,7 @@ class bodycards extends Component {
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
     try {
       let res = await axios.post(loginurl);
-      console.log("Agent"+res);
+      console.log("Agent" + res);
       var xcount = 10;
       for (var i = 0; i < res.data.length; i++) {
         xcount = xcount + 1;
@@ -301,7 +302,7 @@ class bodycards extends Component {
           'key': xcount,
           'Price': res.data[i].Price,
           'PropertyId': res.data[i].PropertyId,
-          'profilepicname':res.data[i].profilepicname,
+          'profilepicname': res.data[i].profilepicname,
         }
         retrueneddata.push(obs);
         var objectcarousal = {
@@ -322,7 +323,7 @@ class bodycards extends Component {
           'picsstringtwo': res.data[i].picsstringtwo,
           'picstring': res.data[i].picstring,
           'totalbathrooms': res.data[i].totalbathrooms,
-          'profilepicname':res.data[i].profilepicname,
+          'profilepicname': res.data[i].profilepicname,
         }
         TempCarousalData.push(objectcarousal);
 
@@ -343,7 +344,7 @@ class bodycards extends Component {
   }
 
   render() {
-   // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
+    // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     //const simgstr1 = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
@@ -366,7 +367,7 @@ class bodycards extends Component {
                 </div>
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-                    <img src={whatsapp} width="50px"  height="39px"/>
+                    <img src={whatsapp} width="50px" height="39px" />
                   </div>   </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="buttnemail" >Email</div>
@@ -470,26 +471,26 @@ class bodycards extends Component {
     var carousalitem = null;
     carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
-            <Carousel.Item interval={10000}>
-              <img
-                className="d-block w-100"
-                src={item.mypicstring} key={i} 
-                alt="First slide"
-              />
-            
-            </Carousel.Item>
-           
-           
-        
+        <Carousel.Item interval={10000}>
+          <img
+            className="d-block w-100"
+            src={item.mypicstring} key={i}
+            alt="First slide"
+          />
 
-       
+        </Carousel.Item>
+
+
+
+
+
 
       );
 
     });
 
 
-    
+
 
 
     if (this.state.ObjectArrayBids != null) {
@@ -563,24 +564,22 @@ class bodycards extends Component {
               <div className="closebuttondi" onClick={this.CloseModal}>
                 <FontAwesomeIcon icon={faTimes} /></div>
 
-
-
               <div className="carousaldiv">
                 <div className="row">
                   <div className="col-sm-8 ">
-                  <Carousel>
+                    <Carousel>
                       {carousalitem}
-                      </Carousel> 
+                    </Carousel>
 
 
-{
-  this.state.showMyMap==1 &&
-  <div className="carousaldiv2">
-<GoogleMap />
-                        </div>
-}
-                      
-                   
+                    {
+                      this.state.showMyMap == 1 &&
+                      <div className="carousaldiv2">
+                        <GoogleMap />
+                      </div>
+                    }
+
+
 
                     <div className="row">
                       <div className="col-sm-4 paragrpahNormaltext">Bedrooms : {this.state.selectedBedrooms}</div>
@@ -596,7 +595,11 @@ class bodycards extends Component {
 
 
                   <div className="col-sm-4 ">
+                  <div className="row">
+<img src={agent} />
 
+
+                    </div>
                     <div className="row">
                       <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
                     </div>
@@ -663,7 +666,7 @@ class bodycards extends Component {
   CloseModal() {
     this.setState({
       ShowCarousal: false,
-      showMyMap:0,
+      showMyMap: 0,
     });
   }
 
@@ -806,7 +809,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -814,7 +817,7 @@ class bodycards extends Component {
         'parking': tmpitem[0].parking,
         'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
-         'agentpic':tmpitem[0].parking,
+        'agentpic': tmpitem[0].parking,
       }
       TampCarousalItem.push(objectcarousalone);
     }
@@ -827,7 +830,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -835,7 +838,7 @@ class bodycards extends Component {
         'parking': tmpitem[0].parking,
         'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
-        'agentpic':tmpitem[0].parking,
+        'agentpic': tmpitem[0].parking,
       }
 
       TampCarousalItem.push(objectcarousaltwo);
@@ -849,7 +852,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -857,7 +860,7 @@ class bodycards extends Component {
         'parking': tmpitem[0].parking,
         'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
-        'agentpic':tmpitem[0].parking,
+        'agentpic': tmpitem[0].parking,
       }
 
       TampCarousalItem.push(objectcarousalthree);
@@ -871,7 +874,7 @@ class bodycards extends Component {
         'FurnishedTyope': tmpitem[0].FurnishedTyope,
         'Location': tmpitem[0].Location,
         'LoginUserID': tmpitem[0].LoginUserID,
-        'Price': this.formatMoney(tmpitem[0].Price) ,
+        'Price': this.formatMoney(tmpitem[0].Price),
         'PropertyId': tmpitem[0].PropertyId,
         'State': tmpitem[0].State,
         'Type': tmpitem[0].Type,
@@ -879,7 +882,7 @@ class bodycards extends Component {
         'parking': tmpitem[0].parking,
         'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
-        'agentpic':tmpitem[0].parking,
+        'agentpic': tmpitem[0].parking,
       }
 
       TampCarousalItem.push(objectcarousalfour);
