@@ -215,7 +215,7 @@ class bodycards extends Component {
       selectedParking: tmpitem[0].parking,
       AgentName: tmpitem[0].agentname,
       AgentComapny: tmpitem[0].agentcompany,
-      AgentPic: `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmpitem[0].AgentPic}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
 AgentMobile: tmpitem[0].AgentNumber,
 
     });
@@ -614,13 +614,13 @@ AgentMobile: tmpitem[0].AgentNumber,
                   <div className="col-sm-4 ">
                     <div className="row">
                     <div className="col-sm-6">
-                      <h3>{this.state.AgentName}</h3>
+                      <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
                       </div>
                     <div className="col-sm-6">
                       <img src={this.state.AgentPic} className="myimagesmall" />
                       </div>
                       <div className="col-sm-12">
-                      <h4>{this.state.AgentComapny}</h4>
+                      <div className="leftdiv">Company : {this.state.AgentComapny}</div>
                       </div>
 
                     </div>
