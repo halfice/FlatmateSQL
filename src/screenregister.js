@@ -77,15 +77,14 @@ export class screenregister extends React.Component {
         this.setState({
             loader:true,
         });
-       //alert(this.state.name);
-
-       //     
+    
            var userid= this.state.name;
             var email=this.state.email;
            var  phone=this.state.phone;
            var  password=this.state.password;
+           
                     
-    
+
 
         //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
         var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
@@ -95,7 +94,7 @@ export class screenregister extends React.Component {
                       universalid:res,
                       loader:false,
                   });
-                  this.props.handleRegisnteredUserId(this.state.email);
+                  this.props.handleRegisnteredUserId(this.state.email,this.state.phone,this.state.picstring);
                     // console.log(res.data);
                  } catch (error) {
                      //console.log(error);
@@ -160,6 +159,7 @@ export class screenregister extends React.Component {
     console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
+
   async handleImageUploadold(file) {
     this.setState({
       loader: true,
@@ -213,7 +213,6 @@ export class screenregister extends React.Component {
     }
 
   }
-
 
     render() {
 
@@ -364,14 +363,13 @@ export class screenregister extends React.Component {
         );
     }
 
-
-    
     handlenamechange(event)
     {
         this.setState({
             name: event.target.value
           });
     }
+
     handleemailchange(event)
     {
         this.setState({
@@ -381,18 +379,21 @@ export class screenregister extends React.Component {
             this.fetchprofile(event.target.value)
           }
     }
+
     handlenphonechange(event)
     {
         this.setState({
             phone: event.target.value
           });
     }
+
     handlepasswordchange(event)
     {
         this.setState({
             password: event.target.value
           });
     }
+
 
      uniqueNumber() {
       var date = Date.now();

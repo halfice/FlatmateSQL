@@ -26,12 +26,13 @@ export class screenlogin extends React.Component {
             currentclass: "hidden",
             parentdiv: 0,
             buttontext: "Lets Start!!!",
-            
             email:"",
-           name:"",
+            name:"",
             password:"",
             universalid:"",
             loader:false,
+            AgentName:"",
+            AgentPic:"",
 
         }
 
@@ -76,7 +77,7 @@ export class screenlogin extends React.Component {
                     });
                 }
             else{
-                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail);   
+                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail,this.state.universalid.data.Mobile,this.state.universalid.data.profilepicname);   
                 
             }
              //  console.log(res.data);
@@ -230,7 +231,8 @@ export class screenlogin extends React.Component {
     handlenamechange(event)
     {
         this.setState({
-            name: event.target.value
+            name: event.target.value,
+            AgentName: event.target.value,
           });
     }
     handleemailchange(event)

@@ -3,9 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import { Header } from "./header/header";
 import Footer from "./footer/footer";
-
-//updated by abdulaziz
-
 import Bodycards from "./bodycards";
 import MainBodyCards from './MainBodyCards'
 import { Rating } from "./rating";
@@ -48,7 +45,10 @@ class App extends Component {
       Statec:"0",
       Deal:"0",
       Feet:"0",
-      SeachBox:"0"
+      SeachBox:"0",
+      AgentName:"",
+      AgentPic:"",
+      AgentMobile:"",
 
     }
   }
@@ -69,12 +69,8 @@ class App extends Component {
         <div className="">
           <Header handleSearchClick={this.handleSearchClick} handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
 
-
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
-
-
           <div className=" row zeeomargin zerpadding">
-
 
             <div className="col-sm-10 zerpadding">
               <Rating handler={this.handler} />
@@ -140,7 +136,7 @@ class App extends Component {
         {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Property AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic}  UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -189,7 +185,7 @@ class App extends Component {
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
             this.state.needwizard != 500 && this.state.needwizard != 5 &&
 
-            <div className="col-sm-12"><Bodycards /></div>
+            <div className="col-sm-12"><Bodycards AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
 
           }
 
@@ -238,18 +234,19 @@ class App extends Component {
     })
   }
 
-  handleRegisnteredUserId = (useridfromdb) => {
+  handleRegisnteredUserId = (useridfromdb,AgentMobile,agentPic) => {
 
     var myObject = JSON.stringify(useridfromdb.data);
     if (useridfromdb.data == undefined) {
       myObject = useridfromdb;
     }
 
-
     console.log(myObject);
     var userid = myObject;
     this.setState({
       userid: userid,
+      AgentMobile:AgentMobile,
+      AgentPic:agentPic,
       needwizard: 0,
       showcard: 1,
 

@@ -62,6 +62,7 @@ class bodycards extends Component {
       selectedParking: "",
       selectedPool: "",
       showMyMap:0,
+      
 
       AgentcarousalObject: [],
       AgentcarousalObjectitem: [],
@@ -72,9 +73,6 @@ class bodycards extends Component {
 
 
   }
-
-
-
 
   showmymapfunction(){
     this.setState({
@@ -215,7 +213,6 @@ class bodycards extends Component {
     });
   }
   
-
   async fetchproperties() {
     var _Response = null;
     var TempUserProfileExisits = 0;
@@ -274,7 +271,6 @@ class bodycards extends Component {
     }
   }
 
-
   formatMoney(num) {
     num =parseInt(num);
     var p = num.toFixed(2).split(".");
@@ -282,8 +278,6 @@ class bodycards extends Component {
         return  num=="-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
     }, "") + "." + p[1];
     }
-
-
 
   async fetchpropertiesagent() {
     var _Response = null;
@@ -344,9 +338,9 @@ class bodycards extends Component {
 
     }
   }
-  handleSelect = (selectedIndex, e) => {
 
-  };
+  handleSelect = (selectedIndex, e) => {
+  }
 
   render() {
    // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
@@ -672,6 +666,7 @@ class bodycards extends Component {
       showMyMap:0,
     });
   }
+
   componentDidMountme() {
     var retrueneddata = [];
 
@@ -769,7 +764,6 @@ class bodycards extends Component {
 
   }
 
-   
   getCarousalAgent(propertyid) {
 
     if (this.state.currenproperyid != 0) {
@@ -904,7 +898,6 @@ class bodycards extends Component {
 
     });
   }
-
 
 }
 
