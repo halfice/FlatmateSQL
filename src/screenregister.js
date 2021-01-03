@@ -156,11 +156,11 @@ export class screenregister extends React.Component {
    
     const blockBlobClient = containerClient.getBlockBlobClient(tempblobname)
     const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
-    console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
+   // console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
 
-  async handleImageUploadold(file) {
+  async handleImageUploadold(file,blobName) {
     this.setState({
       loader: true,
     });
@@ -186,7 +186,7 @@ export class screenregister extends React.Component {
           this.setState({
             file: reader.result,
             imagePreviewUrl: reader.result,
-            picstring: imageFile.name,//reader.result,
+            picstring: blobName,//reader.result,
             picscounter: tmp,
             loader: false,
           });
