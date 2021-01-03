@@ -595,9 +595,16 @@ class bodycards extends Component {
 
 
                   <div className="col-sm-4 ">
-                  <div className="row">
-<img src={agent} />
-
+                    <div className="row">
+                    <div className="col-sm-6">
+                      <h3>Agent Name</h3>
+                      </div>
+                    <div className="col-sm-6">
+                      <img src={agent} />
+                      </div>
+                      <div className="col-sm-12">
+                      <h4>Agent Company</h4>
+                      </div>
 
                     </div>
                     <div className="row">
