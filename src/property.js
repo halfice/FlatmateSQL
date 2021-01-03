@@ -9,7 +9,7 @@ import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import Button from 'react-bootstrap/Button';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome} from '@fortawesome/free-solid-svg-icons';
+import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome } from '@fortawesome/free-solid-svg-icons';
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
@@ -19,8 +19,8 @@ export class Property extends React.Component {
     super(props);
     this.state = {
       LoginUserID: this.props.UserID,
-      AgentMobile:this.props.AgentMobile,
-      AgentPic:this.props.AgentPic,
+      AgentMobile: this.props.AgentMobile,
+      AgentPic: this.props.AgentPic,
       value: 2,
       divcountre: 0,
       currentclass: "hidden",
@@ -46,7 +46,7 @@ export class Property extends React.Component {
       imagePreviewUrl3: uploader,
 
       picscounter: 0,
-      AgentId:0,//mean hei owner
+      AgentId: 0,//mean hei owner
 
       picstring: "",
       picstring1: "",
@@ -134,7 +134,9 @@ export class Property extends React.Component {
       bedsizediv4: "innervbuuton",
       loader: false,
       price: "0.000",
-
+      longitude: "",
+      latitude: "",
+      description: ""
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -155,6 +157,10 @@ export class Property extends React.Component {
     this.handlebills = this.handlebills.bind(this);
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
     this.handleprince = this.handleprince.bind(this);
+    this.handleChangetextarea = this.handleChangetextarea.bind(this);
+
+
+
   }
 
   componentDidMount() {
@@ -189,19 +195,19 @@ export class Property extends React.Component {
       const blobName = filename + '_' + new Date().getTime() + ext;
 
 
-       this.uploadFile(file,blobName);
-      this.handleImageUploadold(file,blobName);
+      this.uploadFile(file, blobName);
+      this.handleImageUploadold(file, blobName);
     }
   }
 
 
   uniqueNumber() {
     var date = Date.now();
-    
-    return date;
-}
 
-  async uploadFile(file,blobName) {
+    return date;
+  }
+
+  async uploadFile(file, blobName) {
     //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
 
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
@@ -219,14 +225,14 @@ export class Property extends React.Component {
     const blobServiceClient = new BlobServiceClient(sasURL)
     const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
 
-    
+
     const blockBlobClient = containerClient.getBlockBlobClient(blobName)
     const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
     console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
 
-  async handleImageUploadold(file,blobName) {
+  async handleImageUploadold(file, blobName) {
     this.setState({
       loader: true,
     });
@@ -328,16 +334,16 @@ export class Property extends React.Component {
       picstringtwo: this.state.picstring2,
       picstringthree: this.state.picstring3,
       itemid: this.uuidv4(),
-      AgentId:this.state.AgentId,//mean it is owner
+      AgentId: this.state.AgentId,//mean it is owner
     };
 
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}`
     try {
       let res = await axios.post(regurl);
       this.setState({
         universalid: res,
         loader: false,
-        
+
       });
       this.props.handleRegisnteredUserId(this.state.LoginUserID);
       // console.log(res.data);
@@ -350,17 +356,32 @@ export class Property extends React.Component {
   }
 
 
-  handlerhomek= (val) => {
+  handlerhomek = (val,lag,lat) => {
     this.setState({
       propertyAddress: val,
       location: val,
+      longitude:lag,
+      latitude:lat
+
     })
   }
+
+  
+
+  handleChangetextarea(event) {
+    this.setState({
+      description: event.target.value,
+      
+    });
+  }
+
+
+
 
   render() {
     const varclaas = "visible";
     const varclaashidden = "hidden";
-    
+
     let { imagePreviewUrl } = this.state;
     let { imagePreviewUrl1 } = this.state;
     let { imagePreviewUrl2 } = this.state;
@@ -543,12 +564,12 @@ export class Property extends React.Component {
                             Property Address
                         </div>
                           <div className="smalheadingcss">
-                  {
-                    //                            <input  type="text" className="form-control" onChange={this.handlepropertyAddress} placeholder="Search for area"></input>
+                            {
+                              //                            <input  type="text" className="form-control" onChange={this.handlepropertyAddress} placeholder="Search for area"></input>
 
-                  }
+                            }
                             <div>
-                              <Lockz   handlerhomek={this.handlerhomek} />
+                              <Lockz handlerhomek={this.handlerhomek} />
                             </div>
                           </div>
                         </div>
@@ -684,12 +705,9 @@ export class Property extends React.Component {
 
 
                       <div className="row textalighleft">
-
                         <div className="row">
                           <div className="col-sm-12"> Price</div>
                         </div>
-
-
                         <input type="text" className="form-control" onChange={this.handleprince} placeholder="AED 0.00000"></input>
 
                       </div>
@@ -698,12 +716,17 @@ export class Property extends React.Component {
 
 
 
-                      <div className="row">
-                        <div className="col-sm-12"> About the rooms.</div>
-                        <hr></hr>
+                    
+
+                      <div className="row textalighleft">
+                        <div className="row">
+                          <div className="col-sm-12"> Description</div>
+                        </div>
+                        <input type="textarea"
+                          name="textValue" className="descrption"
+                          onChange={this.handleChangetextarea.bind(this)}
+                        />
                       </div>
-
-
 
 
                       <div className="row textalighleft">
@@ -824,7 +847,7 @@ export class Property extends React.Component {
     );
   }
 
-  
+
   shoonChangewsp() {
     this.setState({
       value: 4
@@ -885,7 +908,7 @@ export class Property extends React.Component {
     })
   }
 
-  
+
   handletypeofAccormodation(val, divval) {
     if (divval == 1) {
       this.setState({
@@ -1558,15 +1581,15 @@ export class Property extends React.Component {
   }
 
   hovermefdiv2() { this.setState({ fdiv2Active: "fdvihover" }); }
-  
+
   removehovermefdiv2(e) { this.setState({ fdiv2Active: "normaldivbutton" }); }
 
   hovermefdiv3() { this.setState({ fdiv3Active: "fdvihover" }); }
-  
+
   removehovermefdiv3(e) { this.setState({ fdiv3Active: "normaldivbutton" }); }
 
   hovermefdiv4() { this.setState({ fdiv4Active: "fdvihover" }); }
-  
+
   removehovermefdiv4(e) { this.setState({ fdiv4Active: "normaldivbutton" }); }
 
   uuidv4() {

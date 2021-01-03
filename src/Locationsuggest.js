@@ -34,28 +34,95 @@ const languages = [
     name: 'Elm',
     year: 2012
   },
-  
-    {
-      name:'Al Fattan Marine Towers'
-    },
-    {name:'The Royal Oceanic'},
-    {name:'Al Atina Twin Towers'},
-    {name:'Paloma'},
-    {name:'Al Majara 1'},
-    {name:'Al Majara 2'},
-    {name:'Al Majara 3'},
-    {name:'Al Majara 4'},
-  {name:'Al Majara 5'},
-  {name:'Al Marsa Tower'},
-  {name:'Al Sahab Tower 1'},
-  {name:'Al Sahab Tower 2'},
-  {name:'Al Seef Tower'},
-  {name:'Emerald Residence'},
-  {name:'Al Areifi Marina'},
-  
 
+  {
+    name: 'Al Fattan Marine Towers',
+    long: "54.672600",
+    lagt: "24.454165 ",
+  },
+  {
+    name: 'The Royal Oceanic',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Atina Twin Towers',
 
-  
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Paloma',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Majara 1',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Majara 2',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Majara 3',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Majara 4',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Majara 5',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Marsa Tower',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Sahab Tower 1',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Sahab Tower 2',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Seef Tower',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Emerald Residence',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Areifi Marina',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+
+  {
+    name: 'Al Reef Villas',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+  {
+    name: 'Al Reem Island',
+    long: "54.672600",
+    lagt: "24.454165"
+  },
+
 ];
 
 const getSuggestions = value => {
@@ -96,17 +163,25 @@ export class Locationsuggest extends React.Component {
 
 
   onChange = (event, { newValue }) => {
-   //alert(newValue);
-   this.props.handlerhomek(newValue)
-    this.setState({
-      value: newValue
-    });
-  };
+
+
+
+    var tmpitem = languages.filter(properties => properties.name === newValue);
+    if (tmpitem.length>0 &&  tmpitem!= null) {
+     // alert(tmpitem[0].lagt);
+      this.props.handlerhomek(newValue,tmpitem[0].lagt,tmpitem[0].lat)
+    }
+     
+      this.setState({
+        value: newValue
+      });
+    };
+  
 
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
-  
+
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: getSuggestions(value)
@@ -121,7 +196,7 @@ export class Locationsuggest extends React.Component {
   };
 
 
- 
+
 
 
   render() {
@@ -132,11 +207,11 @@ export class Locationsuggest extends React.Component {
       placeholder: 'Search for the area.....',
       value,
       onChange: this.onChange,
-      className:"form-control"
+      className: "form-control"
     };
 
 
-   
+
 
     // Finally, render it!
     return (
