@@ -213,6 +213,10 @@ class bodycards extends Component {
       selectedFurnitureType: tmpitem[0].FurnishedTyope,
       selectedType: tmpitem[0].Type,
       selectedParking: tmpitem[0].parking,
+      AgentName: tmpitem[0].agentname,
+      AgentComapny: tmpitem[0].agentcompany,
+      AgentPic: tmpitem[0].AgentPic,
+      AgentPic: tmpitem[0].AgentNumber,
 
     });
   }
@@ -239,6 +243,11 @@ class bodycards extends Component {
           'key': xcount,
           'Price': this.formatMoney(res.data[i].Price),
           'PropertyId': res.data[i].PropertyId,
+          'AgentNumber': res.data[i].AgentNumber,
+          'AgentPic': res.data[i].AgentPic,
+          'agentname': res.data[i].agentname,
+          'description': res.data[i].description,
+          'agentcompany': res.data[i].agentcompany,
         }
         retrueneddata.push(obs);
         var objectcarousal = {
@@ -259,6 +268,11 @@ class bodycards extends Component {
           'picsstringtwo': res.data[i].picsstringtwo,
           'picstring': res.data[i].picstring,
           'totalbathrooms': res.data[i].totalbathrooms,
+          'AgentNumber': res.data[i].AgentNumber,
+          'AgentPic': res.data[i].AgentPic,
+          'agentname': res.data[i].agentname,
+          'description': res.data[i].description,
+          'agentcompany': res.data[i].agentcompany,
         }
         TempCarousalData.push(objectcarousal);
 
@@ -603,7 +617,7 @@ class bodycards extends Component {
                       <h3>{this.state.AgentName}</h3>
                       </div>
                     <div className="col-sm-6">
-                      <img src={agent} className="myimagesmall" />
+                      <img src={this.state.AgentPic} className="myimagesmall" />
                       </div>
                       <div className="col-sm-12">
                       <h4>{this.state.AgentComapny}</h4>
