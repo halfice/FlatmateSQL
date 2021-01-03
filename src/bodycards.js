@@ -215,8 +215,8 @@ class bodycards extends Component {
       selectedParking: tmpitem[0].parking,
       AgentName: tmpitem[0].agentname,
       AgentComapny: tmpitem[0].agentcompany,
-      AgentPic: tmpitem[0].AgentPic,
-      AgentPic: tmpitem[0].AgentNumber,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmpitem[0].AgentPic}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+AgentMobile: tmpitem[0].AgentNumber,
 
     });
   }
