@@ -71,6 +71,11 @@ class bodycards extends Component {
       AgentcarousalObjectitem: [],
       AgentName: this.props.AgentName,
 
+      ShowAnalytics:0,
+      ShowAgentDetails:0,
+
+      ButtonMapClose:"Location",
+ButtonShownumber:"Number"
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -80,15 +85,42 @@ class bodycards extends Component {
   }
 
   showmymapfunction() {
+    var TmpText=""
+    var TempMapIndicator=1;
+    if (this.state.showMyMap==1){
+      TmpText="Location";
+      TempMapIndicator=0;
+    }else{
+      TmpText="Show Pics"
+      TempMapIndicator=1;
+    }
     this.setState({
-      showMyMap: 1,
-
-
+      showMyMap: TempMapIndicator,
+      ButtonMapClose:TmpText
     });
   }
 
+
   showmynumber(){
-    alert(this.state.AgentNumber);
+    //ButtonShownumber
+    //alert(this.state.AgentMobile);
+
+    var TmpText=""
+    var TempMapIndicator=1;
+    if (this.state.showMyMap==1){
+      TmpText="Number";
+      TempMapIndicator=0;
+    }else{
+      TmpText="Show Pics"
+      TempMapIndicator=1;
+    }
+    this.setState({
+      ShowAgentDetails: TempMapIndicator,
+      ButtonShownumber:TmpText
+    });
+
+
+
   }
 
   getCarousal(propertyid) {
@@ -601,6 +633,27 @@ class bodycards extends Component {
                       </div>
                     }
 
+{
+                      this.state.ShowAgentDetails == 1 &&
+                      <div className="carousaldiv3">
+                       <div className="row agentdivCss">
+                      <div className="col-sm-6">
+                        <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
+                        <div className="leftdiv">Company : {this.state.AgentComapny}</div>
+                      </div>
+                      <div className="col-sm-6">
+                        <img src={this.state.AgentPic} className="myimagesmall" />
+                      </div>
+                      <div className="col-sm-6">
+                        <h4> {this.state.AgentMobile}</h4>
+                        
+                       
+                      </div>
+
+                    </div>
+                      </div>
+                    }
+
 
 
                     <div className="row">
@@ -635,7 +688,7 @@ class bodycards extends Component {
                     <div className="row">
 
                       <div className="col-sm-4 zerpadding">
-                        <div className="buttnemail" onClick={this.showmymapfunction.bind(this)} > Location</div>
+                        <div className="buttnemail" onClick={this.showmymapfunction.bind(this)} > {this.state.ButtonMapClose}</div>
                       </div>
                       <div className="col-sm-4 zerpadding">
                         <div className="myicondiv">
