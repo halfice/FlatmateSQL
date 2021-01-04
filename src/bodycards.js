@@ -749,6 +749,10 @@ class bodycards extends Component {
     this.setState({
       ShowCarousal: false,
       showMyMap: 0,
+      ShowAgentDetails:0,
+      ShowAnalytics:0,
+      showMyMap: 0,
+
     });
   }
 
