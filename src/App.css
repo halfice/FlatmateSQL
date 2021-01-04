@@ -614,7 +614,8 @@ a:hover{
 }
 
 .myimagesmall{
-  width:100px;
+  width:80px;
+  border:solid 3px #80808059
 }
 
 .carousalmessagediv{

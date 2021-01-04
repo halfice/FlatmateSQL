@@ -90,10 +90,7 @@ async getblobtoken() {
                                 </div>
                             </div>
                         </div>
-                        <div className="row" >
-                            <div className="col-sm-12 graytext">
-                            </div>
-                        </div>
+                        
                         <div className="row" >
                             <div className="col-sm-12">
                                 <Button className="mybuttons" onClick={this.handleClick} >Submit</Button>

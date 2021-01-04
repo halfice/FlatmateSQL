@@ -74,8 +74,9 @@ class bodycards extends Component {
 
     }
     this.CloseModal = this.CloseModal.bind(this);
+    this.showmynumber = this.showmynumber.bind(this);
 
-
+    
   }
 
   showmymapfunction() {
@@ -84,6 +85,10 @@ class bodycards extends Component {
 
 
     });
+  }
+
+  showmynumber(){
+    alert(this.state.AgentNumber);
   }
 
   getCarousal(propertyid) {
@@ -634,7 +639,7 @@ class bodycards extends Component {
                       </div>
                       <div className="col-sm-4 zerpadding">
                         <div className="myicondiv">
-                          <div className="buttn" > Number</div>
+                          <div className="buttn" onClick={this.showmynumber.bind(this)} > Number</div>
                         </div>
                       </div>
 
