@@ -640,7 +640,7 @@ class bodycards extends Component {
                       <div className="carousaldiv3">
                         <div className="closebuttondi" onClick={this.CloseModalAgentDtails}>
                           <FontAwesomeIcon icon={faTimes} /></div>
-                        <div className="row agentdivCss">
+                        <div className="row ">
                           <div className="col-sm-6">
                             <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
                             <div className="leftdiv">Company : {this.state.AgentComapny}</div>

@@ -583,6 +583,15 @@ a:hover{
 }
 
 
+.carousaldiv3{
+  position: absolute;
+  top:10%;
+  left: 40%;
+  border: solid 1px #e9e9e9;
+  background-color: #e9e9e9;
+  border-radius: 11px;
+}
+
 .leftdiv{
   text-align: left;
   columns: #004085;
@@ -597,6 +606,7 @@ a:hover{
   margin-left: 11px;
   background-color: #e9e9e9;
   border-radius: 11px;
+  
 }
 
 
@@ -611,6 +621,14 @@ a:hover{
  
   display: none !important;
   
+}
+
+.agentDtailBox{
+  z-index: 99999999;
+  position: absolute;
+  top: 50%;
+  width:50%;
+  left:40%;
 }
 
 .myimagesmall{
