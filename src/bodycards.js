@@ -71,52 +71,54 @@ class bodycards extends Component {
       AgentcarousalObjectitem: [],
       AgentName: this.props.AgentName,
 
-      ShowAnalytics:0,
-      ShowAgentDetails:0,
+      ShowAnalytics: 0,
+      ShowAgentDetails: 0,
 
-      ButtonMapClose:"Location",
-ButtonShownumber:"Number"
+      ButtonMapClose: "Location",
+      ButtonShownumber: "Number"
 
     }
     this.CloseModal = this.CloseModal.bind(this);
     this.showmynumber = this.showmynumber.bind(this);
 
-    
+
   }
 
   showmymapfunction() {
-    var TmpText=""
-    var TempMapIndicator=1;
-    if (this.state.showMyMap==1){
-      TmpText="Location";
-      TempMapIndicator=0;
-    }else{
-      TmpText="Show Pics"
-      TempMapIndicator=1;
+    var TmpText = ""
+    var TempMapIndicator = 1;
+    if (this.state.showMyMap == 1) {
+      TmpText = "Location";
+      TempMapIndicator = 0;
+    } else {
+      TmpText = "Show Pics"
+      TempMapIndicator = 1;
     }
     this.setState({
       showMyMap: TempMapIndicator,
-      ButtonMapClose:TmpText
+      ButtonMapClose: TmpText
     });
   }
 
-
-  showmynumber(){
+  CloseModalAgentDtails(){
+    this.showmynumber();
+  }
+  showmynumber() {
     //ButtonShownumber
     //alert(this.state.AgentMobile);
 
-    var TmpText=""
-    var TempMapIndicator=1;
-    if (this.state.showMyMap==1){
-      TmpText="Number";
-      TempMapIndicator=0;
-    }else{
-      TmpText="Show Pics"
-      TempMapIndicator=1;
+    var TmpText = ""
+    var TempMapIndicator = 1;
+    if (this.state.showMyMap == 1) {
+      TmpText = "Number";
+      TempMapIndicator = 0;
+    } else {
+      TmpText = "Show Pics"
+      TempMapIndicator = 1;
     }
     this.setState({
       ShowAgentDetails: TempMapIndicator,
-      ButtonShownumber:TmpText
+      ButtonShownumber: TmpText
     });
 
 
@@ -633,24 +635,23 @@ ButtonShownumber:"Number"
                       </div>
                     }
 
-{
+                    {
                       this.state.ShowAgentDetails == 1 &&
                       <div className="carousaldiv3">
-                       <div className="row agentdivCss">
-                      <div className="col-sm-6">
-                        <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
-                        <div className="leftdiv">Company : {this.state.AgentComapny}</div>
-                      </div>
-                      <div className="col-sm-6">
-                        <img src={this.state.AgentPic} className="myimagesmall" />
-                      </div>
-                      <div className="col-sm-6">
-                        <h4> {this.state.AgentMobile}</h4>
-                        
-                       
-                      </div>
+                        <div className="closebuttondi" onClick={this.CloseModalAgentDtails}>
+                          <FontAwesomeIcon icon={faTimes} /></div>
+                        <div className="row agentdivCss">
+                          <div className="col-sm-6">
+                            <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
+                            <div className="leftdiv">Company : {this.state.AgentComapny}</div>
+                            <div className="leftdiv">Mobile# : {this.state.AgentMobile}</div>
+                          </div>
+                          <div className="col-sm-6">
+                            <img src={this.state.AgentPic} className="myimagesmall" />
+                          </div>
 
-                    </div>
+
+                        </div>
                       </div>
                     }
 
