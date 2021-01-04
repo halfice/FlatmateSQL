@@ -101,7 +101,10 @@ class bodycards extends Component {
   }
 
   CloseModalAgentDtails(){
-    this.showmynumber();
+    this.setState({
+      ShowAgentDetails: 0,
+      ButtonShownumber: "Number"
+    });
   }
   showmynumber() {
     //ButtonShownumber
