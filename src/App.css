@@ -21,7 +21,16 @@
   text-align: right;
 }
 
-
+.closebuttondi2 {
+  padding: 9px;
+  color: #ffc107;
+  font-stretch: ultra-condensed;
+  font: icon;
+  font-size: 33px;
+  cursor: pointer;
+  z-index: 11111111;
+  text-align: right;
+}
 
 
 .range-slider__tooltip__label{

@@ -641,7 +641,7 @@ class bodycards extends Component {
                     {
                       this.state.ShowAgentDetails == 1 &&
                       <div className="carousaldiv3">
-                        <div className="closebuttondi" onClick={this.CloseModalAgentDtails}>
+                        <div className="closebuttondi2" onClick={this.CloseModalAgentDtails}>
                           <FontAwesomeIcon icon={faTimes} /></div>
                         <div className="row ">
                           <div className="col-sm-6">
