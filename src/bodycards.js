@@ -80,6 +80,7 @@ class bodycards extends Component {
     }
     this.CloseModal = this.CloseModal.bind(this);
     this.showmynumber = this.showmynumber.bind(this);
+    this.CloseModalAgentDtails = this.CloseModalAgentDtails.bind(this);
 
 
   }
