@@ -727,7 +727,7 @@ class bodycards extends Component {
                       </div>
 
                       <div className="col-sm-4 zerpadding">
-                        <div className="myicondiv">
+                        <div >
                         <Heart isClick={ this.state.isClick} onClick={this.setClick.bind(this)} />
 
                         </div>
