@@ -29,6 +29,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
 import GoogleMap from './googlemap'
 import agent from './agent.png'
+import Heart from "react-animated-heart";
+import Propertyanalytics from './propertyanalytics';
+
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -75,15 +78,33 @@ class bodycards extends Component {
       ShowAgentDetails: 0,
 
       ButtonMapClose: "Location",
-      ButtonShownumber: "Number"
+      ButtonShownumber: "Number",
+      isClick:false,
+      showAnalytics:false,
 
     }
     this.CloseModal = this.CloseModal.bind(this);
     this.showmynumber = this.showmynumber.bind(this);
     this.CloseModalAgentDtails = this.CloseModalAgentDtails.bind(this);
-
+    this.setClick = this.setClick.bind(this);
 
   }
+
+  setClick(){
+    var tmp=this.state.isClick;
+    if (tmp==true){
+      this.setState({
+        isClick:false,
+        showAnalytics:false,
+      });
+    }else{
+      this.setState({
+        isClick:true,
+        showAnalytics:true,
+      });
+    }
+  }
+
 
   showmymapfunction() {
     var TmpText = ""
@@ -107,6 +128,7 @@ class bodycards extends Component {
       ButtonShownumber: "Number"
     });
   }
+
   showmynumber() {
     //ButtonShownumber
     //alert(this.state.AgentMobile);
@@ -404,6 +426,7 @@ class bodycards extends Component {
   }
 
   render() {
+   // const [] = useState(false);
     // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     //const simgstr1 = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
@@ -550,9 +573,6 @@ class bodycards extends Component {
     });
 
 
-
-
-
     if (this.state.ObjectArrayBids != null) {
       var SubProjectArrays3 = this.state.ObjectArrayBids.map((item, i) => {
         return (<div className="mansearch"  >
@@ -600,9 +620,6 @@ class bodycards extends Component {
 
 
 
-
-
-
     return (
       <div className="container-fluid">
         <div className="row" >
@@ -638,6 +655,14 @@ class bodycards extends Component {
                         <GoogleMap />
                       </div>
                     }
+
+{
+                      this.state.ShowAnalytics == true &&
+                      <div className="carousaldiv3">
+                        <Propertyanalytics />
+                      </div>
+                    }
+
 
                     {
                       this.state.ShowAgentDetails == 1 &&
@@ -703,7 +728,8 @@ class bodycards extends Component {
 
                       <div className="col-sm-4 zerpadding">
                         <div className="myicondiv">
-                          <div className="buttnemail" >ThumbsUp</div>
+                        <Heart isClick={ this.state.isClick} onClick={this.setClick.bind(this)} />
+
                         </div>
                       </div>
 
