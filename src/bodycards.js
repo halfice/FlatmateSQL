@@ -70,7 +70,7 @@ class bodycards extends Component {
       AgentComapny: this.props.AgentComapny,
       AgentMobile: this.props.AgentMobile,
       AgentPic: this.props.AgentPic,
-      AgentcarousalObject: thisl.props.AgentcarousalObject,
+      AgentcarousalObject: this.props.AgentcarousalObject,
       AgentcarousalObjectitem: [],
       AgentName: this.props.AgentName,
 

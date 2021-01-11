@@ -18,6 +18,7 @@ import Register from './screenregister'
 import Profile from './Profile'
 import Bids from './bids';
 import Property from './property'
+import axios from 'axios';
 
 import AgentProfile from './agentprofile';
 import NearbyPlace from './nearbyplaces';
