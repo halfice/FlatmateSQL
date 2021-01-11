@@ -95,12 +95,12 @@ class bodycards extends Component {
     if (tmp==true){
       this.setState({
         isClick:false,
-        showAnalytics:false,
+        showAnalytics:0,
       });
     }else{
       this.setState({
         isClick:true,
-        showAnalytics:true,
+        showAnalytics:1,
       });
     }
   }
@@ -657,8 +657,8 @@ class bodycards extends Component {
                     }
 
 {
-                      this.state.ShowAnalytics == true &&
-                      <div className="carousaldiv3">
+                      this.state.ShowAnalytics == 1 &&
+                      <div className="carousaldiv4">
                         <Propertyanalytics />
                       </div>
                     }

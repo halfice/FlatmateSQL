@@ -615,7 +615,18 @@ a:hover{
   height: 400px;
   top: 180px;
 }
-
+.carousaldiv4{
+  position: absolute;
+  top:10%;
+  left: 40%;
+  border: solid 1px #e9e9e9;
+  background-color: #e9e9e9;
+  border-radius: 11px;
+    border-radius: 11px;
+    z-index: 99999999;
+   
+    width: 40%;
+}
 
 .carousaldiv3{
   position: absolute;
