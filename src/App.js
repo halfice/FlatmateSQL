@@ -51,7 +51,13 @@ class App extends Component {
       AgentMobile:"",
       AgentCompany:"",
 
+      //fech properties agent
+      GlobalObject:[],
+      GlobalObjectCarousal:[],
 
+      //fethc properties
+      ObjectArray:[],
+      carousalObject:[],
     }
   }
 
@@ -187,7 +193,8 @@ class App extends Component {
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
             this.state.needwizard != 500 && this.state.needwizard != 5 &&
 
-            <div className="col-sm-12"><Bodycards AgentName={this.state.AgentName}  AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
+            <div className="col-sm-12">
+              <Bodycards ObjectArray={this.state.ObjectArray}  carousalObject={this.state.carousalObject}   AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject}   AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
 
           }
 
@@ -299,6 +306,138 @@ class App extends Component {
 
 
    
+  }
+
+  componentDidMount() {
+    this.fetchpropertiesagent();
+    this.fetchproperties();
+  }
+  async fetchpropertiesagent() {
+    var _Response = null;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
+    var retrueneddata = [];
+    var TempCarousalData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
+    try {
+      let res = await axios.post(loginurl);
+      console.log("Agent" + res);
+      var xcount = 10;
+      for (var i = 0; i < res.data.length; i++) {
+        xcount = xcount + 1;
+        var obs = {
+          'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+          'rent': res.data[i].Price,//metadata.colName,
+          'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+          'propertyAddress': res.data[i].Location,//.metadata.colName,
+          'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+          'key': xcount,
+          'Price': res.data[i].Price,
+          'PropertyId': res.data[i].PropertyId,
+          'profilepicname': res.data[i].profilepicname,
+        }
+        retrueneddata.push(obs);
+        var objectcarousal = {
+          'AgentId': res.data[i].AgentId,
+          'Bedrooms': res.data[i].Bedrooms,
+          'Deal': res.data[i].Deal,
+          'FurnishedTyope': res.data[i].FurnishedTyope,
+          'Location': res.data[i].Location,
+          'LoginUserID': res.data[i].LoginUserID,
+          'Price': res.data[i].Price,
+          'PropertyId': res.data[i].PropertyId,
+          'State': res.data[i].State,
+          'Type': res.data[i].Type,
+          'internet': res.data[i].internet,
+          'parking': res.data[i].parking,
+          'picsstringone': res.data[i].picsstringone,
+          'picsstringthree': res.data[i].picsstringthree,
+          'picsstringtwo': res.data[i].picsstringtwo,
+          'picstring': res.data[i].picstring,
+          'totalbathrooms': res.data[i].totalbathrooms,
+          'profilepicname': res.data[i].profilepicname,
+        }
+        TempCarousalData.push(objectcarousal);
+
+
+      }
+      this.setState({
+        GlobalObject: retrueneddata,
+        GlobalObjectCarousal: TempCarousalData,
+        loader: false,
+      });
+
+    } catch (error) {
+
+    }
+  }
+
+  async fetchproperties() {
+    var _Response = null;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
+    var retrueneddata = [];
+    var TempCarousalData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=b";
+    try {
+      let res = await axios.post(loginurl);
+      console.log(res);
+      var xcount = 10;
+      for (var i = 0; i < res.data.length; i++) {
+        xcount = xcount + 1;
+        var obs = {
+          'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+          'rent': res.data[i].Price,//metadata.colName,
+          'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+          'propertyAddress': res.data[i].Location,//.metadata.colName,
+          'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+          'key': xcount,
+          'Price': this.formatMoney(res.data[i].Price),
+          'PropertyId': res.data[i].PropertyId,
+          'AgentNumber': res.data[i].AgentNumber,
+          'AgentPic': res.data[i].AgentPic,
+          'agentname': res.data[i].agentname,
+          'description': res.data[i].description,
+          'agentcompany': res.data[i].agentcompany,
+        }
+        retrueneddata.push(obs);
+        var objectcarousal = {
+          'AgentId': res.data[i].AgentId,
+          'Bedrooms': res.data[i].Bedrooms,
+          'Deal': res.data[i].Deal,
+          'FurnishedTyope': res.data[i].FurnishedTyope,
+          'Location': res.data[i].Location,
+          'LoginUserID': res.data[i].LoginUserID,
+          'Price': this.formatMoney(res.data[i].Price),
+          'PropertyId': res.data[i].PropertyId,
+          'State': res.data[i].State,
+          'Type': res.data[i].Type,
+          'internet': res.data[i].internet,
+          'parking': res.data[i].parking,
+          'picsstringone': res.data[i].picsstringone,
+          'picsstringthree': res.data[i].picsstringthree,
+          'picsstringtwo': res.data[i].picsstringtwo,
+          'picstring': res.data[i].picstring,
+          'totalbathrooms': res.data[i].totalbathrooms,
+          'AgentNumber': res.data[i].AgentNumber,
+          'AgentPic': res.data[i].AgentPic,
+          'agentname': res.data[i].agentname,
+          'description': res.data[i].description,
+          'agentcompany': res.data[i].agentcompany,
+        }
+        TempCarousalData.push(objectcarousal);
+
+
+      }
+      this.setState({
+        ObjectArray: retrueneddata,
+        carousalObject: TempCarousalData,
+        loader: false,
+      });
+
+    } catch (error) {
+
+    }
   }
 }
 export default withTranslation()(App);

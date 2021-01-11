@@ -40,11 +40,11 @@ class bodycards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ObjectArray: [],
+      ObjectArray: this.props.ObjectArray,
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
 
-      AgentObjectArray: [],
+      AgentObjectArray: this.props.AgentObjectArray,
       loader: true,
       ImagesArray: [],
       ShowCarousal: false,
@@ -52,7 +52,7 @@ class bodycards extends Component {
       myBlobs: [],
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
-      carousalObject: [],
+      carousalObject: this.props.carousalObject,
       carousalObjectitem: [],
       carousalItemCount: 0,
       currenproperyid: 0,
@@ -70,7 +70,7 @@ class bodycards extends Component {
       AgentComapny: this.props.AgentComapny,
       AgentMobile: this.props.AgentMobile,
       AgentPic: this.props.AgentPic,
-      AgentcarousalObject: [],
+      AgentcarousalObject: thisl.props.AgentcarousalObject,
       AgentcarousalObjectitem: [],
       AgentName: this.props.AgentName,
 
@@ -762,7 +762,7 @@ class bodycards extends Component {
       });
       // this.fetchblobs();
       //this.fetchpropertiesagent();
-      this.fetchproperties();
+     // this.fetchproperties();
 
     } catch (error) {
       console.log(error);
@@ -771,7 +771,7 @@ class bodycards extends Component {
 
   componentDidMount() {
     this.getblobtoken();
-    this.fetchpropertiesagent();
+    //this.fetchpropertiesagent();
 
   }
 
