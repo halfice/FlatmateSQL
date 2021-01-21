@@ -32,35 +32,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 6000,
+      needwizard: 0,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
       BodyCardLoader: true,
-      PropertyType:"0",
-      Location:"0",
-      NoOfBedRooms:"0",
-      Furnished:"0",
-      PriceMin:"0",
-      PriceMax:"0",
-      Statec:"0",
-      Deal:"0",
-      Feet:"0",
-      SeachBox:"0",
-      AgentName:"",
-      AgentPic:"",
-      AgentMobile:"",
-      AgentCompany:"",
+      PropertyType: "0",
+      Location: "0",
+      NoOfBedRooms: "0",
+      Furnished: "0",
+      PriceMin: "0",
+      PriceMax: "0",
+      Statec: "0",
+      Deal: "0",
+      Feet: "0",
+      SeachBox: "0",
+      AgentName: "",
+      AgentPic: "",
+      AgentMobile: "",
+      AgentCompany: "",
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
 
       //fech properties agent
-      GlobalObject:[],
-      GlobalObjectCarousal:[],
+      GlobalObject: [],
+      GlobalObjectCarousal: [],
 
       //fethc properties
-      ObjectArray:[],
-      carousalObject:[],
+      ObjectArray: [],
+      carousalObject: [],
     }
   }
 
@@ -117,6 +117,7 @@ class App extends Component {
         {this.state.needwizard == 0 && this.state.needwizard != 1000 &&
           this.state.needwizard != 100 && this.state.needwizard != 1 &&
           this.state.needwizard != 500 && this.state.needwizard != 5 &&
+          this.state.needwizard != 600 &&
           <div className="row">
             <MainBodyCards handler={this.handler} />
 
@@ -147,7 +148,7 @@ class App extends Component {
         {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property AgentName={this.state.AgentName}  AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic}  UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Property AgentName={this.state.AgentName} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -161,27 +162,21 @@ class App extends Component {
 
         }
 
-
-
-
-
         {
           this.state.needwizard == 500 &&
           <div className="col-sm-12"><AgentProfile userLoginId={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
-
         }
 
-{
+        {
           this.state.needwizard == 600 &&
-          <div className="col-sm-12"><SearchProperty 
-          PropertyType={this.state.PropertyType} Location={this.state.Location}
-          NoOfBedRooms={this.state.NoOfBedRooms}Furnished={this.state.Furnished}
-          PriceMin={this.state.PriceMin}PriceMax={this.state.PriceMax}
-          Statec={this.state.Statec}Deal={this.state.Deal}
-          Feet={this.state.Feet}SeachBox={this.state.SeachBox}
-          
-          />
+          <div className="col-sm-12">
+            <SearchProperty
+              PropertyType={this.state.PropertyType} Location={this.state.Location}
+              NoOfBedRooms={this.state.NoOfBedRooms} Furnished={this.state.Furnished}
+              PriceMin={this.state.PriceMin} PriceMax={this.state.PriceMax}
+              Statec={this.state.Statec} Deal={this.state.Deal}
+              Feet={this.state.Feet} SeachBox={this.state.SeachBox} />
           </div>
 
         }
@@ -194,10 +189,11 @@ class App extends Component {
             this.state.needwizard != 4 &&
             this.state.needwizard == 0 && this.state.needwizard != 1000 &&
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
-            this.state.needwizard != 500 && this.state.needwizard != 5 &&
+            this.state.needwizard != 500 && this.state.needwizard != 5 
+            && this.state.needwizard != 600 &&
 
             <div className="col-sm-12">
-              <Bodycards ObjectArray={this.state.ObjectArray}  carousalObject={this.state.carousalObject}   AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject}   AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
+              <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
 
           }
 
@@ -246,7 +242,7 @@ class App extends Component {
     })
   }
 
-  handleRegisnteredUserId = (useridfromdb,AgentMobile,agentPic,agentCompany,agentname) => {
+  handleRegisnteredUserId = (useridfromdb, AgentMobile, agentPic, agentCompany, agentname) => {
 
     var myObject = JSON.stringify(useridfromdb.data);
     if (useridfromdb.data == undefined) {
@@ -257,12 +253,12 @@ class App extends Component {
     var userid = myObject;
     this.setState({
       userid: userid,
-      AgentMobile:AgentMobile,
-      AgentPic:agentPic,
+      AgentMobile: AgentMobile,
+      AgentPic: agentPic,
       needwizard: 0,
       showcard: 1,
-      AgentCompany:agentCompany,
-      AgentName:agentname,
+      AgentCompany: agentCompany,
+      AgentName: agentname,
 
     })
   }
@@ -303,17 +299,19 @@ class App extends Component {
     })
   }
 
-  handleSearchClick = (PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox) => {
-   //console.log(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
-  
+  handleSearchClick = (PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) => {
+    //console.log(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
+    this.setState({
+      needwizard: 600,
+    });
 
 
-   
+
   }
 
   componentDidMount() {
     this.fetchpropertiesagent();
-    this.fetchproperties();
+    // this.fetchproperties();
   }
   async fetchpropertiesagent() {
     var _Response = null;
@@ -368,7 +366,7 @@ class App extends Component {
         GlobalObject: retrueneddata,
         GlobalObjectCarousal: TempCarousalData,
         loader: false,
-        needwizard:0,
+        needwizard: 0,
       });
 
     } catch (error) {
