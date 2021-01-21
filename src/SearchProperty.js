@@ -575,7 +575,8 @@ class SearchComponent extends Component {
       }
     
       componentDidMount() {
-        this.fetchproperties();
+       // this.fetchproperties();
+       alert("S");
     
       }
     

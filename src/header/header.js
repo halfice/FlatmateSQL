@@ -40,29 +40,29 @@ export class Header extends React.Component {
       userLoginId: this.props.userLoginId,
       rangevalue: 0,
       area: "",
-      PropertyType:"",
-      Location:"",
-      NoOfBedRooms:"",
-      Furnished:"",
-      PriceMin:"",
-      PriceMax:"",
-      Statec:"",
-      Deal:"",
-      Feet:"",
-      SeachBox:"",
+      PropertyType: "",
+      Location: "",
+      NoOfBedRooms: "",
+      Furnished: "",
+      PriceMin: "",
+      PriceMax: "",
+      Statec: "",
+      Deal: "",
+      Feet: "",
+      SeachBox: "",
 
-    
 
-      selectedOptionPropertyType:null,
-      selectedOptionLocation:null,
-      selectedOptionNoOfBedRooms:null,
-      selectedOptionFurnished:null,
-      selectedOptionPriceMin:null,
-      selectedOptionPriceMax:null,
-      selectedOptionStatec:null,
-      selectedOptionDeal:null,
-      Feet:null,
-      SeachBox:null,
+
+      selectedOptionPropertyType: "Select Property Type",
+      selectedOptionLocation: "Select Property Type",
+      selectedOptionNoOfBedRooms: "Select Property Type",
+      selectedOptionFurnished: "Select Property Type",
+      selectedOptionPriceMin: "Select Property Type",
+      selectedOptionPriceMax: "Select Property Type",
+      selectedOptionStatec: "Select Property Type",
+      selectedOptionDeal: "Select Property Type",
+      Feet: "Select Property Type",
+      SeachBox: "Select Property Type",
 
 
 
@@ -77,85 +77,91 @@ export class Header extends React.Component {
   }
 
 
-  
-  handMainSearch(event)
-  {
-      this.setState({
-        SeachBox: event.target.value
-        });
+
+  handMainSearch(event) {
+    this.setState({
+      SeachBox: event.target.value
+    });
   }
 
-  handlearea(event)
-  {
-      this.setState({
-        Feet: event.target.value
-        });
+  handlearea(event) {
+    this.setState({
+      Feet: event.target.value
+    });
   }
 
 
   handlePropertyType = selectedOptionPropertyType => {
     this.setState(
-      { selectedOptionPropertyType,
-        PropertyType:selectedOptionPropertyType.label });
-    
+      {
+        selectedOptionPropertyType,
+        PropertyType: selectedOptionPropertyType.label
+      });
+
   };
 
   handleLocation = selectedOptionLocation => {
     this.setState(
-      { selectedOptionLocation,
-        Location:selectedOptionLocation.label });
-    
+      {
+        selectedOptionLocation,
+        Location: selectedOptionLocation.label
+      });
+
   };
 
   handleNoOfBedRooms = selectedOptionNoOfBedRooms => {
     this.setState(
-      { selectedOptionNoOfBedRooms,
-        NoOfBedRooms:selectedOptionNoOfBedRooms.label });
-    
+      {
+        selectedOptionNoOfBedRooms,
+        NoOfBedRooms: selectedOptionNoOfBedRooms.label
+      });
+
   };
 
   handleFurnished = selectedOptionFurnished => {
     this.setState(
-      { selectedOptionFurnished,
-        Furnished:selectedOptionFurnished.label });
-    
+      {
+        selectedOptionFurnished,
+        Furnished: selectedOptionFurnished.label
+      });
+
   };
 
   handlePriceMin = selectedOptionPriceMin => {
     this.setState(
-      { selectedOptionPriceMin,
-        PriceMin:selectedOptionPriceMin.label });
-    
+      {
+        selectedOptionPriceMin,
+        PriceMin: selectedOptionPriceMin.label
+      });
+
   };
 
   handlePriceMax = selectedOptionPriceMax => {
     this.setState(
-      { selectedOptionPriceMax,
-        PriceMax:selectedOptionPriceMax.label });
-    
+      {
+        selectedOptionPriceMax,
+        PriceMax: selectedOptionPriceMax.label
+      });
+
   };
 
   handleStatec = selectedOptionStatec => {
     this.setState(
-      { selectedOptionStatec,
-        Statec:selectedOptionStatec.label });
-    
+      {
+        selectedOptionStatec,
+        Statec: selectedOptionStatec.label
+      });
+
   };
 
   handleDeal = selectedOptionDeal => {
     this.setState(
-      { selectedOptionDeal,
-        Deal:selectedOptionDeal.label });
-    
+      {
+        selectedOptionDeal,
+        Deal: selectedOptionDeal.label
+      });
+
   };
-
-  
-
-  
-
-  
-
-
 
 
   componentDidMount() {
@@ -176,11 +182,12 @@ export class Header extends React.Component {
 
 
     const optionsLocation = [
-      { value: 'Marina', label: 'Marina' },
+
+
       { value: 'Al-Reef', label: 'Al-Reef' },
       { value: 'Sadiyat', label: 'Sadiyat' },
     ];
-    
+
 
     const optionsNoOfBedRooms = [
       { value: '1', label: '1' },
@@ -227,9 +234,9 @@ export class Header extends React.Component {
       { value: 'No', label: 'No' },
     ];
 
-  
-    
-    
+
+
+
 
 
 
@@ -239,11 +246,11 @@ export class Header extends React.Component {
         <div className="row">
           <div className="col-sm-4">
             <div>
-         </div></div>
+            </div></div>
           <div className="col-sm-4">
             <div className="mansearch">
               <input type="email" className="form-control texboscsssearch" onChange={this.handMainSearch} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search mates / Property"></input>
-              
+
             </div>
           </div>
           <div className="col-sm-4 hideonmobile">
@@ -274,46 +281,48 @@ export class Header extends React.Component {
 
           <div className="col-md-2">
 
-          <Select
-         value={this.state.selectedOptionPropertyType}
-        onChange={this.handlePropertyType}
-        options={optionsPropertyType}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionPropertyType}
+              onChange={this.handlePropertyType}
+              options={optionsPropertyType}
+              className="dropdowng"
+              placeholder="Select Property Type"
+            />
 
-        
+
 
 
 
           </div>
           <div className="col-lg-3">
-          <Select
-        value={this.state.selectedOptionLocation}
-        onChange={this.handleLocation}
-        options={optionsLocation}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionLocation}
+              onChange={this.handleLocation}
+              options={optionsLocation}
+              className="dropdowng"
+              placeholder="Select Location"
+            />
 
           </div>
           <div className="col-lg-2">
-          <Select
-        value={this.state.selectedOptionNoOfBedRooms}
-        onChange={this.handleNoOfBedRooms}
-        options={optionsNoOfBedRooms}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionNoOfBedRooms}
+              onChange={this.handleNoOfBedRooms}
+              options={optionsNoOfBedRooms}
+              className="dropdowng"
+              placeholder="# Number of Bedroom"
+            />
           </div>
           <div className="col-lg-2">
-          <Select
-        value={this.state.selectedOptionFurnished}
-        onChange={this.handleFurnished}
-        options={optionsFurnished}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionFurnished}
+              onChange={this.handleFurnished}
+              options={optionsFurnished}
+              className="dropdowng"
+              placeholder="Furnished?"
+            />
           </div>
           <div className="col-lg-2">
-
-
 
             <input type="text" className="form-control" onChange={this.handlearea} placeholder="SQL FEET 0 - 999"></input>
 
@@ -326,46 +335,50 @@ export class Header extends React.Component {
         <div className="searchRow">
 
           <div className="col-md-2">
-          <Select
-        value={this.state.selectedOptionPriceMin}
-        onChange={this.handlePriceMin}
-        options={optionsPriceMin}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionPriceMin}
+              onChange={this.handlePriceMin}
+              options={optionsPriceMin}
+              className="dropdowng"
+              placeholder="Min-Price i.e. 10K"
+            />
 
 
 
 
           </div>
           <div className="col-lg-3">
-          <Select
-        value={this.state.selectedOptionPriceMax}
-        onChange={this.handlePriceMax}
-        options={optionsPriceMax}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionPriceMax}
+              onChange={this.handlePriceMax}
+              options={optionsPriceMax}
+              className="dropdowng"
+              placeholder="Max Price i.e. 1Million"
+            />
           </div>
           <div className="col-lg-2">
-          <Select
-        value={this.state.selectedOptionStatec}
-        onChange={this.handleStatec}
-        options={optionsState}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionStatec}
+              onChange={this.handleStatec}
+              options={optionsState}
+              className="dropdowng"
+              placeholder="Your State"
+            />
           </div>
           <div className="col-lg-2">
-          <Select
-        value={this.state.selectedOptionDeal}
-        onChange={this.handleDeal}
-        options={optionsDeal}
-        className="dropdowng"
-      />
+            <Select
+              value={this.state.selectedOptionDeal}
+              onChange={this.handleDeal}
+              options={optionsDeal}
+              className="dropdowng"
+              placeholder="Hot?"
+            />
           </div>
           <div className="col-lg-2">
 
-            <div className="mybuttons btn btn-primary" onClick = {() => this.props.handleSearchClick(this.state.PropertyType,this.state.Location,this.state.NoOfBedRooms,
-              this.state.Furnished,this.state.PriceMin,this.state.PriceMax,this.state.Statec,
-              this.state.Deal,this.state.Feet,this.state.SeachBox)}>
+            <div className="mybuttons btn btn-primary" onClick={() => this.props.handleSearchClick(this.state.PropertyType, this.state.Location, this.state.NoOfBedRooms,
+              this.state.Furnished, this.state.PriceMin, this.state.PriceMax, this.state.Statec,
+              this.state.Deal, this.state.Feet, this.state.SeachBox)}>
               <div className="innerbt">
                 Let go
   </div>
