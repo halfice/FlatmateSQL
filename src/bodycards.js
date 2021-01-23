@@ -498,7 +498,7 @@ class bodycards extends Component {
 
 
                 </div>
-                <div className="col-sm-3 zerpaddingmsg">
+                <div className="col-sm-3 zeroPaddingMessage">
                   <div className="myicondiv">
                     <img src={message} width="50px" />
 

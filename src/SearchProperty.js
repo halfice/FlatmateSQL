@@ -295,11 +295,11 @@ class SearchProperty extends Component {
                     <img src={whatsapp} width="50px" />
                   </div>   
                   </div>
-                <div className="col-sm-4 zerpadding">
-                  <img src={emailicon} width="50px" />
+                <div className="col-sm-4 zerpaddingEmail">
+                  <img src={emailicon} width="39px" />
                   
                 </div>
-                <div className="col-sm-4 zerpadding">
+                <div className="col-sm-4 zeroPaddingMessage">
                 
                     <img src={message} width="50px" />
 
