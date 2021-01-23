@@ -307,9 +307,9 @@ class App extends Component {
 
   handleSearchClick = (PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) => {
     //console.log(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
-    //this.setState({
-     // needwizard: 600,
-   // });
+    this.setState({
+      needwizard: 0,
+    });
 
    this.fetchpropertiesSearch();
 
