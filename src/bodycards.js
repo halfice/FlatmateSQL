@@ -32,7 +32,7 @@ import agent from './agent.png'
 import Heart from "react-animated-heart";
 import Propertyanalytics from './propertyanalytics';
 import message from './msgicon.jpg';
-import emailicon from '.emailicon.gif'
+import emailicon from './emailicon.gif'
 
 
 

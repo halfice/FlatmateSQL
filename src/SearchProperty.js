@@ -29,7 +29,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
 import { transform } from 'async';
 import message from './msgicon.jpg';
-import emailicon from '.emailicon.gif'
+import emailicon from './emailicon.gif'
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
