@@ -28,6 +28,8 @@ import calls from './call.gif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
 import { transform } from 'async';
+import message from './msgicon.jpg';
+import emailicon from '.emailicon.gif'
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -255,16 +257,12 @@ class SearchProperty extends Component {
     }
   }
 
-
   formatMoney(num) {
     var p = num.toFixed(2).split(".");
     return "$" + p[0].split("").reverse().reduce(function (acc, num, i, orig) {
       return num == "-" ? acc : num + (i && !(i % 3) ? "," : "") + acc;
     }, "") + "." + p[1];
   }
-
-
-
 
   handleSelect = (selectedIndex, e) => {
 
@@ -298,10 +296,14 @@ class SearchProperty extends Component {
                   </div>   </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="buttnemail" >Email</div>
+                  <img src={emailicon} width="50px" />
+                  
                 </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="myicondiv">
-                    <div className="buttn" >Message</div>
+
+                    <img src={message} width="50px" />
+
                   </div>
                 </div>
 
