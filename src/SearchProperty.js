@@ -58,6 +58,9 @@ class SearchProperty extends Component {
       Feet: this.props.Feet,
       SeachBox: this.props.SeachBox,
       carousalObjectitem: [],
+      finalArrayObject:this.props.SearchArray,
+      carousalObject:this.props.carousalObjectSearch,
+
 
 
     }
@@ -487,7 +490,7 @@ class SearchProperty extends Component {
   }
 
   componentDidMount() {
-    this.fetchpropertiesSearch();
+   // this.fetchpropertiesSearch();
 
   }
 

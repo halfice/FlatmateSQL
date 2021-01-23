@@ -61,6 +61,8 @@ class App extends Component {
       //fethc properties
       ObjectArray: [],
       carousalObject: [],
+      finalArrayObject:[],
+
     }
   }
 
@@ -176,7 +178,11 @@ class App extends Component {
               NoOfBedRooms={this.state.NoOfBedRooms} Furnished={this.state.Furnished}
               PriceMin={this.state.PriceMin} PriceMax={this.state.PriceMax}
               Statec={this.state.Statec} Deal={this.state.Deal}
-              Feet={this.state.Feet} SeachBox={this.state.SeachBox} />
+              Feet={this.state.Feet} SeachBox={this.state.SeachBox}
+              SearchArray={this.state.ObjectArray}
+              carousalObjectSearch={this.state.carousalObject}
+              
+              />
           </div>
 
         }
@@ -301,9 +307,11 @@ class App extends Component {
 
   handleSearchClick = (PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) => {
     //console.log(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
-    this.setState({
-      needwizard: 600,
-    });
+    //this.setState({
+     // needwizard: 600,
+   // });
+
+   this.fetchproperties();
 
 
 
@@ -435,6 +443,65 @@ class App extends Component {
         ObjectArray: retrueneddata,
         carousalObject: TempCarousalData,
         loader: false,
+      });
+
+    } catch (error) {
+
+    }
+  }
+
+  async fetchpropertiesSearch() {
+    var _Response = null;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
+    var retrueneddata = [];
+    var TempCarousalData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=search&PropertyType=" + this.state.PropertyType + "&Location=" + this.state.Location + " &NoOfBedRooms=" + this.state.NoOfBedRooms + " &Furnished=" + this.state.Furnished + "&PriceMin=" + this.state.PriceMin + "&PriceMax=" + this.state.PriceMax + "&Statec=" + this.state.Statec + " &Deal=" + this.state.Deal + "&Feet=" + this.state.Feet + " &SeachBox=" + this.state.SeachBox + "";
+    try {
+      let res = await axios.post(loginurl);
+      console.log(res);
+      var xcount = 10;
+      for (var i = 0; i < res.data.recordset.length; i++) {
+        xcount = xcount + 1;
+        var obs = {
+          'typeofAccomodation': res.data.recordset[i].Type,//.metadata.colName,
+          'rent': res.data.recordset[i].Price,//metadata.colName,
+          'totalbed': res.data.recordset[i].Bedrooms,//.metadata.colName,
+          'propertyAddress': res.data.recordset[i].Location,//.metadata.colName,
+          'Imagestr': this.state.imgstarturl + res.data.recordset[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+          'key': xcount,
+          'Price': this.formatMoney(res.data.recordset[i].Price),
+          'PropertyId': res.data.recordset[i].PropertyId,
+        }
+        retrueneddata.push(obs);
+        var objectcarousal = {
+          'AgentId': res.data.recordset[i].AgentId,
+          'Bedrooms': res.data.recordset[i].Bedrooms,
+          'Deal': res.data.recordset[i].Deal,
+          'FurnishedTyope': res.data.recordset[i].FurnishedTyope,
+          'Location': res.data.recordset[i].Location,
+          'LoginUserID': res.data.recordset[i].LoginUserID,
+          'Price': this.formatMoney(res.data.recordset[i].Price),
+          'PropertyId': res.data.recordset[i].PropertyId,
+          'State': res.data.recordset[i].State,
+          'Type': res.data.recordset[i].Type,
+          'internet': res.data.recordset[i].internet,
+          'parking': res.data.recordset[i].parking,
+          'picsstringone': res.data.recordset[i].picsstringone,
+          'picsstringthree': res.data.recordset[i].picsstringthree,
+          'picsstringtwo': res.data.recordset[i].picsstringtwo,
+          'picstring': res.data.recordset[i].picstring,
+          'totalbathrooms': res.data.recordset[i].totalbathrooms,
+        }
+        TempCarousalData.push(objectcarousal);
+
+
+      }
+      this.setState({
+        ObjectArray: retrueneddata,
+        carousalObject: TempCarousalData,
+        loader: false,
+        needwizard: 600,
       });
 
     } catch (error) {
