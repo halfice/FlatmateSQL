@@ -210,37 +210,37 @@ class SearchProperty extends Component {
       let res = await axios.post(loginurl);
       console.log(res);
       var xcount = 10;
-      for (var i = 0; i < res.data.length; i++) {
+      for (var i = 0; i < res.data.recordset.length; i++) {
         xcount = xcount + 1;
         var obs = {
-          'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-          'rent': res.data[i].Price,//metadata.colName,
-          'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-          'propertyAddress': res.data[i].Location,//.metadata.colName,
-          'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+          'typeofAccomodation': res.data.recordset[i].Room_in_an_existing,//.metadata.colName,
+          'rent': res.data.recordset[i].Price,//metadata.colName,
+          'totalbed': res.data.recordset[i].Bedrooms,//.metadata.colName,
+          'propertyAddress': res.data.recordset[i].Location,//.metadata.colName,
+          'Imagestr': this.state.imgstarturl + res.data.recordset[i].picstring + this.state.imgStartEnd,//.metadata.colName,
           'key': xcount,
-          'Price': this.formatMoney(res.data[i].Price),
-          'PropertyId': res.data[i].PropertyId,
+          'Price': this.formatMoney(res.data.recordset[i].Price),
+          'PropertyId': res.data.recordset[i].PropertyId,
         }
         retrueneddata.push(obs);
         var objectcarousal = {
-          'AgentId': res.data[i].AgentId,
-          'Bedrooms': res.data[i].Bedrooms,
-          'Deal': res.data[i].Deal,
-          'FurnishedTyope': res.data[i].FurnishedTyope,
-          'Location': res.data[i].Location,
-          'LoginUserID': res.data[i].LoginUserID,
-          'Price': this.formatMoney(res.data[i].Price),
-          'PropertyId': res.data[i].PropertyId,
-          'State': res.data[i].State,
-          'Type': res.data[i].Type,
-          'internet': res.data[i].internet,
-          'parking': res.data[i].parking,
-          'picsstringone': res.data[i].picsstringone,
-          'picsstringthree': res.data[i].picsstringthree,
-          'picsstringtwo': res.data[i].picsstringtwo,
-          'picstring': res.data[i].picstring,
-          'totalbathrooms': res.data[i].totalbathrooms,
+          'AgentId': res.data.recordset[i].AgentId,
+          'Bedrooms': res.data.recordset[i].Bedrooms,
+          'Deal': res.data.recordset[i].Deal,
+          'FurnishedTyope': res.data.recordset[i].FurnishedTyope,
+          'Location': res.data.recordset[i].Location,
+          'LoginUserID': res.data.recordset[i].LoginUserID,
+          'Price': this.formatMoney(res.data.recordset[i].Price),
+          'PropertyId': res.data.recordset[i].PropertyId,
+          'State': res.data.recordset[i].State,
+          'Type': res.data.recordset[i].Type,
+          'internet': res.data.recordset[i].internet,
+          'parking': res.data.recordset[i].parking,
+          'picsstringone': res.data.recordset[i].picsstringone,
+          'picsstringthree': res.data.recordset[i].picsstringthree,
+          'picsstringtwo': res.data.recordset[i].picsstringtwo,
+          'picstring': res.data.recordset[i].picstring,
+          'totalbathrooms': res.data.recordset[i].totalbathrooms,
         }
         TempCarousalData.push(objectcarousal);
 
