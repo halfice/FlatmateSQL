@@ -29,7 +29,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Message from './Message'
 import { transform } from 'async';
 import message from './msgicon.jpg';
-import emailicon from './emailicon.gif'
+import emailicon from './emailicon.png'
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -293,18 +293,17 @@ class SearchProperty extends Component {
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
                     <img src={whatsapp} width="50px" />
-                  </div>   </div>
+                  </div>   
+                  </div>
                 <div className="col-sm-4 zerpadding">
-                  <div className="buttnemail" >Email</div>
                   <img src={emailicon} width="50px" />
                   
                 </div>
                 <div className="col-sm-4 zerpadding">
-                  <div className="myicondiv">
-
+                
                     <img src={message} width="50px" />
 
-                  </div>
+                 
                 </div>
 
               </div>

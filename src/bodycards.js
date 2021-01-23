@@ -32,8 +32,7 @@ import agent from './agent.png'
 import Heart from "react-animated-heart";
 import Propertyanalytics from './propertyanalytics';
 import message from './msgicon.jpg';
-import emailicon from './emailicon.gif'
-
+import emailicon from './emailicon.png'
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -498,12 +497,9 @@ class bodycards extends Component {
                   <img src={emailicon} width="50px" />
 
 
-
-
                 </div>
                 <div className="col-sm-4 zerpadding">
                   <div className="myicondiv">
-                    <div className="buttn" >Message</div>
                     <img src={message} width="50px" />
 
                     
