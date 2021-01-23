@@ -213,7 +213,7 @@ class SearchProperty extends Component {
       for (var i = 0; i < res.data.recordset.length; i++) {
         xcount = xcount + 1;
         var obs = {
-          'typeofAccomodation': res.data.recordset[i].Room_in_an_existing,//.metadata.colName,
+          'typeofAccomodation': res.data.recordset[i].Type,//.metadata.colName,
           'rent': res.data.recordset[i].Price,//metadata.colName,
           'totalbed': res.data.recordset[i].Bedrooms,//.metadata.colName,
           'propertyAddress': res.data.recordset[i].Location,//.metadata.colName,
