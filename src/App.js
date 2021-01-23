@@ -114,7 +114,7 @@ class App extends Component {
 
         }
 
-        {this.state.needwizard == 0 && this.state.needwizard != 1000 &&
+        {this.state.needwizard == 888888888880 && this.state.needwizard != 1000 &&
           this.state.needwizard != 100 && this.state.needwizard != 1 &&
           this.state.needwizard != 500 && this.state.needwizard != 5 &&
           this.state.needwizard != 600 &&
