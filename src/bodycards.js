@@ -694,7 +694,7 @@ class bodycards extends Component {
                     <div className="row">
                       <div className="col-sm-4 paragrpahNormaltext">Bedrooms : {this.state.selectedBedrooms}</div>
                       <div className="col-sm-4 paragrpahNormaltext">Location : {this.state.selectedLocation}</div>
-                      <div className="col-sm-4 paragrpahNormaltext">Price : {this.state.selectedPrice}</div>
+                      <div className="col-sm-4 paragrpahNormaltext">Price :  {this.formatMoney(this.state.selectedPrice)}</div>
                     </div>
                     <div className="row">
                       <div className="col-sm-4 paragrpahNormaltext">FurnishedTyope : {this.state.selectedFurnitureType}</div>
@@ -906,10 +906,7 @@ class bodycards extends Component {
     var tempItem2 = tmpitem;
     var tempItem3 = tmpitem;
     var tempItem4 = tmpitem;
-    //var tmpitem1 = this.state.carousalObject.filter(properties => properties.PropertyId === propertyid)
-    // .map((item, id) => {
-    // console.log(item[id]);
-    //});
+  
 
     var tmp1stImag = tmpitem[0].picstring;
     var tmp2stImag = tmpitem[0].picsstringone;

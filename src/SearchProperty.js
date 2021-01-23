@@ -293,37 +293,26 @@ class SearchProperty extends Component {
                 <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
                     <img src={whatsapp} width="50px" />
-                  </div>   
                   </div>
+                </div>
                 <div className="col-sm-4 zerpaddingEmail">
                   <img src={emailicon} width="39px" />
-                  
+
                 </div>
                 <div className="col-sm-4 zeroPaddingMessage">
-                
-                    <img src={message} width="50px" />
 
-                 
+                  <img src={message} width="50px" />
                 </div>
-
               </div>
-
             </Card.Body>
           </Card>
         </div>
       );
     });
 
-
-
-
-
     var carousalitem = null;
     carousalitem = this.state.carousalObjectitem.map((item, i) => {
       return (
-
-
-
         <Carousel.Item interval={1000}>
           <img
             className="d-block w-100"
@@ -427,7 +416,7 @@ class SearchProperty extends Component {
                     <div className="row">
                       <div className="col-sm-4 paragrpahNormaltext">Bedrooms : {this.state.selectedBedrooms}</div>
                       <div className="col-sm-4 paragrpahNormaltext">Location : {this.state.selectedLocation}</div>
-                      <div className="col-sm-4 paragrpahNormaltext">Price : {this.state.selectedPrice}</div>
+                      <div className="col-sm-4 paragrpahNormaltext">Price :{this.formatMoney(this.state.selectedPrice)}</div>
                     </div>
                     <div className="row">
                       <div className="col-sm-4 paragrpahNormaltext">FurnishedTyope : {this.state.selectedFurnitureType}</div>
@@ -435,7 +424,6 @@ class SearchProperty extends Component {
                       <div className="col-sm-4 paragrpahNormaltext">parking : {this.state.selectedParking}</div>
                     </div>
                   </div>
-
 
                   <div className="col-sm-4 ">
 
