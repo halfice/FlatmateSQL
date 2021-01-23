@@ -311,7 +311,7 @@ class App extends Component {
      // needwizard: 600,
    // });
 
-   this.fetchproperties();
+   this.fetchpropertiesSearch();
 
 
 
