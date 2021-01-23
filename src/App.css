@@ -703,11 +703,11 @@ a:hover{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .zerpaddingEmail{
-  padding-top:7px;
+  padding-top:7px!important;
 }
 
 .zeroPaddingMessage{
-  padding-top:7px;   
+  padding-top:7px!important;   
 }
 .carousel-item.active {
  
