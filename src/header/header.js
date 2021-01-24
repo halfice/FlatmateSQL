@@ -242,7 +242,7 @@ export class Header extends React.Component {
     ];
 
     const optionsState = [
-      { value: 'AbuDhabi', label: 'AbuDhabi' },
+      { value: 'Abu Dhabi', label: 'Abu Dhabi' },
       { value: 'Al-Ain', label: 'Al-Ain' },
     ];
 

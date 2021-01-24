@@ -80,8 +80,8 @@ class bodycards extends Component {
 
       ButtonMapClose: "Location",
       ButtonShownumber: "Number",
-      isClick:false,
-      showAnalytics:false,
+      isClick: false,
+      showAnalytics: false,
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -91,17 +91,17 @@ class bodycards extends Component {
 
   }
 
-  setClick(){
-    var tmp=this.state.isClick;
-    if (tmp==true){
+  setClick() {
+    var tmp = this.state.isClick;
+    if (tmp == true) {
       this.setState({
-        isClick:false,
-        showAnalytics:0,
+        isClick: false,
+        showAnalytics: 0,
       });
-    }else{
+    } else {
       this.setState({
-        isClick:true,
-        showAnalytics:1,
+        isClick: true,
+        showAnalytics: 1,
       });
     }
   }
@@ -123,7 +123,7 @@ class bodycards extends Component {
     });
   }
 
-  CloseModalAgentDtails(){
+  CloseModalAgentDtails() {
     this.setState({
       ShowAgentDetails: 0,
       ButtonShownumber: "Number"
@@ -427,7 +427,7 @@ class bodycards extends Component {
   }
 
   render() {
-   // const [] = useState(false);
+    // const [] = useState(false);
     // const simgstr = "https://userfunctionsapi.blob.core.windows.net/myfiles/Screen%20Shot%202020-08-03%20at%202.13.13%20PM_1606884488004.png?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D";
     //const simgstr1 = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80"
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
@@ -471,6 +471,7 @@ class bodycards extends Component {
     });
 
     var AGentSubProjectArrays = this.state.AgentObjectArray.map((item, i) => {
+
       return (
         <div className="col-sm-3" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
@@ -502,7 +503,6 @@ class bodycards extends Component {
                   <div className="myicondiv">
                     <img src={message} width="50px" />
 
-                    
                   </div>
                 </div>
 
@@ -623,8 +623,6 @@ class bodycards extends Component {
       });
     }
 
-
-
     return (
       <div className="container-fluid">
         <div className="row" >
@@ -661,7 +659,7 @@ class bodycards extends Component {
                       </div>
                     }
 
-{
+                    {
                       this.state.ShowAnalytics == 1 &&
                       <div className="carousaldiv4">
                         <Propertyanalytics />
@@ -733,7 +731,7 @@ class bodycards extends Component {
 
                       <div className="col-sm-4 zerpadding">
                         <div >
-                        <Heart isClick={ this.state.isClick} onClick={this.setClick.bind(this)} />
+                          <Heart isClick={this.state.isClick} onClick={this.setClick.bind(this)} />
 
                         </div>
                       </div>
@@ -767,7 +765,7 @@ class bodycards extends Component {
       });
       // this.fetchblobs();
       //this.fetchpropertiesagent();
-     // this.fetchproperties();
+      // this.fetchproperties();
 
     } catch (error) {
       console.log(error);
@@ -784,8 +782,8 @@ class bodycards extends Component {
     this.setState({
       ShowCarousal: false,
       showMyMap: 0,
-      ShowAgentDetails:0,
-      ShowAnalytics:0,
+      ShowAgentDetails: 0,
+      ShowAnalytics: 0,
       showMyMap: 0,
 
     });
@@ -906,7 +904,7 @@ class bodycards extends Component {
     var tempItem2 = tmpitem;
     var tempItem3 = tmpitem;
     var tempItem4 = tmpitem;
-  
+
 
     var tmp1stImag = tmpitem[0].picstring;
     var tmp2stImag = tmpitem[0].picsstringone;
@@ -1016,6 +1014,10 @@ class bodycards extends Component {
       selectedFurnitureType: tmpitem[0].FurnishedTyope,
       selectedType: tmpitem[0].Type,
       selectedParking: tmpitem[0].parking,
+      AgentName: tmpitem[0].agentname,
+      AgentComapny: tmpitem[0].agentcompany,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+      AgentMobile: tmpitem[0].AgentNumber,
 
     });
   }
