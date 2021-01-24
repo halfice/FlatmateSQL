@@ -964,7 +964,7 @@ export class Property extends React.Component {
    
     if (divval == 1) {
       this.setState({
-        Purpose: val,
+        Purpose: 'Sale',
         proposediv1: "purposedivnormal",
         proposediv2: "normaldivbutton",
         
@@ -975,7 +975,7 @@ export class Property extends React.Component {
 
     if (divval == 2) {
       this.setState({
-        Purpose: val,
+        Purpose: 'Rent',
         proposediv1: "normaldivbutton",
         proposediv2: "purposedivnormal",
         
