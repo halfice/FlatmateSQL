@@ -366,6 +366,11 @@ class App extends Component {
           'picstring': res.data[i].picstring,
           'totalbathrooms': res.data[i].totalbathrooms,
           'profilepicname': res.data[i].profilepicname,
+          'AgentNumber': res.data[i].AgentNumber,
+          'AgentPic': res.data[i].AgentPic,
+          'agentcompany': res.data[i].agentcompany,
+          'agentname': res.data[i].agentname
+
         }
         TempCarousalData.push(objectcarousal);
 
