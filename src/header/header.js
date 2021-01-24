@@ -175,9 +175,9 @@ export class Header extends React.Component {
 
   render() {
 
-    const optionsPropertyType = [
+    const optionPurpose = [
       { value: 'Rent', label: 'Rent' },
-      { value: 'Sale', label: 'Sale' },
+      { value: 'Buy', label: 'Sale' },
     ];
 
 
@@ -190,6 +190,7 @@ export class Header extends React.Component {
 
 
     const optionsNoOfBedRooms = [
+      { value: 'Studio', label: 'Studio' },
       { value: '1', label: '1' },
       { value: '2', label: '2' },
       { value: '3', label: '3' },
@@ -234,7 +235,11 @@ export class Header extends React.Component {
       { value: 'No', label: 'No' },
     ];
 
-
+const optionsPropertyType=[
+  { value: 'Villa', label: 'Villa' },
+  { value: 'Appartment', label: 'Appartment' },
+  { value: 'Office', label: 'Office' },
+]
 
 
 
@@ -259,10 +264,14 @@ export class Header extends React.Component {
               <div className="col-sm-2">
                 <div onClick={() => this.props.handlerhome('0')} className="whitecolorcss" >
                   <FontAwesomeIcon icon={faHome} /></div></div>
+
+
+
               <div className="col-sm-2">                <div className="whitecolorcss">
                 <FontAwesomeIcon icon={faCoffee} /></div> </div>
               <div className="col-sm-2">
-                <div className="whitecolorcss"> <FontAwesomeIcon icon={faQuoteLeft} /></div>
+                <div className="whitecolorcss"> 
+                <FontAwesomeIcon icon={faQuoteLeft} /></div>
               </div>
               <div className="col-sm-2">
                 {
@@ -280,8 +289,17 @@ export class Header extends React.Component {
         <div className="searchRow">
 
           <div className="col-md-2">
+  <Select
+              value={this.state.selectedOptionPropertyType}
+              onChange={this.handlePropertyType}
+              options={optionPurpose}
+              className="dropdowng"
+              placeholder="Purpose..."
+            />
 
-            <Select
+          </div>
+          <div className="col-md-2">
+  <Select
               value={this.state.selectedOptionPropertyType}
               onChange={this.handlePropertyType}
               options={optionsPropertyType}
@@ -289,11 +307,9 @@ export class Header extends React.Component {
               placeholder="Select Property Type"
             />
 
-
-
-
-
           </div>
+
+
           <div className="col-lg-3">
             <Select
               value={this.state.selectedOptionLocation}
@@ -304,24 +320,7 @@ export class Header extends React.Component {
             />
 
           </div>
-          <div className="col-lg-2">
-            <Select
-              value={this.state.selectedOptionNoOfBedRooms}
-              onChange={this.handleNoOfBedRooms}
-              options={optionsNoOfBedRooms}
-              className="dropdowng"
-              placeholder="# Number of Bedroom"
-            />
-          </div>
-          <div className="col-lg-2">
-            <Select
-              value={this.state.selectedOptionFurnished}
-              onChange={this.handleFurnished}
-              options={optionsFurnished}
-              className="dropdowng"
-              placeholder="Furnished?"
-            />
-          </div>
+       
           <div className="col-lg-2">
 
             <input type="text" className="form-control" onChange={this.handlearea} placeholder="SQL FEET 0 - 999"></input>
@@ -334,7 +333,7 @@ export class Header extends React.Component {
 
         <div className="searchRow">
 
-          <div className="col-md-2">
+          <div className="col-md-1">
             <Select
               value={this.state.selectedOptionPriceMin}
               onChange={this.handlePriceMin}
@@ -347,7 +346,7 @@ export class Header extends React.Component {
 
 
           </div>
-          <div className="col-lg-3">
+          <div className="col-lg-1">
             <Select
               value={this.state.selectedOptionPriceMax}
               onChange={this.handlePriceMax}
@@ -356,6 +355,27 @@ export class Header extends React.Component {
               placeholder="Max Price i.e. 1Million"
             />
           </div>
+          <div className="col-lg-2">
+            <Select
+              value={this.state.selectedOptionNoOfBedRooms}
+              onChange={this.handleNoOfBedRooms}
+              options={optionsNoOfBedRooms}
+              className="dropdowng"
+              placeholder="# Bedroom"
+            />
+          </div>
+          <div className="col-lg-1">
+            <Select
+              value={this.state.selectedOptionFurnished}
+              onChange={this.handleFurnished}
+              options={optionsFurnished}
+              className="dropdowng"
+              placeholder="Furnished?"
+            />
+          </div>
+
+
+
           <div className="col-lg-2">
             <Select
               value={this.state.selectedOptionStatec}
