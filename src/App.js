@@ -32,7 +32,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 6000,
+      needwizard: 559995,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -61,7 +61,7 @@ class App extends Component {
       //fethc properties
       ObjectArray: [],
       carousalObject: [],
-      finalArrayObject:[],
+      finalArrayObject: [],
 
     }
   }
@@ -91,7 +91,8 @@ class App extends Component {
 
             {this.state.userid != 0 &&
               <div className="col-sm-2 ">
-                <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers </div>
+                <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers
+                 </div>
               </div>
             }
 
@@ -116,7 +117,7 @@ class App extends Component {
 
         }
 
-        {this.state.needwizard == 888888888880 && this.state.needwizard != 1000 &&
+        {this.state.needwizard == 0 && this.state.needwizard != 1000 &&
           this.state.needwizard != 100 && this.state.needwizard != 1 &&
           this.state.needwizard != 500 && this.state.needwizard != 5 &&
           this.state.needwizard != 600 &&
@@ -181,8 +182,8 @@ class App extends Component {
               Feet={this.state.Feet} SeachBox={this.state.SeachBox}
               SearchArray={this.state.ObjectArray}
               carousalObjectSearch={this.state.carousalObject}
-              
-              />
+
+            />
           </div>
 
         }
@@ -195,7 +196,7 @@ class App extends Component {
             this.state.needwizard != 4 &&
             this.state.needwizard == 0 && this.state.needwizard != 1000 &&
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
-            this.state.needwizard != 500 && this.state.needwizard != 5 
+            this.state.needwizard != 500 && this.state.needwizard != 5
             && this.state.needwizard != 600 &&
 
             <div className="col-sm-12">
@@ -311,7 +312,7 @@ class App extends Component {
       needwizard: 0,
     });
 
-   this.fetchpropertiesSearch(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
+    this.fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox);
 
 
 
@@ -450,7 +451,7 @@ class App extends Component {
     }
   }
 
-  async fetchpropertiesSearch(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox) {
+  async fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) {
     var _Response = null;
     var TempUserProfileExisits = 0;
     var TempDivCounter = 0;

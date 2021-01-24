@@ -50,6 +50,7 @@ export class Header extends React.Component {
       Deal: "",
       Feet: "",
       SeachBox: "",
+      Purpose:"",
 
 
 
@@ -63,6 +64,10 @@ export class Header extends React.Component {
       selectedOptionDeal: "",
       Feet: "",
       SeachBox: "",
+      selectedOptionPurpose:"",
+      
+
+
 
 
 
@@ -96,6 +101,16 @@ export class Header extends React.Component {
       {
         selectedOptionPropertyType,
         PropertyType: selectedOptionPropertyType.label
+      });
+
+  };
+
+
+  handlePropertyTypePurppose = selectedOptionPurpose => {
+    this.setState(
+      {
+        selectedOptionPurpose,
+        Purpose: selectedOptionPurpose.label
       });
 
   };
@@ -177,7 +192,7 @@ export class Header extends React.Component {
 
     const optionPurpose = [
       { value: 'Rent', label: 'Rent' },
-      { value: 'Buy', label: 'Sale' },
+      { value: 'Buy', label: 'Buy' },
     ];
 
 
@@ -186,6 +201,7 @@ export class Header extends React.Component {
 
       { value: 'Al-Reef', label: 'Al-Reef' },
       { value: 'Sadiyat', label: 'Sadiyat' },
+      { value: 'Al-Reem', label: 'Al-Reem' },
     ];
 
 
@@ -288,10 +304,20 @@ const optionsPropertyType=[
 
         <div className="searchRow">
 
+        <div className="col-lg-2">
+            <Select
+              value={this.state.selectedOptionStatec}
+              onChange={this.handleStatec}
+              options={optionsState}
+              className="dropdowng"
+              placeholder="Your State"
+            />
+          </div>
+
           <div className="col-md-2">
   <Select
-              value={this.state.selectedOptionPropertyType}
-              onChange={this.handlePropertyType}
+              value={this.state.selectedOptionPurpose}
+              onChange={this.handlePropertyTypePurppose}
               options={optionPurpose}
               className="dropdowng"
               placeholder="Purpose..."
@@ -333,7 +359,7 @@ const optionsPropertyType=[
 
         <div className="searchRow">
 
-          <div className="col-md-1">
+          <div className="col-md-2">
             <Select
               value={this.state.selectedOptionPriceMin}
               onChange={this.handlePriceMin}
@@ -346,7 +372,7 @@ const optionsPropertyType=[
 
 
           </div>
-          <div className="col-lg-1">
+          <div className="col-lg-2">
             <Select
               value={this.state.selectedOptionPriceMax}
               onChange={this.handlePriceMax}
@@ -361,31 +387,15 @@ const optionsPropertyType=[
               onChange={this.handleNoOfBedRooms}
               options={optionsNoOfBedRooms}
               className="dropdowng"
-              placeholder="# Bedroom"
+              placeholder="Room"
             />
           </div>
-          <div className="col-lg-1">
-            <Select
-              value={this.state.selectedOptionFurnished}
-              onChange={this.handleFurnished}
-              options={optionsFurnished}
-              className="dropdowng"
-              placeholder="Furnished?"
-            />
-          </div>
+          
 
 
 
-          <div className="col-lg-2">
-            <Select
-              value={this.state.selectedOptionStatec}
-              onChange={this.handleStatec}
-              options={optionsState}
-              className="dropdowng"
-              placeholder="Your State"
-            />
-          </div>
-          <div className="col-lg-2">
+          
+          <div className="col-lg-3">
             <Select
               value={this.state.selectedOptionDeal}
               onChange={this.handleDeal}
