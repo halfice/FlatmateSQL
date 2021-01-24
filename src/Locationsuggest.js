@@ -125,11 +125,54 @@ const languages = [
 
 ];
 
+
+const Cities =[
+  {
+    name: 'Abu Dhabi',
+    long: "54.672600",
+    lat: "24.454165 ",
+  },
+  {
+    name: 'Dubai',
+    long: "54.672600",
+    lat: "24.454165 ",
+  },
+
+  {
+    name: 'Sharjah',
+    long: "54.672600",
+    lat: "24.454165 ",
+  },
+  {
+    name: 'Ajman',
+    long: "54.672600",
+    lat: "24.454165 ",
+  },
+
+  {
+    name: 'RAK',
+    long: "54.672600",
+    lat: "24.454165 ",
+  },
+
+]
+
 const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
-
   return inputLength === 0 ? [] : languages.filter(lang =>
+    lang.name.toLowerCase().slice(0, inputLength) === inputValue
+  );
+};
+
+
+const getSuggestionsCities =  valueCity => {
+ //
+  const inputValue =valueCity.trim().toLowerCase();
+
+  const inputLength = inputValue.length;
+
+  return inputLength === 0 ? [] : Cities.filter(lang =>
     lang.name.toLowerCase().slice(0, inputLength) === inputValue
   );
 };
@@ -137,7 +180,8 @@ const getSuggestions = value => {
 // When suggestion is clicked, Autosuggest needs to populate the input
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
 // input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
+const getSuggestionValueCity = CitySuggestion => CitySuggestion.name;
+const getSuggestionValue = Suggestion => Suggestion.name;
 
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => (
@@ -157,7 +201,9 @@ export class Locationsuggest extends React.Component {
     // and they are initially empty because the Autosuggest is closed.
     this.state = {
       value: '',
-      suggestions: []
+      valueCity: '',
+      suggestions: [],
+      CitySuggestion:[],
     };
   }
 
@@ -169,7 +215,7 @@ export class Locationsuggest extends React.Component {
     var tmpitem = languages.filter(properties => properties.name === newValue);
     if (tmpitem.length>0 &&  tmpitem!= null) {
      // alert(tmpitem[0].lagt);
-      this.props.handlerhomek(newValue,tmpitem[0].long,tmpitem[0].lat)
+      this.props.handlerhomek(this.state.valueCity, newValue,tmpitem[0].long,tmpitem[0].lat)
     }
      
       this.setState({
@@ -177,7 +223,19 @@ export class Locationsuggest extends React.Component {
       });
     };
   
+    onChangeCity = (event, { newValue }) => {
 
+
+      var tmpitem = Cities.filter(properties => properties.name === newValue);
+      if (tmpitem.length>0 &&  tmpitem!= null) {
+       // alert(tmpitem[0].lagt);
+        this.props.handlerhomek(newValue,tmpitem[0].long,tmpitem[0].lat)
+      }
+       
+        this.setState({
+          valueCity: newValue
+        });
+      };
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
@@ -188,34 +246,72 @@ export class Locationsuggest extends React.Component {
     });
   };
 
+
+  onSuggestionsFetchRequestedCity = ({ valueCity }) => {
+    
+    
+    this.setState({
+      CitySuggestion: getSuggestionsCities(this.state.valueCity)
+
+    });
+  };
+
   // Autosuggest will call this function every time you need to clear suggestions.
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
     });
   };
-
+  onSuggestionsClearRequestedCity = () => {
+    this.setState({
+      CitySuggestion: []
+    });
+  };
 
 
 
 
   render() {
     const { value, suggestions } = this.state;
+    const { valueCity, CitySuggestion } = this.state;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
       placeholder: 'Search for the area.....',
-      value,
+      value:value,
       onChange: this.onChange,
       className: "form-control"
     };
 
 
+    const inputPropsCity = {
+      placeholder: 'Search for the area.....',
+      value :valueCity,
+      onChange: this.onChangeCity,
+      className: "form-control"
+    };
+
 
 
     // Finally, render it!
     return (
+
+      <div className="row">
+
+      <div className="col-sm-12">
       <Autosuggest
+        suggestions={CitySuggestion}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequestedCity}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequestedCity}
+        getSuggestionValue={getSuggestionValueCity}
+        renderSuggestion={renderSuggestion}
+        inputProps={inputPropsCity}
+      />
+      </div>
+      <div className="col-sm-12">
+     <br></br>
+      <Autosuggest
+      id="roucecity"
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
@@ -223,6 +319,9 @@ export class Locationsuggest extends React.Component {
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
       />
+      </div>
+    </div>
+      
     );
   }
 

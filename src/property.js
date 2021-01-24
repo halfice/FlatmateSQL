@@ -20,9 +20,9 @@ export class Property extends React.Component {
     this.state = {
       LoginUserID: this.props.UserID,
       AgentMobile: this.props.AgentMobile,
-      AgentPic: this.props.AgentPic,                                                                       
-AgentName: this.props.AgentName,
-AgentComapny: this.props.AgentComapny,
+      AgentPic: this.props.AgentPic,
+      AgentName: this.props.AgentName,
+      AgentComapny: this.props.AgentComapny,
       value: 2,
       divcountre: 0,
       currentclass: "hidden",
@@ -37,6 +37,9 @@ AgentComapny: this.props.AgentComapny,
       internet: "",
       blobtoken: "",
       deal: "1",
+      Purpose: "",
+      City: "",
+      Country: "",
 
       roomfuninishing: "",
       bathroom: "",
@@ -90,6 +93,13 @@ AgentComapny: this.props.AgentComapny,
 
       parkingdiv1: "innervbuuton",
       parkingdiv2: "innervbuuton",
+
+      proposediv1: "innervbuuton",
+      proposediv2: "innervbuuton",
+
+
+
+
 
       internetdiv1: "innervbuuton",
       internetdiv2: "innervbuuton",
@@ -162,8 +172,17 @@ AgentComapny: this.props.AgentComapny,
     this.handleChangetextarea = this.handleChangetextarea.bind(this);
 
 
+    // this.handleCity = this.handleCity.bind(this);
+    // this.handleCountry = this.handleCountry.bind(this);
+    // this.handlePurpose = this.handlePurpose.bind(this);
+
 
   }
+
+
+
+
+
 
   componentDidMount() {
     this.getblobtoken();
@@ -339,7 +358,7 @@ AgentComapny: this.props.AgentComapny,
       AgentId: this.state.AgentId,//mean it is owner
     };
 
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName},&agentcompany=${this.state.AgentComapny}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName},&agentcompany=${this.state.AgentComapny},&Purpose=${this.state.Purpose},&City=${this.state.City}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -358,22 +377,23 @@ AgentComapny: this.props.AgentComapny,
   }
 
 
-  handlerhomek = (val,long,lat) => {
+  handlerhomek = (vcity,val, long, lat) => {
     this.setState({
       propertyAddress: val,
       location: val,
-      longitude:long,
-      latitude:lat
+      longitude: long,
+      latitude: lat,
+      City:vcity,
 
     })
   }
 
-  
+
 
   handleChangetextarea(event) {
     this.setState({
       description: event.target.value,
-      
+
     });
   }
 
@@ -445,7 +465,7 @@ AgentComapny: this.props.AgentComapny,
                     this.state.parentdiv == 0 &&
                     <div className="row">
                       <div className="col-sm-12 ">
-                        <div>Thanks Abdul Aziz Farooqi,let's list your Property</div>
+                        <div>Thanks and Welcome,let's list your Property</div>
                         <div className="col-sm-12">
                           <div className="iconsclassgray" > <FontAwesomeIcon icon={faHome} /></div>
                         </div>
@@ -470,8 +490,36 @@ AgentComapny: this.props.AgentComapny,
 
                       <div className="row textalighleft">
 
+                        <div className="col-sm-12 textalighleft">Purpose </div>
+                      </div>
+                      <div className="row">
+
+                        <div className="col-sm-2">
+                          <div className={this.state.proposediv1}
+                          onClick={this.handlePurpose.bind(this, 'Sale', '1')}>
+                            Sale
+                          </div>
+                        </div>
+
+                        <div className="col-sm-2">
+                          <div className={this.state.proposediv2}
+                          onClick={this.handlePurpose.bind(this, 'Rent', '2')}>
+                        For Rent
+                          </div>
+                        </div>
+
+                      </div>
+
+
+
+                      <div className="row textalighleft">
+
                         <div className="col-sm-12 textalighleft"> What type of Accomodation you are offering.</div>
                       </div>
+
+
+
+
 
                       <div className="row">
                         <div className="col-sm-2">
@@ -718,7 +766,7 @@ AgentComapny: this.props.AgentComapny,
 
 
 
-                    
+
 
                       <div className="row textalighleft">
                         <div className="row">
@@ -909,6 +957,35 @@ AgentComapny: this.props.AgentComapny,
 
     })
   }
+
+
+
+  handlePurpose(val, divval) {
+   
+    if (divval == 1) {
+      this.setState({
+        Purpose: val,
+        proposediv1: "purposedivnormal",
+        proposediv2: "normaldivbutton",
+        
+
+
+      });
+    }
+
+    if (divval == 2) {
+      this.setState({
+        Purpose: val,
+        proposediv1: "normaldivbutton",
+        proposediv2: "purposedivnormal",
+        
+      });
+    }
+  }
+
+
+
+
 
 
   handletypeofAccormodation(val, divval) {
