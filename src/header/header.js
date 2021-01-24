@@ -53,16 +53,16 @@ export class Header extends React.Component {
 
 
 
-      selectedOptionPropertyType: "Select Property Type",
-      selectedOptionLocation: "Select Property Type",
-      selectedOptionNoOfBedRooms: "Select Property Type",
-      selectedOptionFurnished: "Select Property Type",
-      selectedOptionPriceMin: "Select Property Type",
-      selectedOptionPriceMax: "Select Property Type",
-      selectedOptionStatec: "Select Property Type",
-      selectedOptionDeal: "Select Property Type",
-      Feet: "Select Property Type",
-      SeachBox: "Select Property Type",
+      selectedOptionPropertyType: "",
+      selectedOptionLocation: "",
+      selectedOptionNoOfBedRooms: "",
+      selectedOptionFurnished: "",
+      selectedOptionPriceMin: "",
+      selectedOptionPriceMax: "",
+      selectedOptionStatec: "",
+      selectedOptionDeal: "",
+      Feet: "",
+      SeachBox: "",
 
 
 
