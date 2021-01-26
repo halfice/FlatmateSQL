@@ -27,7 +27,7 @@ export class Property extends React.Component {
       divcountre: 0,
       currentclass: "hidden",
       parentdiv: 0,
-      buttontext: "Lets Start!!!",
+      buttontext: "Lets Start",
       location: "",
       typeofAccomodation: "",
       propertyAddress: "",
@@ -148,9 +148,22 @@ export class Property extends React.Component {
       price: "0.000",
       longitude: "",
       latitude: "",
-      description: ""
+      description: "",
+
+      OwnerName: "",
+      OwnerEmail: "",
+      wnerPhone: "",
+      Status: "",
+      BuildingNumber: "",
+      UnitNumber: "",
+      Shape: "",
+      FloorPlanid: "",
+      Size: "",
+
     }
 
+
+    this.handleClickBack = this.handleClickBack.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleGoBackClick = this.handleGoBackClick.bind(this);
 
@@ -170,19 +183,7 @@ export class Property extends React.Component {
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
     this.handleprince = this.handleprince.bind(this);
     this.handleChangetextarea = this.handleChangetextarea.bind(this);
-
-
-    // this.handleCity = this.handleCity.bind(this);
-    // this.handleCountry = this.handleCountry.bind(this);
-    // this.handlePurpose = this.handlePurpose.bind(this);
-
-
   }
-
-
-
-
-
 
   componentDidMount() {
     this.getblobtoken();
@@ -220,7 +221,6 @@ export class Property extends React.Component {
       this.handleImageUploadold(file, blobName);
     }
   }
-
 
   uniqueNumber() {
     var date = Date.now();
@@ -358,7 +358,7 @@ export class Property extends React.Component {
       AgentId: this.state.AgentId,//mean it is owner
     };
 
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName},&agentcompany=${this.state.AgentComapny},&Purpose=${this.state.Purpose},&City=${this.state.City}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName},&agentcompany=${this.state.AgentComapny},&Purpose=${this.state.Purpose},&City=${this.state.City},&OwnerName=${this.state.OwnerName},&OwnerEmail=${this.state.OwnerEmail},&OwnerPhone=${this.state.OwnerPhone},&Status=${this.state.Status},&BuildingNumber=${this.state.BuildingNumber},&UnitNumber=${this.state.UnitNumber},&Shape=${this.state.Shape},&FloorPlanid=${this.state.FloorPlanid},&Size=${this.state.Size}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -377,18 +377,16 @@ export class Property extends React.Component {
   }
 
 
-  handlerhomek = (vcity,val, long, lat) => {
+  handlerhomek = (vcity, val, long, lat) => {
     this.setState({
       propertyAddress: val,
       location: val,
       longitude: long,
       latitude: lat,
-      City:vcity,
+      City: vcity,
 
     })
   }
-
-
 
   handleChangetextarea(event) {
     this.setState({
@@ -396,9 +394,6 @@ export class Property extends React.Component {
 
     });
   }
-
-
-
 
   render() {
     const varclaas = "visible";
@@ -496,15 +491,15 @@ export class Property extends React.Component {
 
                         <div className="col-sm-2">
                           <div className={this.state.proposediv1}
-                          onClick={this.handlePurpose.bind(this, 'Sale', '1')}>
+                            onClick={this.handlePurpose.bind(this, 'Sale', '1')}>
                             Sale
                           </div>
                         </div>
 
                         <div className="col-sm-2">
                           <div className={this.state.proposediv2}
-                          onClick={this.handlePurpose.bind(this, 'Rent', '2')}>
-                        For Rent
+                            onClick={this.handlePurpose.bind(this, 'Rent', '2')}>
+                            For Rent
                           </div>
                         </div>
 
@@ -584,9 +579,7 @@ export class Property extends React.Component {
                   {
                     this.state.divcountre == 2 &&
                     <div className={this.state.divcountre == 2 ? this.state.visibleclass : this.state.hiddenclass}>
-                      <div className="row ">
-                        <div className="col-sm-12"> About the Property.</div>
-                      </div>
+
 
                       <div className="row textalighleft">
                         <div className="col-sm-12">
@@ -604,6 +597,64 @@ export class Property extends React.Component {
                             Direct Owner
                          </div>
                         </div>
+
+                      </div>
+
+                      <div className="row textalighleft">
+                        <div className="col-sm-12"> About the OwnerShip.</div>
+                      </div>
+
+                      <div className="row textalighleft">
+                        <div className="col-sm-4">
+                          <div className="smalheadingcss">
+                            <input type="text" className="form-control" onChange={this.OwnerNamech} placeholder="Owner Name"></input>
+
+                          </div>
+                        </div>
+                        <div className="col-sm-4">
+                          <input type="text" className="form-control" onChange={this.OwnerEmailch} placeholder="Owner Email"></input>
+
+                        </div>
+                        <div className="col-sm-4">
+
+                          <input type="text" className="form-control" onChange={this.OwnerNumberch} placeholder="Owner Number"></input>
+
+                        </div>
+
+                      </div>
+
+
+
+
+                      <div className="row textalighleft">
+                        <div className="col-sm-12"> About the Building.</div>
+                      </div>
+
+                      <div className="row textalighleft">
+                        <div className="col-sm-3">
+                          <div className="smalheadingcss">
+                            <input type="text" className="form-control" onChange={this.BuildingNo} placeholder="Building #"></input>
+
+                          </div>
+                        </div>
+                        <div className="col-sm-3">
+                          <input type="text" className="form-control" onChange={this.UnitNo} placeholder="Unit #"></input>
+
+                        </div>
+                        <div className="col-sm-3">
+
+                          <input type="text" className="form-control" onChange={this.handleSize} placeholder="Size"></input>
+
+                        </div>
+
+
+                        <div className="col-sm-3">
+
+                          <input type="text" className="form-control" onChange={this.ShapeNo} placeholder="Room Shape"></input>
+
+                        </div>
+
+
 
                       </div>
 
@@ -881,13 +932,40 @@ export class Property extends React.Component {
 
 
                 </div>
-                <div className="row centeraligh">
+                <div className="row">
+                  <div className="col-sm-3"></div>
+                  <div className="col-sm-3">
+                    {
+                      this.state.divcountre > 0 &&
+                      <Button className="mybuttons" onClick={this.handleClickBack} >Back</Button>
 
-                  <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
+                    }
+
+                  </div>
+                  <div className="col-sm-3">
+                    {
+                      this.state.divcountre > 0 &&
+                      <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
+                    }
+                  </div>
 
 
+                  <div className="col-sm-3"></div>
+                </div>
+
+                <div className="row">
+                  <div className="col-sm-12">
+                    {
+                      this.state.divcountre == 0 &&
+                      <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
+
+                    }
+
+                  </div>
 
                 </div>
+
+
               </div>
             </div>
           </div>
@@ -904,13 +982,39 @@ export class Property extends React.Component {
     });
   }
 
+  handleClickBack() {
+    var tmp = this.state.divcountre;
+    var tmp1 = tmp - 1;
+
+    var btntext = "Lets Start";
+    if (tmp > 1 && tmp < 3) {
+      btntext = "Next"
+    }
+
+    if (tmp1 == 3) {
+      btntext = "Finish"
+      tmp1 = 3;
+    }
+
+    if (tmp1 > 0) {
+      this.setState({
+
+        divcountre: tmp1,
+        buttontext: btntext,
+      });
+    }
+
+  }
+
+
+
 
   handleClick() {
     var tmp = this.state.divcountre;
     if (tmp < 4) {
       tmp = tmp + 1;
     }
-    var btntext = "Lets Start!!!";
+    var btntext = "Next";
     if (tmp > 1 && tmp < 3) {
       btntext = "Next"
     }
@@ -939,13 +1043,13 @@ export class Property extends React.Component {
     var tmp = this.state.divcountre;
     tmp = tmp - 1;
 
-    var btntext = "Lets Start!!!";
+    var btntext = "Next";
     if (tmp < 6) {
       btntext = "Next"
 
     }
     if (tmp == 1) {
-      btntext = "Lets Start!!!"
+      btntext = "Next"
     }
 
     this.setState({
@@ -961,13 +1065,13 @@ export class Property extends React.Component {
 
 
   handlePurpose(val, divval) {
-   
+
     if (divval == 1) {
       this.setState({
         Purpose: 'Sale',
         proposediv1: "purposedivnormal",
         proposediv2: "normaldivbutton",
-        
+
 
 
       });
@@ -978,7 +1082,7 @@ export class Property extends React.Component {
         Purpose: 'Rent',
         proposediv1: "normaldivbutton",
         proposediv2: "purposedivnormal",
-        
+
       });
     }
   }
@@ -1070,6 +1174,52 @@ export class Property extends React.Component {
       location: event.target.value,
     });
   }
+
+
+  
+  BuildingNo(event){
+    this.setState({
+      BuildingNo: event.target.value,
+      });
+  }
+
+  UnitNo(event){
+    this.setState({
+      UnitNo: event.target.value,
+      });
+  }
+
+  ShapeNo(event){
+    this.setState({
+      Shape: event.target.value,
+      });
+  }
+
+
+  OwnerEmailch(event){
+    this.setState({
+      OwnerEmail: event.target.value,
+      });
+  }
+
+  OwnerNumberch(event){
+    this.setState({
+      OwnerPhone: event.target.value,
+      });
+  }
+
+  OwnerNamech(event){
+    this.setState({
+      OwnerPhone: event.target.value,
+      });
+  }
+
+  handleSize(event){
+    this.setState({
+      Size: event.target.value,
+      });
+  }
+
 
   handletotalbed(val, tbval) {
     switch (tbval) {
