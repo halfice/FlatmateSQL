@@ -183,6 +183,17 @@ export class Property extends React.Component {
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
     this.handleprince = this.handleprince.bind(this);
     this.handleChangetextarea = this.handleChangetextarea.bind(this);
+  
+  
+    this.OwnerNamech = this.OwnerNamech.bind(this);
+    this.handleSize = this.handleSize.bind(this);
+    this.OwnerNumberch = this.OwnerNumberch.bind(this);
+    this.OwnerEmailch = this.OwnerEmailch.bind(this);
+    this.ShapeNo = this.ShapeNo.bind(this);
+    this.UnitNo = this.UnitNo.bind(this);
+    this.BuildingNo = this.BuildingNo.bind(this);
+  
+
   }
 
   componentDidMount() {
@@ -1210,7 +1221,7 @@ export class Property extends React.Component {
 
   OwnerNamech(event){
     this.setState({
-      OwnerPhone: event.target.value,
+      OwnerName: event.target.value,
       });
   }
 
