@@ -82,7 +82,7 @@ export class companyregister extends React.Component {
                 universalid: res,
                 loader: false,
             });
-            this.props.handleRegisnteredUserId(this.state.email, this.state.logoimage, this.state.companyname);
+            this.props.handleRegisnteredUserIdCompany(this.state.email, this.state.logoimage, this.state.companyname);
             // console.log(res.data);
         } catch (error) {
             //console.log(error);
