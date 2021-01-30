@@ -13,97 +13,111 @@ import Select from 'react-select';
 
 export class screenregister extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name:"",
-            email:"",
-            phone:"",
-            password:"",
-            universalid:"",
-            loader:false,
-            imagePreviewUrl: uploader,
-            picstring: "",
-            picscounter: 0,
-            profilepicname:"",
-            copmayname:"",
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+      universalid: "",
+      loader: false,
+      imagePreviewUrl: uploader,
+      picstring: "",
+      picscounter: 0,
+      profilepicname: "",
+      copmayname: "",
       selectedOption: null,
-      existingemails:[],
-      isUserExits:"1"
-           
+      existingemails: [],
+      isUserExits: "1",
+      isOwner: 0,
 
-        }
-        this.handleClick = this.handleClick.bind(this);
-        this.handlenamechange = this.handlenamechange.bind(this);
-        this.handleemailchange = this.handleemailchange.bind(this);
-        this.handlenphonechange = this.handlenphonechange.bind(this);
-        this.handlepasswordchange = this.handlepasswordchange.bind(this);
+      companynameprops:this.props.copmayname,
+      companylogo:this.props.logo
+
 
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.handlenamechange = this.handlenamechange.bind(this);
+    this.handleemailchange = this.handleemailchange.bind(this);
+    this.handlenphonechange = this.handlenphonechange.bind(this);
+    this.handlepasswordchange = this.handlepasswordchange.bind(this);
 
-    
-    handleChangedrp = selectedOption => {
-      this.setState(
-        { selectedOption,
-        copmayname:selectedOption.label });
-      console.log(`Option selected:`, selectedOption.label);
-    };
-
-  
-
-    async fetchprofile(emailaddress) {
-      var _Response=null;
-      var userexitstemp="1";
-     
-         var loginurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username=${emailaddress}&functiontype=y`;
-  try {
-             let res=await axios.post(loginurl);
-             console.log(res);
-             if (res!="found"){
-              userexitstemp="0";
-             }
-             this.setState({
-               isUserExits:"0",
-             
-          });
-         } catch (error) {
-            // console.log(error);
-         }
-       
-
-}
-    
-    async handleClick() {
-        this.setState({
-            loader:true,
-        });
-    
-           var userid= this.state.name;
-            var email=this.state.email;
-           var  phone=this.state.phone;
-           var  password=this.state.password;
-           
-                    
+  }
 
 
-        //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
- try {
-                     let res=await axios.post(regurl);
-                     this.setState({
-                      universalid:res,
-                      loader:false,
-                  });
-                  this.props.handleRegisnteredUserId(this.state.email,this.state.phone,this.state.picstring,this.state.copmayname,this.state.name);
-                    // console.log(res.data);
-                 } catch (error) {
-                     //console.log(error);
-                 }
+  handleChangedrp = selectedOption => {
+    this.setState(
+      {
+        selectedOption,
+        copmayname: selectedOption.label
+      });
+    console.log(`Option selected:`, selectedOption.label);
+  };
 
- }
- componentDidMount() {
+
+
+  async fetchprofile(emailaddress) {
+    var _Response = null;
+    var userexitstemp = "1";
+
+    var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username=${emailaddress}&functiontype=y`;
+    try {
+      let res = await axios.post(loginurl);
+      console.log(res);
+      if (res != "found") {
+        userexitstemp = "0";
+      }
+      this.setState({
+        isUserExits: "0",
+
+      });
+    } catch (error) {
+      // console.log(error);
+    }
+
+
+  }
+
+  async handleClick() {
+    this.setState({
+      loader: true,
+    });
+
+    var userid = this.state.name;
+    var email = this.state.email;
+    var phone = this.state.phone;
+    var password = this.state.password;
+
+
+
+
+    //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
+    try {
+      let res = await axios.post(regurl);
+      this.setState({
+        universalid: res,
+        loader: false,
+      });
+      this.props.handleRegisnteredUserId(this.state.email, this.state.phone, this.state.picstring, this.state.copmayname, this.state.name);
+      // console.log(res.data);
+    } catch (error) {
+      //console.log(error);
+    }
+
+  }
+  componentDidMount() {
     this.getblobtoken();
     //this.fetchprofile();
+    if(this.state.companynameprops!="")
+    {
+      this.setState({
+        copmayname: this.state.companynameprops,
+
+        loader: false,
+      });
+    }
   }
 
   async getblobtoken() {
@@ -130,12 +144,12 @@ export class screenregister extends React.Component {
 
 
 
-       this.uploadFile(file,blobName);
-      this.handleImageUploadold(file,blobName);
+      this.uploadFile(file, blobName);
+      this.handleImageUploadold(file, blobName);
     }
   }
 
-  async uploadFile(file,tempblobname) {
+  async uploadFile(file, tempblobname) {
     //    //https://userfunctionsapi.azurewebsites.net/?st=2020-11-04T18%3A49%3A22Z&se=2020-11-04T19%3A49%3A22Z&sp=W&sv=2018-03-28&sr=b&sig=2tbOll2oU1JdvkxLiHui%2BpRU6nHqsA0uKNtDF%2BsfZQU%3D
 
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
@@ -153,14 +167,14 @@ export class screenregister extends React.Component {
     const blobServiceClient = new BlobServiceClient(sasURL)
     const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
 
-   
+
     const blockBlobClient = containerClient.getBlockBlobClient(tempblobname)
     const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
-   // console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
+    // console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
 
-  async handleImageUploadold(file,blobName) {
+  async handleImageUploadold(file, blobName) {
     this.setState({
       loader: true,
     });
@@ -193,8 +207,8 @@ export class screenregister extends React.Component {
         }
 
 
-       
-        
+
+
 
 
 
@@ -214,193 +228,231 @@ export class screenregister extends React.Component {
 
   }
 
-    render() {
+  setGender(event) {
+    console.log(event.target.value);
+    var FinalValue = 0; //i.e. 0
+    if (event.target.value == "Agent") {
+      FinalValue = 1;
+    }
+    this.setState({
+      isOwner: FinalValue,
+    });
+  }
 
-        let $imagePreview = null;
-        let { imagePreviewUrl } = this.state;
-        if (imagePreviewUrl) {
-          $imagePreview = (
-            <div className="" >
-              {imagePreviewUrl != null &&
-                <div className="previewpadding">
-                  <img src={imagePreviewUrl} className="mypreviewimagepro" />
-                </div>
-              }
-              
-              
-              
-    
-    
+  render() {
+
+    let $imagePreview = null;
+    let { imagePreviewUrl } = this.state;
+    if (imagePreviewUrl) {
+      $imagePreview = (
+        <div className="" >
+          {imagePreviewUrl != null &&
+            <div className="previewpadding">
+              <img src={imagePreviewUrl} className="mypreviewimagepro" />
             </div>
-          );
+          }
+
+
+
+
+
+        </div>
+      );
+    }
+
+
+    const options = [
+      { value: 'Purple Property', label: 'Purple Property' },
+      { value: 'Al Dar', label: 'Al Dar' },
+      { value: 'Free Property', label: 'Free Property' },
+    ];
+
+    return (
+      <div className="container-fluid ">
+        <div className="row centeraligh">
+          <div className="container-fluid divborder">
+            {
+              this.state.loader == true &&
+              <div className="loader"></div>
             }
+            <div className="row" >
+              <div className="col-sm-12">
+
+                <div className="facbookbutton">
+
+                  Register
 
 
-            const options = [
-              { value: 'Purple Property', label: 'Purple Property' },
-              { value: 'Al Dar', label: 'Al Dar' },
-              { value: 'Free Property', label: 'Free Property' },
-            ];
-
-        return (
-            <div className="container-fluid ">
-                <div className="row centeraligh">
-                    <div className="container-fluid divborder">
-                    {
-     this.state.loader==true &&
-     <div className="loader"></div>
-   }
-                        <div className="row" >
-                            <div className="col-sm-12">
-                               
-                               <div className="facbookbutton">
-                             
-                              Register
-                       
-                               
                                </div>
-                            </div>
+              </div>
 
-                        </div>
-                     
-
-                        <div className="row" >
-                            <div className="col-sm-12 graytext">
-                            <div className="form-group">
-   
-   <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
-  
- </div>
+            </div>
 
 
-                            <div className="form-group">
-   
-   <input type="email" className="form-control"  placeholder="Enter name" onChange={this.handlenamechange}></input>
-  
+            <div className="row" >
+              <div className="col-sm-12 graytext">
+                <div className="form-group">
 
- </div>     
- <div className="form-group">
-   
-   <input type="email" className="form-control" onChange={this.handlenphonechange} placeholder="Enter phone"></input>
-  
- </div>     
- 
-  <div className="form-group">
-   
-   <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
+                  <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
 
-</div>
-<div className="form-group">
-<Select
-        value={this.state.selectedOption}
-        onChange={this.handleChangedrp}
-        options={options}
-        className="dropdowng"
-      />
+                </div>
 
-</div>
-<div className="form-group">
-                        <div className="">
-                          <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
 
-                          <div className="imgPreviewpro">
-                            {$imagePreview}
+                <div className="form-group">
 
-                          </div>
+                  <input type="email" className="form-control" placeholder="Enter name" onChange={this.handlenamechange}></input>
+
+
+                </div>
+                <div className="form-group">
+
+                  <input type="email" className="form-control" onChange={this.handlenphonechange} placeholder="Enter phone"></input>
+
+                </div>
+
+                <div className="form-group">
+
+                  <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
+
+                </div>
+
+
+
+                <div className="form-group">
+                  <div onChange={this.setGender.bind(this)}>
+                    <div className="row" >
+                      <div className="col-sm-6">
+                        <input type="radio" value="Owner" name="gender" /> Owner
+                     </div>
+                      <div className="col-sm-6">
+                        <input type="radio" value="Agent" name="gender" /> Agent
+                </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                {this.state.isOwner != 0 &&
+
+                  <div>
+                    <div className="form-group">
+                      <div className="row">
+                      <div className="col-sm-10"><Select
+                        value={this.state.selectedOption}
+                        onChange={this.handleChangedrp}
+                        options={options}
+                        className="dropdowng"
+                      /></div>
+                      <div className="col-sm-2"><div className="plubutton">+</div></div>
+
+                      </div>
+
+
+
+
+                    </div>
+                    <hr></hr>
+                    <div className="blackheading">Agent Pic</div>
+                    <div className="form-group">
+                      <div className="">
+                        <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
+                        <hr></hr>
+                        <div className="imgPreviewpro">
+                          {$imagePreview}
 
                         </div>
 
                       </div>
 
-  
+                    </div>
+                  </div>
+                }
 
+
+
+              </div>
+
+            </div>
+
+            <div className="row" >
+              <div className="col-sm-12 graytext">
+
+
+              </div>
+
+            </div>
+
+            {this.state.isUserExits == "0" &&
+
+              <div className="row" >
+                <div className="col-sm-12">
+
+                  <Button className="mybuttons" onClick={this.handleClick} >Sign Up!</Button>
+                </div>
+
+              </div>
+
+            }
+
+
+
+            <div className="row" >
+              <div className="col-sm-12">
+
+                by signing up you accept our terms and conditions
                             </div>
 
-                        </div>
+            </div>
 
-                        <div className="row" >
-                            <div className="col-sm-12 graytext">
-                                
-                         
+            <div className="row" >
+              <div className="col-sm-12">
+
+                Create new account Sign up?
                             </div>
 
-                        </div>
+            </div>
 
-{this.state.isUserExits =="0" &&
 
-                        <div className="row" >
-                            <div className="col-sm-12">
-                                
-                                <Button className="mybuttons" onClick={this.handleClick} >Sign Up!</Button>
-                            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-                        </div>
+  handlenamechange(event) {
+    this.setState({
+      name: event.target.value
+    });
+  }
 
+  handleemailchange(event) {
+    this.setState({
+      email: event.target.value
+    });
+    if (event.target.value.indexOf('@') > 0) {
+      this.fetchprofile(event.target.value)
+    }
+  }
+
+  handlenphonechange(event) {
+    this.setState({
+      phone: event.target.value
+    });
+  }
+
+  handlepasswordchange(event) {
+    this.setState({
+      password: event.target.value
+    });
   }
 
 
-
-                        <div className="row" >
-                            <div className="col-sm-12">
-                                
-                            by signing up you accept our terms and conditions
-                            </div>
-
-                        </div>
-
-                        <div className="row" >
-                            <div className="col-sm-12">
-                                
-                            Create new account Sign up?
-                            </div>
-
-                        </div>
-                       
-
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    handlenamechange(event)
-    {
-        this.setState({
-            name: event.target.value
-          });
-    }
-
-    handleemailchange(event)
-    {
-        this.setState({
-            email: event.target.value
-          });
-          if (event.target.value.indexOf('@')>0){
-            this.fetchprofile(event.target.value)
-          }
-    }
-
-    handlenphonechange(event)
-    {
-        this.setState({
-            phone: event.target.value
-          });
-    }
-
-    handlepasswordchange(event)
-    {
-        this.setState({
-            password: event.target.value
-          });
-    }
+  uniqueNumber() {
+    var date = Date.now();
 
 
-     uniqueNumber() {
-      var date = Date.now();
-      
-     
-      
-      return date;
+
+    return date;
   }
 
 

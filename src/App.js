@@ -24,6 +24,7 @@ import AgentProfile from './agentprofile';
 import NearbyPlace from './nearbyplaces';
 import ViewOffers from './Offers';
 import SearchProperty from './SearchProperty';
+import Company from './companyregister';
 
 
 //view offers 101
@@ -32,7 +33,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 50000,
+      needwizard: 1009890871,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -63,6 +64,9 @@ class App extends Component {
       carousalObject: [],
       finalArrayObject: [],
 
+      compnayname:"",
+      companylogo:"",
+
     }
   }
 
@@ -70,7 +74,7 @@ class App extends Component {
     const { t } = this.props;
     let somthingNeedsTobe = "";
     let tagetedValue = 1;
-    //when you want it to be rtl 
+    //when you want it to be rtl
     if (tagetedValue === 1) {
       somthingNeedsTobe = "rtl"
     } else {
@@ -106,7 +110,13 @@ class App extends Component {
         <br></br>
         {this.state.needwizard == 1000 &&
           <div className="row">
-            <Register handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Register company={this.state.compnayname} companylogo={this.state.log} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+          </div>
+        }
+
+{this.state.needwizard == 1001 &&
+          <div className="row">
+            <Company handleRegisnteredUserIdCompany={this.handleRegisnteredUserIdCompany} />
           </div>
         }
 
@@ -246,6 +256,14 @@ class App extends Component {
     this.setState({
       needwizard: val,
       showcard: 0,
+    })
+  }
+
+  handleRegisnteredUserIdCompany(email,logo,company){
+    this.setState({
+      needwizard: 1000,
+      compnayname:company,
+      companylogo:logo
     })
   }
 
