@@ -31,7 +31,12 @@ export class companyregister extends React.Component {
         this.handleemailchange = this.handleemailchange.bind(this);
         this.handlenphonechange = this.handlenphonechange.bind(this);
         this.handltrade = this.handltrade.bind(this);
+        this.goBackToRegister = this.goBackToRegister.bind(this);
 
+    }
+
+    goBackToRegister(){
+        this.props.handleRegisterUserScreen();
     }
 
     handltrade(event) {
@@ -100,6 +105,7 @@ export class companyregister extends React.Component {
             console.log(error);
         }
     }
+
 
     async handleImageUpload(files) {
         if (files.target.files.length > 0) {
@@ -235,11 +241,15 @@ export class companyregister extends React.Component {
                             <div className="loader"></div>
                         }
                         <div className="row" >
-                            <div className="col-sm-12">
-
-                                <div className="paragraphcss">
-
+                            <div className="col-sm-8">
+                                <div className="paragraphcsstwo">
                                     Register Your Company
+                               </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="" onClick={this.goBackToRegister.bind(this)}>
+                                <Button className="mybuttons" onClick={this.goBackToRegister} >Back</Button>
+
 
 
                                </div>
@@ -290,7 +300,7 @@ export class companyregister extends React.Component {
 
                                         </div>
                                         <hr></hr>
-                                        <div className="paragraphcss">Logo</div>
+                                        <div className="paragraphcsstwo">Company Logo</div>
                                         <div className="form-group">
                                             <div className="">
                                                 <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>

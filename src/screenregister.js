@@ -44,6 +44,8 @@ export class screenregister extends React.Component {
     this.handlepasswordchange = this.handlepasswordchange.bind(this);
     this.goRegisnterCompany = this.goRegisnterCompany.bind(this);
 
+
+
   }
 
 
@@ -58,7 +60,10 @@ export class screenregister extends React.Component {
 
   goRegisnterCompany(){
     this.props.handleRegisnteredUserIdtwo();
+  }
 
+  goRegisterUser(){
+    this.props.handleRegisterUserScreen();
   }
 
   async fetchprofile(emailaddress) {

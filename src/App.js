@@ -33,7 +33,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 1009890871,
+      needwizard: 100666660,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -116,7 +116,7 @@ class App extends Component {
 
 {this.state.needwizard == 1001 &&
           <div className="row">
-            <Company handleRegisnteredUserIdCompany={this.handleRegisnteredUserIdCompany} />
+            <Company handleRegisnteredUserIdCompany={this.handleRegisnteredUserIdCompany} handleRegisterUserScreen={this.handleRegisterUserScreen} />
           </div>
         }
 
@@ -259,17 +259,25 @@ class App extends Component {
     })
   }
 
-  handleRegisnteredUserIdtwo(){
+  handleRegisnteredUserIdtwo=()=>{
     this.setState({
       needwizard: 1001,
     })
   }
 
-  handleRegisnteredUserIdCompany(email,logo,company){
+  handleRegisnteredUserIdCompany=(email,logo,company)=>{
     this.setState({
       needwizard: 1000,
       compnayname:company,
       companylogo:logo
+    })
+  }
+
+  handleRegisterUserScreen=()=>{
+    this.setState({
+      needwizard: 1000,
+      compnayname:"",
+      companylogo:""
     })
   }
 
