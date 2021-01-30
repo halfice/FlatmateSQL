@@ -110,7 +110,7 @@ class App extends Component {
         <br></br>
         {this.state.needwizard == 1000 &&
           <div className="row">
-            <Register company={this.state.compnayname} companylogo={this.state.log} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Register company={this.state.compnayname} companylogo={this.state.log} handleRegisnteredUserId={this.handleRegisnteredUserId}  handleRegisnteredUserIdtwo={this.handleRegisnteredUserIdtwo}/>
           </div>
         }
 
@@ -259,6 +259,12 @@ class App extends Component {
     })
   }
 
+  handleRegisnteredUserIdtwo(){
+    this.setState({
+      needwizard: 1001,
+    })
+  }
+
   handleRegisnteredUserIdCompany(email,logo,company){
     this.setState({
       needwizard: 1000,
@@ -273,7 +279,6 @@ class App extends Component {
     if (useridfromdb.data == undefined) {
       myObject = useridfromdb;
     }
-
     console.log(myObject);
     var userid = myObject;
     this.setState({
@@ -285,7 +290,7 @@ class App extends Component {
       AgentCompany: agentCompany,
       AgentName: agentname,
 
-    })
+    });
   }
 
   handler = (val) => {

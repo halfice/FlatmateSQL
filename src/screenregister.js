@@ -42,6 +42,7 @@ export class screenregister extends React.Component {
     this.handleemailchange = this.handleemailchange.bind(this);
     this.handlenphonechange = this.handlenphonechange.bind(this);
     this.handlepasswordchange = this.handlepasswordchange.bind(this);
+    this.goRegisnterCompany = this.goRegisnterCompany.bind(this);
 
   }
 
@@ -55,7 +56,10 @@ export class screenregister extends React.Component {
     console.log(`Option selected:`, selectedOption.label);
   };
 
+  goRegisnterCompany(){
+    this.props.handleRegisnteredUserIdtwo();
 
+  }
 
   async fetchprofile(emailaddress) {
     var _Response = null;
@@ -343,7 +347,7 @@ export class screenregister extends React.Component {
                         options={options}
                         className="dropdowng"
                       /></div>
-                      <div className="col-sm-2"><div className="plubutton">+</div></div>
+                      <div className="col-sm-2"><div onClick={this.goRegisnterCompany.bind(this)} className="plubutton">+</div></div>
 
                       </div>
 
