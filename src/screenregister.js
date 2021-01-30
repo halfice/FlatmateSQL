@@ -32,7 +32,7 @@ export class screenregister extends React.Component {
       isUserExits: "1",
       isOwner: 0,
 
-      companynameprops:this.props.copmayname,
+      companynameprops:this.props.company,
       companylogo:this.props.logo
 
 
@@ -208,7 +208,7 @@ export class screenregister extends React.Component {
         if (tmp == 1) {
           this.setState({
             file: reader.result,
-            imagePreviewUrl: reader.result,
+            company: reader.result,
             picstring: blobName,//reader.result,
             picscounter: tmp,
             loader: false,
@@ -350,12 +350,20 @@ export class screenregister extends React.Component {
                   <div>
                     <div className="form-group">
                       <div className="row">
+                        { this.state.companynameprops=="" &&
                       <div className="col-sm-10"><Select
                         value={this.state.selectedOption}
                         onChange={this.handleChangedrp}
                         options={options}
                         className="dropdowng"
                       /></div>
+                        }
+                        {
+                          this.state.companynameprops!="" &&
+                          <div>{
+                            this.state.companynameprops}
+                            </div>
+                        }
                       <div className="col-sm-2"><div onClick={this.goRegisnterCompany.bind(this)} className="plubutton">+</div></div>
 
                       </div>
