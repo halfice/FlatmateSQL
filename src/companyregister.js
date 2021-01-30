@@ -82,7 +82,7 @@ export class companyregister extends React.Component {
                 universalid: res,
                 loader: false,
             });
-            this.props.handleRegisnteredUserId(this.state.email, this.state.logoimage, this.state.copmayname);
+            this.props.handleRegisnteredUserId(this.state.email, this.state.logoimage, this.state.companyname);
             // console.log(res.data);
         } catch (error) {
             //console.log(error);
@@ -175,7 +175,6 @@ export class companyregister extends React.Component {
                         file: reader.result,
                         imagePreviewUrl: reader.result,
                         logoimage: blobName,//reader.result,
-                        picscounter: tmp,
                         loader: false,
                     });
 
