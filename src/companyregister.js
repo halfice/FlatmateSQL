@@ -23,7 +23,8 @@ export class companyregister extends React.Component {
             loader: false,
             imagePreviewUrl: uploader,
             logoimage: "",
-            tradelicenseno:"",
+            tradelicenseno: "",
+            picstring: "",
 
         }
         this.handleClick = this.handleClick.bind(this);
@@ -35,7 +36,7 @@ export class companyregister extends React.Component {
 
     }
 
-    goBackToRegister(){
+    goBackToRegister() {
         this.props.handleRegisterUserScreen();
     }
 
@@ -81,7 +82,7 @@ export class companyregister extends React.Component {
                 universalid: res,
                 loader: false,
             });
-            this.props.handleRegisnteredUserId(this.state.email, this.state.logoimage, this.state.copmayname, );
+            this.props.handleRegisnteredUserId(this.state.email, this.state.logoimage, this.state.copmayname);
             // console.log(res.data);
         } catch (error) {
             //console.log(error);
@@ -165,12 +166,11 @@ export class companyregister extends React.Component {
             const compressedFile = await imageCompression(imageFile, options);
 
             reader.onloadend = () => {
-                var tmp = this.state.picscounter;
-                tmp = tmp + 1;
+
                 const data = {
                     logoimage: reader.result,
                 }
-                if (tmp == 1) {
+
                     this.setState({
                         file: reader.result,
                         imagePreviewUrl: reader.result,
@@ -178,7 +178,7 @@ export class companyregister extends React.Component {
                         picscounter: tmp,
                         loader: false,
                     });
-                }
+
 
 
 
@@ -248,11 +248,11 @@ export class companyregister extends React.Component {
                             </div>
                             <div className="col-sm-4">
                                 <div className="" onClick={this.goBackToRegister.bind(this)}>
-                                <Button className="mybuttons" onClick={this.goBackToRegister} >Back</Button>
+                                    <Button className="mybuttons" onClick={this.goBackToRegister} >Back</Button>
 
 
 
-                               </div>
+                                </div>
                             </div>
 
                         </div>
@@ -281,39 +281,36 @@ export class companyregister extends React.Component {
 
 
 
-<div className="form-group">
+                                <div className="form-group">
 
-<input type="email" className="form-control" onChange={this.handltrade} placeholder="Trade License #"></input>
+                                    <input type="email" className="form-control" onChange={this.handltrade} placeholder="Trade License #"></input>
 
-</div>
-
-
-
-
-
-                                    <div>
-                                        <div className="form-group">
+                                </div>
 
 
 
 
 
-                                        </div>
-                                        <hr></hr>
-                                        <div className="paragraphcsstwo">Company Logo</div>
-                                        <div className="form-group">
-                                            <div className="">
-                                                <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
-                                                <hr></hr>
-                                                <div className="imgPreviewpro">
-                                                    {$imagePreview}
+                                <div>
+                                    <div className="form-group">
 
-                                                </div>
+
+                                    </div>
+                                    <hr></hr>
+                                    <div className="paragraphcsstwo">Company Logo</div>
+                                    <div className="form-group">
+                                        <div className="">
+                                            <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
+                                            <hr></hr>
+                                            <div className="imgPreviewpro">
+                                                {$imagePreview}
 
                                             </div>
 
                                         </div>
+
                                     </div>
+                                </div>
 
 
 

@@ -299,7 +299,11 @@ export class screenregister extends React.Component {
 
 
             <div className="row" >
+            <div className="paragraphcsstwo">
+                                    Join Us!
+                               </div>
               <div className="col-sm-12 graytext">
+
                 <div className="form-group">
 
                   <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
