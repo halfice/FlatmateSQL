@@ -50,7 +50,9 @@ export class screenregister extends React.Component {
     this.setState(
       {
         selectedOption,
-        copmayname: selectedOption.label
+        copmayname: selectedOption.label,
+        companylogo:selectedOption.value,
+
       });
     console.log(`Option selected:`, selectedOption.label);
   };

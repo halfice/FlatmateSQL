@@ -33,13 +33,14 @@ export class screenlogin extends React.Component {
             loader:false,
             AgentName:"",
             AgentPic:"",
+            companylogo:"",
 
         }
 
         this.handleClick = this.handleClick.bind(this);
-     
+
         this.handleemailchange = this.handleemailchange.bind(this);
-        
+
         this.handlepasswordchange = this.handlepasswordchange.bind(this);
 
 
@@ -55,13 +56,13 @@ export class screenlogin extends React.Component {
          const params = {
             functiontype:"c",
             email: this.state.email,
-            password: this.state.password,          
+            password: this.state.password,
            };
 
            var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email="+this.state.email+"&functiontype=c";
     try {
                let res=await axios.post(loginurl);
-               
+
                this.setState({
                 universalid:res,
                 loader:false,
@@ -77,27 +78,27 @@ export class screenlogin extends React.Component {
                     });
                 }
             else{
-                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail,this.state.universalid.data.Mobile,this.state.universalid.data.profilepicname,this.state.universalid.data.companyname,this.state.universalid.data.UserName);   
-                
+                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail,this.state.universalid.data.Mobile,this.state.universalid.data.profilepicname,this.state.universalid.data.companyname,this.state.universalid.data.UserName);
+
             }
              //  console.log(res.data);
            } catch (error) {
               // console.log(error);
            }
-         
- 
+
+
   }
 
   async registeruser(){
 
-    
+
     const data = "";
         const  functiontype="b";
         const email= this.state.email;
         const  userid= "facebook user";
         const  phone="9999";
         const  password= "facebookpassword";
-             
+
      // };
       var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
     try {
@@ -112,7 +113,7 @@ export class screenlogin extends React.Component {
                //console.log(error);
            }
   }
- 
+
    responseFacebook = (response) => {
     this.setState({
         email:response.email,
@@ -147,19 +148,19 @@ export class screenlogin extends React.Component {
     fields="name,email,picture"
     onClick={this.componentClicked}
     callback={this.responseFacebook} />
-                               
+
                                <div className="facbookbutton">
-                             
+
                                <span className="iconsclass" >f</span>   Continue with Facebook
-                       
-                               
+
+
                                </div>
                             </div>
 
                         </div>
                         <div className="row" >
                             <div className="col-sm-12 graytext">
-                                
+
                               --OR--
                             </div>
 
@@ -167,15 +168,15 @@ export class screenlogin extends React.Component {
 
                         <div className="row" >
                             <div className="col-sm-12 graytext">
-                                
-                           
+
+
   <div className="form-group">
-   
+
   <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
-   
+
   </div>
 
-  
+
 
                             </div>
 
@@ -183,11 +184,11 @@ export class screenlogin extends React.Component {
 
                         <div className="row" >
                             <div className="col-sm-12 graytext">
-                                
+
                             <div className="form-group">
-   
+
                             <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
-  
+
  </div>
                             </div>
 
@@ -197,14 +198,14 @@ export class screenlogin extends React.Component {
 
                         <div className="row" >
                             <div className="col-sm-12">
-                                
+
                                 <Button className="mybuttons" onClick={this.handleClick.bind(this)} >Log In</Button>
                             </div>
 
                         </div>
                         <div className="row" >
                             <div className="col-sm-12">
-                                
+
                             by signing up you accept our terms and conditions
                             </div>
 
@@ -212,15 +213,15 @@ export class screenlogin extends React.Component {
 
                         <div className="row" >
                             <div className="col-sm-12">
-                                
-                            
+
+
                             <div className="signupdiv" >
                             Create new account  <span onClick = {() => this.props.handlerRegister('1000')} className="signuplink">Sign up</span>
                             </div>
                             </div>
 
                         </div>
-                       
+
 
                     </div>
                 </div>
