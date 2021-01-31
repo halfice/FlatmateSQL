@@ -34,7 +34,7 @@ export class screenregister extends React.Component {
 
       companynameprops: this.props.company,
       companylogo: this.props.companylogo,
-      existingcompanies:[]
+      existingcompanies: []
 
 
     }
@@ -51,7 +51,7 @@ export class screenregister extends React.Component {
       {
         selectedOption,
         copmayname: selectedOption.label,
-        companylogo:selectedOption.value,
+        companylogo: selectedOption.value,
 
       });
     console.log(`Option selected:`, selectedOption.label);
@@ -61,7 +61,7 @@ export class screenregister extends React.Component {
     this.props.handleRegisnteredUserIdtwo();
   }
 
- async getcompannies(){
+  async getcompannies() {
     var _Response = null;
     var TempCompanyData = [];
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=getcompany";
@@ -73,12 +73,12 @@ export class screenregister extends React.Component {
         xcount = xcount + 1;
         var obs = {
           'label': res.data[i].companyname,
-          'value':res.data[i].logoimage,
+          'value': res.data[i].logoimage,
         }
         TempCompanyData.push(obs);
       }
       this.setState({
-        existingcompanies:TempCompanyData,
+        existingcompanies: TempCompanyData,
         loader: false,
       });
 
@@ -287,10 +287,6 @@ export class screenregister extends React.Component {
             </div>
           }
 
-
-
-
-
         </div>
       );
     }
@@ -301,12 +297,6 @@ export class screenregister extends React.Component {
       { value: 'Al Dar', label: 'Al Dar' },
       { value: 'Free Property', label: 'Free Property' },
     ];
-
-
-
-
-
-
 
     return (
       <div className="container-fluid ">
@@ -332,8 +322,8 @@ export class screenregister extends React.Component {
 
             <div className="row" >
               <div className="paragraphcsstwo">
-                Join Us!
-                               </div>
+                Join Us! <br></br>
+              </div>
               <div className="col-sm-12 graytext">
 
                 <div className="form-group">
@@ -392,12 +382,16 @@ export class screenregister extends React.Component {
                         }
                         {
                           this.state.companynameprops != "" &&
-                          <div className="paragraphcsstwo" >
-                            Welcome :  {
-                            this.state.companynameprops}
+                          <div className="col-sm-10">
+                            <div className="paragraphcsstwo" >
+                              Welcome :  {
+                                this.state.companynameprops}
+                            </div>
                           </div>
                         }
-                        <div className="col-sm-2"><div onClick={this.goRegisnterCompany.bind(this)} className="plubutton">+</div></div>
+                        <div className="col-sm-2">
+                          <div onClick={this.goRegisnterCompany.bind(this)} className="plubutton">+</div>
+                        </div>
 
                       </div>
 

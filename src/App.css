@@ -24,7 +24,7 @@
   font-size: 33px;
   cursor: pointer;
   z-index: 11111111;
-  text-align: left;
+  text-align: center;
 }
 .closebuttondi {
   padding: 9px;
@@ -155,11 +155,20 @@ div{
 
 }
 
+.paragraphcsstwo {
+  font-weight: 700;
+
+}
+
+
 .paragraphcsstwo{
   font-size: 13px;
   COLOR: #004085;
   text-align: left;
   font-weight: bold;;
+  text-transform: capitalize;
+  padding-top: 11px;
+
 }
 
 .loadoer {
