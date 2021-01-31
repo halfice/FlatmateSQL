@@ -33,7 +33,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 5,
+      needwizard: 897897895,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -364,49 +364,53 @@ class App extends Component {
       let res = await axios.post(loginurl);
       console.log("Agent" + res);
       var xcount = 10;
-      for (var i = 0; i < res.data.length; i++) {
-        xcount = xcount + 1;
-        var obs = {
-          'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-          'rent': res.data[i].Price,//metadata.colName,
-          'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-          'propertyAddress': res.data[i].Location,//.metadata.colName,
-          'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
-          'key': xcount,
-          'Price': res.data[i].Price,
-          'PropertyId': res.data[i].PropertyId,
-          'profilepicname': res.data[i].profilepicname,
-        }
-        retrueneddata.push(obs);
-        var objectcarousal = {
-          'AgentId': res.data[i].AgentId,
-          'Bedrooms': res.data[i].Bedrooms,
-          'Deal': res.data[i].Deal,
-          'FurnishedTyope': res.data[i].FurnishedTyope,
-          'Location': res.data[i].Location,
-          'LoginUserID': res.data[i].LoginUserID,
-          'Price': res.data[i].Price,
-          'PropertyId': res.data[i].PropertyId,
-          'State': res.data[i].State,
-          'Type': res.data[i].Type,
-          'internet': res.data[i].internet,
-          'parking': res.data[i].parking,
-          'picsstringone': res.data[i].picsstringone,
-          'picsstringthree': res.data[i].picsstringthree,
-          'picsstringtwo': res.data[i].picsstringtwo,
-          'picstring': res.data[i].picstring,
-          'totalbathrooms': res.data[i].totalbathrooms,
-          'profilepicname': res.data[i].profilepicname,
-          'AgentNumber': res.data[i].AgentNumber,
-          'AgentPic': res.data[i].AgentPic,
-          'agentcompany': res.data[i].agentcompany,
-          'agentname': res.data[i].agentname
+      if (res.data!="notfound"){
+        for (var i = 0; i < res.data.length; i++) {
+          xcount = xcount + 1;
+          var obs = {
+            'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+            'rent': res.data[i].Price,//metadata.colName,
+            'totalbed': res.data[i].Bedrooms,//.metadata.colName,
+            'propertyAddress': res.data[i].Location,//.metadata.colName,
+            'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+            'key': xcount,
+            'Price': res.data[i].Price,
+            'PropertyId': res.data[i].PropertyId,
+            'profilepicname': res.data[i].profilepicname,
+          }
+          retrueneddata.push(obs);
+          var objectcarousal = {
+            'AgentId': res.data[i].AgentId,
+            'Bedrooms': res.data[i].Bedrooms,
+            'Deal': res.data[i].Deal,
+            'FurnishedTyope': res.data[i].FurnishedTyope,
+            'Location': res.data[i].Location,
+            'LoginUserID': res.data[i].LoginUserID,
+            'Price': res.data[i].Price,
+            'PropertyId': res.data[i].PropertyId,
+            'State': res.data[i].State,
+            'Type': res.data[i].Type,
+            'internet': res.data[i].internet,
+            'parking': res.data[i].parking,
+            'picsstringone': res.data[i].picsstringone,
+            'picsstringthree': res.data[i].picsstringthree,
+            'picsstringtwo': res.data[i].picsstringtwo,
+            'picstring': res.data[i].picstring,
+            'totalbathrooms': res.data[i].totalbathrooms,
+            'profilepicname': res.data[i].profilepicname,
+            'AgentNumber': res.data[i].AgentNumber,
+            'AgentPic': res.data[i].AgentPic,
+            'agentcompany': res.data[i].agentcompany,
+            'agentname': res.data[i].agentname
+
+          }
+          TempCarousalData.push(objectcarousal);
+
 
         }
-        TempCarousalData.push(objectcarousal);
-
-
       }
+
+
       this.setState({
         GlobalObject: retrueneddata,
         GlobalObjectCarousal: TempCarousalData,
