@@ -77,7 +77,7 @@ export class screenregister extends React.Component {
 
       }
       this.setState({
-
+        existingcompanies:TempCompanyData,
         loader: false,
       });
 
