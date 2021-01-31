@@ -32,8 +32,9 @@ export class screenregister extends React.Component {
       isUserExits: "1",
       isOwner: 0,
 
-      companynameprops:this.props.company,
-      companylogo:this.props.logo
+      companynameprops: this.props.company,
+      companylogo: this.props.logo,
+      existingcompanies:[]
 
 
     }
@@ -43,11 +44,7 @@ export class screenregister extends React.Component {
     this.handlenphonechange = this.handlenphonechange.bind(this);
     this.handlepasswordchange = this.handlepasswordchange.bind(this);
     this.goRegisnterCompany = this.goRegisnterCompany.bind(this);
-
-
-
   }
-
 
   handleChangedrp = selectedOption => {
     this.setState(
@@ -58,11 +55,39 @@ export class screenregister extends React.Component {
     console.log(`Option selected:`, selectedOption.label);
   };
 
-  goRegisnterCompany(){
+  goRegisnterCompany() {
     this.props.handleRegisnteredUserIdtwo();
   }
 
-  goRegisterUser(){
+  getcompannies(){
+    var _Response = null;
+    var TempCompanyData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=getcompany";
+    try {
+      let res = await axios.post(loginurl);
+      console.log(res);
+      var xcount = 10;
+      for (var i = 0; i < res.data.length; i++) {
+        xcount = xcount + 1;
+        var obs = {
+          'label': res.data[i].companyname,
+          'value':res.data[i].ItemId,
+        }
+        TempCompanyData.push(obs);
+
+      }
+      this.setState({
+
+        loader: false,
+      });
+
+    } catch (error) {
+
+    }
+
+  }
+
+  goRegisterUser() {
     this.props.handleRegisterUserScreen();
   }
 
@@ -118,9 +143,9 @@ export class screenregister extends React.Component {
   }
   componentDidMount() {
     this.getblobtoken();
+    this.getcompannies();
     //this.fetchprofile();
-    if(this.state.companynameprops!="")
-    {
+    if (this.state.companynameprops != "") {
       this.setState({
         copmayname: this.state.companynameprops,
 
@@ -276,6 +301,12 @@ export class screenregister extends React.Component {
       { value: 'Free Property', label: 'Free Property' },
     ];
 
+
+
+
+
+
+
     return (
       <div className="container-fluid ">
         <div className="row centeraligh">
@@ -299,8 +330,8 @@ export class screenregister extends React.Component {
 
 
             <div className="row" >
-            <div className="paragraphcsstwo">
-                                    Join Us!
+              <div className="paragraphcsstwo">
+                Join Us!
                                </div>
               <div className="col-sm-12 graytext">
 
@@ -350,21 +381,22 @@ export class screenregister extends React.Component {
                   <div>
                     <div className="form-group">
                       <div className="row">
-                        { this.state.companynameprops=="" &&
-                      <div className="col-sm-10"><Select
-                        value={this.state.selectedOption}
-                        onChange={this.handleChangedrp}
-                        options={options}
-                        className="dropdowng"
-                      /></div>
+                        {this.state.companynameprops == "" &&
+                          <div className="col-sm-10"><Select
+                            value={this.state.selectedOption}
+                            onChange={this.handleChangedrp}
+                            options={this.state.existingcompanies}
+                            className="dropdowng"
+                          /></div>
                         }
                         {
-                          this.state.companynameprops!="" &&
-                          <div>{
+                          this.state.companynameprops != "" &&
+                          <div className="paragraphcsstwo" >
+                            Welcome :  {
                             this.state.companynameprops}
-                            </div>
+                          </div>
                         }
-                      <div className="col-sm-2"><div onClick={this.goRegisnterCompany.bind(this)} className="plubutton">+</div></div>
+                        <div className="col-sm-2"><div onClick={this.goRegisnterCompany.bind(this)} className="plubutton">+</div></div>
 
                       </div>
 
