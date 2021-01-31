@@ -160,6 +160,9 @@ export class Property extends React.Component {
       FloorPlanid: "",
       Size: "",
 
+      companylogo:this.props.companylogo,
+      videolink:"",
+
     }
 
 
@@ -183,8 +186,8 @@ export class Property extends React.Component {
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
     this.handleprince = this.handleprince.bind(this);
     this.handleChangetextarea = this.handleChangetextarea.bind(this);
-  
-  
+
+
     this.OwnerNamech = this.OwnerNamech.bind(this);
     this.handleSize = this.handleSize.bind(this);
     this.OwnerNumberch = this.OwnerNumberch.bind(this);
@@ -192,7 +195,7 @@ export class Property extends React.Component {
     this.ShapeNo = this.ShapeNo.bind(this);
     this.UnitNo = this.UnitNo.bind(this);
     this.BuildingNo = this.BuildingNo.bind(this);
-  
+
 
   }
 
@@ -369,7 +372,7 @@ export class Property extends React.Component {
       AgentId: this.state.AgentId,//mean it is owner
     };
 
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName},&agentcompany=${this.state.AgentComapny},&Purpose=${this.state.Purpose},&City=${this.state.City},&OwnerName=${this.state.OwnerName},&OwnerEmail=${this.state.OwnerEmail},&OwnerPhone=${this.state.OwnerPhone},&Status=${this.state.Status},&BuildingNumber=${this.state.BuildingNo},&UnitNumber=${this.state.UnitNumber},&Shape=${this.state.Shape},&FloorPlanid=${this.state.FloorPlanid},&Size=${this.state.Size}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3},&AgentId=${this.state.AgentId},&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile},&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName},&agentcompany=${this.state.AgentComapny},&Purpose=${this.state.Purpose},&City=${this.state.City},&OwnerName=${this.state.OwnerName},&OwnerEmail=${this.state.OwnerEmail},&OwnerPhone=${this.state.OwnerPhone},&Status=${this.state.Status},&BuildingNumber=${this.state.BuildingNo},&UnitNumber=${this.state.UnitNumber},&Shape=${this.state.Shape},&FloorPlanid=${this.state.FloorPlanid},&Size=${this.state.Size},&VideoLink=${this.state.videolink},&companylogo=${this.state.companylogo}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -397,6 +400,13 @@ export class Property extends React.Component {
       City: vcity,
 
     })
+  }
+
+  videolinkchange(event){
+    this.setState({
+      videolink: event.target.value,
+
+    });
   }
 
   handleChangetextarea(event) {
@@ -462,7 +472,7 @@ export class Property extends React.Component {
                 <div className="row">
 
                   <div className="col-sm-12">
-                    <div className="subheadings"> Welcome:</div>
+                    <div className="subheadings textalighleft"> Welcome: Advertise your property</div>
                   </div>
 
                 </div>
@@ -513,6 +523,20 @@ export class Property extends React.Component {
                             For Rent
                           </div>
                         </div>
+
+
+                        <div className="col-sm-2">
+                          <div>
+                            Video Link
+                          </div>
+                        </div>
+                        <div className="col-sm-6">
+                          <div>
+                               <input type="name" className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
+
+                          </div>
+                        </div>
+
 
                       </div>
 
@@ -1187,7 +1211,7 @@ export class Property extends React.Component {
   }
 
 
-  
+
   BuildingNo(event){
     this.setState({
       BuildingNo: event.target.value,

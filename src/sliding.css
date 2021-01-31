@@ -45,11 +45,11 @@
 
   .subheadings{
     font-size: 33px;
-    color: gray;
+    color: #117a8b;
   }
 
   .facbookbutton{
-    
+
 display: none;
     font-size: 1rem;
     background: rgb(60, 90, 150);
@@ -71,7 +71,7 @@ display: none;
 
   .facebookspan{
     color: white;;
-    color: white; position: relative; 
+    color: white; position: relative;
     top: 0px; padding-left: 3px;
   }
 
@@ -105,7 +105,7 @@ cursor: pointer;
   margin: 5px;
   cursor: pointer;
   }
-  
+
 .imgPreview{
   text-align: center;
   margin: 5px 5px;
@@ -113,7 +113,7 @@ cursor: pointer;
   max-width: 100%;
   border-radius: 11px;
   padding: 21px;
-  
+
 }
 
 
@@ -122,10 +122,10 @@ cursor: pointer;
   text-align: center;
   height: auto;
   border-radius: 11px;
-  
-  
+
+
 }
-  
+
 .previewText{
   width: 100%;
   margin-top: 20px;
@@ -147,7 +147,7 @@ cursor: pointer;
     border-radius: 13px;
      box-shadow: 6px 1px 16px 2px;
      text-align: left;
-  
+
   }
 
   .dropdowng{
@@ -169,7 +169,7 @@ font-size: 11px;
 }
 .mypreviewimagepro{
   width: 123px;
-  
+
     border-radius: 3px;
     border: solid 9px #117a8b26;
     box-shadow: 6px 1px 16px 2px;
@@ -275,7 +275,7 @@ font-size: 11px;
     border: solid 1px gray;
     background-color: #80808054;
     border: solid 1px gray;
- 
+
     font-weight: bold;
 }
 
@@ -287,8 +287,8 @@ font-size: 11px;
     cursor: pointer;
     background-color:white;
     border: solid 1px gray;
-    
+
     border: solid 1px gray;
-    
+
     font-weight: bold;
 }
