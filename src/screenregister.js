@@ -59,7 +59,7 @@ export class screenregister extends React.Component {
     this.props.handleRegisnteredUserIdtwo();
   }
 
-  getcompannies(){
+ async getcompannies(){
     var _Response = null;
     var TempCompanyData = [];
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=getcompany";
