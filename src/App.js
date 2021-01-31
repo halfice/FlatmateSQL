@@ -281,7 +281,7 @@ class App extends Component {
     })
   }
 
-  handleRegisnteredUserId = (useridfromdb, AgentMobile, agentPic, agentCompany, agentname) => {
+  handleRegisnteredUserId = (useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo) => {
 
     var myObject = JSON.stringify(useridfromdb.data);
     if (useridfromdb.data == undefined) {
@@ -297,6 +297,7 @@ class App extends Component {
       showcard: 1,
       AgentCompany: agentCompany,
       AgentName: agentname,
+      companylogo:companylogo
 
     });
   }
