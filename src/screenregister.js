@@ -71,10 +71,9 @@ export class screenregister extends React.Component {
         xcount = xcount + 1;
         var obs = {
           'label': res.data[i].companyname,
-          'value':res.data[i].ItemId,
+          'value':res.data[i].logoimage,
         }
         TempCompanyData.push(obs);
-
       }
       this.setState({
         existingcompanies:TempCompanyData,
