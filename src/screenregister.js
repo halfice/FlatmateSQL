@@ -33,7 +33,7 @@ export class screenregister extends React.Component {
       isOwner: 0,
 
       companynameprops: this.props.company,
-      companylogo: this.props.logo,
+      companylogo: this.props.companylogo,
       existingcompanies:[]
 
 
@@ -128,7 +128,7 @@ export class screenregister extends React.Component {
 
 
     //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}&companylogo=${this.state.companylogo}`;
     try {
       let res = await axios.post(regurl);
       this.setState({
