@@ -162,7 +162,7 @@ export class Property extends React.Component {
 
       companylogo:this.props.companylogo,
       videolink:"",
-
+      chkbox:true,
     }
 
 
@@ -196,9 +196,16 @@ export class Property extends React.Component {
     this.UnitNo = this.UnitNo.bind(this);
     this.BuildingNo = this.BuildingNo.bind(this);
 
+    this.videolinkchange=this.videolinkchange.bind(this);
+    this.handleChangeChk = this.handleChangeChk.bind(this);
 
   }
-
+  handleChangeChk = () => {
+    this.setState({
+      isChecked: !this.state.isChecked,
+      deal:1
+    });
+  }
   componentDidMount() {
     this.getblobtoken();
   }
@@ -505,7 +512,6 @@ export class Property extends React.Component {
                     <div className={this.state.divcountre == 1 ? this.state.visibleclass : this.state.hiddenclass}>
 
                       <div className="row textalighleft">
-
                         <div className="col-sm-12 textalighleft">Purpose </div>
                       </div>
                       <div className="row">
@@ -525,17 +531,32 @@ export class Property extends React.Component {
                         </div>
 
 
-                        <div className="col-sm-2">
-                          <div>
-                            Video Link
-                          </div>
+                        <div className="col-sm-1">
+
+                            VIDEO
+
                         </div>
-                        <div className="col-sm-6">
-                          <div>
+                        <div className="col-sm-4">
+
                                <input type="name" className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
 
-                          </div>
+
                         </div>
+                        <div className="col-sm-1">
+
+                           DEAL
+
+                        </div>
+                        <div className="col-sm-1">
+
+
+                          <input type="checkbox"
+                           defaultChecked={this.state.chkbox}
+                            onChange={this.handleChangeChk} value="DEAL" />
+
+
+                        </div>
+
 
 
                       </div>
@@ -546,10 +567,6 @@ export class Property extends React.Component {
 
                         <div className="col-sm-12 textalighleft"> What type of Accomodation you are offering.</div>
                       </div>
-
-
-
-
 
                       <div className="row">
                         <div className="col-sm-2">
