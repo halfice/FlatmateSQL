@@ -123,10 +123,6 @@ export class screenregister extends React.Component {
     var email = this.state.email;
     var phone = this.state.phone;
     var password = this.state.password;
-
-
-
-
     //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
     var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}&companylogo=${this.state.companylogo}`;
     try {
@@ -236,6 +232,7 @@ export class screenregister extends React.Component {
             file: reader.result,
             company: reader.result,
             picstring: blobName,//reader.result,
+            imagePreviewUrl: reader.result,
             picscounter: tmp,
             loader: false,
           });

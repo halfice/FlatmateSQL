@@ -110,7 +110,7 @@ class App extends Component {
         <br></br>
         {this.state.needwizard == 1000 &&
           <div className="row">
-            <Register company={this.state.compnayname} companylogo={this.state.log} handleRegisnteredUserId={this.handleRegisnteredUserId}  handleRegisnteredUserIdtwo={this.handleRegisnteredUserIdtwo}/>
+            <Register company={this.state.compnayname} companylogo={this.state.companylogo} handleRegisnteredUserId={this.handleRegisnteredUserId}  handleRegisnteredUserIdtwo={this.handleRegisnteredUserIdtwo}/>
           </div>
         }
 
