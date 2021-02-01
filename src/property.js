@@ -153,7 +153,7 @@ export class Property extends React.Component {
       OwnerName: "",
       OwnerEmail: "",
       wnerPhone: "",
-      Status: "",
+      Status: "Pending",
       BuildingNumber: "",
       UnitNumber: "",
       Shape: "",
@@ -410,6 +410,7 @@ export class Property extends React.Component {
   }
 
   videolinkchange(event){
+    alert(event.target.value);
     this.setState({
       videolink: event.target.value,
 
