@@ -282,7 +282,7 @@ class App extends Component {
   }
 
   handleRegisnteredUserId = (useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo) => {
-
+alert(companylogo);
     var myObject = JSON.stringify(useridfromdb.data);
     if (useridfromdb.data == undefined) {
       myObject = useridfromdb;
