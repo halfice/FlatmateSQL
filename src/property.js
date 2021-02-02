@@ -389,7 +389,7 @@ var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerPropert
 
       });
       //useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo
-      this.props.handleRegisnteredUserId(this.state.LoginUserID,this.state.AgentMobile,this.state.AgentComapny,this.state.AgentName,this.state.companylogo);
+      this.props.handleRegisnteredUserId(this.state.LoginUserID,this.state.AgentMobile,this.state.AgentPic,this.state.AgentComapny,this.state.AgentName,this.state.companylogo);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);
