@@ -412,7 +412,6 @@ var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerPropert
   }
 
   videolinkchange(event){
-    alert(event.target.value);
     this.setState({
       videolink: event.target.value,
 
