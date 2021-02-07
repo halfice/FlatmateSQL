@@ -616,7 +616,7 @@ var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerPropert
                         <div className="col-sm-12">
 
 
-                          <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="inputfilecss"></input>
+                          <input type="file" accept="image/*" multiple onChange={this.handleImageUpload.bind(this)} className="inputfilecss"></input>
 
                           <div className="imgPreview">
                             {$imagePreview}
@@ -1886,6 +1886,97 @@ var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerPropert
     this.setState({
       loader: true,
     });
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 200,
+      useWebWorker: true,
+      usbd: 22,
+    }
+
+    const imageFile = event.target.files;
+    for (var x=0;x<imageFile.length;x++){
+      try {
+        const compressedFile = await imageCompression(imageFile[x], options);
+        let reader = new FileReader();
+        let file = compressedFile;
+        var newfile = file;
+        reader.onloadend = () => {
+          var tmp = this.state.picscounter;
+          tmp = tmp + 1;
+          const data = {
+            picstring: reader.result,
+          }
+          const filestrint = reader.result;
+          const params = {
+            filestrint: this.props.UserID,
+          };
+          var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=${filestrint}`
+          axios
+            .post(loginurl, params)
+            .then(res => {
+              console.log(res.data[0].universalid);
+              if (tmp == 1) {
+                this.setState({
+                  file: reader.result,
+                  imagePreviewUrl: reader.result,
+                  picstring: res.data[0].universalid,//reader.result,
+                  picscounter: tmp,
+                  loader: false,
+                });
+              }
+
+
+              if (tmp == 2) {
+                this.setState({
+                  file: reader.result,
+                  imagePreviewUrl1: reader.result,
+                  picstring1: res.data[0].universalid,
+                  picscounter: tmp,
+                  loader: false,
+                });
+              }
+
+              if (tmp == 3) {
+                this.setState({
+                  file: reader.result,
+                  imagePreviewUrl2: reader.result,
+                  picstring2: res.data[0].universalid,
+                  picscounter: tmp,
+                  loader: false,
+                });
+              }
+
+              if (tmp == 4) {
+                this.setState({
+                  file: reader.result,
+                  imagePreviewUrl3: reader.result,
+                  picstring3: res.data[0].universalid,
+                  picscounter: tmp,
+                  loader: false,
+                });
+              }
+
+            })
+            .catch(err => {
+              console.log("Error in CreateBook!");
+            });
+
+
+        }
+        reader.readAsDataURL(file)
+      } catch (error) {
+        //console.log(error);
+      }
+  }
+
+
+  }
+
+  async  SingleAzureApoihandleImageUpload(event) {
+    this.setState({
+      loader: true,
+    });
     const imageFile = event.target.files[0];
     //console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
     //console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
@@ -1896,6 +1987,7 @@ var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerPropert
       useWebWorker: true,
       usbd: 22,
     }
+
     try {
       const compressedFile = await imageCompression(imageFile, options);
       //console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
