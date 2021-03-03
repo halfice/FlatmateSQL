@@ -232,7 +232,7 @@ export class Property extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
 
-     for (var x=0;x<files.target.file.length;x++){
+     for (var x=0;x<files.target.files.length;x++){
       const file = files.target.files[x];
       const filename = file.name.substring(0, file.name.lastIndexOf('.'));
       const ext = file.name.substring(file.name.lastIndexOf('.'));
