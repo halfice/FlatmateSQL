@@ -391,7 +391,7 @@ export class Property extends React.Component {
 
       });
       //useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo
-      this.props.handleRegisnteredUserId(this.state.LoginUserID,this.state.AgentMobile,this.state.AgentPic,this.state.AgentComapny,this.state.AgentName,this.state.companylogo,this.state.deposits);
+      this.props.handleRegisnteredUserId(this.state.LoginUserID,this.state.AgentMobile,this.state.AgentPic,this.state.AgentComapny,this.state.AgentName,this.state.companylogo);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);
