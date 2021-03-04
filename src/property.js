@@ -202,6 +202,9 @@ export class Property extends React.Component {
     this.videolinkchange=this.videolinkchange.bind(this);
     this.handleChangeChk = this.handleChangeChk.bind(this);
 
+    this.depositsclick = this.depositsclick.bind(this);
+
+
   }
   handleChangeChk = () => {
     this.setState({
