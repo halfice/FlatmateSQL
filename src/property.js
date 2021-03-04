@@ -384,7 +384,7 @@ export class Property extends React.Component {
       itemid: this.uuidv4(),
       AgentId: this.state.AgentId,//mean it is owner
     };
-alert(this.state.deposit);
+//a/lert(this.state.deposit);
     console.log(this.state.deposit);
      var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert`;
      var regurl = headerurl+`&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}&Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}&OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}&UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}&Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}`
@@ -890,7 +890,16 @@ alert(this.state.deposit);
 
                       <div className="row textalighleft">
                         <div className="row">
-                          <div className="col-sm-12"> Price</div>
+
+                          {
+                            this.state.Purpose=="Rent" &&
+                            <div className="col-sm-12"> Rent / Year</div>
+                          }
+{
+                            this.state.Purpose=="Rent" &&
+                            <div className="col-sm-12"> Price</div>
+                          }
+
                         </div>
                         <input type="text" className="form-control" onChange={this.handleprince} placeholder="AED 0.00000"></input>
 
