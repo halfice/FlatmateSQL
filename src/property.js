@@ -896,7 +896,7 @@ export class Property extends React.Component {
                             <div className="col-sm-12"> Rent / Year</div>
                           }
 {
-                            this.state.Purpose=="Rent" &&
+                            this.state.Purpose!="Rent" &&
                             <div className="col-sm-12"> Price</div>
                           }
 
