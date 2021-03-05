@@ -85,11 +85,11 @@ class Footer extends Component {
 
 
 
-<div style="position: fixed;right: 17px;bottom: 80px;z-index: 10000000;">
-			<a target="_blank" href="https://wa.me/+971585931791?text=Hi%20I%20was%20on%20your%20website%20can%20we%20speak%20about%20SEO,%20PPC,%20Social%20Media?">
-			<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg" style="width: 60px;" class="lazyloaded" data-ll-status="loaded" />
+<div className="divwhatsapp">
+			<a target="_blank">
+			<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg"  className="whatsappimage" />
 
-					<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg" style="width: 60px;" />
+					<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg" className="whatsappimage"   />
 				</a>
 		</div>
 

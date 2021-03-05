@@ -1,3 +1,12 @@
+.divwhatsapp{
+  position: fixed;right: 17px;bottom: 80px;z-index: 10000000;
+}
+
+.whatsappimage{
+  width: 60px;
+
+}
+
 
 .row2{
   padding-left: 15px!important;
