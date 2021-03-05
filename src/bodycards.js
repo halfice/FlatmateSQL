@@ -700,7 +700,7 @@ class bodycards extends Component {
 
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
-        <div className="col-sm-3" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
+        <div className="col-sm-6" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
             <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
@@ -742,12 +742,12 @@ class bodycards extends Component {
 
       return (
         <div className="col-sm-3" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
-          <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
+          <Card style={{ width: '100%' }} className="bordershadow" key={item["Type"]}>
             <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
               <div className="row bottomborder" >
                 <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Location"]}</div>
                 <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
 
               </div>
@@ -755,21 +755,21 @@ class bodycards extends Component {
               <div className="row">
                 <div className="col-sm-3 zerpadding">
                   <div className="myicondiv">
-                    <img src={calls} width="40px" />
+                   Total Bed : 2
                   </div>
                 </div>
                 <div className="col-sm-3 zerpadding">
                   <div className="myicondiv">
-                    <img src={whatsapp} width="50px" />
+                  Total Bath Room :3
                   </div>   </div>
                 <div className="col-sm-3 zerpaddingEmail">
-                  <img src={emailicon} width="39px" />
+                 Total Size :333SQT
 
 
                 </div>
                 <div className="col-sm-3 zeroPaddingMessage">
                   <div className="myicondiv">
-                    <img src={message} width="50px" />
+                   Furnished : No
 
                   </div>
                 </div>

@@ -372,21 +372,44 @@ class App extends Component {
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
     try {
       let res = await axios.post(loginurl);
-      console.log("Agent" + res);
+      console.log("Agent" + res.data);
       var xcount = 10;
       if (res.data != "notfound") {
         for (var i = 0; i < res.data.length; i++) {
           xcount = xcount + 1;
           var obs = {
-            'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
-            'rent': res.data[i].Price,//metadata.colName,
-            'totalbed': res.data[i].Bedrooms,//.metadata.colName,
-            'propertyAddress': res.data[i].Location,//.metadata.colName,
             'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
             'key': xcount,
+            'AgentId': res.data[i].AgentId,
+            'Bedrooms': res.data[i].Bedrooms,
+            'Deal': res.data[i].Deal,
+            'FurnishedTyope': res.data[i].FurnishedTyope,
+            'Location': res.data[i].Location,
+            'LoginUserID': res.data[i].LoginUserID,
             'Price': res.data[i].Price,
             'PropertyId': res.data[i].PropertyId,
+            'State': res.data[i].State,
+            'Type': res.data[i].Type,
+            'internet': res.data[i].internet,
+            'parking': res.data[i].parking,
+            'picsstringone': res.data[i].picsstringone,
+            'picsstringthree': res.data[i].picsstringthree,
+            'picsstringtwo': res.data[i].picsstringtwo,
+            'picstring': res.data[i].picstring,
+            'totalbathrooms': res.data[i].totalbathrooms,
             'profilepicname': res.data[i].profilepicname,
+            'AgentNumber': res.data[i].AgentNumber,
+            'AgentPic': res.data[i].AgentPic,
+            'agentcompany': res.data[i].agentcompany,
+            'agentname': res.data[i].agentname,
+            'companylogo':res.data[i].companylogo
+
+
+
+
+
+
+
           }
           retrueneddata.push(obs);
           var objectcarousal = {
