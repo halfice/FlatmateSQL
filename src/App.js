@@ -64,8 +64,8 @@ class App extends Component {
       carousalObject: [],
       finalArrayObject: [],
 
-      compnayname:"",
-      companylogo:"",
+      compnayname: "",
+      companylogo: "",
 
     }
   }
@@ -110,11 +110,11 @@ class App extends Component {
         <br></br>
         {this.state.needwizard == 1000 &&
           <div className="row">
-            <Register company={this.state.compnayname} companylogo={this.state.companylogo} handleRegisnteredUserId={this.handleRegisnteredUserId}  handleRegisnteredUserIdtwo={this.handleRegisnteredUserIdtwo}/>
+            <Register company={this.state.compnayname} companylogo={this.state.companylogo} handleRegisnteredUserId={this.handleRegisnteredUserId} handleRegisnteredUserIdtwo={this.handleRegisnteredUserIdtwo} />
           </div>
         }
 
-{this.state.needwizard == 1001 &&
+        {this.state.needwizard == 1001 &&
           <div className="row">
             <Company handleRegisnteredUserIdCompany={this.handleRegisnteredUserIdCompany} handleRegisterUserScreen={this.handleRegisterUserScreen} />
           </div>
@@ -161,7 +161,7 @@ class App extends Component {
         {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property companylogo={this.state.companylogo}  AgentName={this.state.AgentName} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Property companylogo={this.state.companylogo} AgentName={this.state.AgentName} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -199,7 +199,7 @@ class App extends Component {
         }
 
 
-        <div className="row">
+        <div className="row row2">
 
           {
             this.state.showcard == 1 && this.state.needwizard != 3 && this.state.needwizard != 1 &&
@@ -209,13 +209,23 @@ class App extends Component {
             this.state.needwizard != 500 && this.state.needwizard != 5
             && this.state.needwizard != 600 &&
 
-            <div className="col-sm-12">
-              <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} /></div>
+            <div>
+            <div className="col-sm-9">
+              <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+              </div>
+              <div className="col-sm-9">
+                <h1>adds</h1>
+              </div>
 
+              </div>
           }
 
 
           <div className="col-sm-12"><NearbyPlace /></div>
+
+
+
+
         </div>
         <div className="dontshow" >
           <p>{t('Thanks.1')}</p>  <p>{t('Why.1')}</p>
@@ -259,29 +269,29 @@ class App extends Component {
     })
   }
 
-  handleRegisnteredUserIdtwo=()=>{
+  handleRegisnteredUserIdtwo = () => {
     this.setState({
       needwizard: 1001,
     })
   }
 
-  handleRegisnteredUserIdCompany=(email,logo,company)=>{
+  handleRegisnteredUserIdCompany = (email, logo, company) => {
     this.setState({
       needwizard: 1000,
-      compnayname:company,
-      companylogo:logo
+      compnayname: company,
+      companylogo: logo
     })
   }
 
-  handleRegisterUserScreen=()=>{
+  handleRegisterUserScreen = () => {
     this.setState({
       needwizard: 1000,
-      compnayname:"",
-      companylogo:""
+      compnayname: "",
+      companylogo: ""
     })
   }
 
-  handleRegisnteredUserId = (useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo) => {
+  handleRegisnteredUserId = (useridfromdb, AgentMobile, agentPic, agentCompany, agentname, companylogo) => {
     var myObject = JSON.stringify(useridfromdb.data);
     if (useridfromdb.data == undefined) {
       myObject = useridfromdb;
@@ -296,7 +306,7 @@ class App extends Component {
       showcard: 1,
       AgentCompany: agentCompany,
       AgentName: agentname,
-      companylogo:companylogo
+      companylogo: companylogo
 
     });
   }
@@ -364,7 +374,7 @@ class App extends Component {
       let res = await axios.post(loginurl);
       console.log("Agent" + res);
       var xcount = 10;
-      if (res.data!="notfound"){
+      if (res.data != "notfound") {
         for (var i = 0; i < res.data.length; i++) {
           xcount = xcount + 1;
           var obs = {
