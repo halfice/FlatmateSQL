@@ -213,7 +213,7 @@ class App extends Component {
             <div className="col-sm-9">
               <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
               </div>
-              <div className="col-sm-9">
+              <div className="col-sm-3">
                 <h1>adds</h1>
               </div>
 
