@@ -89,7 +89,6 @@ class Footer extends Component {
 			<a target="_blank">
 			<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg"  className="whatsappimage" />
 
-					<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg" className="whatsappimage"   />
 				</a>
 		</div>
 
