@@ -741,7 +741,7 @@ class bodycards extends Component {
     var AGentSubProjectArrays = this.state.AgentObjectArray.map((item, i) => {
 
       return (
-        <div className="col-sm-3" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
+        <div className="col-sm-6" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["Type"]}>
             <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
