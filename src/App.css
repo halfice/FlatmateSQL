@@ -4,11 +4,19 @@
 
 
 .smalldivcamera{
+
+
   position: absolute;
   left: inherit;
-  right: 0px;
+  right: 0;
   border: -10px;
   bottom: 176px;
+  font-size: 33px;
+  padding-right: 11px;
+  color: gray;
+
+
+
 }
 
 .whatsappimage{

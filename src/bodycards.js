@@ -760,8 +760,8 @@ class bodycards extends Component {
             <Card.Body>
               <div className="row bottomborder" >
 
-                <div className="col-sm-12 paragraphcss">{item["Location"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
+                <div className="col-sm-8 paragraphcss">{item["Location"]}</div>
+                <div className="col-sm-4 paragraphcss">{this.formatMoney(item["Price"])}AED</div>
 
               </div>
 
