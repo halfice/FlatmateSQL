@@ -21,7 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import { faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
+import { faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
@@ -33,7 +33,6 @@ import Heart from "react-animated-heart";
 import Propertyanalytics from './propertyanalytics';
 import message from './msgicon.jpg';
 import emailicon from './emailicon.png'
-import camerapic from './picicon.png'
 
 
 library.add(faBath, faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -746,8 +745,9 @@ class bodycards extends Component {
           <Card style={{ width: '100%' }} className="bordershadow" key={item["Type"]}>
             <div>
               <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
-              <div>
-                <img src={camerapic} />
+              <div className="smalldivcamera">
+
+                <FontAwesomeIcon icon={faCamera} />
               </div>
 
               <div>

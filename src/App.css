@@ -2,6 +2,15 @@
   position: fixed;right: 17px;bottom: 80px;z-index: 10000000;
 }
 
+
+.smalldivcamera{
+  position: absolute;
+  left: inherit;
+  right: 0px;
+  border: -10px;
+  bottom: 176px;
+}
+
 .whatsappimage{
   width: 60px;
 
