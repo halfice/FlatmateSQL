@@ -33,9 +33,10 @@ import Heart from "react-animated-heart";
 import Propertyanalytics from './propertyanalytics';
 import message from './msgicon.jpg';
 import emailicon from './emailicon.png'
+import camerapic from './picicon.png'
 
 
-library.add(faBath,faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
+library.add(faBath, faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 
 class bodycards extends Component {
   constructor(props) {
@@ -743,34 +744,42 @@ class bodycards extends Component {
       return (
         <div className="col-sm-6" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["Type"]}>
-            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
+            <div>
+              <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
+              <div>
+                <img src={camerapic} />
+              </div>
+
+              <div>
+                <img src={item["companylogo"]} />
+              </div>
+            </div>
             <Card.Body>
               <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
+
                 <div className="col-sm-12 paragraphcss">{item["Location"]}</div>
                 <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
 
               </div>
 
               <div className="row">
-                <div className="col-sm-3 zerpadding">
+                <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-
-                  <FontAwesomeIcon icon={faBed} />{item["Bedrooms"]} |
+                    <FontAwesomeIcon icon={faBed} />{item["Bedrooms"]}
                   </div>
                 </div>
-                <div className="col-sm-3 zerpadding">
+                <div className="col-sm-2 zerpadding">
                   <div className="myicondiv">
-                  <FontAwesomeIcon icon={faBath} />{item["totalbathrooms"]} |
+                    <FontAwesomeIcon icon={faBath} />{item["totalbathrooms"]} |
                   </div>   </div>
-                <div className="col-sm-3 zerpaddingEmail">
-                {item["Type"]} |
+                <div className="col-sm-5 zerpaddingEmail">
+                  {item["Type"]}
 
 
                 </div>
                 <div className="col-sm-3 zeroPaddingMessage">
                   <div className="myicondiv">
-                  <FontAwesomeIcon icon={faParking} />{item["parking"]}
+                    <FontAwesomeIcon icon={faParking} />{item["parking"]}
 
                   </div>
                 </div>

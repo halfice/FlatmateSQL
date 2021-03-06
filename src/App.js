@@ -404,7 +404,7 @@ class App extends Component {
             'AgentPic': res.data[i].AgentPic,
             'agentcompany': res.data[i].agentcompany,
             'agentname': res.data[i].agentname,
-            'companylogo':res.data[i].companylogo
+            'companylogo':this.state.imgstarturl + res.data[i].companylogo + this.state.imgStartEnd,
 
 
 
