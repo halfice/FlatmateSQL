@@ -21,7 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import { faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
+import {faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
@@ -739,6 +739,9 @@ class bodycards extends Component {
     });
 
     var AGentSubProjectArrays = this.state.AgentObjectArray.map((item, i) => {
+      var min = 13;
+      var max = 100;
+      var rand =  min + (Math.random() * (max-min));
 
       return (
         <div className="col-sm-6" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
@@ -763,21 +766,27 @@ class bodycards extends Component {
               </div>
 
               <div className="row">
-                <div className="col-sm-2 zerpadding">
+
+              <div className="col-sm-2 ">
+                  <div className="myicondiv">
+                    <FontAwesomeIcon icon={faHeart} />{rand}
+                  </div>
+                </div>
+                <div className="col-sm-2 ">
                   <div className="myicondiv">
                     <FontAwesomeIcon icon={faBed} />{item["Bedrooms"]}
                   </div>
                 </div>
-                <div className="col-sm-2 zerpadding">
+                <div className="col-sm-2 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBath} />{item["totalbathrooms"]} |
+                    <FontAwesomeIcon icon={faBath} />{item["totalbathrooms"]}
                   </div>   </div>
-                <div className="col-sm-5 zerpaddingEmail">
+                <div className="col-sm-3">
                   {item["Type"]}
 
 
                 </div>
-                <div className="col-sm-3 zeroPaddingMessage">
+                <div className="col-sm-3">
                   <div className="myicondiv">
                     <FontAwesomeIcon icon={faParking} />{item["parking"]}
 
