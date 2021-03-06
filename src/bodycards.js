@@ -21,7 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import { faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, } from '@fortawesome/free-solid-svg-icons';
+import { faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
@@ -755,21 +755,22 @@ class bodycards extends Component {
               <div className="row">
                 <div className="col-sm-3 zerpadding">
                   <div className="myicondiv">
-                  <FontAwesomeIcon icon={faBath} />
+
+                  <FontAwesomeIcon icon={faBed} />{item["Bedrooms"]} |
                   </div>
                 </div>
                 <div className="col-sm-3 zerpadding">
                   <div className="myicondiv">
-                  <FontAwesomeIcon icon={faTimes} />
+                  <FontAwesomeIcon icon={faBath} />{item["totalbathrooms"]} |
                   </div>   </div>
                 <div className="col-sm-3 zerpaddingEmail">
-                <FontAwesomeIcon icon={faTimes} />
+                {item["Type"]} |
 
 
                 </div>
                 <div className="col-sm-3 zeroPaddingMessage">
                   <div className="myicondiv">
-                  <FontAwesomeIcon icon={faTimes} />
+                  <FontAwesomeIcon icon={faParking} />{item["parking"]}
 
                   </div>
                 </div>
