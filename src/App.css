@@ -2,6 +2,9 @@
   position: fixed;right: 17px;bottom: 80px;z-index: 10000000;
 }
 
+.bottomspace{
+  margin-bottom: 11px;
+}
 
 .smalldivcamera{
 
