@@ -53,6 +53,8 @@ class App extends Component {
       AgentMobile: "",
       AgentCompany: "",
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
+      imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
+
       imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
 
       //fech properties agent
@@ -404,7 +406,7 @@ class App extends Component {
             'AgentPic': res.data[i].AgentPic,
             'agentcompany': res.data[i].agentcompany,
             'agentname': res.data[i].agentname,
-            'companylogo':this.state.imgstarturl + res.data[i].companylogo + this.state.imgStartEnd,
+            'companylogo':this.state.imgstarturlprofiles + res.data[i].companylogo + this.state.imgStartEnd,
 
 
 
