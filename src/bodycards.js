@@ -756,8 +756,8 @@ class bodycards extends Component {
                 <FontAwesomeIcon icon={faCamera} />
               </div>
 
-              <div>
-                <img src={item["companylogo"]} />
+              <div className="companylogodiv">
+                <img src={item["companylogo"]} className="companylogoijage" />
               </div>
             </div>
             <Card.Body>
