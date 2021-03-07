@@ -742,8 +742,8 @@ class bodycards extends Component {
       var min = 13;
       var max = 100;
       var rand =  min + (Math.random() * (max-min));
-      rand=randk.toString()
-      var res = rand.substring(0, 2);
+      var randk=rand.toString()
+      var res = randk.substring(0, 2);
 
 
       return (
