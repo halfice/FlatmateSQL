@@ -742,6 +742,9 @@ class bodycards extends Component {
       var min = 13;
       var max = 100;
       var rand =  min + (Math.random() * (max-min));
+      rand=randk.toString()
+      var res = rand.substring(0, 2);
+
 
       return (
         <div className="col-sm-6 bottomspace" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
