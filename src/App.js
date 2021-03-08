@@ -475,7 +475,8 @@ class App extends Component {
     var TempDivCounter = 0;
     var retrueneddata = [];
     var TempCarousalData = [];
-    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=all";
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&email=" + this.state.LoginUserID + "&functiontype=all";
+
     try {
       let res = await axios.post(loginurl);
       console.log("Tenants" + res.data);
