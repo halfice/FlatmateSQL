@@ -746,6 +746,12 @@ class bodycards extends Component {
       var res = randk.substring(0, 2);
 
 
+      var finalbedrooms =item["Bedrooms"];
+      if (finalbedrooms=="5plus"){
+        finalbedrooms="5+";
+      }
+
+
       return (
         <div className="col-sm-6 bottomspace" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["Type"]}>
@@ -774,13 +780,13 @@ class bodycards extends Component {
                   <div className="myicondiv">
                     <FontAwesomeIcon icon={faHeart} />
 
-                    <span className="paragraphcss">   {res}%</span>
+                    <span className="paragraphcsspercent">   {res}%</span>
 
                   </div>
                 </div>
                 <div className="col-sm-2 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBed} /><span className="paragraphcss"> {item["Bedrooms"]}</span>
+                    <FontAwesomeIcon icon={faBed} /><span className="paragraphcss">{finalbedrooms} </span>
                   </div>
                 </div>
                 <div className="col-sm-2 ">
