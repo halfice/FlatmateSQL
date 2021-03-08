@@ -216,8 +216,13 @@ class App extends Component {
               <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
               </div>
               <div className="col-sm-3">
-                <div>
-<img src="https://www.omb.media/img/google-ads2.gif" />
+                <div className="row">
+                  <div className="col-sm-12">
+                    <img src="https://www.omb.media/img/google-ads2.gif" />
+                      </div>
+                      <div className="col-sm-12">
+                    <img src="https://www.omb.media/img/google-ads2.gif" />
+                      </div>
 
                 </div>
               </div>
