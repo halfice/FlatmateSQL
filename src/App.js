@@ -218,10 +218,10 @@ class App extends Component {
               <div className="col-sm-3">
                 <div className="row">
                   <div className="col-sm-12">
-                    <img src="https://www.omb.media/img/google-ads2.gif" />
+                    <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
                       </div>
                       <div className="col-sm-12">
-                    <img src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
+                    <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
                       </div>
 
                 </div>
