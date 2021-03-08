@@ -763,8 +763,8 @@ class bodycards extends Component {
             <Card.Body>
               <div className="row bottomborder" >
 
-                <div className="col-sm-8 paragraphcss">:{item["Location"]}</div>
-                <div className="col-sm-4 paragraphcss">:{this.formatMoney(item["Price"])}</div>
+                <div className="col-sm-7 paragraphcss">{item["Location"]}</div>
+                <div className="col-sm-5 paragraphcss">{this.formatMoney(item["Price"])}</div>
 
               </div>
 
@@ -777,12 +777,12 @@ class bodycards extends Component {
                 </div>
                 <div className="col-sm-2 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBed} />:{item["Bedrooms"]}
+                    <FontAwesomeIcon icon={faBed} /><span className="paragraphcss"> {item["Bedrooms"]}</span>
                   </div>
                 </div>
                 <div className="col-sm-2 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBath} />:{item["totalbathrooms"]}
+                    <FontAwesomeIcon icon={faBath} /><span className="paragraphcss">{item["totalbathrooms"]}</span>
                   </div>   </div>
                 <div className="col-sm-3">
                   {item["Type"]}
@@ -791,7 +791,7 @@ class bodycards extends Component {
                 </div>
                 <div className="col-sm-3">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faParking} />:{item["parking"]}
+                    <FontAwesomeIcon icon={faParking} /><span className="paragraphcss">{item["parking"]}</span>
 
                   </div>
                 </div>
