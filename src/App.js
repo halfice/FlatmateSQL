@@ -374,7 +374,9 @@ class App extends Component {
   componentDidMount() {
     this.fetchpropertiesagent();
     // this.fetchproperties();
+    this.fetchpTenants();
   }
+
   async fetchpropertiesagent() {
     var _Response = null;
     var TempUserProfileExisits = 0;
@@ -467,7 +469,36 @@ class App extends Component {
 
     }
   }
+  async fetchpTenants() {
+    var _Response = null;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
+    var retrueneddata = [];
+    var TempCarousalData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=all";
+    try {
+      let res = await axios.post(loginurl);
+      console.log("Tenants" + res.data);
+      var xcount = 10;
+      if (res.data != "notfound") {
+        for (var i = 0; i < res.data.length; i++) {
+          xcount = xcount + 1;
+          retrueneddata.push(obs);
 
+
+        }
+      }
+
+      this.setState({
+
+        loader: false,
+
+      });
+
+    } catch (error) {
+
+    }
+  }
   async fetchproperties() {
     var _Response = null;
     var TempUserProfileExisits = 0;
@@ -535,6 +566,8 @@ class App extends Component {
 
     }
   }
+
+
 
   async fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) {
     var _Response = null;
