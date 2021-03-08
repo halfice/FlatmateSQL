@@ -151,8 +151,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border: solid 4px #117a8b;
-    border-radius: 11px;
+    border: solid 1px gray;
+    border-radius: 3px;
 
 }
 
