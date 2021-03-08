@@ -483,7 +483,7 @@ class App extends Component {
       if (res.data != "notfound") {
         for (var i = 0; i < res.data.length; i++) {
           xcount = xcount + 1;
-          retrueneddata.push(obs);
+          //retrueneddata.push(obs);
 
 
         }
