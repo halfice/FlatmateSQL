@@ -139,7 +139,7 @@ export class lookingoforroom extends React.Component {
     this.handlearea = this.handlearea.bind(this);
   }
 
-componentDidMount() { 
+componentDidMount() {
    this.getblobtoken();
     this.fetchMyhome();
   }
@@ -338,11 +338,11 @@ async handleImageUpload(files) {
   }
 
 async uploadFile(file) {
-  
+
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
     const sas = this.state.blobtoken;
     var finalToken = sas.data.token;
-  
+
     const STORAGE_ACCOUNT_NAME = 'userfunctionsapi'
     const CONTAINER_NAME = 'myfiles'
     // for browser, SAS_TOKEN is get from API?
@@ -474,7 +474,7 @@ handlerhomek = (val) => {
     })
   }
 
-  
+
 handletype(val, tval) {
     switch (tval) {
       case "1":
@@ -1155,9 +1155,9 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 1 && 
+                    this.state.divcountre == 1 &&
                     <div className={this.state.divcountre == 1 ? this.state.visibleclass : this.state.hiddenclass}>
-                    
+
                       <div>
                         <div className="col-sm-12"> What type of Place you are looking for.</div>
                       </div>
@@ -1236,7 +1236,7 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 2 && 
+                    this.state.divcountre == 2 &&
                     <div className={this.state.divcountre == 2 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> Where would you like to live.</div>
@@ -1248,7 +1248,7 @@ handlroomfurnishing(val, roomfurval) {
                             <Lockz handlerhomek={this.handlerhomek} />
 
                             {
-                              //   
+                              //
                               //                           <input type="email" className="form-control" onChange={this.handlearea.bind(this)} placeholder="Search for area"></input>
 
                             }
@@ -1265,7 +1265,7 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 3 && 
+                    this.state.divcountre == 3 &&
                     <div className={this.state.divcountre == 3 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> Rent  and time.</div>
@@ -1291,7 +1291,7 @@ handlroomfurnishing(val, roomfurval) {
                   }
 
                   {
-                    this.state.divcountre == 4 && 
+                    this.state.divcountre == 4 &&
                     <div className={this.state.divcountre == 4 ? this.state.visibleclass : this.state.hiddenclass}>
                       <div className="row">
                         <div className="col-sm-12"> Peroperty preferences.</div>
@@ -1671,7 +1671,7 @@ handlroomfurnishing(val, roomfurval) {
                               {this.state.Internet}
                             </div>
 
-                          
+
 
                           </div>
 
@@ -1695,7 +1695,7 @@ handlroomfurnishing(val, roomfurval) {
                             My Status:{this.state.employeestatus}
                             </div>
 
-                            
+
 
 
 
@@ -1748,8 +1748,8 @@ handlroomfurnishing(val, roomfurval) {
 
 
                 </div>
-                {this.state.divcountre != 100 && 
-                  <div className="row centeraligh">
+                {this.state.divcountre != 100 &&
+                  <div className="row col-sm-6 centeraligh">
                     <Button className="mybuttons" onClick={this.handleClick} >{this.state.buttontext}</Button>
                   </div>
                 }
