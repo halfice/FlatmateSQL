@@ -772,7 +772,10 @@ class bodycards extends Component {
 
               <div className="col-sm-2 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faHeart} />{res}%
+                    <FontAwesomeIcon icon={faHeart} />
+
+                    <span className="paragraphcss">   {res}%</span>
+
                   </div>
                 </div>
                 <div className="col-sm-2 ">
@@ -785,7 +788,7 @@ class bodycards extends Component {
                     <FontAwesomeIcon icon={faBath} /><span className="paragraphcss">{item["totalbathrooms"]}</span>
                   </div>   </div>
                 <div className="col-sm-3">
-                  {item["Type"]}
+                <span className="paragraphcss"> {item["Type"]}</span>
 
 
                 </div>
