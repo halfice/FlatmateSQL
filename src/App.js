@@ -375,7 +375,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchpropertiesagent();
+
     // this.fetchproperties();
     this.fetchpTenants();
   }
@@ -591,6 +591,7 @@ class App extends Component {
       GlobalObjectTenants:retrueneddata,
       loader: false,
     });
+    this.fetchpropertiesagent();
 
   }catch (error) {
 
