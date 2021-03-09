@@ -21,7 +21,7 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import {faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
@@ -44,7 +44,7 @@ class bodycards extends Component {
       ObjectArray: this.props.ObjectArray,
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
-      TenantsArray:this.props.GlobalObjectTenants,
+      TenantsArray: this.props.GlobalObjectTenants,
 
       AgentObjectArray: this.props.AgentObjectArray,
       loader: true,
@@ -83,6 +83,10 @@ class bodycards extends Component {
       ButtonShownumber: "Number",
       isClick: false,
       showAnalytics: false,
+
+      UserPanel=false,
+      UserPanelItem:[],
+      SelectedTenantId:"",
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -286,6 +290,24 @@ class bodycards extends Component {
       AgentMobile: tmpitem[0].AgentNumber,
 
     });
+  }
+
+
+  getgetDetails(tenantid) {
+    //UserPanel
+    if (this.state.SelectedTenantId != 0) {
+      // return;
+    }
+    this.setState({
+      UserPanel: true,
+      UserPanelItem:[],
+    });
+    var tmpitem = this.state.TenantsArray.filter(properties => properties.TenantId === tenantid);
+    var TampCarousalItem = [];
+
+
+
+
   }
 
   async fetchproperties() {
@@ -742,14 +764,14 @@ class bodycards extends Component {
     var AGentSubProjectArrays = this.state.AgentObjectArray.map((item, i) => {
       var min = 13;
       var max = 100;
-      var rand =  min + (Math.random() * (max-min));
-      var randk=rand.toString()
+      var rand = min + (Math.random() * (max - min));
+      var randk = rand.toString()
       var res = randk.substring(0, 2);
 
 
-      var finalbedrooms =item["Bedrooms"];
-      if (finalbedrooms=="5plus"){
-        finalbedrooms="5+";
+      var finalbedrooms = item["Bedrooms"];
+      if (finalbedrooms == "5plus") {
+        finalbedrooms = "5+";
       }
 
 
@@ -777,7 +799,7 @@ class bodycards extends Component {
 
               <div className="row">
 
-              <div className="col-sm-2 ">
+                <div className="col-sm-2 ">
                   <div className="myicondiv">
                     <FontAwesomeIcon icon={faHeart} />
 
@@ -795,7 +817,7 @@ class bodycards extends Component {
                     <FontAwesomeIcon icon={faBath} /><span className="paragraphcss">{item["totalbathrooms"]}</span>
                   </div>   </div>
                 <div className="col-sm-3">
-                <span className="paragraphcss"> {item["Type"]}</span>
+                  <span className="paragraphcss"> {item["Type"]}</span>
 
 
                 </div>
@@ -816,37 +838,18 @@ class bodycards extends Component {
 
     var TenantSubjectArray = this.state.TenantsArray.map((item, i) => {
       return (
-        <div className="col-sm-6" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
-          <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
-            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
+        <div className="col-sm-6" key={item["key"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} >
+          <Card style={{ width: '100%' }} className="bordershadow" key={item["TenantId"]}>
+            <Card.Img height="220px" variant="top" src={item["picstring"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} />
             <Card.Body>
               <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Area"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Rent"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["lifestyle"]}</div>
 
               </div>
 
-              <div className="row">
-                <div className="col-sm-2 zerpadding">
-                  <div className="myicondiv">
-                    <img src={calls} width="40px" height="39px" />
-                  </div>
-                </div>
-                <div className="col-sm-2 zerpadding">
-                  <div className="myicondiv">
-                    <img src={whatsapp} width="50px" height="39px" />
-                  </div>   </div>
-                <div className="col-sm-4 zerpadding">
-                  <div className="buttnemail" >Email</div>
-                </div>
-                <div className="col-sm-4 zerpadding">
-                  <div className="myicondiv">
-                    <div className="buttn" >Message</div>
-                  </div>
-                </div>
 
-              </div>
 
             </Card.Body>
           </Card>
@@ -1000,6 +1003,15 @@ class bodycards extends Component {
 
               </div>
             </div>
+          }
+
+          {
+            this.state.UserPanel == true &&
+            <div className="parentdiv">
+              <div className="closebuttondi" onClick={this.CloseModal}>
+                <FontAwesomeIcon icon={faTimes} /></div>
+            </div>
+
           }
 
 

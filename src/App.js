@@ -518,7 +518,7 @@ class App extends Component {
           'picsstringone': res.data[i].picsstringone,
           'picsstringthree': res.data[i].picsstringthree,
           'picsstringtwo': res.data[i].picsstringtwo,
-          'picstring': res.data[i].picstring,
+          'picstring': this.state.imgstarturl +res.data[i].picstring+this.state.imgStartEnd,
           'totalbathrooms': res.data[i].totalbathrooms,
           'AgentNumber': res.data[i].AgentNumber,
           'AgentPic': res.data[i].AgentPic,
