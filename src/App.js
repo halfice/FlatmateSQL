@@ -61,6 +61,9 @@ class App extends Component {
       GlobalObject: [],
       GlobalObjectCarousal: [],
 
+      GlobalObjectTenants:[],
+
+
       //fethc properties
       ObjectArray: [],
       carousalObject: [],
@@ -213,7 +216,7 @@ class App extends Component {
 
             <div className="row">
             <div className="col-sm-9">
-              <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+              <Bodycards GlobalObjectTenants={this.state.GlobalObjectTenants} ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
               </div>
               <div className="col-sm-3">
                 <div className="row">
@@ -469,37 +472,7 @@ class App extends Component {
 
     }
   }
-  async fetchpTenants() {
-    var _Response = null;
-    var TempUserProfileExisits = 0;
-    var TempDivCounter = 0;
-    var retrueneddata = [];
-    var TempCarousalData = [];
-    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&email=" + this.state.LoginUserID + "&functiontype=all";
 
-    try {
-      let res = await axios.post(loginurl);
-      console.log("Tenants" + res.data);
-      var xcount = 10;
-      if (res.data != "notfound") {
-        for (var i = 0; i < res.data.length; i++) {
-          xcount = xcount + 1;
-          //retrueneddata.push(obs);
-
-
-        }
-      }
-
-      this.setState({
-
-        loader: false,
-
-      });
-
-    } catch (error) {
-
-    }
-  }
   async fetchproperties() {
     var _Response = null;
     var TempUserProfileExisits = 0;
@@ -566,6 +539,65 @@ class App extends Component {
     } catch (error) {
 
     }
+  }
+
+
+  async fetchpTenants(){
+    var _Response = null;
+    var TempUserProfileExisits = 0;
+    var TempDivCounter = 0;
+    var retrueneddata = [];
+    var TempCarousalData = [];
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&email=" + this.state.LoginUserID + "&functiontype=all";
+  try {
+    let res = await axios.post(loginurl);
+    console.log("Tenants" + res.data);
+    var xcount = 10;
+    if (res.data != "notfound") {
+      for (var i = 0; i < res.data.length; i++) {
+        xcount = xcount + 1;
+        var obj={
+          'Area': res.data[i].Area,
+          'BathRoomType': res.data[i].BathRoomType,
+          'DatetoCome': res.data[i].DatetoCome,
+          'HowDays': res.data[i].HowDays,
+          'Internet': res.data[i].Internet,
+          'MaxNumberoflatemate': res.data[i].MaxNumberoflatemate,
+          'Parking': res.data[i].Parking,
+          'Rent': res.data[i].Rent,
+          'RoomFurnishing': res.data[i].RoomFurnishing,
+          'Room_in_an_existing': res.data[i].Room_in_an_existing,
+          'TenantId': res.data[i].TenantId,
+          'abouturselfparagraph': res.data[i].abouturselfparagraph,
+          'age':res.data[i].age,
+          'employeestatus': res.data[i].employeestatus,
+          'gender': res.data[i].gender,
+          'itemid': res.data[i].itemid,
+          'lifestyle': res.data[i].lifestyle,
+          'myname': res.data[i].myname,
+          'picstring': res.data[i].picstring,
+          'thisplaceisfor': res.data[i].thisplaceisfor,
+          'userid': res.data[i].userid
+
+
+
+
+        }
+        retrueneddata.push(obj);
+
+      }
+    }
+    this.setState({
+      GlobalObjectTenants:retrueneddata,
+      loader: false,
+    });
+
+  }catch (error) {
+
+    }
+
+
+
   }
 
 

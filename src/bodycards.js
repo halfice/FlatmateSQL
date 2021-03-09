@@ -44,6 +44,7 @@ class bodycards extends Component {
       ObjectArray: this.props.ObjectArray,
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
+      TenantsArray:this.props.GlobalObjectTenants,
 
       AgentObjectArray: this.props.AgentObjectArray,
       loader: true,
@@ -813,46 +814,44 @@ class bodycards extends Component {
       );
     });
 
-    var SubProjectArrays2 = this.state.ObjectArrayTenant.map((item, i) => {
-      return (<div className="mansearch" key={item["key"]}>
-        <div className="col-sm-3 " >
-
-          <Card style={{ width: '11rem' }} className="bordershadow" key={i} >
-            <Card.Img height="120px" variant="top" src={item["Imagestr"]} />
+    var TenantSubjectArray = this.state.TenantsArray.map((item, i) => {
+      return (
+        <div className="col-sm-6" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
+          <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
+            <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
-
               <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item["Area"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["age"]}Years</div>
-              </div>
-              <div className="row">
-                <div className="col-sm-3 paragraphcss">
-                  <div className="myicondiv">
-                    <FontAwesomeIcon icon={faAtlas} />
-                  </div>
-                </div>
-                <div className="col-sm-3 paragraphcss">
-                  <div className="myicondiv">
-                    <FontAwesomeIcon icon={faCheck} />
-                  </div>   </div>
-                <div className="col-sm-3 paragraphcss">
-                  <div className="myicondiv">
-                    <FontAwesomeIcon icon={faCog} />
-                  </div>
-                </div>
-                <div className="col-sm-3 paragraphcss">
-                  <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBriefcase} />
-                  </div>
-                </div>
+                <div className="col-sm-12 paragraphcss">{item["Type"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["propertyAddress"]}</div>
+                <div className="col-sm-12 paragraphcss">{item["Price"]}</div>
 
+              </div>
+
+              <div className="row">
+                <div className="col-sm-2 zerpadding">
+                  <div className="myicondiv">
+                    <img src={calls} width="40px" height="39px" />
+                  </div>
+                </div>
+                <div className="col-sm-2 zerpadding">
+                  <div className="myicondiv">
+                    <img src={whatsapp} width="50px" height="39px" />
+                  </div>   </div>
+                <div className="col-sm-4 zerpadding">
+                  <div className="buttnemail" >Email</div>
+                </div>
+                <div className="col-sm-4 zerpadding">
+                  <div className="myicondiv">
+                    <div className="buttn" >Message</div>
+                  </div>
+                </div>
 
               </div>
 
             </Card.Body>
           </Card>
         </div>
-      </div>);
+      );
     });
 
     var carousalitem = null;
@@ -877,50 +876,7 @@ class bodycards extends Component {
     });
 
 
-    if (this.state.ObjectArrayBids != null) {
-      var SubProjectArrays3 = this.state.ObjectArrayBids.map((item, i) => {
-        return (<div className="mansearch"  >
-          <div className="col-sm-3 ">
 
-            <Card style={{ width: '11rem' }} className="bordershadow" key={i} >
-              <Card.Img height="120px" variant="top" src={item["productpic"]} />
-              <Card.Body>
-
-                <div className="row bottomborder" >
-                  <div className="col-sm-12 paragraphcss">Dubai Marina</div>
-                  <div className="col-sm-12 paragraphcss">Dubai Marina</div>
-                </div>
-
-                <div className="row">
-                  <div className="col-sm-3 paragraphcss">
-                    <div className="myicondiv">
-                      <FontAwesomeIcon icon={faAtlas} />
-                    </div>
-                  </div>
-                  <div className="col-sm-3 paragraphcss">
-                    <div className="myicondiv">
-                      <FontAwesomeIcon icon={faCheck} />
-                    </div>   </div>
-                  <div className="col-sm-3 paragraphcss">
-                    <div className="myicondiv">
-                      <FontAwesomeIcon icon={faCog} />
-                    </div>
-                  </div>
-                  <div className="col-sm-3 paragraphcss">
-                    <div className="myicondiv">
-                      <FontAwesomeIcon icon={faBriefcase} />
-                    </div>
-                  </div>
-
-
-                </div>
-
-              </Card.Body>
-            </Card>
-          </div>
-        </div>);
-      });
-    }
 
     return (
       <div className="container-fluid">
@@ -930,8 +886,7 @@ class bodycards extends Component {
             <div className="loader"></div>
           }
           {SubProjectArrays}
-          {SubProjectArrays2}
-          {SubProjectArrays3}
+          {TenantSubjectArray}
           {AGentSubProjectArrays}
 
         </div>
