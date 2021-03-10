@@ -650,6 +650,8 @@ a:hover{
 .carousel-indicators {
   background-color: cadetblue!important;
   border-radius: 11px!important;
+  position: initial!important;
+  top:0px!important;
 
 }
 
