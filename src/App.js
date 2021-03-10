@@ -259,7 +259,7 @@ class App extends Component {
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
             this.state.needwizard != 500 && this.state.needwizard != 5
             && this.state.needwizard != 600 &&
-
+<div>
             <div className="row">
               <div className="col-sm-9">
                 <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
@@ -278,6 +278,8 @@ class App extends Component {
               </div>
 
             </div>
+
+
             <div className="row">
               <div className="col-sm-9">
                 <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
@@ -296,7 +298,7 @@ class App extends Component {
               </div>
 
             </div>
-
+            </div>
 
           }
 
