@@ -46,6 +46,7 @@
     "react": "^16.13.1",
     "react-animated-css": "^1.2.1",
     "react-animated-heart": "0.0.5",
+    "react-animated-slider": "^2.0.0",
     "react-autosuggest": "^10.0.4",
     "react-bootstrap": "^1.0.1",
     "react-bootstrap-range-slider": "^1.2.1",

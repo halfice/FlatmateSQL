@@ -29,6 +29,11 @@ import Company from './companyregister';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
+import Select from 'react-select';
+
+
 
 //view offers 101
 
@@ -66,6 +71,8 @@ class App extends Component {
 
       GlobalObjectTenants: [],
 
+      UserCountry: "",
+
 
       //fethc properties
       ObjectArray: [],
@@ -82,6 +89,15 @@ class App extends Component {
 
   }
 
+  handleChangedrp = selectedOption => {
+    this.setState(
+      {
+        UserCountry:selectedOption.label,
+        ShowCarousal:false,
+      });
+    console.log(`Option selected:`, selectedOption.label);
+  };
+
   CloseModal() {
     this.setState({
       ShowCarousal: false,
@@ -91,6 +107,14 @@ class App extends Component {
   }
 
   render() {
+
+
+    const options = [
+      { value: '1', label: 'UAE' },
+      { value: '2', label: 'Pakistan' },
+    ]
+
+
     const { t } = this.props;
     let somthingNeedsTobe = "";
     let tagetedValue = 1;
@@ -101,7 +125,14 @@ class App extends Component {
       somthingNeedsTobe = "ltr"
     }
 
+
+    const content = [
+      { title: 'Hazzle Free', description: 'Manage your online Vault', image: "https://cdn.dribbble.com/users/935115/screenshots/2659848/real-estate.gif" },
+      { title: 'Earn - Money ', description: 'On every deal ', image: "https://images.static-collegedunia.com/public/image//f57c4d1979de06e49b1dd15d02ecd231.gif" }
+    ];
+
     return (
+
       <div className="App">
         <div className="">
           <Header handleSearchClick={this.handleSearchClick} handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
@@ -283,16 +314,43 @@ class App extends Component {
           <div className="parentdiv">
 
             <div className="closebuttondi" onClick={this.CloseModal}>
-            <FontAwesomeIcon icon={faTimes} />
-             </div>
+              <FontAwesomeIcon icon={faTimes} />
+            </div>
 
             <div className="carousaldiv">
               <div className="row">
-                <div className="col-sm-8 ">
-jughuuihuihuihuhiuhiuhiuh
+                <div className="col-sm-12 ml-11 mr-22">
+                  <h1>Welcome - to Free Property World</h1>
+                  <div className="row">
+                  <div className="col-sm-2"> </div>
+
+                  <div className="col-sm-3">Choose Country</div>
+                  <div className="col-sm-3"><Select
+                    value={this.state.UserCountry}
+                    onChange={this.handleChangedrp}
+                    options={options}
+                    className="dropdowng"
+                  /></div>
+                                    <div className="col-sm-3"> </div>
+
+                  </div>
 
                 </div>
               </div>
+
+              <Slider autoplay={3000}>
+                {content.map((item, index) => (
+                  <div
+                    key={index}
+                    style={{ background: `url('${item.image}') no-repeat center center` }}
+                  >
+                    <div className="center">
+                      <h1>{item.title}</h1>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
 
             </div>
           </div>
