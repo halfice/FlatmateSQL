@@ -26,7 +26,9 @@ import NearbyPlace from './nearbyplaces';
 import ViewOffers from './Offers';
 import SearchProperty from './SearchProperty';
 import Company from './companyregister';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
 
 //view offers 101
 
@@ -76,6 +78,8 @@ class App extends Component {
       ShowCarousal: true,
 
     }
+    this.CloseModal = this.CloseModal.bind(this);
+
   }
 
   CloseModal() {
@@ -279,12 +283,13 @@ class App extends Component {
           <div className="parentdiv">
 
             <div className="closebuttondi" onClick={this.CloseModal}>
+            <FontAwesomeIcon icon={faTimes} />
              </div>
 
             <div className="carousaldiv">
               <div className="row">
                 <div className="col-sm-8 ">
-
+jughuuihuihuihuhiuhiuhiuh
 
                 </div>
               </div>
