@@ -850,7 +850,7 @@ class bodycards extends Component {
             this.state.loader == true &&
             <div className="loader"></div>
           }
-          {SubProjectArrays}
+          {AGentSubProjectArrays}
 
 
         </div>
