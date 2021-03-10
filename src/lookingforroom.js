@@ -331,13 +331,20 @@ componentDidMountv() {
 
 async handleImageUpload(files) {
     if (files.target.files.length > 0) {
+     // const file = files.target.files[0];
+
       const file = files.target.files[0];
-      this.uploadFile(file);
-      this.handleImageUploadold(file);
+      const filename = file.name.substring(0, file.name.lastIndexOf('.'));
+      const ext = file.name.substring(file.name.lastIndexOf('.'));
+      const blobName = filename + '_' + new Date().getTime() + ext;
+
+
+      this.uploadFile(file,blobName);
+      this.handleImageUploadold(file,blobName);
     }
   }
 
-async uploadFile(file) {
+async uploadFile(file,blobName) {
 
     const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
     const sas = this.state.blobtoken;
@@ -352,16 +359,14 @@ async uploadFile(file) {
     const blobServiceClient = new BlobServiceClient(sasURL)
     const containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME)
 
-    const filename = file.name.substring(0, file.name.lastIndexOf('.'))
-    const ext = file.name.substring(file.name.lastIndexOf('.'))
-    const blobName = filename + '_' + new Date().getTime() + ext
+
     const blockBlobClient = containerClient.getBlockBlobClient(blobName)
     const uploadBlobResponse = await blockBlobClient.uploadBrowserData(file)
     console.log(`Upload block blob ${file.name} successfully`, uploadBlobResponse.clientRequestId);
 
   }
 
-async handleImageUploadold(file) {
+async handleImageUploadold(file,blobName) {
     this.setState({
       loader: true,
     });
@@ -380,7 +385,7 @@ async handleImageUploadold(file) {
         this.setState({
           file: reader.result,
           imagePreviewUrl: reader.result,
-          picstring: imageFile.name,
+          picstring: blobName,
           loader: false,
         });
 
