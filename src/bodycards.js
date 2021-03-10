@@ -44,7 +44,6 @@ class bodycards extends Component {
       ObjectArray: this.props.ObjectArray,
       ObjectArrayTenant: [],
       ObjectArrayBids: [],
-      TenantsArray: this.props.GlobalObjectTenants,
 
       AgentObjectArray: this.props.AgentObjectArray,
       loader: true,
@@ -84,9 +83,7 @@ class bodycards extends Component {
       isClick: false,
       showAnalytics: false,
 
-      UserPanel=false,
-      UserPanelItem:[],
-      SelectedTenantId:"",
+
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -293,22 +290,6 @@ class bodycards extends Component {
   }
 
 
-  getgetDetails(tenantid) {
-    //UserPanel
-    if (this.state.SelectedTenantId != 0) {
-      // return;
-    }
-    this.setState({
-      UserPanel: true,
-      UserPanelItem:[],
-    });
-    var tmpitem = this.state.TenantsArray.filter(properties => properties.TenantId === tenantid);
-    var TampCarousalItem = [];
-
-
-
-
-  }
 
   async fetchproperties() {
     var _Response = null;
@@ -836,26 +817,7 @@ class bodycards extends Component {
       );
     });
 
-    var TenantSubjectArray = this.state.TenantsArray.map((item, i) => {
-      return (
-        <div className="col-sm-6" key={item["key"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} >
-          <Card style={{ width: '100%' }} className="bordershadow" key={item["TenantId"]}>
-            <Card.Img height="220px" variant="top" src={item["picstring"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} />
-            <Card.Body>
-              <div className="row bottomborder" >
-                <div className="col-sm-12 paragraphcss">{item["Area"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["Rent"]}</div>
-                <div className="col-sm-12 paragraphcss">{item["lifestyle"]}</div>
 
-              </div>
-
-
-
-            </Card.Body>
-          </Card>
-        </div>
-      );
-    });
 
     var carousalitem = null;
     carousalitem = this.state.carousalObjectitem.map((item, i) => {
@@ -890,7 +852,6 @@ class bodycards extends Component {
           }
           {SubProjectArrays}
           {TenantSubjectArray}
-          {AGentSubProjectArrays}
 
         </div>
         <div>

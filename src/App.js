@@ -4,6 +4,7 @@ import './App.css';
 import { Header } from "./header/header";
 import Footer from "./footer/footer";
 import Bodycards from "./bodycards";
+import BodycardsTenants from "./bodycardsTenants"
 import MainBodyCards from './MainBodyCards'
 import { Rating } from "./rating";
 import Looking from './lookingforroom';
@@ -216,7 +217,10 @@ class App extends Component {
 
             <div className="row">
             <div className="col-sm-9">
-              <Bodycards GlobalObjectTenants={this.state.GlobalObjectTenants} ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+              <Bodycards  ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+              <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants}   AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+
+
               </div>
               <div className="col-sm-3">
                 <div className="row">
@@ -378,6 +382,7 @@ class App extends Component {
 
     // this.fetchproperties();
     this.fetchpTenants();
+    this.fetchpropertiesagent();
   }
 
   async fetchpropertiesagent() {
@@ -591,7 +596,7 @@ class App extends Component {
       GlobalObjectTenants:retrueneddata,
       loader: false,
     });
-    this.fetchpropertiesagent();
+
 
   }catch (error) {
 
