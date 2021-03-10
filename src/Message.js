@@ -18,10 +18,11 @@ export class Message extends React.Component {
         this.state = {
             userEmail: "",//this.props.Userid,
             Message: "",
-            PropertyId: this.props.PropertyId,
+            userid: this.props.userid,
             Phone:"",
             UserName:"",
-            messagetype:this.props.messagetype
+            messagetype:this.props.messagetype,
+            ItemId:this.props.ItemId,
 
         }
         this.handleClick = this.handleClick.bind(this);
