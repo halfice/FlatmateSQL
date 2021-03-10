@@ -25,7 +25,7 @@ export class lookingoforroom extends React.Component {
       parentdiv: 0,
       buttontext: "Lets Start!!!",
 
-      country: "",
+      Country: this.props.Country,
       city: "",
       area: "",
       SelectedAreas: "",
@@ -447,7 +447,7 @@ async callingInsert() {
 
     var finalitemid = this.uuidv4();
     var roomforexisting = this.state.type;
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Internet}&BathRoomType=${this.state.BathRoomType}&parking=${this.state.Parking}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid},&placeforid=${this.state.placeforid}`
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&functiontype=b&TenantId=${this.state.TenantId}&userid=${this.state.LoginUserID}&Room_in_an_existing=${roomforexisting}&Area=${this.state.area}&Rent=${this.state.rent}&DatetoCome=${this.state.datetocome}&HowDays=${this.state.timelength}&RoomFurnishing=${this.state.oomfurnishedid}&Internet=${this.state.Internet}&BathRoomType=${this.state.BathRoomType}&parking=${this.state.Parking}&MaxNumberoflatemate=${this.state.MaxNumberoflatemate}&picstring=${this.state.picstring}&thisplaceisfor=${this.state.thisplaceisfor}&myname=${this.state.myname}&age=${this.state.age}&gender=${this.state.gender}&employeestatus=${this.state.employeestatus}&lifestyle=${this.state.lifestyle}&abouturselfparagraph=${this.state.abouturselfparagraph}&itemid=${finalitemid}&lifestyleid=${this.state.lifestyleid}&emploeestatusid=${this.state.emploeestatusid}&genderid=${this.state.genderid}&placeforid=${this.state.placeforid}&Country=${this.state.Country}`
     try {
       let res = await axios.post(regurl);
       this.setState({

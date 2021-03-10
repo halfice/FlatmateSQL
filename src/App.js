@@ -191,7 +191,7 @@ class App extends Component {
         {
           this.state.needwizard == 1 &&
           <div className="col-sm-12">
-            <Looking UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Looking Country={this.state.UserCountry} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
         }
 
@@ -212,7 +212,7 @@ class App extends Component {
         {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property companylogo={this.state.companylogo} AgentName={this.state.AgentName} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Property Country={this.state.UserCountry} companylogo={this.state.companylogo} AgentName={this.state.AgentName} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
