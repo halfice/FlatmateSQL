@@ -678,7 +678,7 @@ class App extends Component {
             'itemid': res.data[i].itemid,
             'lifestyle': res.data[i].lifestyle,
             'myname': res.data[i].myname,
-            'picstring': res.data[i].picstring,
+            'picstring': this.state.imgstarturl+ res.data[i].picstring+this.state.imgStartEnd,
             'thisplaceisfor': res.data[i].thisplaceisfor,
             'userid': res.data[i].userid
 
