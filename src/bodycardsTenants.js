@@ -287,10 +287,9 @@ class bodycardsTenants extends Component {
 
     var TenantSubjectArray = this.state.TenantsArray.map((item, i) => {
       return (
-
         <div className="col-sm-6" key={item["key"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["TenantId"]}>
-            <Card.Img height="220px" variant="top" src={} onClick={this.getgetDetails.bind(this, item["TenantId"])} />
+            <Card.Img height="220px" variant="top" src={item["picstring"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} />
             <Card.Body>
               <div className="row bottomborder" >
                 <div className="col-sm-12 paragraphcss">{item["Area"]}</div>
