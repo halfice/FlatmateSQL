@@ -933,7 +933,7 @@ class bodycards extends Component {
 
                     </div>
                     <div className="row">
-                      <Message userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
+                      <Message messagetype="1" userEmail={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
                     </div>
 
                     <div className="row">

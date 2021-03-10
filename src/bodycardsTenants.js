@@ -113,7 +113,8 @@ class bodycardsTenants extends Component {
   CloseModalAgentDtails() {
     this.setState({
       ShowAgentDetails: 0,
-      ButtonShownumber: "Number"
+      ButtonShownumber: "Number",
+      UserPanel:false,
     });
   }
 

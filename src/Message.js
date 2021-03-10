@@ -21,6 +21,8 @@ export class Message extends React.Component {
             PropertyId: this.props.PropertyId,
             Phone:"",
             UserName:"",
+            messagetype:this.props.messagetype
+
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleChangePhone = this.handleChangePhone.bind(this);
@@ -30,7 +32,7 @@ export class Message extends React.Component {
     }
     componentDidMount() {
 }
-    
+
 async getblobtoken() {
         var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerStorageToken?code=TqfhfkL7Vgn0x/H7JHdqZQXTCzQZSMvAVcmKk2teC3ZOgTVSN3QYaA==";
         try {
@@ -48,7 +50,7 @@ async getblobtoken() {
             loader: true,
         });
        // http://localhost:7071/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email=777&propertyid=92&msg=0000
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==&email=${this.state.Phone}&propertyid=${this.state.PropertyId}&msg=${this.state.Message}&functiontype=i`;
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==&messagetype=${this.state.messagetype}&userid=${this.state.PropertyId}&name=${this.state.UserName}&phone=${this.state.Phone}&passage=${this.state.Message}&functiontype=i`;
         try {
             let res = await axios.post(regurl);
             this.setState({
@@ -90,7 +92,7 @@ async getblobtoken() {
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="row" >
                             <div className="col-sm-12">
                                 <Button className="mybuttons" onClick={this.handleClick} >Submit</Button>
@@ -101,7 +103,7 @@ async getblobtoken() {
 
                 </div>
             </div>
-            
+
         );
     }
 
