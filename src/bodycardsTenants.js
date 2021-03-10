@@ -80,7 +80,7 @@ class bodycardsTenants extends Component {
       isClick: false,
       showAnalytics: false,
 
-      UserPanel=false,
+      UserPanel:false,
       UserPanelItem:[],
       SelectedTenantId:"",
 
@@ -334,9 +334,7 @@ class bodycardsTenants extends Component {
               <div className="carousaldiv">
                 <div className="row">
                   <div className="col-sm-8 ">
-                    <Carousel>
-                      {carousalitem}
-                    </Carousel>
+                  ijiojoij
 
 
                     {

@@ -851,7 +851,7 @@ class bodycards extends Component {
             <div className="loader"></div>
           }
           {SubProjectArrays}
-          {TenantSubjectArray}
+
 
         </div>
         <div>

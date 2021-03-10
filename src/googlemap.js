@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
+//we have acquired it from the axix.google gmail /
+//project nane is myflatmate
 class SimpleMap extends Component {
   static defaultProps = {
     center: {

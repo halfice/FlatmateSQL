@@ -62,7 +62,7 @@ class App extends Component {
       GlobalObject: [],
       GlobalObjectCarousal: [],
 
-      GlobalObjectTenants:[],
+      GlobalObjectTenants: [],
 
 
       //fethc properties
@@ -73,7 +73,17 @@ class App extends Component {
       compnayname: "",
       companylogo: "",
 
+      ShowCarousal: true,
+
     }
+  }
+
+  CloseModal() {
+    this.setState({
+      ShowCarousal: false,
+
+
+    });
   }
 
   render() {
@@ -216,9 +226,9 @@ class App extends Component {
             && this.state.needwizard != 600 &&
 
             <div className="row">
-            <div className="col-sm-9">
-              <Bodycards  ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
-              <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants}   AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+              <div className="col-sm-9">
+                <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+                <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
 
 
               </div>
@@ -226,15 +236,15 @@ class App extends Component {
                 <div className="row">
                   <div className="col-sm-12">
                     <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
-                      </div>
-                      <div className="col-sm-12">
+                  </div>
+                  <div className="col-sm-12">
                     <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
-                      </div>
+                  </div>
 
                 </div>
               </div>
 
-              </div>
+            </div>
           }
 
 
@@ -259,6 +269,31 @@ class App extends Component {
           }
 
         </div>
+
+
+        {
+          this.state.ShowCarousal == true &&
+
+
+
+          <div className="parentdiv">
+
+            <div className="closebuttondi" onClick={this.CloseModal}>
+             </div>
+
+            <div className="carousaldiv">
+              <div className="row">
+                <div className="col-sm-8 ">
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        }
+
         <div className="row"><Footer /></div>
 
 
@@ -424,7 +459,7 @@ class App extends Component {
             'AgentPic': res.data[i].AgentPic,
             'agentcompany': res.data[i].agentcompany,
             'agentname': res.data[i].agentname,
-            'companylogo':this.state.imgstarturlprofiles + res.data[i].companylogo + this.state.imgStartEnd,
+            'companylogo': this.state.imgstarturlprofiles + res.data[i].companylogo + this.state.imgStartEnd,
 
 
 
@@ -523,7 +558,7 @@ class App extends Component {
           'picsstringone': res.data[i].picsstringone,
           'picsstringthree': res.data[i].picsstringthree,
           'picsstringtwo': res.data[i].picsstringtwo,
-          'picstring': this.state.imgstarturl +res.data[i].picstring+this.state.imgStartEnd,
+          'picstring': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,
           'totalbathrooms': res.data[i].totalbathrooms,
           'AgentNumber': res.data[i].AgentNumber,
           'AgentPic': res.data[i].AgentPic,
@@ -547,58 +582,58 @@ class App extends Component {
   }
 
 
-  async fetchpTenants(){
+  async fetchpTenants() {
     var _Response = null;
     var TempUserProfileExisits = 0;
     var TempDivCounter = 0;
     var retrueneddata = [];
     var TempCarousalData = [];
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerTenants?code=A5U5nBLictrbIdxoPEMGxMC0WrQV2HlQPUFj9uGIpP9Zl6gyzKD7WQ==&email=" + this.state.LoginUserID + "&functiontype=all";
-  try {
-    let res = await axios.post(loginurl);
-    console.log("Tenants" + res.data);
-    var xcount = 10;
-    if (res.data != "notfound") {
-      for (var i = 0; i < res.data.length; i++) {
-        xcount = xcount + 1;
-        var obj={
-          'Area': res.data[i].Area,
-          'BathRoomType': res.data[i].BathRoomType,
-          'DatetoCome': res.data[i].DatetoCome,
-          'HowDays': res.data[i].HowDays,
-          'Internet': res.data[i].Internet,
-          'MaxNumberoflatemate': res.data[i].MaxNumberoflatemate,
-          'Parking': res.data[i].Parking,
-          'Rent': res.data[i].Rent,
-          'RoomFurnishing': res.data[i].RoomFurnishing,
-          'Room_in_an_existing': res.data[i].Room_in_an_existing,
-          'TenantId': res.data[i].TenantId,
-          'abouturselfparagraph': res.data[i].abouturselfparagraph,
-          'age':res.data[i].age,
-          'employeestatus': res.data[i].employeestatus,
-          'gender': res.data[i].gender,
-          'itemid': res.data[i].itemid,
-          'lifestyle': res.data[i].lifestyle,
-          'myname': res.data[i].myname,
-          'picstring': res.data[i].picstring,
-          'thisplaceisfor': res.data[i].thisplaceisfor,
-          'userid': res.data[i].userid
+    try {
+      let res = await axios.post(loginurl);
+      console.log("Tenants" + res.data);
+      var xcount = 10;
+      if (res.data != "notfound") {
+        for (var i = 0; i < res.data.length; i++) {
+          xcount = xcount + 1;
+          var obj = {
+            'Area': res.data[i].Area,
+            'BathRoomType': res.data[i].BathRoomType,
+            'DatetoCome': res.data[i].DatetoCome,
+            'HowDays': res.data[i].HowDays,
+            'Internet': res.data[i].Internet,
+            'MaxNumberoflatemate': res.data[i].MaxNumberoflatemate,
+            'Parking': res.data[i].Parking,
+            'Rent': res.data[i].Rent,
+            'RoomFurnishing': res.data[i].RoomFurnishing,
+            'Room_in_an_existing': res.data[i].Room_in_an_existing,
+            'TenantId': res.data[i].TenantId,
+            'abouturselfparagraph': res.data[i].abouturselfparagraph,
+            'age': res.data[i].age,
+            'employeestatus': res.data[i].employeestatus,
+            'gender': res.data[i].gender,
+            'itemid': res.data[i].itemid,
+            'lifestyle': res.data[i].lifestyle,
+            'myname': res.data[i].myname,
+            'picstring': res.data[i].picstring,
+            'thisplaceisfor': res.data[i].thisplaceisfor,
+            'userid': res.data[i].userid
 
 
 
+
+          }
+          retrueneddata.push(obj);
 
         }
-        retrueneddata.push(obj);
-
       }
-    }
-    this.setState({
-      GlobalObjectTenants:retrueneddata,
-      loader: false,
-    });
+      this.setState({
+        GlobalObjectTenants: retrueneddata,
+        loader: false,
+      });
 
 
-  }catch (error) {
+    } catch (error) {
 
     }
 
