@@ -263,8 +263,6 @@ class App extends Component {
             <div className="row">
               <div className="col-sm-9">
                 <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
-                <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
-
 
               </div>
               <div className="col-sm-3">
@@ -280,6 +278,26 @@ class App extends Component {
               </div>
 
             </div>
+            <div className="row">
+              <div className="col-sm-9">
+                <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+
+              </div>
+              <div className="col-sm-3">
+                <div className="row">
+                  <div className="col-sm-12">
+                    <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
+                  </div>
+                  <div className="col-sm-12">
+                    <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+
           }
 
 

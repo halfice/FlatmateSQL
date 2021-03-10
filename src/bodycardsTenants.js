@@ -289,7 +289,7 @@ class bodycardsTenants extends Component {
       return (
         <div className="col-sm-6" key={item["key"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["TenantId"]}>
-            <Card.Img height="220px" variant="top" src={item["picstring"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} />
+            <Card.Img  variant="top" src={item["picstring"]} onClick={this.getgetDetails.bind(this, item["TenantId"])} />
             <Card.Body>
               <div className="row bottomborder" >
                 <div className="col-sm-12 paragraphcss">{item["Area"]}</div>
