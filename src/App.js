@@ -498,6 +498,9 @@ class App extends Component {
 
   componentDidMount() {
 
+
+    console.log("shahzaib");
+
     // this.fetchproperties();
     this.fetchpTenants();
     this.fetchpropertiesagent();
