@@ -82,7 +82,7 @@ class App extends Component {
       compnayname: "",
       companylogo: "",
 
-      ShowCarousal: true,
+      ShowCarousal: false,
 
     }
     this.CloseModal = this.CloseModal.bind(this);
@@ -92,8 +92,8 @@ class App extends Component {
   handleChangedrp = selectedOption => {
     this.setState(
       {
-        UserCountry:selectedOption.label,
-        ShowCarousal:false,
+        UserCountry: selectedOption.label,
+        ShowCarousal: false,
       });
     console.log(`Option selected:`, selectedOption.label);
   };
@@ -259,45 +259,45 @@ class App extends Component {
             this.state.needwizard != 100 && this.state.needwizard != 1 &&
             this.state.needwizard != 500 && this.state.needwizard != 5
             && this.state.needwizard != 600 &&
-<div>
-            <div className="row">
-              <div className="col-sm-9">
-                <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
-
-              </div>
-              <div className="col-sm-3">
-                <div className="row">
-                  <div className="col-sm-12">
-                    <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
-                  </div>
-                  <div className="col-sm-12">
-                    <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
-                  </div>
+            <div>
+              <div className="row">
+                <div className="col-sm-9">
+                  <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
 
                 </div>
+                <div className="col-sm-3">
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
+                    </div>
+                    <div className="col-sm-12">
+                      <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
 
-            </div>
 
-
-            <div className="row">
-              <div className="col-sm-9">
-                <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
-
-              </div>
-              <div className="col-sm-3">
-                <div className="row">
-                  <div className="col-sm-12">
-                    <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
-                  </div>
-                  <div className="col-sm-12">
-                    <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
-                  </div>
+              <div className="row">
+                <div className="col-sm-9">
+                  <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
 
                 </div>
-              </div>
+                <div className="col-sm-3">
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <img className="myaddimages" src="https://www.omb.media/img/google-ads2.gif" />
+                    </div>
+                    <div className="col-sm-12">
+                      <img className="myaddimages" src="https://i.pinimg.com/originals/c4/88/67/c48867fdd6d5de48cb7bd6932857b850.gif" />
+                    </div>
 
-            </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
           }
@@ -342,16 +342,16 @@ class App extends Component {
                 <div className="col-sm-12 ml-11 mr-22">
                   <h1>Welcome - to Free Property World</h1>
                   <div className="row">
-                  <div className="col-sm-2"> </div>
+                    <div className="col-sm-2"> </div>
 
-                  <div className="col-sm-3">Choose Country</div>
-                  <div className="col-sm-3"><Select
-                    value={this.state.UserCountry}
-                    onChange={this.handleChangedrp}
-                    options={options}
-                    className="dropdowng"
-                  /></div>
-                                    <div className="col-sm-3"> </div>
+                    <div className="col-sm-3">Choose Country</div>
+                    <div className="col-sm-3"><Select
+                      value={this.state.UserCountry}
+                      onChange={this.handleChangedrp}
+                      options={options}
+                      className="dropdowng"
+                    /></div>
+                    <div className="col-sm-3"> </div>
 
                   </div>
 
@@ -498,10 +498,6 @@ class App extends Component {
 
   componentDidMount() {
 
-
-    console.log("shahzaib");
-
-    // this.fetchproperties();
     this.fetchpTenants();
     this.fetchpropertiesagent();
   }
@@ -515,7 +511,7 @@ class App extends Component {
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
     try {
       let res = await axios.post(loginurl);
-      console.log("Agent" + res.data);
+      // console.log("Agent" + res.data);
       var xcount = 10;
       if (res.data != "notfound") {
         for (var i = 0; i < res.data.length; i++) {
@@ -546,13 +542,6 @@ class App extends Component {
             'agentcompany': res.data[i].agentcompany,
             'agentname': res.data[i].agentname,
             'companylogo': this.state.imgstarturlprofiles + res.data[i].companylogo + this.state.imgStartEnd,
-
-
-
-
-
-
-
           }
           retrueneddata.push(obs);
           var objectcarousal = {
@@ -581,11 +570,8 @@ class App extends Component {
 
           }
           TempCarousalData.push(objectcarousal);
-
-
         }
       }
-
 
       this.setState({
         GlobalObject: retrueneddata,
@@ -701,7 +687,7 @@ class App extends Component {
             'itemid': res.data[i].itemid,
             'lifestyle': res.data[i].lifestyle,
             'myname': res.data[i].myname,
-            'picstring': this.state.imgstarturl+ res.data[i].picstring+this.state.imgStartEnd,
+            'picstring': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,
             'thisplaceisfor': res.data[i].thisplaceisfor,
             'userid': res.data[i].userid
 
