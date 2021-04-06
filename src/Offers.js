@@ -32,6 +32,12 @@ export class Offers extends React.Component {
             AgentPic: this.props.AgentPic,
             AgentName: this.props.AgentName,
             AgentComapny: this.props.AgentComapny,
+            ItemObject:[],
+            imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
+            imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
+            imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
+
+
         }
         //screen 1 flat mate grid
         //screen 2 property grid
@@ -84,14 +90,40 @@ export class Offers extends React.Component {
                 xcount = xcount + 1;
 
                 var obs = {
-                    'Location': res.data[i].Location,//.metadata.colName,
-                    'Type': res.data[i].Type,//metadata.colName,
+
                     'totalbathrooms': res.data[i].totalbathrooms,//.metadata.colName,
                     'propertyAddress': res.data[i].Location,//.metadata.colName,
                     'PropertyId': this.state.PropertyId,// + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
                     'key': xcount,
                     'Price': this.formatMoney(res.data[i].Price),
                     'PropertyId': res.data[i].PropertyId,
+
+                    'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
+                    'rent': res.data[i].Price,//metadata.colName,
+
+                    'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+                    'AgentNumber': res.data[i].AgentNumber,
+                    'AgentPic': res.data[i].AgentPic,
+                    'agentname': res.data[i].agentname,
+                    'description': res.data[i].description,
+                    'agentcompany': res.data[i].agentcompany,
+                    'Bedrooms': res.data[i].Bedrooms,
+                    'Deal': res.data[i].Deal,
+                    'FurnishedTyope': res.data[i].FurnishedTyope,
+                    'Location': res.data[i].Location,
+                    'LoginUserID': res.data[i].LoginUserID,
+
+                    'State': res.data[i].State,
+                    'Type': res.data[i].Type,
+                    'internet': res.data[i].internet,
+                    'parking': res.data[i].parking,
+                    'picsstringone': res.data[i].picsstringone,
+                    'picsstringthree': res.data[i].picsstringthree,
+                    'picsstringtwo': res.data[i].picsstringtwo,
+                    'picstring': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,
+                    'totalbathrooms': res.data[i].totalbathrooms,
+
+
                 }
                 retrueneddata.push(obs);
 
@@ -121,8 +153,15 @@ export class Offers extends React.Component {
     }
 
     itemupdateItem(itemid) {
+var ExistingObjst=this.state.PropertyArray;
+
+var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemid);
+
+
         this.setState({
             OfferScreen: 500,
+            ItemObject:filteredarray,
+
         });
     }
 
@@ -640,7 +679,9 @@ export class Offers extends React.Component {
                                         AgentMobile={this.state.AgentMobile}
                                         AgentPic={this.state.AgentPic}
                                         UserID={this.state.userid}
-                                        handleRegisnteredUserId={this.handleRegisnteredUserId} />
+                                        handleRegisnteredUserId={this.handleRegisnteredUserId}
+                                        ItemObject={this.state.ItemObject}
+                                        />
                                 </div>
                             </div>
                         }

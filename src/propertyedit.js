@@ -165,6 +165,8 @@ export class Propertyedit extends React.Component {
       chkbox:true,
       deposit:0,
 
+      ItemObject:this.props.ItemObject
+
 
     }
 
