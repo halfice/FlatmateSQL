@@ -41,7 +41,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 597897987987897,
+      needwizard: 101,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -212,7 +212,14 @@ class App extends Component {
         {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
-            <Property Country={this.state.UserCountry} companylogo={this.state.companylogo} AgentName={this.state.AgentName} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <Property Country={this.state.UserCountry}
+            companylogo={this.state.companylogo}
+            AgentName={this.state.AgentName}
+            AgentComapny={this.state.AgentCompany}
+            AgentMobile={this.state.AgentMobile}
+            AgentPic={this.state.AgentPic}
+            UserID={this.state.userid}
+            handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -221,7 +228,16 @@ class App extends Component {
         {
           this.state.needwizard == 101 &&
           <div className="col-sm-12">
-            <ViewOffers UserID={this.state.userid} handleRegisnteredUserId={this.handleRegisnteredUserId} />
+            <ViewOffers
+
+          companylogo={this.state.companylogo}
+          AgentName={this.state.AgentName}
+          AgentComapny={this.state.AgentCompany}
+          AgentMobile={this.state.AgentMobile}
+          AgentPic={this.state.AgentPic}
+          UserID={this.state.userid}
+          UserID={this.state.userid}
+          handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }

@@ -15,6 +15,7 @@ import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-bl
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
 import delicon from './del.jpg';
+import EProperty from './propertyedit';
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Offers extends React.Component {
@@ -22,10 +23,15 @@ export class Offers extends React.Component {
         super(props);
         this.state = {
             LoginUserID: this.props.UserID,
-            OfferScreen: 0,
+            OfferScreen: 0, //zero is message
             ObjectArray: [],
             PropertyArray: [],
-            ShowCarousal:false,
+            ShowCarousal: false,
+            LoginUserID: this.props.UserID,
+            AgentMobile: this.props.AgentMobile,
+            AgentPic: this.props.AgentPic,
+            AgentName: this.props.AgentName,
+            AgentComapny: this.props.AgentComapny,
         }
         //screen 1 flat mate grid
         //screen 2 property grid
@@ -37,6 +43,13 @@ export class Offers extends React.Component {
     }
 
     componentDidMount() {
+
+        console.log(this.state.LoginUserID);
+        console.log(this.state.AgentMobile)
+        console.log(this.state.AgentPic)
+        console.log(this.state.AgentName)
+        console.log(this.state.AgentComapny)
+
         this.getblobtoken();
         this.fetchmessages();
         this.fetchproperties();
@@ -109,14 +122,14 @@ export class Offers extends React.Component {
 
     itemupdateItem(itemid) {
         this.setState({
-            ShowCarousal: true,
+            OfferScreen: 500,
         });
     }
 
 
     itemdealfinishitem(itemid) {
-       // alert(itemid);
-    
+        // alert(itemid);
+
         this.setState({
             ShowCarousal: true,
         });
@@ -352,7 +365,7 @@ export class Offers extends React.Component {
                     'LoginUserID': res.data[i].LoginUserID,//.metadata.colName,
                     'Message': res.data[i].Message,//.metadata.colName,
                     'key': xcount,
-                    'MessageId': res.data[i].MessageId,//.metadata.colName,    
+                    'MessageId': res.data[i].MessageId,//.metadata.colName,
                 }
                 retrueneddata.push(obs);
 
@@ -368,6 +381,8 @@ export class Offers extends React.Component {
         }
     }
     render() {
+
+
         var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
             return (
                 <div key={item["key"]}>
@@ -612,26 +627,44 @@ export class Offers extends React.Component {
                             </div>
                         }
 
+
+
+                        {
+                            this.state.OfferScreen == 500 &&
+                            <div className="">
+                                <div className="col-sm-12">
+                                    <EProperty Country={this.state.UserCountry}
+                                        companylogo={this.state.companylogo}
+                                        AgentName={this.state.AgentName}
+                                        AgentComapny={this.state.AgentCompany}
+                                        AgentMobile={this.state.AgentMobile}
+                                        AgentPic={this.state.AgentPic}
+                                        UserID={this.state.userid}
+                                        handleRegisnteredUserId={this.handleRegisnteredUserId} />
+                                </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
 
                 {
-            this.state.ShowCarousal == true &&
+                    this.state.ShowCarousal == true &&
 
-            <div className="parentdiv">
-              <div className="closebuttondi" onClick={this.CloseModal}>
-                <FontAwesomeIcon icon={faTimes} /></div>
+                    <div className="parentdiv">
+                        <div className="closebuttondi" onClick={this.CloseModal}>
+                            <FontAwesomeIcon icon={faTimes} /></div>
 
-              <div className="carousaldiv">
-                <div className="row">
-                    <div className="col-sm-8 ">
+                        <div className="carousaldiv">
+                            <div className="row">
+                                <div className="col-sm-8 ">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-              </div>
-            </div>
-          }
+                }
 
-               
+
             </div>
 
         );

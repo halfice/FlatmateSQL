@@ -8,7 +8,6 @@ import uploader from './uloaaderimage.gif'
 import './App.css';
 import { Header } from "./header/header";
 import Footer from "./footer/footer";
-import Bodycards from "./bodycards";
 import { Rating } from "./rating";
 import Looking from './lookingforroom';
 import RoomOwner from './roomowner';
