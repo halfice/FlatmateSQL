@@ -268,6 +268,7 @@ export class Propertyedit extends React.Component {
 
 
 
+
     });
 
     console.log(this.state.OwnerName);

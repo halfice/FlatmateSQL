@@ -123,6 +123,13 @@ export class Offers extends React.Component {
                     'picstring': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,
                     'totalbathrooms': res.data[i].totalbathrooms,
                     'VideoLink': res.data[i].VideoLink,
+                    'OwnerName': res.data[i].OwnerName,
+                    'OwnerEmail': res.data[i].OwnerEmail,
+                    'OwnerPhone': res.data[i].OwnerPhone,
+                    'BuildingNo':res.data[i].BuildingNo,
+                    'UnitNumber':res.data[i].UnitNumber,
+
+
 
 
                 }
