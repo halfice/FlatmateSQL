@@ -749,17 +749,17 @@ export class Propertyedit extends React.Component {
                       <div className="row textalighleft">
                         <div className="col-sm-4">
                           <div className="smalheadingcss">
-                            <input type="text" className="form-control" onChange={this.OwnerNamech} placeholder="Owner Name"></input>
+                            <input type="text" className="form-control" value={this.state.OwnerName} onChange={this.OwnerNamech} placeholder="Owner Name"></input>
 
                           </div>
                         </div>
                         <div className="col-sm-4">
-                          <input type="text" className="form-control" onChange={this.OwnerEmailch} placeholder="Owner Email"></input>
+                          <input type="text" className="form-control" value={this.state.OwnerEmail} onChange={this.OwnerEmailch} placeholder="Owner Email"></input>
 
                         </div>
                         <div className="col-sm-4">
 
-                          <input type="text" className="form-control" onChange={this.OwnerNumberch} placeholder="Owner Number"></input>
+                          <input type="text" className="form-control" value={this.state.OwnerPhone}  onChange={this.OwnerNumberch} placeholder="Owner Number"></input>
 
                         </div>
 
@@ -775,24 +775,24 @@ export class Propertyedit extends React.Component {
                       <div className="row textalighleft">
                         <div className="col-sm-3">
                           <div className="smalheadingcss">
-                            <input type="text" className="form-control" onChange={this.BuildingNo} placeholder="Building #"></input>
+                            <input type="text" className="form-control" value={this.state.BuildingNumber}  onChange={this.BuildingNo} placeholder="Building #"></input>
 
                           </div>
                         </div>
                         <div className="col-sm-3">
-                          <input type="text" className="form-control" onChange={this.UnitNo} placeholder="Unit #"></input>
+                          <input type="text" className="form-control" value={this.state.UnitNumber}  onChange={this.UnitNo} placeholder="Unit #"></input>
 
                         </div>
                         <div className="col-sm-3">
 
-                          <input type="text" className="form-control" onChange={this.handleSize} placeholder="Size"></input>
+                          <input type="text" className="form-control" value={this.state.Size}   onChange={this.handleSize} placeholder="Size"></input>
 
                         </div>
 
 
                         <div className="col-sm-3">
 
-                          <input type="text" className="form-control" onChange={this.ShapeNo} placeholder="Room Shape"></input>
+                          <input type="text" className="form-control" value={this.state.Shape}    onChange={this.ShapeNo} placeholder="Room Shape"></input>
 
                         </div>
 
