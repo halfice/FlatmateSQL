@@ -165,7 +165,13 @@ export class Propertyedit extends React.Component {
       chkbox: true,
       deposit: 0,
 
-      ItemObject: this.props.ItemObject
+      ItemObject: this.props.ItemObject,
+      img1:"",img2:"",
+      img3:"",
+      img4:"",
+      imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
+      imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
+
 
 
     }
@@ -221,17 +227,25 @@ export class Propertyedit extends React.Component {
 
   async BindItem() {
     this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
-    this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
+    //this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
     var TmpBoolean = false;
     if (TempDetail == "1") {
       TmpBoolean = true;
     }
-
     this.setState({
       isChecked: TmpBoolean,
-      deal: TempDetail
+      deal: TempDetail,
+      videolink: this.state.ItemObject[0]["VideoLink"],
+      propertyAddress:  this.state.ItemObject[0]["Type"] ,
+      location: this.state.ItemObject[0]["Location"],
+      imagePreviewUrl: this.state.imgstarturl + this.state.ItemObject[0]["picsstringone"]+ this.state.imgStartEnd,
+      imagePreviewUrl1: this.state.imgstarturl +this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
+      imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"]+ this.state.imgStartEnd,
+      imagePreviewUrl3: this.state.imgstarturl + this.state.ItemObject[0]["picstring"]+ this.state.imgStartEnd,
+      AgentId:this.state.ItemObject[0]["AgentId"],
+
     });
 
 
@@ -449,14 +463,9 @@ export class Propertyedit extends React.Component {
 
 
   videolinkchange(event) {
-    var tempVideoLink = "";
-    if (event== null) {
-      tempVideoLink = event;
-    } else {
-      tempVideoLink = event.target.value;
-    }
+
     this.setState({
-      videolink: tempVideoLink
+      videolink: event.target.value
 
     });
   }
@@ -530,6 +539,7 @@ export class Propertyedit extends React.Component {
                 </div>
                 <div className="row">
                   {
+
                     this.state.parentdiv == 0 &&
                     <div className="row">
                       <div className="col-sm-12 ">
