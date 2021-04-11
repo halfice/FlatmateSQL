@@ -222,7 +222,7 @@ this.BindItem();
   async BindItem()
   {
 //ItemObjects[]l..............
-    this.handlePurpose(this.state.ItemObjects[0]["Purpose"],"");
+    this.handlePurpose(this.state.ItemObject[0]["Purpose"],"");
   }
 
   async getblobtoken() {
