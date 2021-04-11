@@ -216,6 +216,13 @@ export class Propertyedit extends React.Component {
   }
   componentDidMount() {
     this.getblobtoken();
+this.BindItem();
+  }
+
+  async BindItem()
+  {
+//ItemObjects[]l..............
+    this.handlePurpose(ItemObjects[0]["Purpose"],"");
   }
 
   async getblobtoken() {
@@ -363,7 +370,7 @@ export class Propertyedit extends React.Component {
 
   }
 
-  async callingInsert() {
+  async callingUpdate() {
     this.setState({
       loader: true,
     });
@@ -1160,18 +1167,16 @@ export class Propertyedit extends React.Component {
 
   handlePurpose(val, divval) {
 
-    if (divval == 1) {
+    if (divval == 1 || divval=="Sale") {
       this.setState({
         Purpose: 'Sale',
         proposediv1: "purposedivnormal",
         proposediv2: "normaldivbutton",
 
-
-
       });
     }
 
-    if (divval == 2) {
+    if (divval == 2  || divval=="Rent") {
       this.setState({
         Purpose: 'Rent',
         proposediv1: "normaldivbutton",

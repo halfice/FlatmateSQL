@@ -100,7 +100,7 @@ export class Offers extends React.Component {
 
                     'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
                     'rent': res.data[i].Price,//metadata.colName,
-
+                    'Purpose': res.data[i].Purpose,
                     'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
                     'AgentNumber': res.data[i].AgentNumber,
                     'AgentPic': res.data[i].AgentPic,
