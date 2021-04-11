@@ -242,7 +242,7 @@ export class Propertyedit extends React.Component {
       imagePreviewUrl: this.state.imgstarturl + this.state.ItemObject[0]["picsstringone"]+ this.state.imgStartEnd,
       imagePreviewUrl1: this.state.imgstarturl +this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
       imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"]+ this.state.imgStartEnd,
-      imagePreviewUrl3: this.state.imgstarturl + this.state.ItemObject[0]["picstring"]+ this.state.imgStartEnd,
+      imagePreviewUrl3: this.state.ItemObject[0]["picstring"],
       AgentId:this.state.ItemObject[0]["AgentId"],
       typeofAccomodation:this.state.ItemObject[0]["Type"],
       OwnerName:this.state.ItemObject[0]["OwnerName"],
