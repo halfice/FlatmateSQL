@@ -122,6 +122,7 @@ export class Offers extends React.Component {
                     'picsstringtwo': res.data[i].picsstringtwo,
                     'picstring': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,
                     'totalbathrooms': res.data[i].totalbathrooms,
+                    'VideoLink': res.data[i].VideoLink,
 
 
                 }

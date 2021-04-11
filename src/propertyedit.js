@@ -223,6 +223,7 @@ export class Propertyedit extends React.Component {
     this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
     this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
+
     var TmpBoolean = false;
     if (TempDetail == "1") {
       TmpBoolean = true;
