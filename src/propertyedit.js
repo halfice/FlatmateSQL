@@ -238,13 +238,35 @@ export class Propertyedit extends React.Component {
       isChecked: TmpBoolean,
       deal: TempDetail,
       videolink: this.state.ItemObject[0]["VideoLink"],
-      propertyAddress:  this.state.ItemObject[0]["Type"] ,
-      location: this.state.ItemObject[0]["Location"],
+
       imagePreviewUrl: this.state.imgstarturl + this.state.ItemObject[0]["picsstringone"]+ this.state.imgStartEnd,
       imagePreviewUrl1: this.state.imgstarturl +this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
       imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"]+ this.state.imgStartEnd,
       imagePreviewUrl3: this.state.imgstarturl + this.state.ItemObject[0]["picstring"]+ this.state.imgStartEnd,
       AgentId:this.state.ItemObject[0]["AgentId"],
+      typeofAccomodation:this.state.ItemObject[0]["Type"],
+      OwnerName:this.state.ItemObject[0]["OwnerName"],
+      OwnerEmail:this.state.ItemObject[0]["OwnerEmail"],
+      OwnerPhone:this.state.ItemObject[0]["OwnerPhone"],
+      BuildingNo:this.state.ItemObject[0]["BuildingNumber"],
+      UnitNumber:this.state.ItemObject[0]["UnitNumber"],
+      Shape:this.state.ItemObject[0]["Shape"],
+      Size:this.state.ItemObject[0]["Size"],
+      propertyAddress:  this.state.ItemObject[0]["Type"] ,
+      location: this.state.ItemObject[0]["Location"],
+      longitude: this.state.ItemObject[0]["long"],
+      latitude: this.state.ItemObject[0]["lat"],
+      City: this.state.ItemObject[0]["City"],
+      totalbed:this.state.ItemObject[0]["Bedrooms"],
+      totalbathrooms:this.state.ItemObject[0]["totalbathrooms"],
+      parking:this.state.ItemObject[0]["parking"],
+      internet:this.state.ItemObject[0]["internet"],
+      price:this.state.ItemObject[0]["Price"],
+      description:this.state.ItemObject[0]["description"],
+      roomfuninishing:this.state.ItemObject[0]["FurnishedTyope"],
+
+
+
 
     });
 
