@@ -449,7 +449,7 @@ export class Propertyedit extends React.Component {
 
   videolinkchange(event) {
     var tempVideoLink = "";
-    if (event["target"] == null) {
+    if (event== null) {
       tempVideoLink = event;
     } else {
       tempVideoLink = event.target.value;
