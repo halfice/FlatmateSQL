@@ -228,6 +228,15 @@ export class Propertyedit extends React.Component {
   async BindItem() {
     this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
     //this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
+    this.handletotalbathroom(this.state.ItemObject[0]["totalbathrooms"],this.state.ItemObject[0]["totalbathrooms"]);
+    var tmpbedroom=this.state.ItemObject[0]["Bedrooms"];
+    if (tmpbedroom=="Studio"){
+      tmpbedroom="100"
+    }
+
+    handletotalbed(tmpbedroom,tmpbedroom);
+    handleparking(this.state.ItemObject[0]["parking"],this.state.ItemObject[0]["parking"]);
+
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
     var TmpBoolean = false;
@@ -248,7 +257,7 @@ export class Propertyedit extends React.Component {
       OwnerName:this.state.ItemObject[0]["OwnerName"],
       OwnerEmail:this.state.ItemObject[0]["OwnerEmail"],
       OwnerPhone:this.state.ItemObject[0]["OwnerPhone"],
-      BuildingNo:this.state.ItemObject[0]["BuildingNumber"],
+      BuildingNumber:this.state.ItemObject[0]["BuildingNumber"],
       UnitNumber:this.state.ItemObject[0]["UnitNumber"],
       Shape:this.state.ItemObject[0]["Shape"],
       Size:this.state.ItemObject[0]["Size"],
@@ -257,10 +266,10 @@ export class Propertyedit extends React.Component {
       longitude: this.state.ItemObject[0]["long"],
       latitude: this.state.ItemObject[0]["lat"],
       City: this.state.ItemObject[0]["City"],
-      totalbed:this.state.ItemObject[0]["Bedrooms"],
-      totalbathrooms:this.state.ItemObject[0]["totalbathrooms"],
-      parking:this.state.ItemObject[0]["parking"],
-      internet:this.state.ItemObject[0]["internet"],
+     // totalbed:this.state.ItemObject[0]["Bedrooms"],
+      //totalbathrooms:this.state.ItemObject[0]["totalbathrooms"],
+      //parking:this.state.ItemObject[0]["parking"],
+     // internet:this.state.ItemObject[0]["internet"],
       price:this.state.ItemObject[0]["Price"],
       description:this.state.ItemObject[0]["description"],
       roomfuninishing:this.state.ItemObject[0]["FurnishedTyope"],
