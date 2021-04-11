@@ -160,12 +160,12 @@ export class Propertyedit extends React.Component {
       FloorPlanid: "",
       Size: "",
 
-      companylogo:this.props.companylogo,
-      videolink:"",
-      chkbox:true,
-      deposit:0,
+      companylogo: this.props.companylogo,
+      videolink: "",
+      chkbox: true,
+      deposit: 0,
 
-      ItemObject:this.props.ItemObject
+      ItemObject: this.props.ItemObject
 
 
     }
@@ -201,7 +201,7 @@ export class Propertyedit extends React.Component {
     this.UnitNo = this.UnitNo.bind(this);
     this.BuildingNo = this.BuildingNo.bind(this);
 
-    this.videolinkchange=this.videolinkchange.bind(this);
+    this.videolinkchange = this.videolinkchange.bind(this);
     this.handleChangeChk = this.handleChangeChk.bind(this);
 
     this.depositsclick = this.depositsclick.bind(this);
@@ -211,18 +211,29 @@ export class Propertyedit extends React.Component {
   handleChangeChk = () => {
     this.setState({
       isChecked: !this.state.isChecked,
-      deal:1
+      deal: 1
     });
   }
   componentDidMount() {
     this.getblobtoken();
-this.BindItem();
+    this.BindItem();
   }
 
-  async BindItem()
-  {
-//ItemObjects[]l..............
-    this.handlePurpose(this.state.ItemObject[0]["Purpose"],"");
+  async BindItem() {
+    this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
+    this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
+    var TempDetail = this.state.ItemObject[0]["Deal"];
+    var TmpBoolean = false;
+    if (TempDetail == "1") {
+      TmpBoolean = true;
+    }
+
+    this.setState({
+      isChecked: TmpBoolean,
+      deal: TempDetail
+    });
+
+
   }
 
   async getblobtoken() {
@@ -247,14 +258,14 @@ this.BindItem();
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
 
-     for (var x=0;x<files.target.files.length;x++){
-      const file = files.target.files[x];
-      const filename = file.name.substring(0, file.name.lastIndexOf('.'));
-      const ext = file.name.substring(file.name.lastIndexOf('.'));
-      const blobName = filename + '_' + new Date().getTime() + ext;
-      this.uploadFile(file, blobName);
-      this.handleImageUploadold(file, blobName);
-     }
+      for (var x = 0; x < files.target.files.length; x++) {
+        const file = files.target.files[x];
+        const filename = file.name.substring(0, file.name.lastIndexOf('.'));
+        const ext = file.name.substring(file.name.lastIndexOf('.'));
+        const blobName = filename + '_' + new Date().getTime() + ext;
+        this.uploadFile(file, blobName);
+        this.handleImageUploadold(file, blobName);
+      }
 
     }
   }
@@ -393,10 +404,10 @@ this.BindItem();
       itemid: this.uuidv4(),
       AgentId: this.state.AgentId,//mean it is owner
     };
-//a/lert(this.state.deposit);
+    //a/lert(this.state.deposit);
     console.log(this.state.deposit);
-     var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert`;
-     var regurl = headerurl+`&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}&Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}&OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}&UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}&Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}`
+    var headerurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert`;
+    var regurl = headerurl + `&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}&Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}&OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}&UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}&Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -405,7 +416,7 @@ this.BindItem();
 
       });
       //useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo
-      this.props.handleRegisnteredUserId(this.state.LoginUserID,this.state.AgentMobile,this.state.AgentPic,this.state.AgentComapny,this.state.AgentName,this.state.companylogo);
+      this.props.handleRegisnteredUserId(this.state.LoginUserID, this.state.AgentMobile, this.state.AgentPic, this.state.AgentComapny, this.state.AgentName, this.state.companylogo);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);
@@ -428,9 +439,7 @@ this.BindItem();
   }
 
 
-
-
-  depositsclick(event){
+  depositsclick(event) {
     this.setState({
       deposit: event.target.value,
 
@@ -438,10 +447,15 @@ this.BindItem();
   }
 
 
-
-  videolinkchange(event){
+  videolinkchange(event) {
+    var tempVideoLink = "";
+    if (event["target"] == null) {
+      tempVideoLink = event;
+    } else {
+      tempVideoLink = event.target.value;
+    }
     this.setState({
-      videolink: event.target.value,
+      videolink: tempVideoLink
 
     });
   }
@@ -561,9 +575,9 @@ this.BindItem();
 
 
                           {
-                            this.state.Purpose=="Rent" &&
+                            this.state.Purpose == "Rent" &&
                             <div>
-                            <input type="text" className="form-control" onChange={this.depositsclick} placeholder="Depotis"></input>
+                              <input type="text" className="form-control" onChange={this.depositsclick} placeholder="Depotis"></input>
                             </div>
 
                           }
@@ -573,25 +587,25 @@ this.BindItem();
 
                         <div className="col-sm-1">
 
-                            VIDEO
+                          VIDEO
 
                         </div>
                         <div className="col-sm-4">
 
-                               <input type="name" className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
+                          <input type="name" className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
 
 
                         </div>
                         <div className="col-sm-1">
 
-                           DEAL
+                          DEAL
 
                         </div>
                         <div className="col-sm-1">
 
 
                           <input type="checkbox"
-                           defaultChecked={this.state.chkbox}
+                            defaultChecked={this.state.chkbox}
                             onChange={this.handleChangeChk} value="DEAL" />
 
 
@@ -901,11 +915,11 @@ this.BindItem();
                         <div className="row">
 
                           {
-                            this.state.Purpose=="Rent" &&
+                            this.state.Purpose == "Rent" &&
                             <div className="col-sm-12"> Rent / Year</div>
                           }
-{
-                            this.state.Purpose!="Rent" &&
+                          {
+                            this.state.Purpose != "Rent" &&
                             <div className="col-sm-12"> Price</div>
                           }
 
@@ -1167,7 +1181,7 @@ this.BindItem();
 
   handlePurpose(val, divval) {
 
-    if (divval == 1 || divval=="Sale") {
+    if (divval == 1 || divval == "Sale") {
       this.setState({
         Purpose: 'Sale',
         proposediv1: "purposedivnormal",
@@ -1176,7 +1190,7 @@ this.BindItem();
       });
     }
 
-    if (divval == 2  || divval=="Rent") {
+    if (divval == 2 || divval == "Rent") {
       this.setState({
         Purpose: 'Rent',
         proposediv1: "normaldivbutton",
@@ -1276,47 +1290,47 @@ this.BindItem();
 
 
 
-  BuildingNo(event){
+  BuildingNo(event) {
     this.setState({
       BuildingNo: event.target.value,
-      });
+    });
   }
 
-  UnitNo(event){
+  UnitNo(event) {
     this.setState({
       UnitNumber: event.target.value,
-      });
+    });
   }
 
-  ShapeNo(event){
+  ShapeNo(event) {
     this.setState({
       Shape: event.target.value,
-      });
+    });
   }
 
 
-  OwnerEmailch(event){
+  OwnerEmailch(event) {
     this.setState({
       OwnerEmail: event.target.value,
-      });
+    });
   }
 
-  OwnerNumberch(event){
+  OwnerNumberch(event) {
     this.setState({
       OwnerPhone: event.target.value,
-      });
+    });
   }
 
-  OwnerNamech(event){
+  OwnerNamech(event) {
     this.setState({
       OwnerName: event.target.value,
-      });
+    });
   }
 
-  handleSize(event){
+  handleSize(event) {
     this.setState({
       Size: event.target.value,
-      });
+    });
   }
 
 
@@ -1940,7 +1954,7 @@ this.BindItem();
     }
 
     const imageFile = event.target.files;
-    for (var x=0;x<imageFile.length;x++){
+    for (var x = 0; x < imageFile.length; x++) {
       try {
         const compressedFile = await imageCompression(imageFile[x], options);
         let reader = new FileReader();
@@ -2013,7 +2027,7 @@ this.BindItem();
       } catch (error) {
         //console.log(error);
       }
-  }
+    }
 
 
   }
