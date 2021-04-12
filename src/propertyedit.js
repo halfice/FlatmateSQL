@@ -273,7 +273,7 @@ export class Propertyedit extends React.Component {
       price:this.state.ItemObject[0]["Price"],
       description:this.state.ItemObject[0]["description"],
       roomfuninishing:this.state.ItemObject[0]["FurnishedTyope"],
-
+      Shape:this.state.ItemObject[0]["FurnishedTyope"],
 
 
 
@@ -969,7 +969,7 @@ export class Propertyedit extends React.Component {
                           }
 
                         </div>
-                        <input type="text" className="form-control" onChange={this.handleprince} placeholder="AED 0.00000"></input>
+                        <input type="text" className="form-control" value={this.state.price} onChange={this.handleprince} placeholder="AED 0.00000"></input>
 
                       </div>
 
@@ -984,7 +984,7 @@ export class Propertyedit extends React.Component {
                           <div className="col-sm-12"> Description</div>
                         </div>
                         <input type="textarea"
-                          name="textValue" className="descrption"
+                          name="textValue" className="descrption" value={this.state.description}
                           onChange={this.handleChangetextarea.bind(this)}
                         />
                       </div>
