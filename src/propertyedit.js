@@ -236,7 +236,10 @@ export class Propertyedit extends React.Component {
 
     this.handletotalbed(tmpbedroom,tmpbedroom);
     this.handleparking(this.state.ItemObject[0]["parking"],this.state.ItemObject[0]["parking"]);
-this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemObject[0]["Type"])
+    this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemObject[0]["Type"])
+
+   this.handleIsAgent(this.state.ItemObject[0]["AgentId"],this.state.ItemObject[0]["AgentId"])
+this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0]["internet"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
     var TmpBoolean = false;
@@ -1196,7 +1199,7 @@ this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemO
       });
     }
     if (tmp == 4) {
-      this.callingInsert();
+      this.callingUpdate();
     }
   }
 
@@ -1576,14 +1579,14 @@ this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemO
 
   handleparking(val, pval) {
 
-    if (pval == 1) {
+    if (pval == 1 || pval == "Yes") {
       this.setState({
         parking: val,
         parkingdiv1: "innervbuutonhover",
         parkingdiv2: "innervbuuton",
       });
     }
-    if (pval == 2) {
+    if (pval == 2 || pval == "No") {
       this.setState({
         parking: val,
         parkingdiv1: "innervbuuton",
@@ -1595,14 +1598,14 @@ this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemO
 
   handleIsAgent(val, pval) {
 
-    if (pval == 1) {
+    if (pval == 1 || pval == 1 ||"Yes") {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuutonhover",
         agentdiv2: "innervbuuton",
       });
     }
-    if (pval == 2) {
+    if (pval == 2 || pval == 1 || "No") {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuuton",
@@ -1615,14 +1618,14 @@ this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemO
   handleinternet(val, ival) {
 
 
-    if (ival == 1) {
+    if (ival == 1 || ival == "Yes") {
       this.setState({
         internet: val,
         internetdiv1: "innervbuutonhover",
         internetdiv2: "innervbuuton",
       });
     }
-    if (ival == 2) {
+    if (ival == 2 | ival == "No") {
       this.setState({
         internet: val,
         internetdiv1: "innervbuuton",
