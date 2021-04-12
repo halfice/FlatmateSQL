@@ -234,8 +234,8 @@ export class Propertyedit extends React.Component {
       tmpbedroom="100"
     }
 
-    handletotalbed(tmpbedroom,tmpbedroom);
-    handleparking(this.state.ItemObject[0]["parking"],this.state.ItemObject[0]["parking"]);
+    this.handletotalbed(tmpbedroom,tmpbedroom);
+    this.handleparking(this.state.ItemObject[0]["parking"],this.state.ItemObject[0]["parking"]);
 
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
