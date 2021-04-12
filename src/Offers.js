@@ -126,7 +126,7 @@ export class Offers extends React.Component {
                     'OwnerName': res.data[i].OwnerName,
                     'OwnerEmail': res.data[i].OwnerEmail,
                     'OwnerPhone': res.data[i].OwnerPhone,
-                    'BuildingNo':res.data[i].BuildingNo,
+                    'BuildingNumber':res.data[i].BuildingNumber,
                     'UnitNumber':res.data[i].UnitNumber,
 
 
