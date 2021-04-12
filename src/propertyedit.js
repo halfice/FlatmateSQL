@@ -236,14 +236,16 @@ export class Propertyedit extends React.Component {
 
     this.handletotalbed(tmpbedroom,tmpbedroom);
     this.handleparking(this.state.ItemObject[0]["parking"],this.state.ItemObject[0]["parking"]);
-
+this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemObject[0]["Type"])
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
     var TmpBoolean = false;
     if (TempDetail == "1") {
       TmpBoolean = true;
     }
+
     this.setState({
+      deal:TempDetail,
       isChecked: TmpBoolean,
       deal: TempDetail,
       videolink: this.state.ItemObject[0]["VideoLink"],
@@ -1251,7 +1253,7 @@ export class Propertyedit extends React.Component {
 
 
   handletypeofAccormodation(val, divval) {
-    if (divval == 1) {
+    if (divval == 1 ||divval == "Villa") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "fdvihover",
@@ -1265,7 +1267,7 @@ export class Propertyedit extends React.Component {
       });
     }
 
-    if (divval == 2) {
+    if (divval == 2||divval == "Appartment") {
       this.setState({
         typeofAccomodation: val,
         fdiv2Active: "fdvihover",
@@ -1278,7 +1280,7 @@ export class Propertyedit extends React.Component {
     }
 
 
-    if (divval == 3) {
+    if (divval == 3||divval == "Penthouse") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1289,7 +1291,7 @@ export class Propertyedit extends React.Component {
         fdiv6Active: "normaldivbutton",
       });
     }
-    if (divval == 4) {
+    if (divval == 4||divval == "Hotel Apartment") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1300,7 +1302,7 @@ export class Propertyedit extends React.Component {
         fdiv6Active: "normaldivbutton",
       });
     }
-    if (divval == 5) {
+    if (divval == 5||divval == "Office") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1311,7 +1313,7 @@ export class Propertyedit extends React.Component {
         fdiv6Active: "normaldivbutton",
       });
     }
-    if (divval == 6) {
+    if (divval == 6||divval == "Shop") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
