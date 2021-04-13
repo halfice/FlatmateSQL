@@ -211,7 +211,7 @@ export class Propertyedit extends React.Component {
     this.handleChangeChk = this.handleChangeChk.bind(this);
 
     this.depositsclick = this.depositsclick.bind(this);
-
+this.handledeleeImge =this.handledeleeImge.bind(this);
 
   }
   handleChangeChk = () => {
