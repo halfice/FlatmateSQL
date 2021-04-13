@@ -1,3 +1,14 @@
+.DeleeImgDiv{
+  position: absolute;
+    font-size: 44px;
+    color: white;
+    font-weight: bold;
+    border: 0%;
+    bottom: 0%;
+    right: 15%;
+}
+
+
 .subheadingsListDiv
   {
     padding: 11px;

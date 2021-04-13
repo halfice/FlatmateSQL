@@ -516,6 +516,10 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
     });
   }
 
+  handledeleeImge(number){
+
+  }
+
   render() {
     const varclaas = "visible";
     const varclaashidden = "hidden";
@@ -531,22 +535,26 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
         <div className="row" >
           {imagePreviewUrl != null &&
             <div className="col-sm-3 previewpadding">
-              <img src={imagePreviewUrl} className="mypreviewimage" />
+              <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,1)}>X</div>
+              <img src={imagePreviewUrl} className="mypreviewimage" height="150px" />
             </div>
           }
           {imagePreviewUrl1 != null &&
             <div className="col-sm-3 previewpadding">
-              <img src={imagePreviewUrl1} className="mypreviewimage" />
+                  <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,2)}>X</div>
+              <img src={imagePreviewUrl1} className="mypreviewimage" height="150px"/>
             </div>
           }
           {imagePreviewUrl2 != null &&
             <div className="col-sm-3 mt-6 previewpadding">
-              <img src={imagePreviewUrl2} className="mypreviewimage" />
+                  <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,3)}>X</div>
+              <img src={imagePreviewUrl2} className="mypreviewimage" height="150px"/>
             </div>
           }
           {imagePreviewUrl3 != null &&
             <div className="col-sm-3 mt-6 previewpadding">
-              <img src={imagePreviewUrl3} className="mypreviewimage" />
+                  <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,4)}>X</div>
+              <img src={imagePreviewUrl3} className="mypreviewimage" height="150px"/>
             </div>
           }
 
