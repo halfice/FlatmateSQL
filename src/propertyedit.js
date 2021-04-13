@@ -166,9 +166,9 @@ export class Propertyedit extends React.Component {
       deposit: 0,
 
       ItemObject: this.props.ItemObject,
-      img1:"",img2:"",
-      img3:"",
-      img4:"",
+      img1: "", img2: "",
+      img3: "",
+      img4: "",
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
 
@@ -228,18 +228,18 @@ export class Propertyedit extends React.Component {
   async BindItem() {
     this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
     //this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
-    this.handletotalbathroom(this.state.ItemObject[0]["totalbathrooms"],this.state.ItemObject[0]["totalbathrooms"]);
-    var tmpbedroom=this.state.ItemObject[0]["Bedrooms"];
-    if (tmpbedroom=="Studio"){
-      tmpbedroom="100"
+    this.handletotalbathroom(this.state.ItemObject[0]["totalbathrooms"], this.state.ItemObject[0]["totalbathrooms"]);
+    var tmpbedroom = this.state.ItemObject[0]["Bedrooms"];
+    if (tmpbedroom == "Studio") {
+      tmpbedroom = "100"
     }
 
-    this.handletotalbed(tmpbedroom,tmpbedroom);
-    this.handleparking(this.state.ItemObject[0]["parking"],this.state.ItemObject[0]["parking"]);
-    this.handletypeofAccormodation(this.state.ItemObject[0]["Type"],this.state.ItemObject[0]["Type"])
+    this.handletotalbed(tmpbedroom, tmpbedroom);
+    this.handleparking(this.state.ItemObject[0]["parking"], this.state.ItemObject[0]["parking"]);
+    this.handletypeofAccormodation(this.state.ItemObject[0]["Type"], this.state.ItemObject[0]["Type"])
 
-   this.handleIsAgent(this.state.ItemObject[0]["AgentId"],this.state.ItemObject[0]["AgentId"])
-this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0]["internet"]);
+    this.handleIsAgent(this.state.ItemObject[0]["AgentId"], this.state.ItemObject[0]["AgentId"])
+    this.handleinternet(this.state.ItemObject[0]["internet"], this.state.ItemObject[0]["internet"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
     var TmpBoolean = false;
@@ -248,37 +248,37 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
     }
 
     this.setState({
-      deal:TempDetail,
+      deal: TempDetail,
       isChecked: TmpBoolean,
       deal: TempDetail,
       videolink: this.state.ItemObject[0]["VideoLink"],
 
-      imagePreviewUrl: this.state.imgstarturl + this.state.ItemObject[0]["picsstringone"]+ this.state.imgStartEnd,
-      imagePreviewUrl1: this.state.imgstarturl +this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
-      imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"]+ this.state.imgStartEnd,
+      imagePreviewUrl: this.state.imgstarturl + this.state.ItemObject[0]["picsstringone"] + this.state.imgStartEnd,
+      imagePreviewUrl1: this.state.imgstarturl + this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
+      imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"] + this.state.imgStartEnd,
       imagePreviewUrl3: this.state.ItemObject[0]["picstring"],
-      AgentId:this.state.ItemObject[0]["AgentId"],
-      typeofAccomodation:this.state.ItemObject[0]["Type"],
-      OwnerName:this.state.ItemObject[0]["OwnerName"],
-      OwnerEmail:this.state.ItemObject[0]["OwnerEmail"],
-      OwnerPhone:this.state.ItemObject[0]["OwnerPhone"],
-      BuildingNumber:this.state.ItemObject[0]["BuildingNumber"],
-      UnitNumber:this.state.ItemObject[0]["UnitNumber"],
-      Shape:this.state.ItemObject[0]["Shape"],
-      Size:this.state.ItemObject[0]["Size"],
-      propertyAddress:  this.state.ItemObject[0]["Type"] ,
+      AgentId: this.state.ItemObject[0]["AgentId"],
+      typeofAccomodation: this.state.ItemObject[0]["Type"],
+      OwnerName: this.state.ItemObject[0]["OwnerName"],
+      OwnerEmail: this.state.ItemObject[0]["OwnerEmail"],
+      OwnerPhone: this.state.ItemObject[0]["OwnerPhone"],
+      BuildingNumber: this.state.ItemObject[0]["BuildingNumber"],
+      UnitNumber: this.state.ItemObject[0]["UnitNumber"],
+      Shape: this.state.ItemObject[0]["Shape"],
+      Size: this.state.ItemObject[0]["Size"],
+      propertyAddress: this.state.ItemObject[0]["Type"],
       location: this.state.ItemObject[0]["Location"],
       longitude: this.state.ItemObject[0]["long"],
       latitude: this.state.ItemObject[0]["lat"],
       City: this.state.ItemObject[0]["City"],
-     // totalbed:this.state.ItemObject[0]["Bedrooms"],
+      // totalbed:this.state.ItemObject[0]["Bedrooms"],
       //totalbathrooms:this.state.ItemObject[0]["totalbathrooms"],
       //parking:this.state.ItemObject[0]["parking"],
-     // internet:this.state.ItemObject[0]["internet"],
-      price:this.state.ItemObject[0]["Price"],
-      description:this.state.ItemObject[0]["description"],
-      roomfuninishing:this.state.ItemObject[0]["FurnishedTyope"],
-      Shape:this.state.ItemObject[0]["FurnishedTyope"],
+      // internet:this.state.ItemObject[0]["internet"],
+      price: this.state.ItemObject[0]["Price"],
+      description: this.state.ItemObject[0]["description"],
+      roomfuninishing: this.state.ItemObject[0]["FurnishedTyope"],
+      Shape: this.state.ItemObject[0]["FurnishedTyope"],
 
 
 
@@ -516,8 +516,29 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
     });
   }
 
-  handledeleeImge(number){
+  handledeleeImge(number) {
+    switch (number) {
+      case 1:
+        this.setState({imagePreviewUrl:null});
+        break;
 
+      case 2:
+        this.setState({imagePreviewUrl1:null});
+
+        break;
+
+      case 3:
+        this.setState({imagePreviewUrl2:null});
+
+        break;
+
+      case 4:
+        this.setState({imagePreviewUrl3:null});
+
+        break;
+
+
+    }
   }
 
   render() {
@@ -535,26 +556,26 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
         <div className="row" >
           {imagePreviewUrl != null &&
             <div className="col-sm-3 previewpadding">
-              <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,1)}>X</div>
+              <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 1)}>X</div>
               <img src={imagePreviewUrl} className="mypreviewimage" height="150px" />
             </div>
           }
           {imagePreviewUrl1 != null &&
             <div className="col-sm-3 previewpadding">
-                  <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,2)}>X</div>
-              <img src={imagePreviewUrl1} className="mypreviewimage" height="150px"/>
+              <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 2)}>X</div>
+              <img src={imagePreviewUrl1} className="mypreviewimage" height="150px" />
             </div>
           }
           {imagePreviewUrl2 != null &&
             <div className="col-sm-3 mt-6 previewpadding">
-                  <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,3)}>X</div>
-              <img src={imagePreviewUrl2} className="mypreviewimage" height="150px"/>
+              <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 3)}>X</div>
+              <img src={imagePreviewUrl2} className="mypreviewimage" height="150px" />
             </div>
           }
           {imagePreviewUrl3 != null &&
             <div className="col-sm-3 mt-6 previewpadding">
-                  <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this,4)}>X</div>
-              <img src={imagePreviewUrl3} className="mypreviewimage" height="150px"/>
+              <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 4)}>X</div>
+              <img src={imagePreviewUrl3} className="mypreviewimage" height="150px" />
             </div>
           }
 
@@ -781,7 +802,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
                         </div>
                         <div className="col-sm-4">
 
-                          <input type="text" className="form-control" value={this.state.OwnerPhone}  onChange={this.OwnerNumberch} placeholder="Owner Number"></input>
+                          <input type="text" className="form-control" value={this.state.OwnerPhone} onChange={this.OwnerNumberch} placeholder="Owner Number"></input>
 
                         </div>
 
@@ -797,24 +818,24 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
                       <div className="row textalighleft">
                         <div className="col-sm-3">
                           <div className="smalheadingcss">
-                            <input type="text" className="form-control" value={this.state.BuildingNumber}  onChange={this.BuildingNo} placeholder="Building #"></input>
+                            <input type="text" className="form-control" value={this.state.BuildingNumber} onChange={this.BuildingNo} placeholder="Building #"></input>
 
                           </div>
                         </div>
                         <div className="col-sm-3">
-                          <input type="text" className="form-control" value={this.state.UnitNumber}  onChange={this.UnitNo} placeholder="Unit #"></input>
+                          <input type="text" className="form-control" value={this.state.UnitNumber} onChange={this.UnitNo} placeholder="Unit #"></input>
 
                         </div>
                         <div className="col-sm-3">
 
-                          <input type="text" className="form-control" value={this.state.Size}   onChange={this.handleSize} placeholder="Size"></input>
+                          <input type="text" className="form-control" value={this.state.Size} onChange={this.handleSize} placeholder="Size"></input>
 
                         </div>
 
 
                         <div className="col-sm-3">
 
-                          <input type="text" className="form-control" value={this.state.Shape}    onChange={this.ShapeNo} placeholder="Room Shape"></input>
+                          <input type="text" className="form-control" value={this.state.Shape} onChange={this.ShapeNo} placeholder="Room Shape"></input>
 
                         </div>
 
@@ -1264,7 +1285,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
 
 
   handletypeofAccormodation(val, divval) {
-    if (divval == 1 ||divval == "Villa") {
+    if (divval == 1 || divval == "Villa") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "fdvihover",
@@ -1278,7 +1299,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
       });
     }
 
-    if (divval == 2||divval == "Appartment") {
+    if (divval == 2 || divval == "Appartment") {
       this.setState({
         typeofAccomodation: val,
         fdiv2Active: "fdvihover",
@@ -1291,7 +1312,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
     }
 
 
-    if (divval == 3||divval == "Penthouse") {
+    if (divval == 3 || divval == "Penthouse") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1302,7 +1323,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
         fdiv6Active: "normaldivbutton",
       });
     }
-    if (divval == 4||divval == "Hotel Apartment") {
+    if (divval == 4 || divval == "Hotel Apartment") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1313,7 +1334,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
         fdiv6Active: "normaldivbutton",
       });
     }
-    if (divval == 5||divval == "Office") {
+    if (divval == 5 || divval == "Office") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1324,7 +1345,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
         fdiv6Active: "normaldivbutton",
       });
     }
-    if (divval == 6||divval == "Shop") {
+    if (divval == 6 || divval == "Shop") {
       this.setState({
         typeofAccomodation: val,
         fdiv1Active: "normaldivbutton",
@@ -1606,7 +1627,7 @@ this.handleinternet(this.state.ItemObject[0]["internet"],this.state.ItemObject[0
 
   handleIsAgent(val, pval) {
 
-    if (pval == 1 || pval == 1 ||"Yes") {
+    if (pval == 1 || pval == 1 || "Yes") {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuutonhover",
