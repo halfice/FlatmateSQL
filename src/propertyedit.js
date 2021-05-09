@@ -551,7 +551,7 @@ this.handledeleeImge =this.handledeleeImge.bind(this);
     let { imagePreviewUrl3 } = this.state;
     let $imagePreview = null;
 
-    if (imagePreviewUrl) {
+    if (imagePreviewUrl || imagePreviewUrl1 || imagePreviewUrl2 || imagePreviewUrl3) {
       $imagePreview = (
         <div className="row" >
           {imagePreviewUrl != null &&

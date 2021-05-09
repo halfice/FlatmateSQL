@@ -51,7 +51,7 @@ class bodycards extends Component {
       blobtoken: "",
       myBlobs: [],
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
-      imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
+      imgStartEnd: "?sv=2020-02-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2022-03-01T19:31:43Z&st=2021-05-09T11:31:43Z&spr=https&sig=%2FD6gnmYQXBRyzXNO6nR0NFECkLecarrzosjm7HNOH%2Fo%3D",
       carousalObject: this.props.carousalObject,
       carousalObjectitem: [],
       carousalItemCount: 0,
@@ -201,7 +201,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
       TampCarousalItem.push(objectcarousalone);
@@ -221,7 +221,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
@@ -242,7 +242,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
@@ -263,7 +263,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
       }
 
@@ -282,7 +282,7 @@ class bodycards extends Component {
       selectedParking: tmpitem[0].parking,
       AgentName: tmpitem[0].agentname,
       AgentComapny: tmpitem[0].agentcompany,
-      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}${this.state.imgStartEnd}`,
       AgentMobile: tmpitem[0].AgentNumber,
 
     });
@@ -606,7 +606,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -627,7 +627,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -649,7 +649,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -671,7 +671,7 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}${this.state.imgStartEnd}`,
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -691,7 +691,7 @@ class bodycards extends Component {
       selectedParking: tmpitem[0].parking,
       AgentName: tmpitem[0].agentname,
       AgentComapny: tmpitem[0].agentcompany,
-      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D`,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}${this.state.imgStartEnd}`,
       AgentMobile: tmpitem[0].AgentNumber,
 
     });
