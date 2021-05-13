@@ -62,10 +62,8 @@ class App extends Component {
       AgentCompany: "",
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
-
-      //imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
       imgStartEnd:"?sp=racwl&st=2021-05-01T11:28:44Z&se=2022-06-02T19:28:44Z&spr=https&sv=2020-02-10&sr=c&sig=CMHe7DnT6YTT%2BjGOHPNZchA6%2BxMkI%2FsGrL3u5fe7dEU%3D",
-
+imgStartEndProfiel:"sp=racwl&st=2021-05-01T04:46:37Z&se=2022-05-17T12:46:37Z&spr=https&sv=2020-02-10&sr=c&sig=9%2FvEfoLaGqsL4Urg4ixNNpl8M9%2F4wTw4ck0pPsGlgjY%3D",
 
 
       //fech properties agent

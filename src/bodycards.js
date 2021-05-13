@@ -52,6 +52,7 @@ class bodycards extends Component {
       myBlobs: [],
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgStartEnd: "?sv=2020-02-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2022-03-01T19:31:43Z&st=2021-05-09T11:31:43Z&spr=https&sig=%2FD6gnmYQXBRyzXNO6nR0NFECkLecarrzosjm7HNOH%2Fo%3D",
+      imgStartEndprofile:"?sp=racwl&st=2021-05-01T04:46:37Z&se=2022-05-17T12:46:37Z&spr=https&sv=2020-02-10&sr=c&sig=9%2FvEfoLaGqsL4Urg4ixNNpl8M9%2F4wTw4ck0pPsGlgjY%3D",
       carousalObject: this.props.carousalObject,
       carousalObjectitem: [],
       carousalItemCount: 0,
@@ -282,7 +283,7 @@ class bodycards extends Component {
       selectedParking: tmpitem[0].parking,
       AgentName: tmpitem[0].agentname,
       AgentComapny: tmpitem[0].agentcompany,
-      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}${this.state.imgStartEnd}`,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}${this.state.imgStartEndprofile}`,
       AgentMobile: tmpitem[0].AgentNumber,
 
     });
@@ -691,7 +692,7 @@ class bodycards extends Component {
       selectedParking: tmpitem[0].parking,
       AgentName: tmpitem[0].agentname,
       AgentComapny: tmpitem[0].agentcompany,
-      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}${this.state.imgStartEnd}`,
+      AgentPic: `https://userfunctionsapi.blob.core.windows.net/profilepics/${tmpitem[0].AgentPic}${this.state.imgStartEndprofile}`,
       AgentMobile: tmpitem[0].AgentNumber,
 
     });
