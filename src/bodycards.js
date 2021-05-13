@@ -607,7 +607,8 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}${this.state.imgStartEnd}`,
+       // 'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp1stImag}${this.state.imgStartEnd}`,
+        'mypicstring': tmp1stImag,
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -628,7 +629,8 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}${this.state.imgStartEnd}`,
+        //'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp2stImag}${this.state.imgStartEnd}`,
+        'mypicstring': tmp2stImag,
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -650,7 +652,9 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}${this.state.imgStartEnd}`,
+       // 'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp3stImag}${this.state.imgStartEnd}`,
+        'mypicstring': tmp3stImag,
+
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
@@ -672,7 +676,9 @@ class bodycards extends Component {
         'Type': tmpitem[0].Type,
         'internet': tmpitem[0].internet,
         'parking': tmpitem[0].parking,
-        'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}${this.state.imgStartEnd}`,
+      //  'mypicstring': `https://userfunctionsapi.blob.core.windows.net/myfiles/${tmp4stImag}${this.state.imgStartEnd}`,
+        'mypicstring': tmp4stImag,
+
         'totalbathrooms': tmpitem[0].totalbathrooms,
         'agentpic': tmpitem[0].parking,
       }
