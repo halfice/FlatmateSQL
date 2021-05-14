@@ -63,7 +63,8 @@ class App extends Component {
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
       imgStartEnd:"?sp=racwl&st=2021-05-01T11:28:44Z&se=2022-06-02T19:28:44Z&spr=https&sv=2020-02-10&sr=c&sig=CMHe7DnT6YTT%2BjGOHPNZchA6%2BxMkI%2FsGrL3u5fe7dEU%3D",
-imgStartEndProfiel:"sp=racwl&st=2021-05-01T04:46:37Z&se=2022-05-17T12:46:37Z&spr=https&sv=2020-02-10&sr=c&sig=9%2FvEfoLaGqsL4Urg4ixNNpl8M9%2F4wTw4ck0pPsGlgjY%3D",
+imgStartEndProfiel:"sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&spr=https&sv=2020-02-10&sr=c&sig=mrZf3kuJCGKnS%2F6QlhMMBSNtSo04oxr%2BMq8uOIO%2BOcg%3D",
+
 
 
       //fech properties agent
@@ -528,7 +529,6 @@ imgStartEndProfiel:"sp=racwl&st=2021-05-01T04:46:37Z&se=2022-05-17T12:46:37Z&spr
     var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=agent";
     try {
       let res = await axios.post(loginurl);
-      // console.log("Agent" + res.data);
       var xcount = 10;
       if (res.data != "notfound") {
         for (var i = 0; i < res.data.length; i++) {
@@ -558,7 +558,7 @@ imgStartEndProfiel:"sp=racwl&st=2021-05-01T04:46:37Z&se=2022-05-17T12:46:37Z&spr
             'AgentPic': res.data[i].AgentPic,
             'agentcompany': res.data[i].agentcompany,
             'agentname': res.data[i].agentname,
-            'companylogo': this.state.imgstarturlprofiles + res.data[i].companylogo + this.state.imgStartEnd,
+            'companylogo': this.state.imgstarturlprofiles + res.data[i].companylogo + this.state.imgStartEndProfiel,
           }
           retrueneddata.push(obs);
           var objectcarousal = {
