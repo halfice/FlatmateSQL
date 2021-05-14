@@ -15,205 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Propertyedit extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      LoginUserID: this.props.UserID,
-      AgentMobile: this.props.AgentMobile,
-      AgentPic: this.props.AgentPic,
-      AgentName: this.props.AgentName,
-      AgentComapny: this.props.AgentComapny,
-      value: 2,
-      divcountre: 0,
-      currentclass: "hidden",
-      parentdiv: 0,
-      buttontext: "Lets Start",
-      location: "",
-      typeofAccomodation: "",
-      propertyAddress: "",
-      totalbed: "",
-      totalbathrooms: "",
-      parking: "",
-      internet: "",
-      blobtoken: "",
-      deal: "1",
-      Purpose: "",
-      City: "",
-      Country: "",
 
-      roomfuninishing: "",
-      bathroom: "",
-      rent: "",
-
-      imagePreviewUrl: uploader,
-      imagePreviewUrl1: uploader,
-      imagePreviewUrl2: uploader,
-      imagePreviewUrl3: uploader,
-
-      picscounter: 0,
-      AgentId: 0,//mean hei owner
-
-      picstring: "",
-      picstring1: "",
-      picstring2: "",
-      picstring3: "",
-
-      divActiveClass: "normaldivbutton",
-      innerdivActiveClass: "innervbuuton",
-
-      divhoverClass: "normaldivbuttonhover",
-      fdiv1Active: "normaldivbutton",
-
-      fdiv2Active: "normaldivbutton",
-      fdiv3Active: "normaldivbutton",
-      fdiv4Active: "normaldivbutton",
-
-      fdiv5Active: "normaldivbutton",
-      fdiv6Active: "normaldivbutton",
-
-
-      agentdiv1: "innervbuuton",
-      agentdiv2: "innervbuuton",
-
-
-
-      totalbeddiv1: "innervbuuton",
-      totalbeddiv2: "innervbuuton",
-      totalbeddiv3: "innervbuuton",
-      totalbeddiv4: "innervbuuton",
-      totalbeddiv5: "innervbuuton",
-      totalbeddiv6: "innervbuuton",
-
-      totalbathdiv1: "innervbuuton",
-      totalbathdiv2: "innervbuuton",
-      totalbathdiv3: "innervbuuton",
-      totalbathdiv4: "innervbuuton",
-      totalbathdiv5: "innervbuuton",
-      totalbathdiv6: "innervbuuton",
-
-      parkingdiv1: "innervbuuton",
-      parkingdiv2: "innervbuuton",
-
-      proposediv1: "innervbuuton",
-      proposediv2: "innervbuuton",
-
-
-
-
-
-      internetdiv1: "innervbuuton",
-      internetdiv2: "innervbuuton",
-
-      flatmatediv1: "innervbuuton",
-      flatmatediv2: "innervbuuton",
-      flatmatediv3: "innervbuuton",
-      flatmatediv4: "innervbuuton",
-      flatmatediv5: "innervbuuton",
-      flatmatediv6: "innervbuuton",
-
-      roomtypediv1: "innervbuuton",
-      roomtypediv2: "innervbuuton",
-
-      roomfunishdiv1: "innervbuuton",
-      roomfunishdiv2: "innervbuuton",
-      roomfunishdiv3: "innervbuuton",
-
-      bathroompdiv1: "innervbuuton",
-      bathroompdiv2: "innervbuuton",
-      bathroompdiv3: "innervbuuton",
-
-
-      feturediv1: "innervbuuton",
-      feturediv2: "innervbuuton",
-      feturediv3: "innervbuuton",
-      feturediv4: "innervbuuton",
-      feturediv5: "innervbuuton",
-      feturediv6: "innervbuuton",
-      feturediv7: "innervbuuton",
-      feturediv8: "innervbuuton",
-      feturediv9: "innervbuuton",
-      feturediv10: "innervbuuton",
-      feturediv11: "innervbuuton",
-      feturediv12: "innervbuuton",
-      feturediv13: "innervbuuton",
-      feturediv14: "innervbuuton",
-      feturediv15: "innervbuuton",
-      feturediv16: "innervbuuton",
-
-      bedsizediv1: "innervbuuton",
-      bedsizediv2: "innervbuuton",
-      bedsizediv3: "innervbuuton",
-      bedsizediv4: "innervbuuton",
-      loader: false,
-      price: "0.000",
-      longitude: "",
-      latitude: "",
-      description: "",
-
-      OwnerName: "",
-      OwnerEmail: "",
-      wnerPhone: "",
-      Status: "Pending",
-      BuildingNumber: "",
-      UnitNumber: "",
-      Shape: "",
-      FloorPlanid: "",
-      Size: "",
-
-      companylogo: this.props.companylogo,
-      videolink: "",
-      chkbox: true,
-      deposit: 0,
-
-      ItemObject: this.props.ItemObject,
-      img1: "", img2: "",
-      img3: "",
-      img4: "",
-      imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
-      imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
-
-
-
-    }
-
-
-    this.handleClickBack = this.handleClickBack.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleGoBackClick = this.handleGoBackClick.bind(this);
-
-    this.hovermefdiv1 = this.hovermefdiv1.bind(this);
-    this.removehovermefdiv1 = this.removehovermefdiv1.bind(this);
-
-    this.hovermefdiv2 = this.hovermefdiv2.bind(this);
-    this.removehovermefdiv2 = this.removehovermefdiv2.bind(this);
-
-    this.hovermefdiv3 = this.hovermefdiv3.bind(this);
-    this.removehovermefdiv3 = this.removehovermefdiv3.bind(this);
-    this.hovermefdiv4 = this.hovermefdiv4.bind(this);
-    this.removehovermefdiv4 = this.removehovermefdiv4.bind(this);
-    this.handlearent = this.handlearent.bind(this);
-    this.handlebond = this.handlebond.bind(this);
-    this.handlebills = this.handlebills.bind(this);
-    this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
-    this.handleprince = this.handleprince.bind(this);
-    this.handleChangetextarea = this.handleChangetextarea.bind(this);
-
-
-    this.OwnerNamech = this.OwnerNamech.bind(this);
-    this.handleSize = this.handleSize.bind(this);
-    this.OwnerNumberch = this.OwnerNumberch.bind(this);
-    this.OwnerEmailch = this.OwnerEmailch.bind(this);
-    this.ShapeNo = this.ShapeNo.bind(this);
-    this.UnitNo = this.UnitNo.bind(this);
-    this.BuildingNo = this.BuildingNo.bind(this);
-
-    this.videolinkchange = this.videolinkchange.bind(this);
-    this.handleChangeChk = this.handleChangeChk.bind(this);
-
-    this.depositsclick = this.depositsclick.bind(this);
-this.handledeleeImge =this.handledeleeImge.bind(this);
-
-  }
   handleChangeChk = () => {
     this.setState({
       isChecked: !this.state.isChecked,
@@ -1280,11 +1082,6 @@ this.handledeleeImge =this.handledeleeImge.bind(this);
     }
   }
 
-
-
-
-
-
   handletypeofAccormodation(val, divval) {
     if (divval == 1 || divval == "Villa") {
       this.setState({
@@ -1367,8 +1164,6 @@ this.handledeleeImge =this.handledeleeImge.bind(this);
       location: event.target.value,
     });
   }
-
-
 
   BuildingNo(event) {
     this.setState({
@@ -2217,6 +2012,205 @@ this.handledeleeImge =this.handledeleeImge.bind(this);
     } catch (error) {
       console.log(error);
     }
+
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      LoginUserID: this.props.UserID,
+      AgentMobile: this.props.AgentMobile,
+      AgentPic: this.props.AgentPic,
+      AgentName: this.props.AgentName,
+      AgentComapny: this.props.AgentComapny,
+      value: 2,
+      divcountre: 0,
+      currentclass: "hidden",
+      parentdiv: 0,
+      buttontext: "Lets Start",
+      location: "",
+      typeofAccomodation: "",
+      propertyAddress: "",
+      totalbed: "",
+      totalbathrooms: "",
+      parking: "",
+      internet: "",
+      blobtoken: "",
+      deal: "1",
+      Purpose: "",
+      City: "",
+      Country: "",
+
+      roomfuninishing: "",
+      bathroom: "",
+      rent: "",
+
+      imagePreviewUrl: uploader,
+      imagePreviewUrl1: uploader,
+      imagePreviewUrl2: uploader,
+      imagePreviewUrl3: uploader,
+
+      picscounter: 0,
+      AgentId: 0,//mean hei owner
+
+      picstring: "",
+      picstring1: "",
+      picstring2: "",
+      picstring3: "",
+
+      divActiveClass: "normaldivbutton",
+      innerdivActiveClass: "innervbuuton",
+
+      divhoverClass: "normaldivbuttonhover",
+      fdiv1Active: "normaldivbutton",
+
+      fdiv2Active: "normaldivbutton",
+      fdiv3Active: "normaldivbutton",
+      fdiv4Active: "normaldivbutton",
+
+      fdiv5Active: "normaldivbutton",
+      fdiv6Active: "normaldivbutton",
+
+
+      agentdiv1: "innervbuuton",
+      agentdiv2: "innervbuuton",
+
+
+
+      totalbeddiv1: "innervbuuton",
+      totalbeddiv2: "innervbuuton",
+      totalbeddiv3: "innervbuuton",
+      totalbeddiv4: "innervbuuton",
+      totalbeddiv5: "innervbuuton",
+      totalbeddiv6: "innervbuuton",
+
+      totalbathdiv1: "innervbuuton",
+      totalbathdiv2: "innervbuuton",
+      totalbathdiv3: "innervbuuton",
+      totalbathdiv4: "innervbuuton",
+      totalbathdiv5: "innervbuuton",
+      totalbathdiv6: "innervbuuton",
+
+      parkingdiv1: "innervbuuton",
+      parkingdiv2: "innervbuuton",
+
+      proposediv1: "innervbuuton",
+      proposediv2: "innervbuuton",
+
+
+
+
+
+      internetdiv1: "innervbuuton",
+      internetdiv2: "innervbuuton",
+
+      flatmatediv1: "innervbuuton",
+      flatmatediv2: "innervbuuton",
+      flatmatediv3: "innervbuuton",
+      flatmatediv4: "innervbuuton",
+      flatmatediv5: "innervbuuton",
+      flatmatediv6: "innervbuuton",
+
+      roomtypediv1: "innervbuuton",
+      roomtypediv2: "innervbuuton",
+
+      roomfunishdiv1: "innervbuuton",
+      roomfunishdiv2: "innervbuuton",
+      roomfunishdiv3: "innervbuuton",
+
+      bathroompdiv1: "innervbuuton",
+      bathroompdiv2: "innervbuuton",
+      bathroompdiv3: "innervbuuton",
+
+
+      feturediv1: "innervbuuton",
+      feturediv2: "innervbuuton",
+      feturediv3: "innervbuuton",
+      feturediv4: "innervbuuton",
+      feturediv5: "innervbuuton",
+      feturediv6: "innervbuuton",
+      feturediv7: "innervbuuton",
+      feturediv8: "innervbuuton",
+      feturediv9: "innervbuuton",
+      feturediv10: "innervbuuton",
+      feturediv11: "innervbuuton",
+      feturediv12: "innervbuuton",
+      feturediv13: "innervbuuton",
+      feturediv14: "innervbuuton",
+      feturediv15: "innervbuuton",
+      feturediv16: "innervbuuton",
+
+      bedsizediv1: "innervbuuton",
+      bedsizediv2: "innervbuuton",
+      bedsizediv3: "innervbuuton",
+      bedsizediv4: "innervbuuton",
+      loader: false,
+      price: "0.000",
+      longitude: "",
+      latitude: "",
+      description: "",
+
+      OwnerName: "",
+      OwnerEmail: "",
+      wnerPhone: "",
+      Status: "Pending",
+      BuildingNumber: "",
+      UnitNumber: "",
+      Shape: "",
+      FloorPlanid: "",
+      Size: "",
+
+      companylogo: this.props.companylogo,
+      videolink: "",
+      chkbox: true,
+      deposit: 0,
+
+      ItemObject: this.props.ItemObject,
+      img1: "", img2: "",
+      img3: "",
+      img4: "",
+      imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
+      imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
+
+
+
+    }
+
+
+    this.handleClickBack = this.handleClickBack.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleGoBackClick = this.handleGoBackClick.bind(this);
+
+    this.hovermefdiv1 = this.hovermefdiv1.bind(this);
+    this.removehovermefdiv1 = this.removehovermefdiv1.bind(this);
+
+    this.hovermefdiv2 = this.hovermefdiv2.bind(this);
+    this.removehovermefdiv2 = this.removehovermefdiv2.bind(this);
+
+    this.hovermefdiv3 = this.hovermefdiv3.bind(this);
+    this.removehovermefdiv3 = this.removehovermefdiv3.bind(this);
+    this.hovermefdiv4 = this.hovermefdiv4.bind(this);
+    this.removehovermefdiv4 = this.removehovermefdiv4.bind(this);
+    this.handlearent = this.handlearent.bind(this);
+    this.handlebond = this.handlebond.bind(this);
+    this.handlebills = this.handlebills.bind(this);
+    this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
+    this.handleprince = this.handleprince.bind(this);
+    this.handleChangetextarea = this.handleChangetextarea.bind(this);
+
+
+    this.OwnerNamech = this.OwnerNamech.bind(this);
+    this.handleSize = this.handleSize.bind(this);
+    this.OwnerNumberch = this.OwnerNumberch.bind(this);
+    this.OwnerEmailch = this.OwnerEmailch.bind(this);
+    this.ShapeNo = this.ShapeNo.bind(this);
+    this.UnitNo = this.UnitNo.bind(this);
+    this.BuildingNo = this.BuildingNo.bind(this);
+
+    this.videolinkchange = this.videolinkchange.bind(this);
+    this.handleChangeChk = this.handleChangeChk.bind(this);
+
+    this.depositsclick = this.depositsclick.bind(this);
+this.handledeleeImge =this.handledeleeImge.bind(this);
 
   }
 
