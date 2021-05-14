@@ -29,7 +29,7 @@ export class Propertyedit extends React.Component {
 
   async BindItem() {
     this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
-    //this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
+    this.videolinkchange(this.state.ItemObject[0]["VideoLink"]);
     this.handletotalbathroom(this.state.ItemObject[0]["totalbathrooms"], this.state.ItemObject[0]["totalbathrooms"]);
     var tmpbedroom = this.state.ItemObject[0]["Bedrooms"];
     if (tmpbedroom == "Studio") {
