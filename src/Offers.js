@@ -31,7 +31,8 @@ export class Offers extends React.Component {
             AgentMobile: this.props.AgentMobile,
             AgentPic: this.props.AgentPic,
             AgentName: this.props.AgentName,
-            AgentComapny: this.props.AgentComapny,
+            AgentCompany: this.props.AgentComapny,
+            companylogo:this.props.companylogo,
             ItemObject:[],
             imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
             imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
@@ -686,7 +687,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                                         AgentComapny={this.state.AgentCompany}
                                         AgentMobile={this.state.AgentMobile}
                                         AgentPic={this.state.AgentPic}
-                                        UserID={this.state.userid}
+                                        UserID={this.state.LoginUserID}
                                         handleRegisnteredUserId={this.handleRegisnteredUserId}
                                         ItemObject={this.state.ItemObject}
                                         />
