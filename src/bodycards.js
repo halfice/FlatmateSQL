@@ -928,7 +928,7 @@ class bodycards extends Component {
 
                   <div className="col-sm-4 ">
                     <div className="row agentdivCss">
-                      <div className="col-sm-8">
+                      <div className="col-sm-9">
                         <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
                         <div className="leftdiv">Company : {this.state.AgentComapny}</div>
                       </div>
