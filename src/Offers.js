@@ -46,6 +46,7 @@ export class Offers extends React.Component {
         this.handleoffersscreenproperty = this.handleoffersscreenproperty.bind(this);
         this.handleoffersscreenflatmatemsg = this.handleoffersscreenflatmatemsg.bind(this);
         this.gobackbutton = this.gobackbutton.bind(this);
+        this.CloseModal = this.CloseModal.bind(this);
 
     }
 
@@ -74,6 +75,15 @@ export class Offers extends React.Component {
             console.log(error);
         }
     }
+
+
+    CloseModal() {
+        this.setState({
+          ShowCarousal: false,
+
+
+        });
+      }
 
 
     async fetchproperties() {
@@ -711,6 +721,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                         <div className="carousaldiv">
                             <div className="row">
                                 <div className="col-sm-8 ">
+
                                 </div>
                             </div>
                         </div>
