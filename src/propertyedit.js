@@ -53,12 +53,11 @@ export class Propertyedit extends React.Component {
       deal: TempDetail,
       isChecked: TmpBoolean,
       deal: TempDetail,
-      videolink: this.state.ItemObject[0]["VideoLink"],
 
       imagePreviewUrl: this.state.imgstarturl + this.state.ItemObject[0]["picsstringone"] + this.state.imgStartEnd,
       imagePreviewUrl1: this.state.imgstarturl + this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
       imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"] + this.state.imgStartEnd,
-      imagePreviewUrl3: this.state.ItemObject[0]["picstring"],
+      imagePreviewUrl3: this.state.ItemObject[0]["picstring"]+ this.state.imgStartEnd,
       AgentId: this.state.ItemObject[0]["AgentId"],
       typeofAccomodation: this.state.ItemObject[0]["Type"],
       OwnerName: this.state.ItemObject[0]["OwnerName"],
@@ -462,7 +461,7 @@ export class Propertyedit extends React.Component {
                           {
                             this.state.Purpose == "Rent" &&
                             <div>
-                              <input type="text" className="form-control" onChange={this.depositsclick} placeholder="Depotis"></input>
+                              <input type="text" value={this.state.deposit} className="form-control" onChange={this.depositsclick} placeholder="Depotis"></input>
                             </div>
 
                           }
@@ -477,7 +476,7 @@ export class Propertyedit extends React.Component {
                         </div>
                         <div className="col-sm-4">
 
-                          <input type="name" className="form-control" onChange={this.videolinkchange.bind(this,'1')} placeholder="Youtube | DailyMotion"></input>
+                          <input type="name" value={this.state.videolink}  className="form-control" onChange={this.videolinkchange.bind(this,'1')} placeholder="Youtube | DailyMotion"></input>
 
 
                         </div>
