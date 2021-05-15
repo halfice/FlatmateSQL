@@ -44,16 +44,21 @@ export class Propertyedit extends React.Component {
     this.handleinternet(this.state.ItemObject[0]["internet"], this.state.ItemObject[0]["internet"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
+    var TempPropertyId=this.state.ItemObject[0]["PropertyId"];
+
     var TmpBoolean = false;
     if (TempDetail == "1") {
       TmpBoolean = true;
     }
 
+    this.handleroomfuninishing(this.state.ItemObject[0]["FurnishedTyope"],this.state.ItemObject[0]["FurnishedTyope"]);
+
+
     this.setState({
       deal: TempDetail,
       isChecked: TmpBoolean,
       deal: TempDetail,
-
+      PropertyId:TempPropertyId,
       imagePreviewUrl: this.state.imgstarturl  +  this.state.ItemObject[0]["picsstringone"] + this.state.imgStartEnd,
       imagePreviewUrl1: this.state.imgstarturl + this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
       imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"] + this.state.imgStartEnd,
@@ -78,7 +83,6 @@ export class Propertyedit extends React.Component {
       // internet:this.state.ItemObject[0]["internet"],
       price: this.state.ItemObject[0]["Price"],
       description: this.state.ItemObject[0]["description"],
-      roomfuninishing: this.state.ItemObject[0]["FurnishedTyope"],
 
 
 
@@ -239,29 +243,18 @@ export class Propertyedit extends React.Component {
     this.setState({
       loader: true,
     });
-
-    const data = {
-      LoginUserID: this.state.LoginUserID,
-      location: this.state.location,
-      typeofAccomodation: this.state.typeofAccomodation,
-      propertyAddress: this.state.propertyAddress,
-      totalbed: this.state.totalbed,
-      totalbathrooms: this.state.totalbathrooms,
-      parking: this.state.parking,
-      internet: this.state.internet,
-      Price: this.state.price,
-      roomfuninishing: this.state.roomfuninishing,
-      picstring: this.state.picstring,
-      picstringone: this.state.picstring1,
-      picstringtwo: this.state.picstring2,
-      picstringthree: this.state.picstring3,
-      itemid: this.uuidv4(),
-      AgentId: this.state.AgentId,//mean it is owner
-    };
-    //a/lert(this.state.deposit);
-    console.log(this.state.deposit);
     var headerurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=update`;
-    var regurl = headerurl + `&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}&Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}&OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}&UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}&Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}`
+    var regurl = headerurl + `&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}
+    &Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}
+    &internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}
+    &picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}
+    &picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}
+    &AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}
+    &description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}
+    &Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}
+    &OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}
+    &UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}
+    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.propertyAddress}`
   console.log(regurl);
     try {
       let res = await axios.post(regurl);
@@ -304,7 +297,7 @@ export class Propertyedit extends React.Component {
 
   videolinkchange(event,coming) {
     var tmp="";
-    if (coming=="1"){tmp=event.target.value;
+    if (event!="1"){tmp=event.target.value;
     }
     else{tmp=event;
     }
@@ -846,7 +839,7 @@ export class Propertyedit extends React.Component {
                         </div>
 
                         <div className="col-sm-4">
-                          <div className={this.state.roomfunishdiv3} onClick={this.handleroomfuninishing.bind(this, 'Un-Furnishe', '3')} >
+                          <div className={this.state.roomfunishdiv3} onClick={this.handleroomfuninishing.bind(this, 'Un-Furnished', '3')} >
                             Un-Furnished
                          </div>
                         </div>
@@ -1574,7 +1567,7 @@ export class Propertyedit extends React.Component {
   }
 
   handleroomfuninishing(val, fuval) {
-    if (fuval == 1) {
+    if (fuval == 1 || val=="Flexible")  {
       this.setState({
         roomfunishdiv1: "innervbuutonhover",
         roomfunishdiv2: "innervbuuton",
@@ -1583,7 +1576,7 @@ export class Propertyedit extends React.Component {
       });
     }
 
-    if (fuval == 2) {
+    if (fuval == 2 || val=="Furnished") {
       this.setState({
         roomfunishdiv1: "innervbuuton",
         roomfunishdiv2: "innervbuutonhover",
@@ -1592,7 +1585,7 @@ export class Propertyedit extends React.Component {
       });
     }
 
-    if (fuval == 3) {
+    if (fuval == 3 || val=="Un-Furnished") {
       this.setState({
         roomfunishdiv1: "innervbuuton",
         roomfunishdiv2: "innervbuuton",
@@ -2018,6 +2011,7 @@ export class Propertyedit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      PropertyId:0,
       LoginUserID: this.props.UserID,
       AgentMobile: this.props.AgentMobile,
       AgentPic: this.props.AgentPic,
