@@ -85,6 +85,14 @@ export class Offers extends React.Component {
         });
       }
 
+      delegateEditProperty(){
+        this.setState({
+            OfferScreen: 0,
+
+
+        });
+      }
+
 
     async fetchproperties() {
         var _Response = null;
@@ -701,7 +709,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                                         AgentMobile={this.state.AgentMobile}
                                         AgentPic={this.state.AgentPic}
                                         UserID={this.state.LoginUserID}
-                                        handleRegisnteredUserId={this.handleRegisnteredUserId}
+                                        delegateEditProperty={this.delegateEditProperty}
                                         ItemObject={this.state.ItemObject}
                                         />
                                 </div>

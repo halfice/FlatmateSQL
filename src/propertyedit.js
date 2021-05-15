@@ -263,11 +263,9 @@ export class Propertyedit extends React.Component {
         loader: false,
 
       });
-      //useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo
-      this.props.handleRegisnteredUserId(this.state.LoginUserID, this.state.AgentMobile, this.state.AgentPic, this.state.AgentComapny, this.state.AgentName, this.state.companylogo);
-      // console.log(res.data);
+      this.props.delegateEditProperty();
     } catch (error) {
-      //console.log(error);
+      console.log(error);
     }
 
 
