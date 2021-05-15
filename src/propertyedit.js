@@ -254,7 +254,7 @@ export class Propertyedit extends React.Component {
     &Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}
     &OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}
     &UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}
-    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.propertyAddress}`
+    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}`
   console.log(regurl);
     try {
       let res = await axios.post(regurl);
