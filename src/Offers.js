@@ -47,7 +47,7 @@ export class Offers extends React.Component {
         this.handleoffersscreenflatmatemsg = this.handleoffersscreenflatmatemsg.bind(this);
         this.gobackbutton = this.gobackbutton.bind(this);
         this.CloseModal = this.CloseModal.bind(this);
-
+        this.delegateEditProperty = this.delegateEditProperty.bind(this);
     }
 
     componentDidMount() {
@@ -729,6 +729,8 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                         <div className="carousaldiv">
                             <div className="row">
                                 <div className="col-sm-8 ">
+
+
 
                                 </div>
                             </div>
