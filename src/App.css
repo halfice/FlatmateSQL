@@ -681,7 +681,7 @@ list-style: none;
 }
 
 .gridcss{
-  height: 33px;
+  padding:9px;
   border:solid 1px gray;
 }
 .gridimage{

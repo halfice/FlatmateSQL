@@ -131,6 +131,7 @@ export class Offers extends React.Component {
                     'UnitNumber':res.data[i].UnitNumber,
                     'Shape': res.data[i].Shape,
                     'Size': res.data[i].Size,
+                    'City': res.data[i].City,
 
 
 
