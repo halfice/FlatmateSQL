@@ -129,8 +129,8 @@ export class Offers extends React.Component {
                     'OwnerPhone': res.data[i].OwnerPhone,
                     'BuildingNumber':res.data[i].BuildingNumber,
                     'UnitNumber':res.data[i].UnitNumber,
-                    'Shape': es.data[i].Shape,
-                    'Size': es.data[i].Size,
+                    'Shape': res.data[i].Shape,
+                    'Size': res.data[i].Size,
 
 
 
