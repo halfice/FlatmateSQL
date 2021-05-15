@@ -200,8 +200,8 @@ export class Locationsuggest extends React.Component {
     // Suggestions also need to be provided to the Autosuggest,
     // and they are initially empty because the Autosuggest is closed.
     this.state = {
-      value: '',
-      valueCity: '',
+      value: this.props.location,
+      valueCity: this.props.valueCity,
       suggestions: [],
       CitySuggestion:[],
     };
@@ -217,12 +217,12 @@ export class Locationsuggest extends React.Component {
      // alert(tmpitem[0].lagt);
       this.props.handlerhomek(this.state.valueCity, newValue,tmpitem[0].long,tmpitem[0].lat)
     }
-     
+
       this.setState({
         value: newValue
       });
     };
-  
+
     onChangeCity = (event, { newValue }) => {
 
 
@@ -231,7 +231,7 @@ export class Locationsuggest extends React.Component {
        // alert(tmpitem[0].lagt);
         this.props.handlerhomek(newValue,tmpitem[0].long,tmpitem[0].lat)
       }
-       
+
         this.setState({
           valueCity: newValue
         });
@@ -248,8 +248,8 @@ export class Locationsuggest extends React.Component {
 
 
   onSuggestionsFetchRequestedCity = ({ valueCity }) => {
-    
-    
+
+
     this.setState({
       CitySuggestion: getSuggestionsCities(this.state.valueCity)
 
@@ -321,7 +321,7 @@ export class Locationsuggest extends React.Component {
       />
       </div>
     </div>
-      
+
     );
   }
 

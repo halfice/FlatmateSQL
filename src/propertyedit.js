@@ -79,7 +79,6 @@ export class Propertyedit extends React.Component {
       price: this.state.ItemObject[0]["Price"],
       description: this.state.ItemObject[0]["description"],
       roomfuninishing: this.state.ItemObject[0]["FurnishedTyope"],
-      Shape: this.state.ItemObject[0]["FurnishedTyope"],
 
 
 
@@ -660,7 +659,7 @@ export class Propertyedit extends React.Component {
 
                             }
                             <div>
-                              <Lockz handlerhomek={this.handlerhomek} />
+                              <Lockz handlerhomek={this.handlerhomek} location={this.state.location} valueCity={this.state.City} />
                             </div>
                           </div>
                         </div>

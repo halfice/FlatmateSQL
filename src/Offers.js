@@ -121,7 +121,7 @@ export class Offers extends React.Component {
                     'picsstringone': res.data[i].picsstringone,
                     'picsstringthree': res.data[i].picsstringthree,
                     'picsstringtwo': res.data[i].picsstringtwo,
-                    'picstring': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,
+                    'picstring':  res.data[i].picstring ,
                     'totalbathrooms': res.data[i].totalbathrooms,
                     'VideoLink': res.data[i].VideoLink,
                     'OwnerName': res.data[i].OwnerName,
@@ -129,6 +129,8 @@ export class Offers extends React.Component {
                     'OwnerPhone': res.data[i].OwnerPhone,
                     'BuildingNumber':res.data[i].BuildingNumber,
                     'UnitNumber':res.data[i].UnitNumber,
+                    'Shape': es.data[i].Shape,
+                    'Size': es.data[i].Size,
 
 
 
