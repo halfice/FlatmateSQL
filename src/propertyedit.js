@@ -29,7 +29,7 @@ export class Propertyedit extends React.Component {
 
   async BindItem() {
     this.handlePurpose(this.state.ItemObject[0]["Purpose"], this.state.ItemObject[0]["Purpose"]);
-    this.videolinkchange(this.state.ItemObject[0]["VideoLink"],'0');
+    this.videolinkchangeItemBind(this.state.ItemObject[0]["VideoLink"]);
     this.handletotalbathroom(this.state.ItemObject[0]["totalbathrooms"], this.state.ItemObject[0]["totalbathrooms"]);
     var tmpbedroom = this.state.ItemObject[0]["Bedrooms"];
     if (tmpbedroom == "Studio") {
@@ -294,15 +294,15 @@ export class Propertyedit extends React.Component {
     });
   }
 
-
-  videolinkchange(event,coming) {
-    var tmp="";
-    if (event!="1"){tmp=event.target.value;
-    }
-    else{tmp=event;
-    }
+  videolinkchangeItemBind(videourl){
     this.setState({
-      videolink: tmp,
+      videolink: videourl,
+    });
+  }
+  videolinkchange(event) {
+
+    this.setState({
+      videolink: event.target.value,
     });
   }
 
@@ -468,7 +468,7 @@ export class Propertyedit extends React.Component {
                         </div>
                         <div className="col-sm-4">
 
-                          <input type="name" value={this.state.videolink}  className="form-control" onChange={this.videolinkchange.bind(this,'1')} placeholder="Youtube | DailyMotion"></input>
+                          <input type="name" value={this.state.videolink}  className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
 
 
                         </div>
@@ -2205,6 +2205,10 @@ export class Propertyedit extends React.Component {
 
     this.videolinkchange = this.videolinkchange.bind(this);
     this.handleChangeChk = this.handleChangeChk.bind(this);
+
+
+
+    this.videolinkchangeItemBind = this.videolinkchangeItemBind.bind(this);
 
     this.depositsclick = this.depositsclick.bind(this);
 this.handledeleeImge =this.handledeleeImge.bind(this);
