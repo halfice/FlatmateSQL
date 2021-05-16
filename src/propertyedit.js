@@ -46,7 +46,12 @@ export class Propertyedit extends React.Component {
     this.handleparking(this.state.ItemObject[0]["parking"], this.state.ItemObject[0]["parking"]);
     this.handletypeofAccormodation(this.state.ItemObject[0]["Type"], this.state.ItemObject[0]["Type"])
 
-    this.handleIsAgent(this.state.ItemObject[0]["AgentId"], this.state.ItemObject[0]["AgentId"])
+var tempIsAgent=this.state.ItemObject[0]["AgentId"];
+var pvalagent='0';
+
+if(tempIsAgent=="Yes"){pvalagent='1'} 
+
+    this.handleIsAgent(this.state.ItemObject[0]["AgentId"], pvalagent);
     this.handleinternet(this.state.ItemObject[0]["internet"], this.state.ItemObject[0]["internet"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
 
@@ -1421,18 +1426,18 @@ export class Propertyedit extends React.Component {
 
   handleIsAgent(val, pval) {
 
-    if (pval == "1" || pval == '1' || "Yes") {
-      this.setState({
-        AgentId: val,
-        agentdiv1: "innervbuuton",
-        agentdiv2: "innervbuutonhover",
-      });
-    }
-    if (pval == "2"  || pval == '2' || "No") {
+    if (pval == 1) {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuutonhover",
         agentdiv2: "innervbuuton",
+      });
+    }
+    if (pval == 2) {
+      this.setState({
+        AgentId: val,
+        agentdiv1: "innervbuuton",
+        agentdiv2: "innervbuutonhover",
       });
     }
 
