@@ -17,9 +17,15 @@ library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Propertyedit extends React.Component {
 
   handleChangeChk = () => {
+    var tmpDeal=0;
+
+    if (this.state.isChecked==true){
+      tmpDeal=1;
+    }
+
     this.setState({
       isChecked: !this.state.isChecked,
-      deal: 1
+      deal: tmpDeal
     });
   }
   componentDidMount() {
@@ -252,7 +258,7 @@ export class Propertyedit extends React.Component {
     &AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}
     &description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}
     &Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}
-    &OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}
+    &OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNumber}
     &UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}
     &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}`
   console.log(regurl);
@@ -1159,7 +1165,7 @@ export class Propertyedit extends React.Component {
 
   BuildingNo(event) {
     this.setState({
-      BuildingNo: event.target.value,
+      BuildingNumber: event.target.value,
     });
   }
 
@@ -1422,7 +1428,7 @@ export class Propertyedit extends React.Component {
         agentdiv2: "innervbuuton",
       });
     }
-    if (pval == 2 || pval == 1 || "No") {
+    if (pval == 2  || "No") {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuuton",
