@@ -1421,14 +1421,14 @@ export class Propertyedit extends React.Component {
 
   handleIsAgent(val, pval) {
 
-    if (pval == "1" || pval == 1 || "Yes") {
+    if (pval == "1" || pval == '1' || "Yes") {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuuton",
         agentdiv2: "innervbuutonhover",
       });
     }
-    if (pval == "2"  || pval == 2 || "No") {
+    if (pval == "2"  || pval == '2' || "No") {
       this.setState({
         AgentId: val,
         agentdiv1: "innervbuutonhover",
