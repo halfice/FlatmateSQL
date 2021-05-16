@@ -753,7 +753,8 @@ export class Property extends React.Component {
 
                             }
                             <div>
-                              <Lockz handlerhomek={this.handlerhomek} />
+                            <Lockz handlerhomek={this.handlerhomek} location={this.state.location} valueCity={this.state.City} />
+                          
                             </div>
                           </div>
                         </div>
