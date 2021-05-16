@@ -1424,8 +1424,8 @@ export class Propertyedit extends React.Component {
     if (pval == 1 || pval == 1 || "Yes") {
       this.setState({
         AgentId: val,
-        agentdiv1: "innervbuutonhover",
-        agentdiv2: "innervbuuton",
+        agentdiv1: "innervbuuton",
+        agentdiv2: "innervbuutonhover",
       });
     }
     if (pval == 2  || "No") {
