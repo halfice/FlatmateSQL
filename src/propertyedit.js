@@ -44,26 +44,19 @@ export class Propertyedit extends React.Component {
 
     this.handletotalbed(tmpbedroom, tmpbedroom);
     this.handleparking(this.state.ItemObject[0]["parking"], this.state.ItemObject[0]["parking"]);
-    this.handletypeofAccormodation(this.state.ItemObject[0]["Type"], this.state.ItemObject[0]["Type"])
-
-var tempIsAgent=this.state.ItemObject[0]["AgentId"];
-var pvalagent='0';
-
-if(tempIsAgent=="Yes"){pvalagent='1'} 
-
+    this.handletypeofAccormodation(this.state.ItemObject[0]["Type"], this.state.ItemObject[0]["Type"]);
+    var tempIsAgent=this.state.ItemObject[0]["AgentId"];
+    var pvalagent="0";
+    if(tempIsAgent=="Yes"){pvalagent="1";}
     this.handleIsAgent(this.state.ItemObject[0]["AgentId"], pvalagent);
     this.handleinternet(this.state.ItemObject[0]["internet"], this.state.ItemObject[0]["internet"]);
     var TempDetail = this.state.ItemObject[0]["Deal"];
-
     var TempPropertyId=this.state.ItemObject[0]["PropertyId"];
-
     var TmpBoolean = false;
     if (TempDetail == "1") {
       TmpBoolean = true;
     }
-
     this.handleroomfuninishing(this.state.ItemObject[0]["FurnishedTyope"],this.state.ItemObject[0]["FurnishedTyope"]);
-
 
     this.setState({
       deal: TempDetail,
