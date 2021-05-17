@@ -52,11 +52,11 @@ export class Offers extends React.Component {
 
     componentDidMount() {
 
-        console.log(this.state.LoginUserID);
-        console.log(this.state.AgentMobile)
-        console.log(this.state.AgentPic)
-        console.log(this.state.AgentName)
-        console.log(this.state.AgentComapny)
+       // console.log(this.state.LoginUserID);
+       // console.log(this.state.AgentMobile)
+       // console.log(this.state.AgentPic)
+       // console.log(this.state.AgentName)
+       / console.log(this.state.AgentComapny)
 
         this.getblobtoken();
         this.fetchmessages();
@@ -150,7 +150,7 @@ export class Offers extends React.Component {
                     'Shape': res.data[i].Shape,
                     'Size': res.data[i].Size,
                     'City': res.data[i].City,
-
+                    'AgentId': res.data[i].AgentId
 
 
 
