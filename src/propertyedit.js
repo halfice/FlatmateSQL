@@ -92,13 +92,17 @@ export class Propertyedit extends React.Component {
       internet:tmpInternet,
       price: this.state.ItemObject[0]["Price"],
       description: this.state.ItemObject[0]["description"],
+      picsstringone: this.state.ItemObject[0]["picsstringone"],
+      picsstringthree: this.state.ItemObject[0]["picsstringthree"],
+      picsstringtwo: this.state.ItemObject[0]["picsstringtwo"],
+      picstring:  this.state.ItemObject[0]["picstring"],
 
 
 
 
     });
 
-    console.log(this.state.OwnerName);
+
 
 
   }
