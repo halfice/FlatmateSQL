@@ -270,7 +270,7 @@ export class Propertyedit extends React.Component {
     &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}`
   console.log(regurl);
     try {
-      let res = "";//await axios.post(regurl);
+      let res = await axios.post(regurl);
       this.setState({
         universalid: res,
         loader: false,
