@@ -42,6 +42,9 @@ export class Propertyedit extends React.Component {
       tmpbedroom = "100"
     }
 
+    var tmpInternet=this.state.ItemObject[0]["internet"];
+
+
     this.handletotalbed(tmpbedroom, tmpbedroom);
     this.handleparking(this.state.ItemObject[0]["parking"], this.state.ItemObject[0]["parking"]);
     this.handletypeofAccormodation(this.state.ItemObject[0]["Type"], this.state.ItemObject[0]["Type"]);
@@ -49,7 +52,7 @@ export class Propertyedit extends React.Component {
     var pvalagent="0";
     if(tempIsAgent=="Yes"){pvalagent="1";}
     this.handleIsAgent(this.state.ItemObject[0]["AgentId"], pvalagent);
-    this.handleinternet(this.state.ItemObject[0]["internet"], this.state.ItemObject[0]["internet"]);
+
     var TempDetail = this.state.ItemObject[0]["Deal"];
     var TempPropertyId=this.state.ItemObject[0]["PropertyId"];
     var TmpBoolean = false;
@@ -86,6 +89,7 @@ export class Propertyedit extends React.Component {
       //parking:this.state.ItemObject[0]["parking"],
       // internet:this.state.ItemObject[0]["internet"],
       deposit: this.state.ItemObject[0]["deposit"],
+      internet:tmpInternet,
       price: this.state.ItemObject[0]["Price"],
       description: this.state.ItemObject[0]["description"],
 
