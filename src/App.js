@@ -58,9 +58,9 @@ class App extends Component {
       AgentCompany: "",
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
-      imgStartEnd:"?sp=racwl&st=2021-05-01T11:28:44Z&se=2022-06-02T19:28:44Z&spr=https&sv=2020-02-10&sr=c&sig=CMHe7DnT6YTT%2BjGOHPNZchA6%2BxMkI%2FsGrL3u5fe7dEU%3D",
-      imgStartEndProfiel:"?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&spr=https&sv=2020-02-10&sr=c&sig=mrZf3kuJCGKnS%2F6QlhMMBSNtSo04oxr%2BMq8uOIO%2BOcg%3D",
-   //fech properties agent
+      imgStartEnd: "?sp=racwl&st=2021-05-01T11:28:44Z&se=2022-06-02T19:28:44Z&spr=https&sv=2020-02-10&sr=c&sig=CMHe7DnT6YTT%2BjGOHPNZchA6%2BxMkI%2FsGrL3u5fe7dEU%3D",
+      imgStartEndProfiel: "?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&spr=https&sv=2020-02-10&sr=c&sig=mrZf3kuJCGKnS%2F6QlhMMBSNtSo04oxr%2BMq8uOIO%2BOcg%3D",
+      //fech properties agent
       GlobalObject: [],
       GlobalObjectCarousal: [],
       GlobalObjectTenants: [],
@@ -196,13 +196,13 @@ class App extends Component {
           this.state.needwizard == 5 &&
           <div className="col-sm-12">
             <Property Country={this.state.UserCountry}
-            companylogo={this.state.companylogo}
-            AgentName={this.state.AgentName}
-            AgentComapny={this.state.AgentCompany}
-            AgentMobile={this.state.AgentMobile}
-            AgentPic={this.state.AgentPic}
-            UserID={this.state.userid}
-            handleRegisnteredUserId={this.handleRegisnteredUserId} />
+              companylogo={this.state.companylogo}
+              AgentName={this.state.AgentName}
+              AgentComapny={this.state.AgentCompany}
+              AgentMobile={this.state.AgentMobile}
+              AgentPic={this.state.AgentPic}
+              UserID={this.state.userid}
+              handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -213,14 +213,14 @@ class App extends Component {
           <div className="col-sm-12">
             <ViewOffers
 
-          companylogo={this.state.companylogo}
-          AgentName={this.state.AgentName}
-          AgentComapny={this.state.AgentCompany}
-          AgentMobile={this.state.AgentMobile}
-          AgentPic={this.state.AgentPic}
-          UserID={this.state.userid}
-          UserID={this.state.userid}
-          handleRegisnteredUserId={this.handleRegisnteredUserId} />
+              companylogo={this.state.companylogo}
+              AgentName={this.state.AgentName}
+              AgentComapny={this.state.AgentCompany}
+              AgentMobile={this.state.AgentMobile}
+              AgentPic={this.state.AgentPic}
+              UserID={this.state.userid}
+              UserID={this.state.userid}
+              handleRegisnteredUserId={this.handleRegisnteredUserId} />
           </div>
 
         }
@@ -632,9 +632,9 @@ class App extends Component {
           'Type': res.data[i].Type,
           'internet': res.data[i].internet,
           'parking': res.data[i].parking,
-         // 'picsstringone': res.data[i].picsstringone,
-         // 'picsstringthree': res.data[i].picsstringthree,
-         // 'picsstringtwo': res.data[i].picsstringtwo,
+          // 'picsstringone': res.data[i].picsstringone,
+          // 'picsstringthree': res.data[i].picsstringthree,
+          // 'picsstringtwo': res.data[i].picsstringtwo,
           'picsstringone': this.state.imgstarturl + res.data[i].picsstringone + this.state.imgStartEnd,//res.data[i].picsstringone,
           'picsstringthree': this.state.imgstarturl + res.data[i].picsstringthree + this.state.imgStartEnd,//res.data[i].picsstringthree,
           'picsstringtwo': this.state.imgstarturl + res.data[i].picsstringtwo + this.state.imgStartEnd,//res.data[i].picsstringtwo,

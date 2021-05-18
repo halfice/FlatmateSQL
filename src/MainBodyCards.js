@@ -24,41 +24,9 @@ class MainBodyCards extends Component {
         <div className="col-sm-2 card-body"></div>
 
 
+
           <div className="col-sm-3 card-body">
-            <div onClick={() => this.props.handler('1')} >
-              <div className="bottombordr" >
-                <div className="row bcimagep">
-                  <div className="col-sm-12">
-                    <div className="row marginljeft">
-                      <span className="spanclasstext">Share Flatmate</span>
-                    </div>
-                    <div className="row marginleft">
-                      
-                    </div>
-                    <div className="container row marginljeft">
-
-
-
-                    </div>
-                  </div>
-                  <div className="col-sm-4">
-                    <div>
-                      {
-//                    <FontAwesomeIcon icon={faCoffee} className="homeicon"/>                 
-
-
-                      }
-                      </div>
-                  </div>
-                </div>
-
-              </div>
-
-
-            </div>
-          </div>
-          <div className="col-sm-3 card-body">
-            <div onClick={() => this.props.handler('5')}> 
+            <div onClick={() => this.props.handler('5')}>
               <div className="bottombordr" >
                 <div className="row bcimage">
                   <div className="col-sm-12">
@@ -66,7 +34,7 @@ class MainBodyCards extends Component {
                       <span className="spanclasstext">Share Property</span>
                     </div>
                     <div className="row marginleft">
-                      
+
                     </div>
                     <div className="container row marginljeft">
                     </div>
@@ -89,10 +57,10 @@ class MainBodyCards extends Component {
           <div className="col-sm-2 card-body"></div>
 
 
-         
+
         </div>
-        
-       
+
+
       </div>
 
 
@@ -108,3 +76,43 @@ class MainBodyCards extends Component {
 
 
 export default MainBodyCards;
+
+
+/**
+ *
+ *   <div className="col-sm-3 card-body">
+            <div onClick={() => this.props.handler('1')} >
+              <div className="bottombordr" >
+                <div className="row bcimagep">
+                  <div className="col-sm-12">
+                    <div className="row marginljeft">
+                      <span className="spanclasstext">Share Flatmate</span>
+                    </div>
+                    <div className="row marginleft">
+
+                    </div>
+                    <div className="container row marginljeft">
+
+
+
+                    </div>
+                  </div>
+                  <div className="col-sm-4">
+                    <div>
+                      {
+//                    <FontAwesomeIcon icon={faCoffee} className="homeicon"/>
+
+
+                      }
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+ *
+ *
+ */
