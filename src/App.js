@@ -32,16 +32,12 @@ import { faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faB
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import Select from 'react-select';
-
-
-
 //view offers 101
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      needwizard: 101,
+      needwizard: 3423424101,
       ownerwizard: 0,
       userid: 0,
       showcard: 1,
@@ -63,27 +59,18 @@ class App extends Component {
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
       imgStartEnd:"?sp=racwl&st=2021-05-01T11:28:44Z&se=2022-06-02T19:28:44Z&spr=https&sv=2020-02-10&sr=c&sig=CMHe7DnT6YTT%2BjGOHPNZchA6%2BxMkI%2FsGrL3u5fe7dEU%3D",
-imgStartEndProfiel:"?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&spr=https&sv=2020-02-10&sr=c&sig=mrZf3kuJCGKnS%2F6QlhMMBSNtSo04oxr%2BMq8uOIO%2BOcg%3D",
-
-
-
-      //fech properties agent
+      imgStartEndProfiel:"?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&spr=https&sv=2020-02-10&sr=c&sig=mrZf3kuJCGKnS%2F6QlhMMBSNtSo04oxr%2BMq8uOIO%2BOcg%3D",
+   //fech properties agent
       GlobalObject: [],
       GlobalObjectCarousal: [],
-
       GlobalObjectTenants: [],
-
       UserCountry: "",
-
-
       //fethc properties
       ObjectArray: [],
       carousalObject: [],
       finalArrayObject: [],
-
       compnayname: "",
       companylogo: "",
-
       ShowCarousal: false,
 
     }
@@ -99,7 +86,6 @@ imgStartEndProfiel:"?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&sp
       });
     console.log(`Option selected:`, selectedOption.label);
   };
-
   CloseModal() {
     this.setState({
       ShowCarousal: false,
@@ -107,16 +93,11 @@ imgStartEndProfiel:"?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&sp
 
     });
   }
-
   render() {
-
-
     const options = [
       { value: '1', label: 'UAE' },
       { value: '2', label: 'Pakistan' },
     ]
-
-
     const { t } = this.props;
     let somthingNeedsTobe = "";
     let tagetedValue = 1;
