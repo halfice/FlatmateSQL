@@ -85,6 +85,7 @@ export class Propertyedit extends React.Component {
       //totalbathrooms:this.state.ItemObject[0]["totalbathrooms"],
       //parking:this.state.ItemObject[0]["parking"],
       // internet:this.state.ItemObject[0]["internet"],
+      deposit: this.state.ItemObject[0]["deposit"],
       price: this.state.ItemObject[0]["Price"],
       description: this.state.ItemObject[0]["description"],
 
@@ -1812,7 +1813,7 @@ export class Propertyedit extends React.Component {
     });
   }
 
-  
+
 
 
   constructor(props) {
