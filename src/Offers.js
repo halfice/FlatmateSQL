@@ -151,7 +151,7 @@ export class Offers extends React.Component {
                     'Size': res.data[i].Size,
                     'City': res.data[i].City,
                     'AgentId': res.data[i].AgentId,
-                    'deposit': this.state.ItemObject[0]["deposit"],
+                    'deposit': res.data[i].deposit,
 
 
 
