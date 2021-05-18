@@ -43,7 +43,7 @@ export class Propertyedit extends React.Component {
     }
 
     var tmpInternet=this.state.ItemObject[0]["internet"];
-
+    this.handleinternetEdit(tmpInternet);
 
     this.handletotalbed(tmpbedroom, tmpbedroom);
     this.handleparking(this.state.ItemObject[0]["parking"], this.state.ItemObject[0]["parking"]);
@@ -1467,6 +1467,29 @@ export class Propertyedit extends React.Component {
 
   }
 
+
+  handleinternetEdit(val) {
+
+
+    if (val == "Yes") {
+      this.setState({
+        internet: val,
+        internetdiv1: "innervbuutonhover",
+        internetdiv2: "innervbuuton",
+      });
+    }
+    if (val =="Not available") {
+      this.setState({
+        internet: val,
+        internetdiv1: "innervbuuton",
+        internetdiv2: "innervbuutonhover",
+      });
+    }
+
+
+
+  }
+
   handleflatemates(val, fval) {
 
 
@@ -2021,6 +2044,7 @@ export class Propertyedit extends React.Component {
 
     this.videolinkchange = this.videolinkchange.bind(this);
     this.handleChangeChk = this.handleChangeChk.bind(this);
+    this.handleinternetEdit = this.handleinternetEdit.bind(this);
 
 
 
