@@ -766,7 +766,7 @@ class bodycards extends Component {
         <div className="col-sm-6 bottomspace" key={item["key"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["Type"]}>
             <div>
-              <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
+              <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousalAgent.bind(this, item["PropertyId"])} />
               <div className="smalldivcamera">
 
                 <FontAwesomeIcon icon={faCamera} />
