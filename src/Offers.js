@@ -56,7 +56,7 @@ export class Offers extends React.Component {
        // console.log(this.state.AgentMobile)
        // console.log(this.state.AgentPic)
        // console.log(this.state.AgentName)
-       / console.log(this.state.AgentComapny)
+       // console.log(this.state.AgentComapny)
 
         this.getblobtoken();
         this.fetchmessages();
@@ -120,7 +120,7 @@ export class Offers extends React.Component {
                     'typeofAccomodation': res.data[i].Room_in_an_existing,//.metadata.colName,
                     'rent': res.data[i].Price,//metadata.colName,
                     'Purpose': res.data[i].Purpose,
-                    'Imagestr': this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
+                    'Imagestr': res.data[i].picstring,//this.state.imgstarturl + res.data[i].picstring + this.state.imgStartEnd,//.metadata.colName,
                     'AgentNumber': res.data[i].AgentNumber,
                     'AgentPic': res.data[i].AgentPic,
                     'agentname': res.data[i].agentname,
