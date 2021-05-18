@@ -939,7 +939,7 @@ class bodycards extends Component {
 
                     </div>
                     <div className="row">
-                      <Message messagetype="1" userid={this.state.AgentMobile}  ItemId={this.state.selectedPropertyId} PropertyId={this.state.selectedPropertyId} />
+                      <Message messagetype="1" userid={this.state.AgentMobile}  ItemId={this.state.selectedPropertyId} userid={this.state.AgentId} PropertyId={this.state.selectedPropertyId} />
                     </div>
 
                     <div className="row">

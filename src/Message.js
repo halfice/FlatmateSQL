@@ -51,7 +51,7 @@ async getblobtoken() {
             loader: true,
         });
        // http://localhost:7071/api/HttpTriggerMessages?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&email=777&propertyid=92&msg=0000
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==&messagetype=${this.state.messagetype}&userid=${this.state.PropertyId}&name=${this.state.UserName}&phone=${this.state.Phone}&passage=${this.state.Message}&functiontype=i`;
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerMessages?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==&messagetype=${this.state.messagetype}&userid=${this.state.PropertyId}&name=${this.state.UserName}&phone=${this.state.Phone}&passage=${this.state.Message}&functiontype=i&ItemId=${this.state.ItemId}`;
         try {
             let res = await axios.post(regurl);
             this.setState({
