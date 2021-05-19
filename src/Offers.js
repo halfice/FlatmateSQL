@@ -433,9 +433,11 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                     'Type': res.data[i].Type,//.metadata.colName,
                     'Location': res.data[i].Location,//metadata.colName,
                     'LoginUserID': res.data[i].LoginUserID,//.metadata.colName,
-                    'Message': res.data[i].Message,//.metadata.colName,
+                    'Message': res.data[i].passage,//.metadata.colName,
                     'key': xcount,
-                    'MessageId': res.data[i].MessageId,//.metadata.colName,
+                    'MessageId': res.data[i].messageid,//.metadata.colName,
+                    'unit':res.data[i].UnitNumber,
+                    'buildinno':res.data[i].BuildingNumber,
                 }
                 retrueneddata.push(obs);
 

@@ -11,7 +11,7 @@ import bins from './bins.png';
 
 import { Switch, Router, Route, IndexRoute, useRouterHistory } from 'react-router';
 import {
-  faCog,faAtlas,faCheck,faBriefcase,faBackward,faHome,faCoffee,faQuoteLeft, faUser
+  faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faUser
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MyMaps from './MapContainer'
@@ -21,7 +21,7 @@ class MainBodyCards extends Component {
     return (
       <div className="container-fluid mt-2">
         <div className="row mt-2">
-        <div className="col-sm-2 card-body"></div>
+          <div className="col-sm-2 card-body"></div>
 
 
 
@@ -42,7 +42,7 @@ class MainBodyCards extends Component {
                   <div className="col-sm-6">
                     <div>
                       {
-//                      <FontAwesomeIcon icon={faHome} className="homeicon" />
+                        //                      <FontAwesomeIcon icon={faHome} className="homeicon" />
 
                       }
                     </div>
