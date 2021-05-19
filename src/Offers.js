@@ -463,7 +463,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                         <div className="row classforgrid">
                             <div className="col-sm-2 gridheadher ">
                                 <div className="gridheadher">
-                                    <h3>Type</h3>
+                                    <h3>Details</h3>
                                 </div>
                             </div>
                             <div className="col-sm-2 gridheadher">
@@ -486,17 +486,17 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                     <div className="row classforgrid">
                         <div className="col-sm-2 gridcss">
                             <div className="">
-                                {item["Message"]}
-                            </div>
-                        </div>
-                        <div className="col-sm-2 gridcss">
-                            <div className="">
-                                {item["Type"]}
+                                {item["Type"]+"-"+item["buildingno"]+"-"+item["unit"]}
                             </div>
                         </div>
                         <div className="col-sm-2 gridcss">
                             <div className="">
                                 {item["Location"]}
+                            </div>
+                        </div>
+                        <div className="col-sm-2 gridcss">
+                            <div className="">
+                                {item["Message"]}
                             </div>
                         </div>
                         <div className="col-sm-2 gridcss">
