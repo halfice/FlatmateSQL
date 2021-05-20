@@ -32,12 +32,12 @@ export class Offers extends React.Component {
             AgentPic: this.props.AgentPic,
             AgentName: this.props.AgentName,
             AgentCompany: this.props.AgentComapny,
-            companylogo:this.props.companylogo,
-            ItemObject:[],
+            companylogo: this.props.companylogo,
+            ItemObject: [],
             imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
             imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
             imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
-
+            loader: false,
 
         }
         //screen 1 flat mate grid
@@ -52,11 +52,11 @@ export class Offers extends React.Component {
 
     componentDidMount() {
 
-       // console.log(this.state.LoginUserID);
-       // console.log(this.state.AgentMobile)
-       // console.log(this.state.AgentPic)
-       // console.log(this.state.AgentName)
-       // console.log(this.state.AgentComapny)
+        // console.log(this.state.LoginUserID);
+        // console.log(this.state.AgentMobile)
+        // console.log(this.state.AgentPic)
+        // console.log(this.state.AgentName)
+        // console.log(this.state.AgentComapny)
 
         this.getblobtoken();
         this.fetchmessages();
@@ -79,19 +79,19 @@ export class Offers extends React.Component {
 
     CloseModal() {
         this.setState({
-          ShowCarousal: false,
+            ShowCarousal: false,
 
 
         });
-      }
+    }
 
-      delegateEditProperty(){
+    delegateEditProperty() {
         this.setState({
             OfferScreen: 0,
 
 
         });
-      }
+    }
 
 
     async fetchproperties() {
@@ -139,14 +139,14 @@ export class Offers extends React.Component {
                     'picsstringone': res.data[i].picsstringone,
                     'picsstringthree': res.data[i].picsstringthree,
                     'picsstringtwo': res.data[i].picsstringtwo,
-                    'picstring':  res.data[i].picstring ,
+                    'picstring': res.data[i].picstring,
                     'totalbathrooms': res.data[i].totalbathrooms,
                     'VideoLink': res.data[i].VideoLink,
                     'OwnerName': res.data[i].OwnerName,
                     'OwnerEmail': res.data[i].OwnerEmail,
                     'OwnerPhone': res.data[i].OwnerPhone,
-                    'BuildingNumber':res.data[i].BuildingNumber,
-                    'UnitNumber':res.data[i].UnitNumber,
+                    'BuildingNumber': res.data[i].BuildingNumber,
+                    'UnitNumber': res.data[i].UnitNumber,
                     'Shape': res.data[i].Shape,
                     'Size': res.data[i].Size,
                     'City': res.data[i].City,
@@ -184,14 +184,14 @@ export class Offers extends React.Component {
     }
 
     itemupdateItem(itemid) {
-var ExistingObjst=this.state.PropertyArray;
+        var ExistingObjst = this.state.PropertyArray;
 
-var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemid);
+        var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemid);
 
 
         this.setState({
             OfferScreen: 500,
-            ItemObject:filteredarray,
+            ItemObject: filteredarray,
 
         });
     }
@@ -436,8 +436,8 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                     'Message': res.data[i].passage,//.metadata.colName,
                     'key': xcount,
                     'MessageId': res.data[i].messageid,//.metadata.colName,
-                    'unit':res.data[i].UnitNumber,
-                    'buildinno':res.data[i].BuildingNumber,
+                    'unit': res.data[i].UnitNumber,
+                    'buildinno': res.data[i].BuildingNumber,
                 }
                 retrueneddata.push(obs);
 
@@ -486,7 +486,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                     <div className="row classforgrid">
                         <div className="col-sm-2 gridcss">
                             <div className="">
-                                {item["Type"]+"-"+item["buildingno"]+"-"+item["unit"]}
+                                {item["Type"] + "-" + item["buildinno"] + "-" + item["unit"]}
                             </div>
                         </div>
                         <div className="col-sm-2 gridcss">
@@ -539,7 +539,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                                 </div>
                             </div>
                             <div className="col-sm-2 gridheadher">
-
+ACTION
                             </div>
                             <div className="col-sm-2 gridheadher">
 
@@ -608,7 +608,10 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
         return (
             <div className="row ">
 
-
+                {
+                    this.state.loader == true &&
+                    <div className="loader"></div>
+                }
                 <div className="row ">
                     {this.state.OfferScreen > 0 &&
                         <div className="" onClick={this.gobackbutton.bind(this)}>
@@ -656,25 +659,13 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
 
                                     </div>
                                 </div>
-                                <div className="col-sm-3  ">
-                                    <div className="" onClick={this.handleoffersscreenflatmate.bind(this)}>
-                                        <div className="mybuttons btn btn-primary">
-                                            Flatmate
-                                    </div>
 
-                                    </div>
-                                </div>
 
                             </div>
 
                         }
 
-                        {
-                            this.state.OfferScreen == 1 &&
-                            <div>
-                                <h1>falt mate  Grid</h1>
-                            </div>
-                        }
+
 
 
 
@@ -714,7 +705,7 @@ var filteredarray = ExistingObjst.filter(person => person["PropertyId"] == itemi
                                         UserID={this.state.LoginUserID}
                                         delegateEditProperty={this.delegateEditProperty}
                                         ItemObject={this.state.ItemObject}
-                                        />
+                                    />
                                 </div>
                             </div>
                         }

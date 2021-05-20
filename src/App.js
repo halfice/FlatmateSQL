@@ -138,6 +138,9 @@ class App extends Component {
 
           </div>
         }
+         <MainBodyCards handler={this.handler} />
+
+
 
 
 
@@ -161,15 +164,7 @@ class App extends Component {
 
         }
 
-        {this.state.needwizard == 0 && this.state.needwizard != 1000 &&
-          this.state.needwizard != 100 && this.state.needwizard != 1 &&
-          this.state.needwizard != 500 && this.state.needwizard != 5 &&
-          this.state.needwizard != 600 &&
-          <div className="row">
-            <MainBodyCards handler={this.handler} />
 
-          </div>
-        }
 
         {
           this.state.needwizard == 1 &&

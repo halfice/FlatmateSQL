@@ -21,10 +21,6 @@ class MainBodyCards extends Component {
     return (
       <div className="container-fluid mt-2">
         <div className="row mt-2">
-          <div className="col-sm-2 card-body"></div>
-
-
-
           <div className="col-sm-3 card-body">
             <div onClick={() => this.props.handler('5')}>
               <div className="bottombordr" >
@@ -54,7 +50,7 @@ class MainBodyCards extends Component {
             </div>
 
           </div>
-          <div className="col-sm-2 card-body"></div>
+
 
 
 

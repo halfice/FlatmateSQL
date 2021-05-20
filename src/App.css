@@ -597,7 +597,7 @@ a:hover{
 .row {
   display: flex;
   flex-wrap: wrap;
-  padding: 11px!important;
+  padding: 1px!important;
 }
 
 
