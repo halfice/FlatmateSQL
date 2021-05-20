@@ -123,10 +123,9 @@ class App extends Component {
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
           <div className=" row zeeomargin zerpadding">
 
-            <div className="col-sm-10 zerpadding">
+            <div className="col-sm-8 zerpadding">
               <Rating handler={this.handler} />
             </div>
-
             {this.state.userid != 0 &&
               <div className="col-sm-2 ">
                 <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers
@@ -134,11 +133,20 @@ class App extends Component {
               </div>
             }
 
+            <div className="col-sm-2 ">
+                <div className="mybuttons btn btn-primary" onClick={this.handler('5').bind(this)}> Offers
+                 </div>
+              </div>
+
+
+
+
+
 
 
           </div>
         }
-         <MainBodyCards handler={this.handler} />
+
 
 
 
