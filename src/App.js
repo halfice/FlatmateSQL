@@ -126,17 +126,21 @@ class App extends Component {
             <div className="col-sm-8 zerpadding">
               <Rating handler={this.handler} />
             </div>
-            {this.state.userid != 0 &&
-              <div className="col-sm-2 ">
-                <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers
-                 </div>
-              </div>
-            }
 
             <div className="col-sm-2 ">
-                <div className="mybuttons btn btn-primary" onClick={this.handler('5').bind(this)}> Offers
+              {
+                this.state.userid != 0 &&
+                <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers
                  </div>
-              </div>
+              }
+
+            </div>
+
+
+            <div className="col-sm-2 ">
+              <div className="mybuttons btn btn-primary" onClick={this.AddProperty.bind(this)}> Add Property
+                 </div>
+            </div>
 
 
 
@@ -448,6 +452,12 @@ class App extends Component {
       companylogo: companylogo
 
     });
+  }
+
+  AddProperty() {
+    this.setState({
+      needwizard: 5,
+    })
   }
 
   handler = (val) => {
