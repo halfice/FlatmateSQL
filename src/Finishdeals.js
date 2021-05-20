@@ -77,20 +77,14 @@ class Finishdeals extends Component {
     }
 
 
-    async finishdealclick(){
-        this.setState({
-            loader: true,
-        });
-
-
-
+     finishdealclick() {
 
 
         var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerFinishdeal?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==
         &partyone=${this.state.partyone}&partytwo=${this.state.partytwo}&amount=${this.state.dealamount}&dealdate=${this.state.dealdate}
         &userid=${this.props.UserID}&companyid=${this.props.AgentComapny}&companypic=${this.props.AgentPic}&agentname=${this.props.AgentName}`;
         try {
-            let res = await axios.post(regurl);
+            let res =  axios.post(regurl);
             this.setState({
                 loader: false,
             });
@@ -104,60 +98,60 @@ class Finishdeals extends Component {
 
     render() {
         return (
-            <div className="container-fluid mt-2">
+            <div className="container-fluid myfidvs">
 
-                <div className="row mt-2">
-                    <div className="row"><h3>hurray!! Deal finish - You can earn up to 10% of each Sale / Transaction</h3></div>
+                <div className=" myrow">
+                    <div className=" myrow"><h3>hurray!! Deal finish - You can earn up to 10% of each Sale / Transaction</h3></div>
 
-                    <div className="row">
+                    <div className="row myrow">
                         <div className="col-sm-6 ">
                             <h1>Party -1 </h1>
 
-                            <div className="col-sm-4">
                                 <input type="name" className="form-control" onChange={this.partyonechange} placeholder="Emirates Id">
                                 </input>
 
 
-                            </div>
                         </div>
 
                         <div className="col-sm-6">
                             <h1>Party 2</h1>
-                            <div className="col-sm-4">
-                                <input type="name" className="form-control" onChange={this.partytwochange} placeholder="Emirates Id">
+                                <input type="name" className="form-control"
+                                onChange={this.partytwochange} placeholder="Emirates Id">
                                 </input>
 
 
-                            </div>
                         </div>
 
 
                     </div>
 
-                    <div className="row">
-                    <div className="col-sm-4">
-                                <input type="name" className="form-control" onChange={this.changedealamount} placeholder="Deal Amount">
-                                </input>
+                    <div className="row myrow">
+                    <div className="col-sm-6">
+                            <input type="name" className="form-control" onChange={this.changedealamount} placeholder="Deal Amount">
+                            </input>
 
 
-                            </div>
+                        </div>
 
-                            <div className="col-sm-4">
-                                <input type="name" className="form-control" onChange={this.changedealdate} placeholder="Deal Date">
-                                </input>
+                        <div className="col-sm-6">
+                            <input type="name" className="form-control" onChange={this.changedealdate} placeholder="Deal Date">
+                            </input>
 
 
-                            </div>
+                        </div>
                     </div>
-                    <div className="row">
-                    <Button className="mybuttons" onClick={this.finishdealclick} >Finih deal</Button>
+                    <hr></hr>
+                    <div className="row myrow">
+                    <div className="col-sm-6"></div>
+                    <div className="col-sm-6">
+                        <Button className="mybuttons" onClick={this.finishdealclick} >Finih deal</Button>
                     </div>
-
+                    </div>
 
 
                 </div>
 
- {
+                {
                     this.state.loader == true &&
                     <div className="loader"></div>
                 }

@@ -601,6 +601,11 @@ a:hover{
 }
 
 
+.myrow{
+  width:100%;
+}
+
+
 
 
 @keyframes App-logo-spin {
