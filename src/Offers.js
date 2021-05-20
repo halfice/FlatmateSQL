@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
 import delicon from './del.jpg';
 import EProperty from './propertyedit';
+import FinishMe from './Finishdeals'
+
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Offers extends React.Component {
@@ -26,7 +28,7 @@ export class Offers extends React.Component {
             OfferScreen: 0, //zero is message
             ObjectArray: [],
             PropertyArray: [],
-            ShowCarousal: false,
+            ShowCarousal: true,
             LoginUserID: this.props.UserID,
             AgentMobile: this.props.AgentMobile,
             AgentPic: this.props.AgentPic,
@@ -38,6 +40,7 @@ export class Offers extends React.Component {
             imgstarturlprofiles: "https://userfunctionsapi.blob.core.windows.net/profilepics/",
             imgStartEnd: "?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2021-05-05T13:55:52Z&st=2020-11-29T05:55:52Z&spr=https&sig=gZDBO%2Fbxzt9m%2F8jcbH0t6UV5%2FxW87Dyk3C1XIGcCSQM%3D",
             loader: false,
+            selectedPropertyId:0,
 
         }
         //screen 1 flat mate grid
@@ -198,10 +201,9 @@ export class Offers extends React.Component {
 
 
     itemdealfinishitem(itemid) {
-        // alert(itemid);
-
         this.setState({
             ShowCarousal: true,
+            selectedPropertyId:itemid
         });
     }
 
@@ -408,6 +410,15 @@ export class Offers extends React.Component {
         }
 
 
+
+    }
+
+    finishdealcomeback(){
+        this.setState({
+            OfferScreen: 0,
+
+
+        });
 
     }
     handlerhomek = (val) => {
@@ -723,7 +734,17 @@ export class Offers extends React.Component {
                         <div className="carousaldiv">
                             <div className="row">
                                 <div className="col-sm-8 ">
+<FinishMe   LoginUserID={this.props.UserID}
+ AgentMobile={this.props.AgentMobile}
+ AgentPic= {this.props.AgentPic}
+ AgentName= {this.props.AgentName}
+ AgentCompany= {this.props.AgentComapny}
+ companylogo={this.props.companylogo}
+ selectedPropertyId={this.state.selectedPropertyId}
+ finishdealcomeback={this.finishdealcomeback}
 
+
+/>
 
 
                                 </div>
