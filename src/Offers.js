@@ -28,7 +28,7 @@ export class Offers extends React.Component {
             OfferScreen: 0, //zero is message
             ObjectArray: [],
             PropertyArray: [],
-            ShowCarousal: true,
+            ShowCarousal: false,
             LoginUserID: this.props.UserID,
             AgentMobile: this.props.AgentMobile,
             AgentPic: this.props.AgentPic,
