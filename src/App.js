@@ -455,8 +455,13 @@ class App extends Component {
   }
 
   AddProperty() {
+    var tmpval=5;
+    if (this.state.userid == 0) {
+      tmpval=100;
+    }
+
     this.setState({
-      needwizard: 5,
+      needwizard: tmpval,
     })
   }
 
@@ -510,7 +515,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    this.fetchpTenants();
+   // this.fetchpTenants();
     this.fetchpropertiesagent();
   }
 
