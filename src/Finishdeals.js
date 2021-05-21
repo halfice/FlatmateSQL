@@ -43,6 +43,7 @@ class Finishdeals extends Component {
         this.partytwochange = this.partytwochange.bind(this);
         this.changedealamount = this.changedealamount.bind(this);
         this.changedealdate = this.changedealdate.bind(this);
+        this.finishdealclick = this.finishdealclick.bind(this);
 
 
     }

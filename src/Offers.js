@@ -416,6 +416,7 @@ export class Offers extends React.Component {
     finishdealcomeback(){
         this.setState({
             OfferScreen: 0,
+            ShowCarousal:false,
 
 
         });
