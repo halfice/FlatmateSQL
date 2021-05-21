@@ -60,8 +60,7 @@ class mypropertydeals extends Component {
     var TempCarousalData = [];
 
 
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerFinishdeal?code=ndZMLkOqIA3xyjAAMfWKjQUwlJ0O58FJgBrq1t7GcZBKaqWjvifZSQ==
-        &partyone=${this.state.partyone}&partytwo=${this.state.partytwo}&amount=${this.state.dealamount}&dealdate=${this.state.dealdate}
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerFinishdeal?code=ndZMLkOqIA3xyjAAMfWKjQUwlJ0O58FJgBrq1t7GcZBKaqWjvifZSQ==&partyone=${this.state.partyone}&partytwo=${this.state.partytwo}&amount=${this.state.dealamount}&dealdate=${this.state.dealdate}
         &userid=${this.props.UserID}&companyid=${this.props.AgentComapny}&companypic=${this.props.AgentPic}&agentname=${this.props.AgentName}&functiontype=get`;
         try {
 
