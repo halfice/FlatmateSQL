@@ -61,15 +61,24 @@ export class Propertyedit extends React.Component {
     }
     this.handleroomfuninishing(this.state.ItemObject[0]["FurnishedTyope"],this.state.ItemObject[0]["FurnishedTyope"]);
 
+var tempimagePreviewUrl=this.state.imgstarturl  +  this.state.ItemObject[0]["picsstringone"] + this.state.imgStartEnd;
+var tempimagePreviewUrl1=this.state.imgstarturl + this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd;
+var tempimagePreviewUrl2=this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"] + this.state.imgStartEnd;
+var tempimagePreviewUrl3=this.state.imgstarturl +this.state.ItemObject[0]["picstring"]+ this.state.imgStartEnd;
+
+tempimagePreviewUrl=tempimagePreviewUrl.replace(/\s/g, "");
+tempimagePreviewUrl1=tempimagePreviewUrl1.replace(/\s/g, "");
+tempimagePreviewUrl2=tempimagePreviewUrl2.replace(/\s/g, "");
+tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     this.setState({
       deal: TempDetail,
       isChecked: TmpBoolean,
       deal: TempDetail,
       PropertyId:TempPropertyId,
-      imagePreviewUrl: this.state.imgstarturl  +  this.state.ItemObject[0]["picsstringone"] + this.state.imgStartEnd,
-      imagePreviewUrl1: this.state.imgstarturl + this.state.ItemObject[0]["picsstringthree"] + this.state.imgStartEnd,
-      imagePreviewUrl2: this.state.imgstarturl + this.state.ItemObject[0]["picsstringtwo"] + this.state.imgStartEnd,
-      imagePreviewUrl3: this.state.imgstarturl +this.state.ItemObject[0]["picstring"]+ this.state.imgStartEnd,
+      imagePreviewUrl:tempimagePreviewUrl,
+      imagePreviewUrl1: tempimagePreviewUrl1,
+      imagePreviewUrl2: tempimagePreviewUrl2,
+      imagePreviewUrl3: tempimagePreviewUrl3,
       AgentId: this.state.ItemObject[0]["AgentId"],
       typeofAccomodation: this.state.ItemObject[0]["Type"],
       OwnerName: this.state.ItemObject[0]["OwnerName"],
