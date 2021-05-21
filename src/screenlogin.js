@@ -48,7 +48,26 @@ export class screenlogin extends React.Component {
 
 
 
+
+ ValidateEmail(mail) {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+      return (true)
+    }
+    alert("You have entered an invalid email address!")
+    return (false)
+  }
+
+
+
     async handleClick() {
+        if (this.ValidateEmail(this.state.email)==false){
+//alert("Enter Email ");
+return;
+        }
+        if (this.state.password==null || this.state.password==""){
+            alert("Password plz :)")
+            return;
+        }
         var _Response=null;
         this.setState({
             loader:true,

@@ -131,7 +131,7 @@ export class screenregister extends React.Component {
         universalid: res,
         loader: false,
       });
-      this.props.handleRegisnteredUserId(this.state.email, this.state.phone, this.state.picstring, this.state.copmayname, this.state.name,this.state.companylogo);
+      this.props.handleRegisnteredUserId(this.state.email, this.state.phone, this.state.picstring, this.state.copmayname, this.state.name, this.state.companylogo);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);
@@ -470,11 +470,20 @@ export class screenregister extends React.Component {
     });
   }
 
+
+  ValidateEmail(mail) {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+      return (true)
+    }
+    alert("You have entered an invalid email address!")
+    return (false)
+  }
+
   handleemailchange(event) {
     this.setState({
       email: event.target.value
     });
-    if (event.target.value.indexOf('@') > 0) {
+    if (this.ValidateEmail(event.target.value)==true) {
       this.fetchprofile(event.target.value)
     }
   }
