@@ -353,10 +353,10 @@ export class Propertyedit extends React.Component {
     const varclaas = "visible";
     const varclaashidden = "hidden";
 
-    let { imagePreviewUrl } = this.state;
-    let { imagePreviewUrl1 } = this.state;
-    let { imagePreviewUrl2 } = this.state;
-    let { imagePreviewUrl3 } = this.state;
+    let { imagePreviewUrl } = this.state.imagePreviewUrl;
+    let { imagePreviewUrl1 } = this.state.imagePreviewUrl1;
+    let { imagePreviewUrl2 } = this.state.imagePreviewUrl2;
+    let { imagePreviewUrl3 } = this.state.imagePreviewUrl3;
     let $imagePreview = null;
 
     if (imagePreviewUrl || imagePreviewUrl1 || imagePreviewUrl2 || imagePreviewUrl3) {
