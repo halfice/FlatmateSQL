@@ -17,6 +17,8 @@ import Lockz from './Locationsuggest';
 import delicon from './del.jpg';
 import EProperty from './propertyedit';
 import FinishMe from './Finishdeals'
+import MyDeals from './mypropertydeals'
+
 
 
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
@@ -698,7 +700,7 @@ export class Offers extends React.Component {
                         {
                             this.state.OfferScreen == 4 &&
                             <div className="">
-                                <h1>Increase your earning</h1>
+                               <MyDeals />
                             </div>
                         }
 

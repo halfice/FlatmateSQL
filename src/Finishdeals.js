@@ -28,6 +28,7 @@ class Finishdeals extends Component {
             AgentName: this.props.AgentName,
             AgentCompany: this.props.AgentComapny,
             companylogo: this.props.companylogo,
+            selectedPropertyId:this.props.selectedPropertyId,
             loader: false,
             partyone: "",
             partytwo: "",
@@ -83,7 +84,7 @@ class Finishdeals extends Component {
 
         var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerFinishdeal?code=Jfa1Z7DWGy4a30z4gz16iWIzn5nTgCt3UFrOPFrQOYgCPeSIFR69pQ==
         &partyone=${this.state.partyone}&partytwo=${this.state.partytwo}&amount=${this.state.dealamount}&dealdate=${this.state.dealdate}
-        &userid=${this.props.UserID}&companyid=${this.props.AgentComapny}&companypic=${this.props.AgentPic}&agentname=${this.props.AgentName}`;
+        &userid=${this.props.UserID}&companyid=${this.props.AgentComapny}&companypic=${this.props.AgentPic}&agentname=${this.props.AgentName}&propertyid=${this.props.selectedPropertyId}&functiontype=add`;
         try {
             let res =  axios.post(regurl);
             this.setState({
