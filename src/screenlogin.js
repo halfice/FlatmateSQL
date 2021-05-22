@@ -60,10 +60,12 @@ export class screenlogin extends React.Component {
 
 
     async handleClick() {
-        if (this.ValidateEmail(this.state.email)==false){
+       // if (this.ValidateEmail(this.state.email)==false){
 //alert("Enter Email ");
-return;
-        }
+//return;
+      //  }
+
+
         if (this.state.password==null || this.state.password==""){
             alert("Password plz :)")
             return;
