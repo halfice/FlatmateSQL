@@ -16,18 +16,7 @@ import Lockz from './Locationsuggest';
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Propertyedit extends React.Component {
 
-  handleChangeChk = () => {
-    var tmpDeal=0;
 
-    if (this.state.isChecked==true){
-      tmpDeal=1;
-    }
-
-    this.setState({
-      isChecked: !this.state.isChecked,
-      deal: tmpDeal
-    });
-  }
   componentDidMount() {
     this.getblobtoken();
     this.BindItem();
@@ -276,7 +265,7 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     &Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}
     &OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNumber}
     &UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}
-    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}`
+    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}&commission=${this.state.commission}`
   console.log(regurl);
     try {
       let res = await axios.post(regurl);
@@ -574,6 +563,24 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
                         </div>
 
                       </div>
+
+
+                      <div className="row">
+                        <div className="col-sm-4 textalighleft"> Share / Left Commmission</div>
+                        <div className="col-sm-4 textalighleft ">
+                        <input type="checkbox"
+                           defaultChecked={this.state.chkboxcommisison}
+                            onChange={this.handleChangecommisison} value="Zero Commission"  name="commissionchk"/>
+
+
+                        </div>
+                        <div className="col-sm-4 textalighleft commisioncss">
+                           {this.state.CommissionLayout}
+
+                        </div>
+
+                      </div>
+                      <hr></hr>
 
                     </div>
                   }
@@ -1846,6 +1853,50 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
 
   removehovermefdiv4(e) { this.setState({ fdiv4Active: "normaldivbutton" }); }
 
+  handleChangeChk = () => {
+    var tmpcheckbox=0;
+    var tmpischeck=false;
+    if (this.state.isChecked==true){
+      tmpcheckbox=0;
+      tmpischeck=false;
+    }else{
+      tmpcheckbox=1;
+      tmpischeck=true;
+    }
+    this.setState({
+      isChecked: tmpischeck,
+      deal:tmpcheckbox,
+      chkbox:tmpischeck
+
+    });
+  }
+
+  handleChangecommisison = () => {
+var tmpcheckbox=0;
+var tmpischeck=false;
+var TmpCommissionLayout="";
+if (this.state.isChecked==true){
+  tmpcheckbox=0;
+  tmpischeck=false;
+  TmpCommissionLayout="Commission is in place";
+
+
+}else{
+  tmpcheckbox=1;
+  tmpischeck=true;
+  TmpCommissionLayout="No Commission - Earn with us!!! 0.1% on each";
+}
+
+    this.setState({
+      isChecked: tmpischeck,//!this.state.isChecked,
+      commission:tmpcheckbox,
+      chkboxcommisison:tmpischeck,
+      CommissionLayout:TmpCommissionLayout,
+    });
+  }
+
+
+
   uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -2014,7 +2065,9 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
       imgstarturl: "https://userfunctionsapi.blob.core.windows.net/myfiles/",
       imgStartEnd:"?sp=racwl&st=2021-05-01T11:28:44Z&se=2022-06-02T19:28:44Z&spr=https&sv=2020-02-10&sr=c&sig=CMHe7DnT6YTT%2BjGOHPNZchA6%2BxMkI%2FsGrL3u5fe7dEU%3D",
       imgStartEndProfiel:"?sp=racwl&st=2021-05-01T02:35:50Z&se=2022-04-01T10:35:50Z&spr=https&sv=2020-02-10&sr=c&sig=mrZf3kuJCGKnS%2F6QlhMMBSNtSo04oxr%2BMq8uOIO%2BOcg%3D",
-
+      commission:0,
+      chkboxcommisison:false,
+      CommissionLayout:"Commission is in place as per %",
 
 
 
@@ -2054,7 +2107,7 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     this.videolinkchange = this.videolinkchange.bind(this);
     this.handleChangeChk = this.handleChangeChk.bind(this);
     this.handleinternetEdit = this.handleinternetEdit.bind(this);
-
+    this.handleChangecommisison = this.handleChangecommisison.bind(this);
 
 
     this.videolinkchangeItemBind = this.videolinkchangeItemBind.bind(this);

@@ -36,7 +36,7 @@ export class Property extends React.Component {
       parking: "",
       internet: "",
       blobtoken: "",
-      deal: "1",
+      deal: "0",
       Purpose: "",
       City: "",
       Country: "",
@@ -162,10 +162,11 @@ export class Property extends React.Component {
 
       companylogo:this.props.companylogo,
       videolink:"",
-      chkbox:true,
+      chkbox:false,
       deposit:0,
       commission:0,
       chkboxcommisison:false,
+      CommissionLayout:"Commission is in place as per %",
 
     }
 
@@ -209,18 +210,49 @@ export class Property extends React.Component {
 
   }
   handleChangeChk = () => {
+    var tmpcheckbox=0;
+    var tmpischeck=false;
+    if (this.state.isChecked==true){
+      tmpcheckbox=0;
+      tmpischeck=false;
+    }else{
+      tmpcheckbox=1;
+      tmpischeck=true;
+    }
     this.setState({
-      isChecked: !this.state.isChecked,
-      deal:1
+      isChecked: tmpischeck,
+      deal:tmpcheckbox,
+      chkbox:tmpischeck
+
     });
   }
 
   handleChangecommisison = () => {
+var tmpcheckbox=0;
+var tmpischeck=false;
+var TmpCommissionLayout="";
+if (this.state.isChecked==true){
+  tmpcheckbox=0;
+  tmpischeck=false;
+  TmpCommissionLayout="Commission is in place";
+
+
+}else{
+  tmpcheckbox=1;
+  tmpischeck=true;
+  TmpCommissionLayout="No Commission - Earn with us!!! 0.1% on each";
+}
+
     this.setState({
-      isChecked: !this.state.isChecked,
-      commission:1
+      isChecked: tmpischeck,//!this.state.isChecked,
+      commission:tmpcheckbox,
+      chkboxcommisison:tmpischeck,
+      CommissionLayout:TmpCommissionLayout,
     });
   }
+
+
+
   componentDidMount() {
     this.getblobtoken();
   }
@@ -371,6 +403,9 @@ export class Property extends React.Component {
   }
 
   async callingInsert() {
+
+    alert(this.state.deal);
+    alert(this.state.commission);
     this.setState({
       loader: true,
     });
@@ -667,12 +702,16 @@ export class Property extends React.Component {
                       </div>
 
                       <div className="row">
-                        <div className="col-sm-6textalighleft"> Share / Left Commmission</div>
-                        <div className="col-sm-6textalighleft">
+                        <div className="col-sm-4 textalighleft"> Share / Left Commmission</div>
+                        <div className="col-sm-4 textalighleft ">
                         <input type="checkbox"
                            defaultChecked={this.state.chkboxcommisison}
-                            onChange={this.handleChangecommisison} value="Zero Commission" />
+                            onChange={this.handleChangecommisison} value="Zero Commission"  name="commissionchk"/>
 
+
+                        </div>
+                        <div className="col-sm-4 textalighleft commisioncss">
+                           {this.state.CommissionLayout}
 
                         </div>
 

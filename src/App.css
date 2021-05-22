@@ -587,6 +587,13 @@ a:hover{
     width: 100%;
     z-index: 200
 }
+
+.commisioncss{
+  background-color: #08932c;
+    border-radius: 11px;
+    color: white;
+}
+
 .Navbar {
   background-color: #adb5bd!important;
 }
