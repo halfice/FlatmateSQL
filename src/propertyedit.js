@@ -1952,6 +1952,9 @@ if (this.state.isChecked==true){
   handlechangeDateEvent(event) {
 
     var tempavailable = event.getDate() + "-" + event.getMonth() + "-" + event.getFullYear();
+
+    alert(tempavailable);
+
     this.setState({
       availabledate: tempavailable,
 

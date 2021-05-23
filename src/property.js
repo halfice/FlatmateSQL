@@ -520,6 +520,7 @@ export class Property extends React.Component {
   handlechangeDateEvent(event) {
 
     var tempavailable = event.getDate() + "-" + event.getMonth() + "-" + event.getFullYear();
+    //alert(tempavailable);
     this.setState({
       availabledate: tempavailable,
 
