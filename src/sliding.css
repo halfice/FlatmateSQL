@@ -96,6 +96,8 @@ display: none;
     border-radius: 11px;
     background-color: #adb5bd26;
     z-index: 111;
+    margin-top: 11px;
+    padding: 11px;
   }
 
   .signuplink{
