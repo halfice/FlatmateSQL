@@ -13,6 +13,10 @@ import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome } from '@forta
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
+import DatePicker from "react-datepicker";
+
+import Toggle from 'react-toggle'
+import "react-toggle/style.css" // for ES6 modules
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Propertyedit extends React.Component {
 
@@ -265,7 +269,7 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     &Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}
     &OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNumber}
     &UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}
-    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}&commission=${this.state.commission}`
+    &Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}&PropertyId=${this.state.PropertyId}&commission=${this.state.commission}&isavilable=${this.state.isavailable}&availabledate=${this.state.availabledate}`
   console.log(regurl);
     try {
       let res = await axios.post(regurl);
@@ -350,6 +354,9 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
   render() {
     const varclaas = "visible";
     const varclaashidden = "hidden";
+
+    const startDate = new Date();
+    const setStartDate = new Date();
 
     let { imagePreviewUrl } = this.state.imagePreviewUrl;
     let { imagePreviewUrl1 } = this.state.imagePreviewUrl1;
@@ -567,7 +574,7 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
 
                       <div className="row">
                         <div className="col-sm-4 textalighleft"> Share / Left Commmission</div>
-                        <div className="col-sm-4 textalighleft ">
+                        <div className="col-sm-1 textalighleft ">
                         <input type="checkbox"
                            defaultChecked={this.state.chkboxcommisison}
                             onChange={this.handleChangecommisison} value="Zero Commission"  name="commissionchk"/>
@@ -580,6 +587,31 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
                         </div>
 
                       </div>
+
+                      <hr></hr>
+                      <div className="row">
+                        <div className="col-sm-3 textalighleft"> Available  </div>
+                        <div className="col-sm-3 textalighleft ">
+                          <Toggle
+                            defaultChecked={this.state.isavailable}
+                            aria-label='No label tag'
+                            onChange={this.handleChangetoggle.bind(this)} />
+
+
+                        </div>
+                        <div className="col-sm-3 textalighleft ">
+
+                          Available Date
+                        </div>
+                        <div className="col-sm-3 textalighleft ">
+
+                          <DatePicker selected={startDate}
+                            onChange={this.handlechangeDateEvent} />
+                        </div>
+                      </div>
+
+
+
                       <hr></hr>
 
                     </div>
@@ -1904,6 +1936,30 @@ if (this.state.isChecked==true){
     });
   }
 
+  handleChangetoggle(event) {
+    // do something with event.target.checked
+    var tmpIsavailable=true;
+    if (event.target.isChecked==undefined){
+      tmpIsavailable=false;
+    }
+    this.setState({
+     isavailable:tmpIsavailable,
+
+    });
+
+  }
+
+  handlechangeDateEvent(event) {
+
+    var tempavailable = event.getDate() + "-" + event.getMonth() + "-" + event.getFullYear();
+    this.setState({
+      availabledate: tempavailable,
+
+    });
+
+
+  }
+
 
 
 
@@ -2069,9 +2125,13 @@ if (this.state.isChecked==true){
       chkboxcommisison:false,
       CommissionLayout:"Commission is in place as per %",
 
-
+      isavailable: true,
+      availabledate: "",
 
     }
+
+    this.handlechangeDateEvent = this.handlechangeDateEvent.bind(this);
+    this.handleChangetoggle = this.handleChangetoggle.bind(this);
 
 
     this.handleClickBack = this.handleClickBack.bind(this);

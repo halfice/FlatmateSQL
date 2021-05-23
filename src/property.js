@@ -13,6 +13,12 @@ import { faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome } from '@forta
 import { BlobServiceClient, StorageSharedKeyCredential } from "@azure/storage-blob";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Lockz from './Locationsuggest';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Toggle from 'react-toggle'
+import "react-toggle/style.css" // for ES6 modules
+
+
 library.add(faCog, faAtlas, faCheck, faBriefcase, faBackward, faHome)
 export class Property extends React.Component {
   constructor(props) {
@@ -160,13 +166,15 @@ export class Property extends React.Component {
       FloorPlanid: "",
       Size: "",
 
-      companylogo:this.props.companylogo,
-      videolink:"",
-      chkbox:false,
-      deposit:0,
-      commission:0,
-      chkboxcommisison:false,
-      CommissionLayout:"Commission is in place as per %",
+      companylogo: this.props.companylogo,
+      videolink: "",
+      chkbox: false,
+      deposit: 0,
+      commission: 0,
+      chkboxcommisison: false,
+      CommissionLayout: "Commission is in place as per %",
+      isavailable: true,
+      availabledate: "",
 
     }
 
@@ -191,6 +199,9 @@ export class Property extends React.Component {
     this.handlepropertyAddress = this.handlepropertyAddress.bind(this);
     this.handleprince = this.handleprince.bind(this);
     this.handleChangetextarea = this.handleChangetextarea.bind(this);
+    this.handlechangeDateEvent = this.handlechangeDateEvent.bind(this);
+
+
 
 
     this.OwnerNamech = this.OwnerNamech.bind(this);
@@ -201,53 +212,70 @@ export class Property extends React.Component {
     this.UnitNo = this.UnitNo.bind(this);
     this.BuildingNo = this.BuildingNo.bind(this);
 
-    this.videolinkchange=this.videolinkchange.bind(this);
+    this.videolinkchange = this.videolinkchange.bind(this);
     this.handleChangeChk = this.handleChangeChk.bind(this);
     this.handleChangecommisison = this.handleChangecommisison.bind(this);
 
     this.depositsclick = this.depositsclick.bind(this);
 
+    this.handleChangetoggle = this.handleChangetoggle.bind(this);
 
   }
+
+
+
+  handleChangetoggle(event) {
+    // do something with event.target.checked
+    var tmpIsavailable=true;
+    if (event.target.isChecked==undefined){
+      tmpIsavailable=false;
+    }
+    this.setState({
+     isavailable:tmpIsavailable,
+
+    });
+
+  }
+
   handleChangeChk = () => {
-    var tmpcheckbox=0;
-    var tmpischeck=false;
-    if (this.state.isChecked==true){
-      tmpcheckbox=0;
-      tmpischeck=false;
-    }else{
-      tmpcheckbox=1;
-      tmpischeck=true;
+    var tmpcheckbox = 0;
+    var tmpischeck = false;
+    if (this.state.isChecked == true) {
+      tmpcheckbox = 0;
+      tmpischeck = false;
+    } else {
+      tmpcheckbox = 1;
+      tmpischeck = true;
     }
     this.setState({
       isChecked: tmpischeck,
-      deal:tmpcheckbox,
-      chkbox:tmpischeck
+      deal: tmpcheckbox,
+      chkbox: tmpischeck
 
     });
   }
 
   handleChangecommisison = () => {
-var tmpcheckbox=0;
-var tmpischeck=false;
-var TmpCommissionLayout="";
-if (this.state.isChecked==true){
-  tmpcheckbox=0;
-  tmpischeck=false;
-  TmpCommissionLayout="Commission is in place";
+    var tmpcheckbox = 0;
+    var tmpischeck = false;
+    var TmpCommissionLayout = "";
+    if (this.state.isChecked == true) {
+      tmpcheckbox = 0;
+      tmpischeck = false;
+      TmpCommissionLayout = "Commission is in place";
 
 
-}else{
-  tmpcheckbox=1;
-  tmpischeck=true;
-  TmpCommissionLayout="No Commission - Earn with us!!! 0.1% on each";
-}
+    } else {
+      tmpcheckbox = 1;
+      tmpischeck = true;
+      TmpCommissionLayout = "No Commission - Earn with us!!! 0.1% on each";
+    }
 
     this.setState({
       isChecked: tmpischeck,//!this.state.isChecked,
-      commission:tmpcheckbox,
-      chkboxcommisison:tmpischeck,
-      CommissionLayout:TmpCommissionLayout,
+      commission: tmpcheckbox,
+      chkboxcommisison: tmpischeck,
+      CommissionLayout: TmpCommissionLayout,
     });
   }
 
@@ -279,14 +307,14 @@ if (this.state.isChecked==true){
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
 
-     for (var x=0;x<files.target.files.length;x++){
-      const file = files.target.files[x];
-      const filename = file.name.substring(0, file.name.lastIndexOf('.'));
-      const ext = file.name.substring(file.name.lastIndexOf('.'));
-      const blobName = filename + '_' + new Date().getTime() + ext;
-      this.uploadFile(file, blobName);
-      this.handleImageUploadold(file, blobName);
-     }
+      for (var x = 0; x < files.target.files.length; x++) {
+        const file = files.target.files[x];
+        const filename = file.name.substring(0, file.name.lastIndexOf('.'));
+        const ext = file.name.substring(file.name.lastIndexOf('.'));
+        const blobName = filename + '_' + new Date().getTime() + ext;
+        this.uploadFile(file, blobName);
+        this.handleImageUploadold(file, blobName);
+      }
 
     }
   }
@@ -404,8 +432,8 @@ if (this.state.isChecked==true){
 
   async callingInsert() {
 
-    alert(this.state.deal);
-    alert(this.state.commission);
+   // alert(this.state.deal);
+   // alert(this.state.commission);
     this.setState({
       loader: true,
     });
@@ -429,10 +457,10 @@ if (this.state.isChecked==true){
       AgentId: this.state.AgentId,//mean it is owner
 
     };
-//a/lert(this.state.deposit);
+    //a/lert(this.state.deposit);
     console.log(this.state.deposit);
-     var headerurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert`;
-     var regurl = headerurl+`&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}&Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}&OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}&UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}&Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}$commission=${this.state.commission}`
+    var headerurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=insert`;
+    var regurl = headerurl + `&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}&Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}&internet=${this.state.internet}&Price=${this.state.price}&FurnishedTyope=${this.state.roomfuninishing}&State=${this.state.location}&Deal=${this.state.deal}&picstring=${this.state.picstring}&picsstringone=${this.state.picstring1}&picsstringtwo=${this.state.picstring2}&picsstringthree=${this.state.picstring3}&AgentId=${this.state.AgentId}&AgentPic=${this.state.AgentPic}&AgentNumber=${this.state.AgentMobile}&long=${this.state.longitude}&lat=${this.state.latitude}&description=${this.state.description}&agentname=${this.state.AgentName}&agentcompany=${this.state.AgentComapny}&Purpose=${this.state.Purpose}&City=${this.state.City}&OwnerName=${this.state.OwnerName}&OwnerEmail=${this.state.OwnerEmail}&OwnerPhone=${this.state.OwnerPhone}&Status=${this.state.Status}&BuildingNumber=${this.state.BuildingNo}&UnitNumber=${this.state.UnitNumber}&Shape=${this.state.Shape}&FloorPlanid=${this.state.FloorPlanid}&Size=${this.state.Size}&VideoLink=${this.state.videolink}&companylogo=${this.state.companylogo}&deposit=${this.state.deposit}$commission=${this.state.commission}&isavilable=${this.state.isavailable}&availabledate=${this.state.availabledate}`
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -441,7 +469,7 @@ if (this.state.isChecked==true){
 
       });
       //useridfromdb, AgentMobile, agentPic, agentCompany, agentname,companylogo
-      this.props.handleRegisnteredUserId(this.state.LoginUserID,this.state.AgentMobile,this.state.AgentPic,this.state.AgentComapny,this.state.AgentName,this.state.companylogo);
+      this.props.handleRegisnteredUserId(this.state.LoginUserID, this.state.AgentMobile, this.state.AgentPic, this.state.AgentComapny, this.state.AgentName, this.state.companylogo);
       // console.log(res.data);
     } catch (error) {
       //console.log(error);
@@ -466,7 +494,7 @@ if (this.state.isChecked==true){
 
 
 
-  depositsclick(event){
+  depositsclick(event) {
     this.setState({
       deposit: event.target.value,
 
@@ -475,7 +503,7 @@ if (this.state.isChecked==true){
 
 
 
-  videolinkchange(event){
+  videolinkchange(event) {
     this.setState({
       videolink: event.target.value,
 
@@ -489,9 +517,25 @@ if (this.state.isChecked==true){
     });
   }
 
+
+
+  handlechangeDateEvent(event) {
+
+    var tempavailable = event.getDate() + "-" + event.getMonth() + "-" + event.getFullYear();
+    this.setState({
+      availabledate: tempavailable,
+
+    });
+
+
+  }
+
   render() {
     const varclaas = "visible";
     const varclaashidden = "hidden";
+
+    const startDate = new Date();
+    const setStartDate = new Date();
 
     let { imagePreviewUrl } = this.state;
     let { imagePreviewUrl1 } = this.state;
@@ -597,9 +641,9 @@ if (this.state.isChecked==true){
 
 
                           {
-                            this.state.Purpose=="Rent" &&
+                            this.state.Purpose == "Rent" &&
                             <div>
-                            <input type="text" className="form-control" onChange={this.depositsclick} placeholder="Depotis"></input>
+                              <input type="text" className="form-control" onChange={this.depositsclick} placeholder="Depotis"></input>
                             </div>
 
                           }
@@ -609,25 +653,25 @@ if (this.state.isChecked==true){
 
                         <div className="col-sm-1">
 
-                            VIDEO
+                          VIDEO
 
                         </div>
                         <div className="col-sm-4">
 
-                               <input type="name" className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
+                          <input type="name" className="form-control" onChange={this.videolinkchange} placeholder="Youtube | DailyMotion"></input>
 
 
                         </div>
                         <div className="col-sm-1">
 
-                           DEAL
+                          DEAL
 
                         </div>
                         <div className="col-sm-1">
 
 
                           <input type="checkbox"
-                           defaultChecked={this.state.chkbox}
+                            defaultChecked={this.state.chkbox}
                             onChange={this.handleChangeChk} value="DEAL" />
 
 
@@ -700,22 +744,45 @@ if (this.state.isChecked==true){
                         </div>
 
                       </div>
-
+                      <hr></hr>
                       <div className="row">
                         <div className="col-sm-4 textalighleft"> Share / Left Commmission</div>
-                        <div className="col-sm-4 textalighleft ">
-                        <input type="checkbox"
-                           defaultChecked={this.state.chkboxcommisison}
-                            onChange={this.handleChangecommisison} value="Zero Commission"  name="commissionchk"/>
-
+                        <div className="col-sm-1 textalighleft ">
+                          <input type="checkbox"
+                            defaultChecked={this.state.chkboxcommisison}
+                            onChange={this.handleChangecommisison} value="Zero Commission" name="commissionchk" />
 
                         </div>
                         <div className="col-sm-4 textalighleft commisioncss">
-                           {this.state.CommissionLayout}
+                          {this.state.CommissionLayout}
 
                         </div>
 
                       </div>
+                      <hr></hr>
+                      <div className="row">
+                        <div className="col-sm-3 textalighleft"> Available  </div>
+                        <div className="col-sm-3 textalighleft ">
+                          <Toggle
+                            defaultChecked={this.state.isavailable}
+                            aria-label='No label tag'
+                            onChange={this.handleChangetoggle.bind(this)} />
+
+
+                        </div>
+                        <div className="col-sm-3 textalighleft ">
+
+                          Available Date
+                        </div>
+                        <div className="col-sm-3 textalighleft ">
+
+                          <DatePicker selected={startDate}
+                            onChange={this.handlechangeDateEvent} />
+                        </div>
+                      </div>
+
+
+
                       <hr></hr>
                     </div>
                   }
@@ -814,7 +881,7 @@ if (this.state.isChecked==true){
 
                             }
                             <div>
-                            <Lockz handlerhomek={this.handlerhomek} location={this.state.location} valueCity={this.state.City} />
+                              <Lockz handlerhomek={this.handlerhomek} location={this.state.location} valueCity={this.state.City} />
 
                             </div>
                           </div>
@@ -954,11 +1021,11 @@ if (this.state.isChecked==true){
                         <div className="row">
 
                           {
-                            this.state.Purpose=="Rent" &&
+                            this.state.Purpose == "Rent" &&
                             <div className="col-sm-12"> Rent / Year</div>
                           }
-{
-                            this.state.Purpose!="Rent" &&
+                          {
+                            this.state.Purpose != "Rent" &&
                             <div className="col-sm-12"> Price</div>
                           }
 
@@ -1331,47 +1398,47 @@ if (this.state.isChecked==true){
 
 
 
-  BuildingNo(event){
+  BuildingNo(event) {
     this.setState({
       BuildingNo: event.target.value,
-      });
+    });
   }
 
-  UnitNo(event){
+  UnitNo(event) {
     this.setState({
       UnitNumber: event.target.value,
-      });
+    });
   }
 
-  ShapeNo(event){
+  ShapeNo(event) {
     this.setState({
       Shape: event.target.value,
-      });
+    });
   }
 
 
-  OwnerEmailch(event){
+  OwnerEmailch(event) {
     this.setState({
       OwnerEmail: event.target.value,
-      });
+    });
   }
 
-  OwnerNumberch(event){
+  OwnerNumberch(event) {
     this.setState({
       OwnerPhone: event.target.value,
-      });
+    });
   }
 
-  OwnerNamech(event){
+  OwnerNamech(event) {
     this.setState({
       OwnerName: event.target.value,
-      });
+    });
   }
 
-  handleSize(event){
+  handleSize(event) {
     this.setState({
       Size: event.target.value,
-      });
+    });
   }
 
 
@@ -1995,7 +2062,7 @@ if (this.state.isChecked==true){
     }
 
     const imageFile = event.target.files;
-    for (var x=0;x<imageFile.length;x++){
+    for (var x = 0; x < imageFile.length; x++) {
       try {
         const compressedFile = await imageCompression(imageFile[x], options);
         let reader = new FileReader();
@@ -2068,7 +2135,7 @@ if (this.state.isChecked==true){
       } catch (error) {
         //console.log(error);
       }
-  }
+    }
 
 
   }

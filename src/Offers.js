@@ -63,8 +63,8 @@ export class Offers extends React.Component {
         // console.log(this.state.AgentName)
         // console.log(this.state.AgentComapny)
 
-        this.getblobtoken();
-        this.fetchmessages();
+       this.getblobtoken();
+    this.fetchmessages();
         this.fetchproperties();
     }
 
