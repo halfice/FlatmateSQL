@@ -98,6 +98,9 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
       picstring3: this.state.ItemObject[0]["picsstringthree"],
       picstring2: this.state.ItemObject[0]["picsstringtwo"],
       picstring:  this.state.ItemObject[0]["picstring"],
+      commission:rthis.state.ItemObject[0]["commission"],
+      isavilable:this.state.ItemObject[0]["isavailable"],
+      availabledate:this.state.ItemObject[0]["availabledate"],
 
 
 

@@ -157,6 +157,11 @@ export class Offers extends React.Component {
                     'City': res.data[i].City,
                     'AgentId': res.data[i].AgentId,
                     'deposit': res.data[i].deposit,
+                    'commission':res.data[i].commission,
+                    'isavilable':res.data[i].isavailable,
+                    'availabledate':res.data[i].availabledate,
+
+
 
 
 
