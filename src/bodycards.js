@@ -869,7 +869,7 @@ class bodycards extends Component {
                 <FontAwesomeIcon icon={faTimes} /></div>
 
               <div className="carousaldiv">
-                <div className="row">
+                <div className="row myrow">
                   <div className="col-sm-8 ">
                     <Carousel>
                       {carousalitem}
@@ -896,7 +896,7 @@ class bodycards extends Component {
                       <div className="carousaldiv3">
                         <div className="closebuttondi2" onClick={this.CloseModalAgentDtails}>
                           <FontAwesomeIcon icon={faTimes} /></div>
-                        <div className="row ">
+                        <div className="row myrow">
                           <div className="col-sm-6">
                             <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
                             <div className="leftdiv">Company : {this.state.AgentComapny}</div>
@@ -913,12 +913,12 @@ class bodycards extends Component {
 
 
 
-                    <div className="row">
+                    <div className="row myrow">
                       <div className="col-sm-4 paragrpahNormaltext">Bedrooms : {this.state.selectedBedrooms}</div>
                       <div className="col-sm-4 paragrpahNormaltext">Location : {this.state.selectedLocation}</div>
                       <div className="col-sm-4 paragrpahNormaltext">Price :  {this.formatMoney(this.state.selectedPrice)}</div>
                     </div>
-                    <div className="row">
+                    <div className="row myrow">
                       <div className="col-sm-4 paragrpahNormaltext">FurnishedTyope : {this.state.selectedFurnitureType}</div>
                       <div className="col-sm-4 paragrpahNormaltext">Type : {this.state.selectedType}</div>
                       <div className="col-sm-4 paragrpahNormaltext">parking : {this.state.selectedParking}</div>
@@ -927,7 +927,7 @@ class bodycards extends Component {
 
 
                   <div className="col-sm-4 ">
-                    <div className="row agentdivCss">
+                    <div className="row myrow agentdivCss">
                       <div className="col-sm-9">
                         <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
                         <div className="leftdiv">Company : {this.state.AgentComapny}</div>
@@ -938,11 +938,11 @@ class bodycards extends Component {
 
 
                     </div>
-                    <div className="row">
+                    <div className="myrow row">
                       <Message messagetype="1" userid={this.state.AgentMobile}  ItemId={this.state.selectedPropertyId} userid={this.state.AgentId} PropertyId={this.state.selectedPropertyId} />
                     </div>
 
-                    <div className="row">
+                    <div className="myrow row">
 
                       <div className="col-sm-4 zerpadding">
                         <div className="buttnemail" onClick={this.showmymapfunction.bind(this)} > {this.state.ButtonMapClose}</div>

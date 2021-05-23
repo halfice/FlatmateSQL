@@ -610,6 +610,8 @@ a:hover{
 
 .myrow{
   width:100%;
+    padding: 3px!important;
+    margin: 2px!important;
 }
 
 
@@ -631,9 +633,28 @@ a:hover{
     z-index: 111;
 }
 
+.carousel-control-next, .carousel-control-prev {
+  position: sticky!important;
+
+  z-index: 9999999999999!important;
+
+  justify-content: center!important;
+  width: 100%;
+  color: #fff!important;
+  text-align: center!important;
+  opacity: .5!important;
+  transition: opacity .15s ease;
+  padding-left: 3px!important;
+  padding-right: 3px!important;
+  margin: 33px!important;
+}
+
 
 .carousel-item-next, .carousel-item-prev, .carousel-item.active {
   display: block;
+
+
+
 }
 
 .active{
