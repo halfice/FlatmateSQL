@@ -710,7 +710,7 @@ class bodycards extends Component {
 
     var SubProjectArrays = this.state.ObjectArray.map((item, i) => {
       return (
-        <div className="col-sm-6" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
+        <div className="col-sm-4" key={item["key"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} >
           <Card style={{ width: '100%' }} className="bordershadow" key={item["typeofAccomodation"]}>
             <Card.Img height="220px" variant="top" src={item["Imagestr"]} onClick={this.getCarousal.bind(this, item["PropertyId"])} />
             <Card.Body>
