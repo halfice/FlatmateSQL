@@ -625,13 +625,13 @@ export class Offers extends React.Component {
         });
 
         return (
-            <div className="row ">
+            <div className="myrow row ">
 
                 {
                     this.state.loader == true &&
                     <div className="loader"></div>
                 }
-                <div className="row ">
+                <div className="myrow row ">
                     {this.state.OfferScreen > 0 &&
                         <div className="" onClick={this.gobackbutton.bind(this)}>
                             <div className="">
