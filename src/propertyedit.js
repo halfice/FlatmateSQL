@@ -1942,6 +1942,21 @@ if (this.state.isChecked==true){
   handleChangetoggle(event) {
     // do something with event.target.checked
     var tmpIsavailable=true;
+    if (event.target.Checked==false){
+      tmpIsavailable=false;
+    }
+    this.setState({
+     isavailable:tmpIsavailable,
+
+    });
+
+  }
+
+
+
+  handleChangetoggleold(event) {
+    // do something with event.target.checked
+    var tmpIsavailable=true;
     if (event.target.isChecked==undefined){
       tmpIsavailable=false;
     }
