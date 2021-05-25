@@ -17,49 +17,7 @@ class Footer extends Component {
 		return (
 			<div className="mainDivFooter">
 				<div className="container">
-					<div className="row text-center text-xs-center text-sm-left text-md-left">
-						<div className="col-xs-12 col-sm-4 col-md-4">
-							<div className="mainquicklinks">Explore covid-19</div>
-							<ul className="list-unstyled quick-links">
-								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i ></i>Home</a></li>
-								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>About</a></li>
-								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>FAQ</a></li>
-								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Get Started</a></li>
-								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Videos</a></li>
-							</ul>
-						</div>
-						<div className="col-xs-12 col-sm-4 col-md-4">
-							<div className="mainquicklinks">Social Media</div>
-							<ul className="list-unstyled quick-links">
-								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Home</a></li>
-								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>About</a></li>
-								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>FAQ</a></li>
-								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Get Started</a></li>
-								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Videos</a></li>
-							</ul>
-						</div>
-						<div className="col-xs-12 col-sm-4 col-md-4">
-							<div className="mainquicklinks">About Us</div>
-							<ul className="list-unstyled quick-links">
-								<li>
-									<a onClick={() => this.handleClick('en')} ><i className=""></i>English</a>
-								</li>
-								<li>
-									<a onClick={() => this.handleClick('ko')} ><i className=""></i>Korean</a>
-								</li>
-								<li>
-									<a onClick={() => this.handleClick('chi')} ><i className=""></i>Chinese</a>
-								</li>
-								<li>
-									<a onClick={() => this.handleClick('ar')} ><i className=""></i>Arabic</a>
-								</li>
 
-
-							</ul>
-
-
-						</div>
-					</div>
 					<div className="row">
 						<div className="col-xs-12 col-sm-12 col-md-12 mt-1 mt-sm-3">
 							<ul className="list-unstyled list-inline social text-center">
@@ -111,3 +69,55 @@ class Footer extends Component {
 }
 
 export default withTranslation()(Footer);
+
+
+/*
+
+
+<div className="row text-center text-xs-center text-sm-left text-md-left">
+						<div className="col-xs-12 col-sm-4 col-md-4">
+							<div className="mainquicklinks">Explore covid-19</div>
+							<ul className="list-unstyled quick-links">
+								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i ></i>Home</a></li>
+								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>About</a></li>
+								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>FAQ</a></li>
+								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Get Started</a></li>
+								<li><a className="whitecolorcss" href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Videos</a></li>
+							</ul>
+						</div>
+						<div className="col-xs-12 col-sm-4 col-md-4">
+							<div className="mainquicklinks">Social Media</div>
+							<ul className="list-unstyled quick-links">
+								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Home</a></li>
+								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>About</a></li>
+								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>FAQ</a></li>
+								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Get Started</a></li>
+								<li><a href="https://www.fiverr.com/share/qb8D02"><i className=""></i>Videos</a></li>
+							</ul>
+						</div>
+						<div className="col-xs-12 col-sm-4 col-md-4">
+							<div className="mainquicklinks">About Us</div>
+							<ul className="list-unstyled quick-links">
+								<li>
+									<a onClick={() => this.handleClick('en')} ><i className=""></i>English</a>
+								</li>
+								<li>
+									<a onClick={() => this.handleClick('ko')} ><i className=""></i>Korean</a>
+								</li>
+								<li>
+									<a onClick={() => this.handleClick('chi')} ><i className=""></i>Chinese</a>
+								</li>
+								<li>
+									<a onClick={() => this.handleClick('ar')} ><i className=""></i>Arabic</a>
+								</li>
+
+
+							</ul>
+
+
+						</div>
+					</div>
+
+
+
+					*/

@@ -96,7 +96,7 @@ export class screenregister extends React.Component {
     var _Response = null;
     var userexitstemp = "1";
 
-    var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username=${emailaddress}&functiontype=y`;
+    var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&username=${emailaddress}&functiontype=y`;
     try {
       let res = await axios.post(loginurl);
       console.log(res);
@@ -118,13 +118,14 @@ export class screenregister extends React.Component {
     this.setState({
       loader: true,
     });
+    this.ValidateEmailfinal(this.state.email);
 
     var userid = this.state.name;
     var email = this.state.email;
     var phone = this.state.phone;
     var password = this.state.password;
     //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}&companylogo=${this.state.companylogo}`;
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}&companylogo=${this.state.companylogo}`;
     try {
       let res = await axios.post(regurl);
       this.setState({
@@ -471,11 +472,20 @@ export class screenregister extends React.Component {
   }
 
 
-  ValidateEmail(mail) {
+
+  ValidateEmailfinal(mail) {
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
       return (true)
     }
     alert("You have entered an invalid email address!")
+    return (false)
+  }
+
+
+  ValidateEmail(mail) {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+      return (true)
+    }
     return (false)
   }
 

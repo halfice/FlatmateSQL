@@ -172,7 +172,7 @@ export class Property extends React.Component {
       deposit: 0,
       commission: 0,
       chkboxcommisison: false,
-      CommissionLayout: "Commission is in place as per %",
+      CommissionLayout: "Commission  as per %",
       isavailable: true,
       availabledate: "",
 
@@ -260,7 +260,7 @@ export class Property extends React.Component {
     if (this.state.isChecked == true) {
       tmpcheckbox = 0;
       tmpischeck = false;
-      TmpCommissionLayout = "Commission is in place";
+      TmpCommissionLayout = "Commission as per %";
 
 
     } else {
@@ -745,7 +745,7 @@ export class Property extends React.Component {
                       </div>
                       <hr></hr>
                       <div className="row">
-                        <div className="col-sm-4 textalighleft"> Share / Left Commmission</div>
+                        <div className="col-sm-4 textalighleft"> No Commission OR   Leave Commmission</div>
                         <div className="col-sm-1 textalighleft ">
                           <input type="checkbox"
                             defaultChecked={this.state.chkboxcommisison}
@@ -776,7 +776,7 @@ export class Property extends React.Component {
                         <div className="col-sm-3 textalighleft ">
 
                           <DatePicker selected={startDate}
-                            onChange={this.handlechangeDateEvent} />
+                            onChange={this.handlechangeDateEvent} value={this.state.availabledate} />
                         </div>
                       </div>
 
