@@ -308,6 +308,8 @@ export class Property extends React.Component {
       for (var x = 0; x < files.target.files.length; x++) {
         const file = files.target.files[x];
         const filename = file.name.substring(0, file.name.lastIndexOf('.'));
+        filename=filename.replace(/\s/g, "");
+
         const ext = file.name.substring(file.name.lastIndexOf('.'));
         const blobName = filename + '_' + new Date().getTime() + ext;
         this.uploadFile(file, blobName);
