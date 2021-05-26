@@ -796,7 +796,16 @@ class bodycards extends Component {
                 </div>
                 <div className="col-sm-2 ">
                   <div className="myicondiv">
-                    <FontAwesomeIcon icon={faBed} /><span className="paragraphcss">{finalbedrooms} </span>
+                    {
+                      finalbedrooms=="Studio" &&
+                      <span className="paragraphcss">{finalbedrooms} </span>
+                    }
+                    {
+                      finalbedrooms!="Studio" &&
+                      <span>
+                      <FontAwesomeIcon icon={faBed} /><span className="paragraphcss">{finalbedrooms} </span>
+                      </span>
+                    }
                   </div>
                 </div>
                 <div className="col-sm-2 ">
