@@ -26,14 +26,14 @@ export class screenlogin extends React.Component {
             currentclass: "hidden",
             parentdiv: 0,
             buttontext: "Lets Start!!!",
-            email:"",
-            name:"",
-            password:"",
-            universalid:"",
-            loader:false,
-            AgentName:"",
-            AgentPic:"",
-            companylogo:"",
+            email: "",
+            name: "",
+            password: "",
+            universalid: "",
+            loader: false,
+            AgentName: "",
+            AgentPic: "",
+            companylogo: "",
 
         }
 
@@ -49,105 +49,104 @@ export class screenlogin extends React.Component {
 
 
 
- ValidateEmail(mail) {
-    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-      return (true)
+    ValidateEmail(mail) {
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+            return (true)
+        }
+        alert("You have entered an invalid email address!")
+        return (false)
     }
-    alert("You have entered an invalid email address!")
-    return (false)
-  }
 
 
 
     async handleClick() {
-       // if (this.ValidateEmail(this.state.email)==false){
-//alert("Enter Email ");
-//return;
-      //  }
+        // if (this.ValidateEmail(this.state.email)==false){
+        //alert("Enter Email ");
+        //return;
+        //  }
 
 
-        if (this.state.password==null || this.state.password==""){
+        if (this.state.password == null || this.state.password == "") {
             alert("Password plz :)")
             return;
         }
-        var _Response=null;
+        var _Response = null;
         this.setState({
-            loader:true,
+            loader: true,
         });
-         const params = {
-            functiontype:"c",
+        const params = {
+            functiontype: "c",
             email: this.state.email,
             password: this.state.password,
-           };
+        };
+        var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&email=" + this.state.email + "&functiontype=c";
+        try {
+            let res = await axios.post(loginurl);
 
-           var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&email="+this.state.email+"&functiontype=c";
-    try {
-               let res=await axios.post(loginurl);
-
-               this.setState({
-                universalid:res,
-                loader:false,
+            this.setState({
+                universalid: res,
+                loader: false,
             });
 
-            var tiem=``;
-            if (this.state.universalid.data!=undefined
-                && this.state.universalid.data=="notfound" &&
-                this.state.universalid.data!=``
-                ){
+            var tiem = ``;
+            if (this.state.universalid.data != undefined
+                && this.state.universalid.data == "notfound" &&
+                this.state.universalid.data != ``
+            ) {
 
-                    alert("Oops! user not found");
-                    this.setState({
-                        loader:false,
-                    });
-                }
-            else{
-                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail,this.state.universalid.data.Mobile,this.state.universalid.data.profilepicname,this.state.universalid.data.companyname,this.state.universalid.data.UserName,this.state.universalid.data.companylogo);
+                alert("Oops! user not found");
+                this.setState({
+                    loader: false,
+                });
+            }
+            else {
+                this.props.handleRegisnteredUserId(this.state.universalid.data.UserEmail, this.state.universalid.data.Mobile, this.state.universalid.data.profilepicname, this.state.universalid.data.companyname, this.state.universalid.data.UserName, this.state.universalid.data.companylogo);
 
             }
             ;
-           } catch (error) {
+        } catch (error) {
 
-           }
-
-
-  }
-
-  async registeruser(){
+        }
 
 
-    const data = "";
-        const  functiontype="b";
-        const email= this.state.email;
-        const  userid= "facebook user";
-        const  phone="9999";
-        const  password= "facebookpassword";
+    }
 
-     // };
-      var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
-    try {
-               let res=await axios.post(regurl);
-               this.setState({
-                universalid:res,
-                loader:false,
+    async registeruser() {
+
+
+        const data = "";
+        const functiontype = "b";
+        const email = this.state.email;
+        const userid = "facebook user";
+        const phone = "9999";
+        const password = "facebookpassword";
+
+        // };
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
+        try {
+            let res = await axios.post(regurl);
+            this.setState({
+                universalid: res,
+                loader: false,
             });
             this.props.handleRegisnteredUserId(this.state.email);
-               //console.log(res.data);
-           } catch (error) {
-               //console.log(error);
-           }
-  }
+            //console.log(res.data);
+        } catch (error) {
+            //console.log(error);
+        }
+    }
 
-   responseFacebook = (response) => {
-    this.setState({
-        email:response.email,
-    });
-    this.registeruser();
-  }
-  componentClicked = (response) => {
-    this.setState({
-        loader:true,
-    });
-  }
+    responseFacebook = (response) => {
+        this.setState({
+            email: response.email,
+        });
+        this.registeruser();
+    }
+    componentClicked = (response) => {
+        this.setState({
+            loader: true,
+        });
+    }
 
 
 
@@ -158,23 +157,23 @@ export class screenlogin extends React.Component {
         return (
             <div className="container-fluid ">
                 <div className="row centeraligh">
-                {
-     this.state.loader==true &&
-     <div className="loader"></div>
-   }
+                    {
+                        this.state.loader == true &&
+                        <div className="loader"></div>
+                    }
                     <div className="container-fluid divborder">
                         <div className="row" >
                             <div className="col-sm-12">
-                            <FacebookLogin
-    appId="575382819627822"
-    autoLoad={false}
-    fields="name,email,picture"
-    onClick={this.componentClicked}
-    callback={this.responseFacebook} />
+                                <FacebookLogin
+                                    appId="575382819627822"
+                                    autoLoad={false}
+                                    fields="name,email,picture"
+                                    onClick={this.componentClicked}
+                                    callback={this.responseFacebook} />
 
-                               <div className="facbookbutton">
+                                <div className="facbookbutton">
 
-                               <span className="iconsclass" >f</span>   Continue with Facebook
+                                    <span className="iconsclass" >f</span>   Continue with Facebook
 
 
                                </div>
@@ -184,7 +183,7 @@ export class screenlogin extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12 graytext">
 
-                              --OR--
+                                --OR--
                             </div>
 
                         </div>
@@ -193,11 +192,11 @@ export class screenlogin extends React.Component {
                             <div className="col-sm-12 graytext">
 
 
-  <div className="form-group">
+                                <div className="form-group">
 
-  <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
+                                    <input type="email" className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
 
-  </div>
+                                </div>
 
 
 
@@ -208,11 +207,11 @@ export class screenlogin extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12 graytext">
 
-                            <div className="form-group">
+                                <div className="form-group">
 
-                            <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
+                                    <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
 
- </div>
+                                </div>
                             </div>
 
                         </div>
@@ -229,7 +228,7 @@ export class screenlogin extends React.Component {
                         <div className="row" >
                             <div className="col-sm-12">
 
-                            by signing up you accept our terms and conditions
+                                by signing up you accept our terms and conditions
                             </div>
 
                         </div>
@@ -238,9 +237,9 @@ export class screenlogin extends React.Component {
                             <div className="col-sm-12">
 
 
-                            <div className="signupdiv" >
-                            Create new account  <span onClick = {() => this.props.handlerRegister('1000')} className="signuplink">Sign up</span>
-                            </div>
+                                <div className="signupdiv" >
+                                    Create new account  <span onClick={() => this.props.handlerRegister('1000')} className="signuplink">Sign up</span>
+                                </div>
                             </div>
 
                         </div>
@@ -252,30 +251,26 @@ export class screenlogin extends React.Component {
         );
     }
 
-    handlenamechange(event)
-    {
+    handlenamechange(event) {
         this.setState({
             name: event.target.value,
             AgentName: event.target.value,
-          });
+        });
     }
-    handleemailchange(event)
-    {
+    handleemailchange(event) {
         this.setState({
             email: event.target.value
-          });
+        });
     }
-    handlenphonechange(event)
-    {
+    handlenphonechange(event) {
         this.setState({
             phone: event.target.value
-          });
+        });
     }
-    handlepasswordchange(event)
-    {
+    handlepasswordchange(event) {
         this.setState({
             password: event.target.value
-          });
+        });
     }
 
 }
