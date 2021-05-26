@@ -94,6 +94,8 @@ export class screenlogin extends React.Component {
                 && this.state.universalid.data=="notfound" &&
                 this.state.universalid.data!=``
                 ){
+
+                    alert("Oops! user not found");
                     this.setState({
                         loader:false,
                     });
