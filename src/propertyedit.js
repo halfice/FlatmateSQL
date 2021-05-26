@@ -368,28 +368,28 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     let { imagePreviewUrl3a } = this.state.imagePreviewUrl3;
     let $imagePreview = null;
 
-    if (imagePreviewUrl || imagePreviewUrl1 || imagePreviewUrl2 || imagePreviewUrl3) {
+    if (imagePreviewUrlx || imagePreviewUrl1y || imagePreviewUrl2z || imagePreviewUrl3a) {
       $imagePreview = (
         <div className="row" >
-          {imagePreviewUrl != null &&
+          {imagePreviewUrlx != null &&
             <div className="col-sm-3 previewpadding">
               <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 1)}>X</div>
               <img src={imagePreviewUrlx} className="mypreviewimage" height="150px" />
             </div>
           }
-          {imagePreviewUrl1 != null &&
+          {imagePreviewUrl1y != null &&
             <div className="col-sm-3 previewpadding">
               <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 2)}>X</div>
               <img src={imagePreviewUrl1y} className="mypreviewimage" height="150px" />
             </div>
           }
-          {imagePreviewUrl2 != null &&
+          {imagePreviewUrl2z != null &&
             <div className="col-sm-3 mt-6 previewpadding">
               <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 3)}>X</div>
               <img src={imagePreviewUrl2z} className="mypreviewimage" height="150px" />
             </div>
           }
-          {imagePreviewUrl3 != null &&
+          {imagePreviewUrl3a != null &&
             <div className="col-sm-3 mt-6 previewpadding">
               <div className="DeleeImgDiv" onClick={this.handledeleeImge.bind(this, 4)}>X</div>
               <img src={imagePreviewUrl3a} className="mypreviewimage" height="150px" />
