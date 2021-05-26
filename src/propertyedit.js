@@ -362,11 +362,11 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     const startDate = new Date();
     const setStartDate = new Date();
 
-    let { imagePreviewUrlx } = this.state.imagePreviewUrl;
-    let { imagePreviewUrl1y } = this.state.imagePreviewUrl1;
-    let { imagePreviewUrl2z } = this.state.imagePreviewUrl2;
-    let { imagePreviewUrl3a } = this.state.imagePreviewUrl3;
-    let $imagePreview = null;
+    var  imagePreviewUrlx  = this.state.imagePreviewUrl;
+    var  imagePreviewUrl1y  = this.state.imagePreviewUrl1;
+    var  imagePreviewUrl2z  = this.state.imagePreviewUrl2;
+    var  imagePreviewUrl3a  = this.state.imagePreviewUrl3;
+    var $imagePreview = null;
 
     if (imagePreviewUrlx || imagePreviewUrl1y || imagePreviewUrl2z || imagePreviewUrl3a) {
       $imagePreview = (
