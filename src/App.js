@@ -309,7 +309,7 @@ class App extends Component {
           }
 
 
-          <div className="col-sm-12"><NearbyPlace /></div>
+
 
 
 
@@ -455,9 +455,9 @@ class App extends Component {
   }
 
   AddProperty() {
-    var tmpval=5;
+    var tmpval = 5;
     if (this.state.userid == 0) {
-      tmpval=100;
+      tmpval = 100;
     }
 
     this.setState({
@@ -515,7 +515,7 @@ class App extends Component {
 
   componentDidMount() {
 
-   // this.fetchpTenants();
+    // this.fetchpTenants();
     this.fetchpropertiesagent();
   }
 
