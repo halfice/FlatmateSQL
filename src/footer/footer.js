@@ -34,31 +34,6 @@ class Footer extends Component {
 
 				</div>
 				<hr></hr>
-				<div className="row">
-					<div className="col-xs-12 col-sm-12 col-md-12 mt-1 mt-sm-2 text-center text-white">
-						<div className="list-unstyled"><u><a href="#">HalfIce Incs</a></u> is a Registered, Inc. Pakistan
-						[Idea - Code | Transformation is using Data Intellegent- Each Stake is based on Big data analytics]</div>
-						<div className="h6">© All right Reversed.<a className="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">
-							HalfICE</a></div>
-
-
-
-<div className="divwhatsapp">
-			<a target="_blank">
-			<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg"  className="whatsappimage" />
-
-				</a>
-		</div>
-
-
-
-
-
-
-					</div>
-
-				</div>
-
 
 
 
@@ -117,6 +92,29 @@ export default withTranslation()(Footer);
 
 						</div>
 					</div>
+
+
+					<div className="row">
+					<div className="col-xs-12 col-sm-12 col-md-12 mt-1 mt-sm-2 text-center text-white">
+						<div className="list-unstyled"><u><a href="#">HalfIce Incs</a></u> is a Registered, Inc. Pakistan
+						[Idea - Code | Transformation is using Data Intellegent- Each Stake is based on Big data analytics]</div>
+						<div className="h6">© All right Reversed.<a className="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">
+							HalfICE</a></div>
+<div className="divwhatsapp">
+			<a target="_blank">
+			<img src="https://bruceclaymena.com/wp-content/uploads/2020/09/whatsapp.svg"  className="whatsappimage" />
+
+				</a>
+		</div>
+
+
+
+
+
+
+					</div>
+
+				</div>
 
 
 
