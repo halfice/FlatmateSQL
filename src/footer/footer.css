@@ -51,11 +51,11 @@ u{
 
 .mainDivFooter{
     background-color: #2f3a4a;
-    bottom: 0px;
+    bottom: 0!important;;
     width: 100%;
     padding:11px;
     color:#093563;
-    position: absolute;
+    position: fixed!important;
 }
 
 
