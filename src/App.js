@@ -235,7 +235,7 @@ class App extends Component {
         }
 
 
-        <div className="row row2">
+        <div className="container-fluid">
 
           {
             this.state.showcard == 1 && this.state.needwizard != 3 && this.state.needwizard != 1 &&
