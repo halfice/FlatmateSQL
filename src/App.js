@@ -119,44 +119,24 @@ class App extends Component {
       <div className="App">
         <div className="">
           <Header handleSearchClick={this.handleSearchClick} handlerhome={this.handlerhome} userLoginId={this.state.userid} /></div>
-
         {this.state.needwizard == 0 && this.state.ownerwizard == 0 &&
           <div className=" row zeeomargin zerpadding">
-
             <div className="col-sm-8 zerpadding">
               <Rating handler={this.handler} />
             </div>
-
             <div className="col-sm-2 ">
               {
                 this.state.userid != 0 &&
                 <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers
                  </div>
               }
-
             </div>
-
-
             <div className="col-sm-2 ">
               <div className="mybuttons btn btn-primary" onClick={this.AddProperty.bind(this)}> Add Property
                  </div>
             </div>
-
-
-
-
-
-
-
           </div>
         }
-
-
-
-
-
-
-        <br></br>
         {this.state.needwizard == 1000 &&
           <div className="row">
             <Register company={this.state.compnayname} companylogo={this.state.companylogo} handleRegisnteredUserId={this.handleRegisnteredUserId} handleRegisnteredUserIdtwo={this.handleRegisnteredUserIdtwo} />
@@ -175,7 +155,6 @@ class App extends Component {
           </div>
 
         }
-
 
 
         {
