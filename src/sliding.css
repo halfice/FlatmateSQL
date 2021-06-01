@@ -93,10 +93,7 @@ display: none;
 
   .divborder{
     border: solid 1px #8080806b;
-    border-radius: 11px;
-    background-color: #adb5bd26;
     z-index: 111;
-    margin-top: 11px;
     padding: 32px;
   }
 
