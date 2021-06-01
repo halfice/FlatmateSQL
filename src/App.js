@@ -310,25 +310,18 @@ class App extends Component {
 
         </div>
 
-
         {
           this.state.ShowCarousal == true &&
-
-
-
           <div className="parentdiv">
-
             <div className="closebuttondi" onClick={this.CloseModal}>
               <FontAwesomeIcon icon={faTimes} />
             </div>
-
             <div className="carousaldiv">
               <div className="row">
                 <div className="col-sm-12 ml-11 mr-22">
                   <h1>Welcome - to Free Property World</h1>
                   <div className="row">
                     <div className="col-sm-2"> </div>
-
                     <div className="col-sm-3">Choose Country</div>
                     <div className="col-sm-3"><Select
                       value={this.state.UserCountry}
@@ -359,13 +352,8 @@ class App extends Component {
 
             </div>
           </div>
-
         }
-
         <div className="row"><Footer /></div>
-
-
-
       </div>
     )
   }
