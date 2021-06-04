@@ -232,7 +232,7 @@ div{
 
 
 .paragraphcsstwo{
-  font-size: 13px;
+  font-size: 11px;
   COLOR: #004085;
   text-align: left;
   font-weight: bold;;
@@ -695,7 +695,7 @@ position: static!important;
 top: 0!important;
 z-index: -000000000!important;;
 width: 100%!important;;
-height: 98px!important;;
+height: 56px!important;;
 color: white!important;;
 border: solid 1px lightgray!important;;
 right: 0!important;;
@@ -745,7 +745,7 @@ list-style: none;
 }
 .paragrpahNormaltext{
   color: #383d41;
-    font-size: 17px;
+    font-size: 11px;
     font-feature-settings: "pcap";
     font-variant-caps: petite-caps;
     text-align: left;
@@ -800,7 +800,7 @@ list-style: none;
 
 .agentdivCss{
   width:99%;
-  height: 98px!important;
+  height: 56px!important;
   border: solid 1px lightgray!important;;
 
 
@@ -829,7 +829,7 @@ list-style: none;
 }
 
 .myimagesmall{
-  width:80px;
+  width:42px;
   border:solid 3px #80808059
 }
 

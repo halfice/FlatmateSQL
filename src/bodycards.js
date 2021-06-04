@@ -882,8 +882,7 @@ class bodycards extends Component {
             this.state.ShowCarousal == true &&
 
             <div className="parentdiv">
-              <div className="closebuttondi" onClick={this.CloseModal}>
-                <FontAwesomeIcon icon={faTimes} /></div>
+
 
               <div className="carousaldiv">
                 <div className="row myrow">
@@ -945,13 +944,16 @@ class bodycards extends Component {
 
                   <div className="col-sm-4 ">
                     <div className="row myrow agentdivCss">
-                      <div className="col-sm-9">
+                      <div className="col-sm-6">
                         <div className="leftdiv"> Agent :  {this.state.AgentName}</div>
                         <div className="leftdiv">Company : {this.state.AgentComapny}</div>
                       </div>
                       <div className="col-sm-3">
                         <img src={this.state.AgentPic} className="myimagesmall" />
                       </div>
+                      <div className="col-sm-3" onClick={this.CloseModal}>
+                <FontAwesomeIcon icon={faTimes} /></div>
+
 
 
                     </div>
