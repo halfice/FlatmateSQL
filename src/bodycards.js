@@ -20,7 +20,9 @@ import axios from 'axios';
 import imageCompression from 'browser-image-compression';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Carousel from 'react-bootstrap/Carousel'
-import { faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase, faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, } from '@fortawesome/free-solid-svg-icons';
+import {  faHeart, faCamera, faBed, faBath, faCog, faPhone, faAtlas, faCheck, faBriefcase,
+  faBackward, faHome, faCoffee, faQuoteLeft, faTimes, faParking, faVideo,
+} from '@fortawesome/free-solid-svg-icons';
 import gmails from './gmail.gif';
 import whatsapp from './whatsapp.gif';
 import calls from './call.gif';
@@ -741,7 +743,13 @@ class bodycards extends Component {
                 </div>
 
               </div>
+              <div className="row">
+              <div className="myicondiv">
+                    <div className="buttn" >
+                    <FontAwesomeIcon icon={faVideo} /></div>
 
+                  </div>
+              </div>
             </Card.Body>
           </Card>
         </div>
