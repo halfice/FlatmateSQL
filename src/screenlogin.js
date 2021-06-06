@@ -5,8 +5,6 @@ import './sliding.css';
 import FacebookLogin from 'react-facebook-login';
 
 import axios from 'axios';
-
-
 import "./fontsx"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -151,8 +149,6 @@ export class screenlogin extends React.Component {
 
 
     render() {
-
-
 
         return (
             <div className="container-fluid ">
