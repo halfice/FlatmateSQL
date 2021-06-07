@@ -63,6 +63,15 @@ tempimagePreviewUrl=tempimagePreviewUrl.replace(/\s/g, "");
 tempimagePreviewUrl1=tempimagePreviewUrl1.replace(/\s/g, "");
 tempimagePreviewUrl2=tempimagePreviewUrl2.replace(/\s/g, "");
 tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
+
+//"2021-05-28T00:00:00.000Z"
+var tmpavailabledate=this.state.ItemObject[0]["availabledate"];
+var res = tmpavailabledate.split("T")[0];
+var tmpres=res.split("-");
+var finalavailabledt=tmpres[2]+"-"+tmpres[1]+"-"+tmpres[0]+"00:00:00.000";
+
+
+
     this.setState({
       deal: TempDetail,
       isChecked: TmpBoolean,
@@ -100,7 +109,8 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
       picstring:  this.state.ItemObject[0]["picstring"],
       commission:this.state.ItemObject[0]["commission"],
       isavilable:this.state.ItemObject[0]["isavailable"],
-      availabledate:this.state.ItemObject[0]["availabledate"],
+      availabledate:finalavailabledt,
+
 
 
 
@@ -262,6 +272,9 @@ tempimagePreviewUrl3=tempimagePreviewUrl3.replace(/\s/g, "");
     this.setState({
       loader: true,
     });
+
+
+
     var headerurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&functiontype=update`;
     var regurl = headerurl + `&UserName=${this.state.LoginUserID}&Type=${this.state.typeofAccomodation}&Location=${this.state.location}
     &Bedrooms=${this.state.totalbed}&totalbathrooms=${this.state.totalbathrooms}&parking=${this.state.parking}
@@ -1967,9 +1980,6 @@ if (this.state.isChecked==true){
   handlechangeDateEvent(event) {
 
     var tempavailable = event.getDate() + "-" + event.getMonth() + "-" + event.getFullYear();
-
-    alert(tempavailable);
-
     this.setState({
       availabledate: tempavailable,
 
