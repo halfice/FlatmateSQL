@@ -96,6 +96,7 @@ export class screenregister extends React.Component {
     var _Response = null;
     var userexitstemp = "1";
 
+
     var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&username=${emailaddress}&functiontype=y`;
     try {
       let res = await axios.post(loginurl);
