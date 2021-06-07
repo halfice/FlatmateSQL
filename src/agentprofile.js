@@ -13,100 +13,105 @@ import Select from 'react-select';
 
 export class agentprofile extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name:"",
-            email:"",
-            phone:"",
-            password:"",
-            universalid:"",
-            loader:false,
-            imagePreviewUrl: uploader,
-            picstring: "",
-            picscounter: 0,
-            userLoginId: this.props.userLoginId,
-            profileitems:[]
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+      universalid: "",
+      loader: false,
+      imagePreviewUrl: uploader,
+      picstring: "",
+      picscounter: 0,
+      userLoginId: this.props.userLoginId,
+      profileitems: []
 
-
-        }
-        this.handleClick = this.handleClick.bind(this);
-        this.handlenamechange = this.handlenamechange.bind(this);
-        this.handleemailchange = this.handleemailchange.bind(this);
-        this.handlenphonechange = this.handlenphonechange.bind(this);
-        this.handlepasswordchange = this.handlepasswordchange.bind(this);
 
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.handlenamechange = this.handlenamechange.bind(this);
+    this.handleemailchange = this.handleemailchange.bind(this);
+    this.handlenphonechange = this.handlenphonechange.bind(this);
+    this.handlepasswordchange = this.handlepasswordchange.bind(this);
 
-    async fetchprofile() {
-        var _Response=null;
-        this.setState({
-            loader:true,
-        });
-        
+  }
 
-           var loginurl="https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username="+this.state.userLoginId+"&functiontype=x";
+  async fetchprofile() {
+    var _Response = null;
+    this.setState({
+      loader: true,
+    });
+
+
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code==qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&username=" + this.state.userLoginId + "&functiontype=x";
+
+
+
     try {
-               let res=await axios.post(loginurl);
-               console.log(res);
-               this.setState({
-                profileitems:res,
-                name:res.data[0].UserName,
-                email:res.data[0].UserEmail,
-                phone:res.data[0].Mobile,
-                loader:false,
-            });
+      let res = await axios.post(loginurl);
+      console.log(res);
+      this.setState({
+        profileitems: res,
+        name: res.data[0].UserName,
+        email: res.data[0].UserEmail,
+        phone: res.data[0].Mobile,
+        loader: false,
+      });
 
-           } catch (error) {
-              // console.log(error);
-           }
-         
- 
+    } catch (error) {
+      // console.log(error);
+    }
+
+
   }
 
 
   handleChangedrp = selectedOption => {
     this.setState(
-      { selectedOption,
-      copmayname:selectedOption.label });
+      {
+        selectedOption,
+        copmayname: selectedOption.label
+      });
     console.log(`Option selected:`, selectedOption.label);
   };
 
-    
-    async handleClick() {
-        this.setState({
-            loader:true,
-        });
-       //alert(this.state.name);
 
-       //     
-           var userid= this.state.name;
-            var email=this.state.email;
-           var  phone=this.state.phone;
-           var  password=this.state.password;
-                    
-            
-         // };
+  async handleClick() {
+    this.setState({
+      loader: true,
+    });
+    //alert(this.state.name);
+
+    //
+    var userid = this.state.name;
+    var email = this.state.email;
+    var phone = this.state.phone;
+    var password = this.state.password;
 
 
+    // };
 
-        //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
-        var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=bupdate&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
- try {
-                     let res=await axios.post(regurl);
-                     this.setState({
-                      universalid:res,
-                      loader:false,
-                  });
-                  this.props.handleRegisnteredUserId(this.state.email);
-                    // console.log(res.data);
-                 } catch (error) {
-                     //console.log(error);
-                 }
 
- }
- componentDidMount() {
-  
+
+    //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
+    var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=bupdate&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
+    try {
+      let res = await axios.post(regurl);
+      this.setState({
+        universalid: res,
+        loader: false,
+      });
+      this.props.handleRegisnteredUserId(this.state.email);
+      // console.log(res.data);
+    } catch (error) {
+      //console.log(error);
+    }
+
+  }
+  componentDidMount() {
+
     this.getblobtoken();
     this.fetchprofile();
   }
@@ -127,7 +132,7 @@ export class agentprofile extends React.Component {
   async handleImageUpload(files) {
     if (files.target.files.length > 0) {
       const file = files.target.files[0];
-       this.uploadFile(file);
+      this.uploadFile(file);
       this.handleImageUploadold(file);
     }
   }
@@ -191,8 +196,8 @@ export class agentprofile extends React.Component {
         }
 
 
-       
-        
+
+
 
 
 
@@ -213,170 +218,166 @@ export class agentprofile extends React.Component {
   }
 
 
-    render() {
+  render() {
 
-      const options = [
-        { value: 'Purple Property', label: 'Purple Property' },
-        { value: 'Al Dar', label: 'Al Dar' },
-        { value: 'Free Property', label: 'Free Property' },
-      ];
+    const options = [
+      { value: 'Purple Property', label: 'Purple Property' },
+      { value: 'Al Dar', label: 'Al Dar' },
+      { value: 'Free Property', label: 'Free Property' },
+    ];
 
-        let $imagePreview = null;
-        let { imagePreviewUrl } = this.state;
-        if (imagePreviewUrl) {
-          $imagePreview = (
-            <div className="" >
-              {imagePreviewUrl != null &&
-                <div className="previewpadding">
-                  <img src={imagePreviewUrl} className="mypreviewimagepro" />
-                </div>
-              }
+    let $imagePreview = null;
+    let { imagePreviewUrl } = this.state;
+    if (imagePreviewUrl) {
+      $imagePreview = (
+        <div className="" >
+          {imagePreviewUrl != null &&
+            <div className="previewpadding">
+              <img src={imagePreviewUrl} className="mypreviewimagepro" />
             </div>
-          );
+          }
+        </div>
+      );
+    }
+
+    return (
+      <div className="container-fluid ">
+        <div className="row centeraligh">
+          <div className="container-fluid divborder">
+            {
+              this.state.loader == true &&
+              <div className="loader"></div>
             }
+            <div className="row" >
+              <div className="col-sm-12">
 
-        return (
-            <div className="container-fluid ">
-                <div className="row centeraligh">
-                    <div className="container-fluid divborder">
-                    {
-     this.state.loader==true &&
-     <div className="loader"></div>
-   }
-                        <div className="row" >
-                            <div className="col-sm-12">
-                               
-                               <div className="facbookbutton">
-                             
-                              Update profileitems
-                       
-                               
+                <div className="facbookbutton">
+
+                  Update profileitems
+
+
                                </div>
-                            </div>
+              </div>
 
-                        </div>
-                     
-
-                        <div className="row" >
-                            <div className="col-sm-12 graytext">
-                                
-                            <div className="form-group">
-   
-   <input type="email" className="form-control"  placeholder="Enter name" value={this.state.name}
-   onChange={this.handlenamechange}></input>
-  
-
- </div>     
- <div className="form-group">
-   
-   <input type="email" value={this.state.phone} className="form-control"  placeholder="Enter phone"></input>
-  
- </div>     
-  <div className="form-group">
-   
-    <input type="email"  value={this.state.email} className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
-   
-  </div>
-  <div className="form-group">
-   
-   <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
-
-</div>
-
-<div className="form-group">
-<Select
-        value={this.state.selectedOption}
-        onChange={this.handleChangedrp}
-        options={options}
-      />
-
-</div>
-
-<div className="form-group">
-                        <div className="">
-                          <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
-
-                          <div className="imgPreviewpro">
-                            {$imagePreview}
-
-                          </div>
-
-                        </div>
-
-                      </div>
-
-  
-
-                            </div>
-
-                        </div>
-
-                        <div className="row" >
-                            <div className="col-sm-12 graytext">
-                                
-                         
-                            </div>
-
-                        </div>
+            </div>
 
 
+            <div className="row" >
+              <div className="col-sm-12 graytext">
 
-                        <div className="row" >
-                            <div className="col-sm-12">
-                                
-                                <Button className="mybuttons" onClick={this.handleClick} >Update</Button>
-                            </div>
+                <div className="form-group">
 
-                        </div>
-                        <div className="row" >
-                            <div className="col-sm-12">
-                                
-                            by signing up you accept our terms and conditions
-                            </div>
+                  <input type="email" className="form-control" placeholder="Enter name" value={this.state.name}
+                    onChange={this.handlenamechange}></input>
 
-                        </div>
 
-                        <div className="row" >
-                            <div className="col-sm-12">
-                                
-                            Create new account Sign up?
-                            </div>
+                </div>
+                <div className="form-group">
 
-                        </div>
-                       
+                  <input type="email" value={this.state.phone} className="form-control" placeholder="Enter phone"></input>
+
+                </div>
+                <div className="form-group">
+
+                  <input type="email" value={this.state.email} className="form-control" onChange={this.handleemailchange} placeholder="Enter email"></input>
+
+                </div>
+                <div className="form-group">
+
+                  <input type="password" className="form-control" onChange={this.handlepasswordchange} placeholder="Password"></input>
+
+                </div>
+
+                <div className="form-group">
+                  <Select
+                    value={this.state.selectedOption}
+                    onChange={this.handleChangedrp}
+                    options={options}
+                  />
+
+                </div>
+
+                <div className="form-group">
+                  <div className="">
+                    <input type="file" accept="image/*" onChange={this.handleImageUpload.bind(this)} className="profilepics"></input>
+
+                    <div className="imgPreviewpro">
+                      {$imagePreview}
 
                     </div>
+
+                  </div>
+
                 </div>
+
+
+
+              </div>
+
             </div>
-        );
-    }
+
+            <div className="row" >
+              <div className="col-sm-12 graytext">
 
 
-    
-    handlenamechange(event)
-    {
-        this.setState({
-            name: event.target.value
-          });
-    }
-    handleemailchange(event)
-    {
-        this.setState({
-            email: event.target.value
-          });
-    }
-    handlenphonechange(event)
-    {
-        this.setState({
-            phone: event.target.value
-          });
-    }
-    handlepasswordchange(event)
-    {
-        this.setState({
-            password: event.target.value
-          });
-    }
+              </div>
+
+            </div>
+
+
+
+            <div className="row" >
+              <div className="col-sm-12">
+
+                <Button className="mybuttons" onClick={this.handleClick} >Update</Button>
+              </div>
+
+            </div>
+            <div className="row" >
+              <div className="col-sm-12">
+
+                by signing up you accept our terms and conditions
+                            </div>
+
+            </div>
+
+            <div className="row" >
+              <div className="col-sm-12">
+
+                Create new account Sign up?
+                            </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+
+
+  handlenamechange(event) {
+    this.setState({
+      name: event.target.value
+    });
+  }
+  handleemailchange(event) {
+    this.setState({
+      email: event.target.value
+    });
+  }
+  handlenphonechange(event) {
+    this.setState({
+      phone: event.target.value
+    });
+  }
+  handlepasswordchange(event) {
+    this.setState({
+      password: event.target.value
+    });
+  }
 
 }
 
