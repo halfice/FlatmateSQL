@@ -45,7 +45,7 @@ export class agentprofile extends React.Component {
     });
 
 
-    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code==qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&username=" + this.state.userLoginId + "&functiontype=x";
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&username=" + this.state.userLoginId + "&functiontype=x";
 
 
 
