@@ -50,7 +50,7 @@ export class companyregister extends React.Component {
         var _Response = null;
         var userexitstemp = "1";
 
-        var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&username=${emailaddress}&functiontype=y`;
+        var loginurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&username=${emailaddress}&functiontype=y`;
         try {
             let res = await axios.post(loginurl);
             console.log(res);
@@ -75,7 +75,7 @@ export class companyregister extends React.Component {
 
 
 
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&companyname=${this.state.companyname}&email=${this.state.email}&phone=${this.state.phone}&tradelicenseno=${this.state.tradelicenseno}&functiontype=addcompnay&logoimage=${this.state.logoimage}`;
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&companyname=${this.state.companyname}&email=${this.state.email}&phone=${this.state.phone}&tradelicenseno=${this.state.tradelicenseno}&functiontype=addcompnay&logoimage=${this.state.logoimage}`;
         try {
             let res = await axios.post(regurl);
             this.setState({

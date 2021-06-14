@@ -120,7 +120,7 @@ export class screenlogin extends React.Component {
         const password = "facebookpassword";
 
         // };
-        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
+        var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&userid=${this.state.email}&UserName=${userid}&email=${email}&Password=${password}&functiontype=b&moibile=${phone}`;
         try {
             let res = await axios.post(regurl);
             this.setState({
