@@ -89,11 +89,6 @@ export class agentprofile extends React.Component {
     var password = this.state.password;
 
 
-    // };
-
-
-
-    //  var regurl=`https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=zLwRL3jpIUtF0oWql4lfK38n/Ld6w5Ed6XzP1H7Kj3tBSF4dzL1crg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=b&moibile=${this.state.phone}`;
     var regurl = `https://userfunctionsapi.azurewebsites.net/api/HttpTriggerusers?code=qt5cUhmczQ4x87U9ZClXPwdqysZo3KdUKkLyVxlrk6fkFpVk2mnXBg==&userid=${this.state.email}&UserName=${this.state.name}&email=${this.state.email}&Password=${this.state.password}&functiontype=bupdate&moibile=${this.state.phone}&companyname=${this.state.copmayname}&profilepicname=${this.state.picstring}`;
     try {
       let res = await axios.post(regurl);
