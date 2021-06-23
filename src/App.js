@@ -433,13 +433,14 @@ class App extends Component {
     })
   }
 
-  handleSearchClick = (PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) => {
+  handleSearchClick = (PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox,
+    purpose) => {
     //console.log(PropertyType,Location,NoOfBedRooms,Furnished,PriceMin,PriceMax,Statec,Deal,Feet,SeachBox);
     this.setState({
       needwizard: 0,
     });
 
-    this.fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox);
+    this.fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox,purpose);
 
 
 
@@ -675,7 +676,7 @@ class App extends Component {
 
 
 
-  async fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox) {
+  async fetchpropertiesSearch(PropertyType, Location, NoOfBedRooms, Furnished, PriceMin, PriceMax, Statec, Deal, Feet, SeachBox,purpose) {
     var _Response = null;
     var TempUserProfileExisits = 0;
     var TempDivCounter = 0;

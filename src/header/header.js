@@ -65,7 +65,7 @@ export class Header extends React.Component {
       Feet: "",
       SeachBox: "",
       selectedOptionPurpose:"",
-      
+
 
 
 
@@ -77,8 +77,8 @@ export class Header extends React.Component {
 
     this.handMainSearch = this.handMainSearch.bind(this);
     this.handlearea = this.handlearea.bind(this);
-
-
+    this.handlePropertyType = this.handlePropertyType.bind(this);
+    this.handlePropertyTypePurppose = this.handlePropertyTypePurppose.bind(this);
   }
 
 
@@ -286,7 +286,7 @@ const optionsPropertyType=[
               <div className="col-sm-2">                <div className="whitecolorcss">
                 <FontAwesomeIcon icon={faCoffee} /></div> </div>
               <div className="col-sm-2">
-                <div className="whitecolorcss"> 
+                <div className="whitecolorcss">
                 <FontAwesomeIcon icon={faQuoteLeft} /></div>
               </div>
               <div className="col-sm-2">
@@ -346,7 +346,7 @@ const optionsPropertyType=[
             />
 
           </div>
-       
+
           <div className="col-lg-2">
 
             <input type="text" className="form-control" onChange={this.handlearea} placeholder="SQL FEET 0 - 999"></input>
@@ -390,11 +390,11 @@ const optionsPropertyType=[
               placeholder="Room"
             />
           </div>
-          
 
 
 
-          
+
+
           <div className="col-lg-3">
             <Select
               value={this.state.selectedOptionDeal}
@@ -408,7 +408,7 @@ const optionsPropertyType=[
 
             <div className="mybuttons btn btn-primary" onClick={() => this.props.handleSearchClick(this.state.PropertyType, this.state.Location, this.state.NoOfBedRooms,
               this.state.Furnished, this.state.PriceMin, this.state.PriceMax, this.state.Statec,
-              this.state.Deal, this.state.Feet, this.state.SeachBox)}>
+              this.state.Deal, this.state.Feet, this.state.SeachBox,this.state.Purpose)}>
               <div className="innerbt">
                 Let go
   </div>
