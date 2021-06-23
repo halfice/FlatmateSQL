@@ -128,12 +128,12 @@ class App extends Component {
               {
                 this.state.userid != 0 &&
                 <div className="mybuttons btn btn-primary" onClick={this.handleoffers.bind(this)}> Offers
-                 </div>
+                </div>
               }
             </div>
             <div className="col-sm-2 ">
               <div className="mybuttons btn btn-primary" onClick={this.AddProperty.bind(this)}> Add Property
-                 </div>
+              </div>
             </div>
           </div>
         }
@@ -245,16 +245,16 @@ class App extends Component {
             this.state.needwizard != 500 && this.state.needwizard != 5
             && this.state.needwizard != 600 &&
 
-              <div className="row">
-                <div className="col-sm-10">
-                  <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+            <div className="row">
+              <div className="col-sm-10">
+                <Bodycards ObjectArray={this.state.ObjectArray} carousalObject={this.state.carousalObject} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
 
-                </div>
-                <div className="col-sm-9">
-                  <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
-
-                </div>
               </div>
+              <div className="col-sm-9">
+                <BodycardsTenants GlobalObjectTenants={this.state.GlobalObjectTenants} AgentName={this.state.AgentName} AgentcarousalObject={this.state.GlobalObjectCarousal} AgentObjectArray={this.state.GlobalObject} AgentComapny={this.state.AgentCompany} AgentMobile={this.state.AgentMobile} AgentPic={this.state.AgentPic} />
+
+              </div>
+            </div>
           }
 
 
