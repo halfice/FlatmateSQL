@@ -682,7 +682,7 @@ class App extends Component {
     var TempDivCounter = 0;
     var retrueneddata = [];
     var TempCarousalData = [];
-    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=search&PropertyType=" + PropertyType + "&Location=" + Location + " &NoOfBedRooms=" + this.state.NoOfBedRooms + " &Furnished=" + Furnished + "&PriceMin=" + this.state.PriceMin + "&PriceMax=" + this.state.PriceMax + "&Statec=" + Statec + " &Deal=" + this.state.Deal + "&Feet=" + Feet + " &SeachBox=" + SeachBox + "";
+    var loginurl = "https://userfunctionsapi.azurewebsites.net/api/HttpTriggerProperty?code=ir1wJ4Nz5UQTl5jHM4K1IjP7oCCt2oJqXDhtwOv9ryoPH2ZRhpxc6w==&email=" + this.state.LoginUserID + "&functiontype=search&PropertyType=" + PropertyType + "&Location=" + Location + " &NoOfBedRooms=" + this.state.NoOfBedRooms + " &Furnished=" + Furnished + "&PriceMin=" + this.state.PriceMin + "&PriceMax=" + this.state.PriceMax + "&Statec=" + Statec + " &Deal=" + this.state.Deal + "&Feet=" + Feet + " &SeachBox=" + SeachBox + "&Purpose="+purpose+ "";
     try {
       let res = await axios.post(loginurl);
       console.log(res);
