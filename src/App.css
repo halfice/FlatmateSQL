@@ -204,7 +204,7 @@ div{
 
 
 .mkyicondiv{
-  font-size: 11px;
+  font-size: 14px;
     font-weight: bolder;
     border: solid 1px #ffc10763;
     background-color: #6c757d;
@@ -356,6 +356,11 @@ div{
   width:100%;
 }
 
+.hideonmobile {
+
+  padding-top: 11px!important;
+}
+
 @media screen and (max-width: 600px) {
   .hideonmobile {
     visibility: hidden;
@@ -364,6 +369,12 @@ div{
     margin: 10px auto 5px 20px;
     width: 28%;
     display: none;
+    padding-top: 11px!important;
+  }
+
+  .dropdowng{
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
