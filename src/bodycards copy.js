@@ -929,7 +929,16 @@ class bodycards extends Component {
 
 
 
-
+                    <div className="row myrow">
+                      <div className="col-sm-4 paragrpahNormaltext">Bedrooms : {this.state.selectedBedrooms}</div>
+                      <div className="col-sm-4 paragrpahNormaltext">Location : {this.state.selectedLocation}</div>
+                      <div className="col-sm-4 paragrpahNormaltext">Price :  {this.formatMoney(this.state.selectedPrice)}</div>
+                    </div>
+                    <div className="row myrow">
+                      <div className="col-sm-4 paragrpahNormaltext">FurnishedTyope : {this.state.selectedFurnitureType}</div>
+                      <div className="col-sm-4 paragrpahNormaltext">Type : {this.state.selectedType}</div>
+                      <div className="col-sm-4 paragrpahNormaltext">parking : {this.state.selectedParking}</div>
+                    </div>
                   </div>
 
 

@@ -50,7 +50,7 @@ export class Header extends React.Component {
       Deal: "",
       Feet: "",
       SeachBox: "",
-      Purpose:"",
+      Purpose: "",
 
 
 
@@ -64,7 +64,7 @@ export class Header extends React.Component {
       selectedOptionDeal: "",
       Feet: "",
       SeachBox: "",
-      selectedOptionPurpose:"",
+      selectedOptionPurpose: "",
 
 
 
@@ -251,11 +251,11 @@ export class Header extends React.Component {
       { value: 'No', label: 'No' },
     ];
 
-const optionsPropertyType=[
-  { value: 'Villa', label: 'Villa' },
-  { value: 'Appartment', label: 'Appartment' },
-  { value: 'Office', label: 'Office' },
-]
+    const optionsPropertyType = [
+      { value: 'Villa', label: 'Villa' },
+      { value: 'Appartment', label: 'Appartment' },
+      { value: 'Office', label: 'Office' },
+    ]
 
 
 
@@ -287,7 +287,7 @@ const optionsPropertyType=[
                 <FontAwesomeIcon icon={faCoffee} /></div> </div>
               <div className="col-sm-2">
                 <div className="whitecolorcss">
-                <FontAwesomeIcon icon={faQuoteLeft} /></div>
+                  <FontAwesomeIcon icon={faQuoteLeft} /></div>
               </div>
               <div className="col-sm-2">
                 {
@@ -304,7 +304,7 @@ const optionsPropertyType=[
 
         <div className="searchRow">
 
-        <div className="col-lg-2">
+          <div className="col-lg-2">
             <Select
               value={this.state.selectedOptionStatec}
               onChange={this.handleStatec}
@@ -315,7 +315,7 @@ const optionsPropertyType=[
           </div>
 
           <div className="col-md-2">
-  <Select
+            <Select
               value={this.state.selectedOptionPurpose}
               onChange={this.handlePropertyTypePurppose}
               options={optionPurpose}
@@ -325,7 +325,7 @@ const optionsPropertyType=[
 
           </div>
           <div className="col-md-2">
-  <Select
+            <Select
               value={this.state.selectedOptionPropertyType}
               onChange={this.handlePropertyType}
               options={optionsPropertyType}
@@ -408,10 +408,10 @@ const optionsPropertyType=[
 
             <div className="mybuttons btn btn-primary" onClick={() => this.props.handleSearchClick(this.state.PropertyType, this.state.Location, this.state.NoOfBedRooms,
               this.state.Furnished, this.state.PriceMin, this.state.PriceMax, this.state.Statec,
-              this.state.Deal, this.state.Feet, this.state.SeachBox,this.state.Purpose)}>
+              this.state.Deal, this.state.Feet, this.state.SeachBox, this.state.Purpose)}>
               <div className="innerbt">
                 Let go
-  </div>
+              </div>
             </div>
 
 
