@@ -867,7 +867,7 @@ class bodycards extends Component {
 
 
     return (
-      <div className="container-fluid">
+      <div className="flex">
         <div className="row" >
           {
             this.state.loader == true &&
